@@ -1,0 +1,7 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0.
+// The Ghost Wyckoff VSA Institutional V8.0 Event-First Multi-Range Atlas RC1
+// Clean analysis indicator. No Strategy Tester orders or historical trade markers.
+// Architecture: event-first range construction, Local/Intermediate/Macro atlas,
+// full Phase A-E map, contextual VSA, and latest-active-plan-only rendering.
+
+//@
