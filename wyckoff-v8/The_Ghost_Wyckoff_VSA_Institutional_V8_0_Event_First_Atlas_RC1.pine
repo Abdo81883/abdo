@@ -1,7 +1,525 @@
 // This Pine Script® code is subject to the terms of the Mozilla Public License 2.0.
 // The Ghost Wyckoff VSA Institutional V8.0 Event-First Multi-Range Atlas RC1
-// Clean analysis indicator. No Strategy Tester orders or historical trade markers.
-// Architecture: event-first range construction, Local/Intermediate/Macro atlas,
-// full Phase A-E map, contextual VSA, and latest-active-plan-only rendering.
+// Clean analysis indicator: no Strategy Tester orders or historical trade markers.
+// RC1 purpose: prove the new event-first architecture before execution/backtest integration.
 
-//@
+//@version=6
+indicator("The Ghost Wyckoff VSA Institutional V8.0 Event-First Atlas RC1", overlay = true, max_bars_back = 1500, max_lines_count = 300, max_boxes_count = 80, max_labels_count = 300)
+
+//=============================================================================
+// Inputs
+//=============================================================================
+const string G_CORE = "01 Atlas / Auto Intelligence"
+const string G_SEQ  = "02 Event-First Wyckoff"
+const string G_VSA  = "03 VSA / Effort versus Result"
+const string G_PLAN = "04 Latest Trade Plan"
+const string G_VIS  = "05 Professional Display"
+
+bool autoMode = input.bool(true, "Auto-adjust by market and timeframe", group = G_CORE)
+string strictness = input.string("Professional", "Detection profile", options = ["Professional", "Selective", "Responsive"], group = G_CORE)
+int manualLocalLookback = input.int(120, "Manual local search bars", minval = 45, maxval = 350, group = G_CORE)
+int manualPivot = input.int(5, "Manual pivot strength", minval = 2, maxval = 15, group = G_CORE)
+float unresolvedGap = input.float(8.0, "Minimum bull/bear hypothesis separation", minval = 2.0, maxval = 30.0, step = 1.0, group = G_CORE)
+
+float minSequenceScore = input.float(58.0, "Minimum Phase-A sequence score", minval = 35.0, maxval = 90.0, step = 1.0, group = G_SEQ)
+float minContainment = input.float(65.0, "Minimum local containment %", minval = 50.0, maxval = 92.0, step = 1.0, group = G_SEQ)
+float maxRangeAtr = input.float(13.0, "Maximum local range width ATR", minval = 3.0, maxval = 30.0, step = 0.5, group = G_SEQ)
+float minReactionFraction = input.float(0.28, "Minimum AR distance / range", minval = 0.15, maxval = 0.65, step = 0.01, group = G_SEQ)
+float boundaryToleranceAtr = input.float(0.38, "Boundary tolerance ATR", minval = 0.10, maxval = 1.25, step = 0.01, group = G_SEQ)
+float phaseEAcceptance = input.float(0.12, "Phase-E acceptance / range", minval = 0.03, maxval = 0.40, step = 0.01, group = G_SEQ)
+
+int volumeLen = input.int(20, "Relative volume length", minval = 5, maxval = 100, group = G_VSA)
+int spreadLen = input.int(20, "Relative spread length", minval = 5, maxval = 100, group = G_VSA)
+float highVolumeRatio = input.float(1.35, "High volume ratio", minval = 0.8, maxval = 4.0, step = 0.05, group = G_VSA)
+float lowVolumeRatio = input.float(0.78, "Low volume ratio", minval = 0.1, maxval = 1.2, step = 0.02, group = G_VSA)
+float wideSpreadRatio = input.float(1.25, "Wide spread ratio", minval = 0.7, maxval = 3.0, step = 0.05, group = G_VSA)
+float narrowSpreadRatio = input.float(0.78, "Narrow spread ratio", minval = 0.2, maxval = 1.2, step = 0.02, group = G_VSA)
+
+float stopBufferAtr = input.float(0.25, "Structural stop buffer ATR", minval = 0.0, maxval = 1.5, step = 0.05, group = G_PLAN)
+float tp1R = input.float(1.0, "TP1 R", minval = 0.5, maxval = 3.0, step = 0.1, group = G_PLAN)
+float tp2R = input.float(2.0, "TP2 R", minval = 1.0, maxval = 6.0, step = 0.1, group = G_PLAN)
+float tp3R = input.float(3.0, "TP3 R", minval = 1.5, maxval = 10.0, step = 0.1, group = G_PLAN)
+
+bool showMacro = input.bool(true, "Show macro context", group = G_VIS)
+bool showIntermediate = input.bool(true, "Show intermediate context", group = G_VIS)
+bool showLocal = input.bool(true, "Show active local Wyckoff range", group = G_VIS)
+bool showPhases = input.bool(true, "Show complete Phase A-E map", group = G_VIS)
+bool showCoreEvents = input.bool(true, "Show core Wyckoff events", group = G_VIS)
+bool showContextVsa = input.bool(true, "Show contextual VSA evidence", group = G_VIS)
+bool showLatestPlan = input.bool(true, "Show latest qualified plan only", group = G_VIS)
+bool showDashboard = input.bool(true, "Show compact atlas dashboard", group = G_VIS)
+
+//=============================================================================
+// Helpers
+//=============================================================================
+f_clamp(float value, float lo, float hi) =>
+    math.max(lo, math.min(hi, value))
+
+f_phaseName(int p) =>
+    p == 1 ? "PHASE A" : p == 2 ? "PHASE B" : p == 3 ? "PHASE C" : p == 4 ? "PHASE D" : p == 5 ? "PHASE E" : "SCANNING"
+
+f_className(int c) =>
+    c == 2 ? "RE-ACCUMULATION" : c == 1 ? "ACCUMULATION" : c == -2 ? "RE-DISTRIBUTION" : c == -1 ? "DISTRIBUTION" : "UNRESOLVED TR"
+
+f_clearLabels(array<label> items) =>
+    if array.size(items) > 0
+        for i = 0 to array.size(items) - 1
+            label.delete(array.get(items, i))
+        array.clear(items)
+
+f_clearLines(array<line> items) =>
+    if array.size(items) > 0
+        for i = 0 to array.size(items) - 1
+            line.delete(array.get(items, i))
+        array.clear(items)
+
+f_eventLabel(array<label> items, int x, float y, string text, bool above, color c, string tip) =>
+    label id = label.new(x, y, text, xloc = xloc.bar_index, style = above ? label.style_label_down : label.style_label_up, color = c, textcolor = color.white, size = size.tiny, tooltip = tip)
+    array.push(items, id)
+
+f_phaseSeparator(array<line> lines, array<label> labels, int x, float lo, float hi, string text, color c) =>
+    line ln = line.new(x, lo, x, hi, xloc = xloc.bar_index, style = line.style_dashed, width = 1, color = color.new(c, 35))
+    label lb = label.new(x, hi, text, xloc = xloc.bar_index, style = label.style_label_down, color = color.new(c, 15), textcolor = color.white, size = size.tiny)
+    array.push(lines, ln)
+    array.push(labels, lb)
+
+//=============================================================================
+// Adaptive controller
+//=============================================================================
+float chartSeconds = timeframe.in_seconds(timeframe.period)
+int localLookbackAuto = chartSeconds <= 300 ? 90 : chartSeconds <= 900 ? 110 : chartSeconds <= 3600 ? 150 : chartSeconds <= 14400 ? 125 : chartSeconds <= 86400 ? 105 : chartSeconds <= 604800 ? 78 : 60
+int pivotAuto = chartSeconds <= 900 ? 4 : chartSeconds <= 14400 ? 5 : chartSeconds <= 86400 ? 5 : 4
+int localLookback = autoMode ? localLookbackAuto : manualLocalLookback
+int pivotLen = autoMode ? pivotAuto : manualPivot
+int intermediateLookback = math.min(localLookback * 2, 500)
+int macroLookback = math.min(localLookback * 4, 900)
+float profileFactor = strictness == "Selective" ? 1.10 : strictness == "Responsive" ? 0.90 : 1.0
+float effectiveSequenceScore = minSequenceScore * profileFactor
+
+//=============================================================================
+// Market and VSA model
+//=============================================================================
+float atr = ta.atr(14)
+float span = math.max(high - low, syminfo.mintick)
+float avgSpan = ta.sma(span, spreadLen)
+float spreadRatio = avgSpan > 0 ? span / avgSpan : 1.0
+float body = math.abs(close - open)
+float closeLocation = (close - low) / span
+float upperWick = high - math.max(open, close)
+float lowerWick = math.min(open, close) - low
+float avgVolume = ta.sma(volume, volumeLen)
+bool volumeUsable = not na(volume) and not na(avgVolume) and avgVolume > 0
+float volumeRatio = volumeUsable ? volume / avgVolume : 1.0
+bool highVolume = volumeUsable and volumeRatio >= highVolumeRatio
+bool lowVolume = volumeUsable and volumeRatio <= lowVolumeRatio
+bool wideSpread = spreadRatio >= wideSpreadRatio
+bool narrowSpread = spreadRatio <= narrowSpreadRatio
+bool downBar = close < close[1]
+bool upBar = close > close[1]
+
+bool stoppingVolumeBull = downBar and highVolume and spreadRatio >= 0.95 and closeLocation >= 0.55 and lowerWick >= body * 0.40
+bool stoppingVolumeBear = upBar and highVolume and spreadRatio >= 0.95 and closeLocation <= 0.45 and upperWick >= body * 0.40
+bool noSupply = downBar and lowVolume and narrowSpread and closeLocation >= 0.45
+bool noDemand = upBar and lowVolume and narrowSpread and closeLocation <= 0.55
+bool bullAbsorption = highVolume and spreadRatio <= 1.15 and closeLocation >= 0.52 and body <= span * 0.62
+bool bearAbsorption = highVolume and spreadRatio <= 1.15 and closeLocation <= 0.48 and body <= span * 0.62
+bool shakeout = low < ta.lowest(low, 10)[1] and closeLocation >= 0.65 and lowerWick >= body * 0.50
+bool upthrust = high > ta.highest(high, 10)[1] and closeLocation <= 0.35 and upperWick >= body * 0.50
+
+//=============================================================================
+// Macro and intermediate context (context only, never the trade source)
+//=============================================================================
+float macroHigh = ta.highest(high, macroLookback)[1]
+float macroLow = ta.lowest(low, macroLookback)[1]
+float intermediateHigh = ta.highest(high, intermediateLookback)[1]
+float intermediateLow = ta.lowest(low, intermediateLookback)[1]
+float macroMid = (macroHigh + macroLow) * 0.5
+float intermediateMid = (intermediateHigh + intermediateLow) * 0.5
+int macroBias = close > macroMid ? 1 : close < macroMid ? -1 : 0
+int intermediateBias = close > intermediateMid ? 1 : close < intermediateMid ? -1 : 0
+
+//=============================================================================
+// Event-first local sequence discovery
+//=============================================================================
+float bestScScore = -1.0
+float bestBcScore = -1.0
+int scOffset = na
+int bcOffset = na
+float scPrice = na
+float bcPrice = na
+
+bool enoughBars = bar_index > macroLookback + 30
+if enoughBars
+    for i = pivotLen + 4 to localLookback
+        float hSpan = math.max(high[i] - low[i], syminfo.mintick)
+        float hAvgSpan = avgSpan[i]
+        float hSpreadRatio = not na(hAvgSpan) and hAvgSpan > 0 ? hSpan / hAvgSpan : 1.0
+        float hCloseLocation = (close[i] - low[i]) / hSpan
+        float hVolRatio = volumeUsable and not na(avgVolume[i]) and avgVolume[i] > 0 ? volume[i] / avgVolume[i] : 1.0
+        float hAtr = math.max(nz(atr[i], atr), syminfo.mintick)
+        bool priorDown = close[i + 8] > close[i] + hAtr * 0.65
+        bool priorUp = close[i + 8] < close[i] - hAtr * 0.65
+        bool localLow = low[i] <= ta.lowest(low, pivotLen * 2 + 1)[i]
+        bool localHigh = high[i] >= ta.highest(high, pivotLen * 2 + 1)[i]
+        float scEffort = f_clamp((hVolRatio - 0.75) * 22.0, 0.0, 28.0)
+        float scSpread = f_clamp((hSpreadRatio - 0.70) * 22.0, 0.0, 20.0)
+        float scReject = f_clamp((hCloseLocation - 0.30) * 45.0, 0.0, 22.0)
+        float bcReject = f_clamp((0.70 - hCloseLocation) * 45.0, 0.0, 22.0)
+        float thisScScore = scEffort + scSpread + scReject + (priorDown ? 20.0 : 0.0) + (localLow ? 12.0 : 0.0)
+        float thisBcScore = scEffort + scSpread + bcReject + (priorUp ? 20.0 : 0.0) + (localHigh ? 12.0 : 0.0)
+        if thisScScore > bestScScore
+            bestScScore := thisScScore
+            scOffset := i
+            scPrice := low[i]
+        if thisBcScore > bestBcScore
+            bestBcScore := thisBcScore
+            bcOffset := i
+            bcPrice := high[i]
+
+// AR must occur after the climax in time: offset smaller than climax offset.
+int bullArOffset = na
+float bullArPrice = na
+int bearArOffset = na
+float bearArPrice = na
+if not na(scOffset)
+    for i = 2 to localLookback
+        if i < scOffset
+            float distance = high[i] - scPrice
+            if na(bullArPrice) or high[i] > bullArPrice
+                bullArPrice := high[i]
+                bullArOffset := i
+if not na(bcOffset)
+    for i = 2 to localLookback
+        if i < bcOffset
+            if na(bearArPrice) or low[i] < bearArPrice
+                bearArPrice := low[i]
+                bearArOffset := i
+
+float bullWidth = not na(bullArPrice) and not na(scPrice) ? bullArPrice - scPrice : na
+float bearWidth = not na(bcPrice) and not na(bearArPrice) ? bcPrice - bearArPrice : na
+bool bullReactionValid = not na(bullWidth) and bullWidth >= atr * 1.4
+bool bearReactionValid = not na(bearWidth) and bearWidth >= atr * 1.4
+
+// ST is the best reduced-effort retest after AR.
+int bullStOffset = na
+float bullStPrice = na
+float bullStScore = -1.0
+int bearStOffset = na
+float bearStPrice = na
+float bearStScore = -1.0
+if bullReactionValid and not na(bullArOffset)
+    for i = 1 to localLookback
+        if i < bullArOffset
+            float tolerance = atr[i] * boundaryToleranceAtr
+            bool nearBoundary = math.abs(low[i] - scPrice) <= tolerance * 2.0
+            float hVolRatio = volumeUsable and not na(avgVolume[i]) and avgVolume[i] > 0 ? volume[i] / avgVolume[i] : 1.0
+            float hSpreadRatio = not na(avgSpan[i]) and avgSpan[i] > 0 ? (high[i] - low[i]) / avgSpan[i] : 1.0
+            float score = (nearBoundary ? 45.0 : 0.0) + f_clamp((1.25 - hVolRatio) * 20.0, 0.0, 22.0) + f_clamp((1.20 - hSpreadRatio) * 18.0, 0.0, 18.0)
+            if score > bullStScore
+                bullStScore := score
+                bullStOffset := i
+                bullStPrice := low[i]
+if bearReactionValid and not na(bearArOffset)
+    for i = 1 to localLookback
+        if i < bearArOffset
+            float tolerance = atr[i] * boundaryToleranceAtr
+            bool nearBoundary = math.abs(high[i] - bcPrice) <= tolerance * 2.0
+            float hVolRatio = volumeUsable and not na(avgVolume[i]) and avgVolume[i] > 0 ? volume[i] / avgVolume[i] : 1.0
+            float hSpreadRatio = not na(avgSpan[i]) and avgSpan[i] > 0 ? (high[i] - low[i]) / avgSpan[i] : 1.0
+            float score = (nearBoundary ? 45.0 : 0.0) + f_clamp((1.25 - hVolRatio) * 20.0, 0.0, 22.0) + f_clamp((1.20 - hSpreadRatio) * 18.0, 0.0, 18.0)
+            if score > bearStScore
+                bearStScore := score
+                bearStOffset := i
+                bearStPrice := high[i]
+
+// Containment is measured only from Phase-A climax to now, not across a fixed full window.
+int bullBars = not na(scOffset) ? scOffset : 0
+int bearBars = not na(bcOffset) ? bcOffset : 0
+int bullContained = 0
+int bearContained = 0
+if bullReactionValid
+    for i = 1 to bullBars
+        bullContained += high[i] <= bullArPrice + atr[i] * boundaryToleranceAtr * 2.0 and low[i] >= scPrice - atr[i] * boundaryToleranceAtr * 2.0 ? 1 : 0
+if bearReactionValid
+    for i = 1 to bearBars
+        bearContained += high[i] <= bcPrice + atr[i] * boundaryToleranceAtr * 2.0 and low[i] >= bearArPrice - atr[i] * boundaryToleranceAtr * 2.0 ? 1 : 0
+float bullContainment = bullBars > 0 ? bullContained * 100.0 / bullBars : 0.0
+float bearContainment = bearBars > 0 ? bearContained * 100.0 / bearBars : 0.0
+
+float bullSequenceScore = bestScScore * 0.55 + bullStScore * 0.25 + f_clamp((bullContainment - 50.0) * 0.8, 0.0, 20.0)
+float bearSequenceScore = bestBcScore * 0.55 + bearStScore * 0.25 + f_clamp((bearContainment - 50.0) * 0.8, 0.0, 20.0)
+bool bullStructureValid = bullReactionValid and bullStScore >= 42.0 and bullContainment >= minContainment and bullWidth <= atr * maxRangeAtr
+bool bearStructureValid = bearReactionValid and bearStScore >= 42.0 and bearContainment >= minContainment and bearWidth <= atr * maxRangeAtr
+
+int hypothesisSide = bullStructureValid and bullSequenceScore >= bearSequenceScore + unresolvedGap ? 1 : bearStructureValid and bearSequenceScore >= bullSequenceScore + unresolvedGap ? -1 : 0
+float localHigh = hypothesisSide == 1 ? bullArPrice : hypothesisSide == -1 ? bcPrice : na
+float localLow = hypothesisSide == 1 ? scPrice : hypothesisSide == -1 ? bearArPrice : na
+float localWidth = not na(localHigh) and not na(localLow) ? localHigh - localLow : na
+int phaseAOffset = hypothesisSide == 1 ? scOffset : hypothesisSide == -1 ? bcOffset : na
+int phaseBOffset = hypothesisSide == 1 ? bullArOffset : hypothesisSide == -1 ? bearArOffset : na
+int stOffset = hypothesisSide == 1 ? bullStOffset : hypothesisSide == -1 ? bearStOffset : na
+bool localRangeValid = hypothesisSide != 0 and not na(localWidth) and localWidth > syminfo.mintick and (hypothesisSide == 1 ? bullSequenceScore : bearSequenceScore) >= effectiveSequenceScore
+
+//=============================================================================
+// Historical Phase C/D/E reconstruction inside the selected local sequence
+//=============================================================================
+int springOffset = na
+int springTestOffset = na
+int utadOffset = na
+int utadTestOffset = na
+int sosOffset = na
+int sowOffset = na
+int lpsOffset = na
+int lpsyOffset = na
+int absorptionOffset = na
+int nsOffset = na
+int ndOffset = na
+
+if localRangeValid and not na(stOffset)
+    for i = 1 to stOffset - 1
+        float hSpan = math.max(high[i] - low[i], syminfo.mintick)
+        float hCloseLocation = (close[i] - low[i]) / hSpan
+        float hVolRatio = volumeUsable and not na(avgVolume[i]) and avgVolume[i] > 0 ? volume[i] / avgVolume[i] : 1.0
+        float hSpreadRatio = not na(avgSpan[i]) and avgSpan[i] > 0 ? hSpan / avgSpan[i] : 1.0
+        bool springCandidate = low[i] < localLow and close[i] > localLow and hCloseLocation >= 0.58 and low[i] >= localLow - atr[i] * 1.8
+        bool utadCandidate = high[i] > localHigh and close[i] < localHigh and hCloseLocation <= 0.42 and high[i] <= localHigh + atr[i] * 1.8
+        if hypothesisSide == 1 and springCandidate and (na(springOffset) or i > springOffset)
+            springOffset := i
+        if hypothesisSide == -1 and utadCandidate and (na(utadOffset) or i > utadOffset)
+            utadOffset := i
+        bool nearSupport = low[i] <= localLow + atr[i] * boundaryToleranceAtr * 1.6
+        bool nearResistance = high[i] >= localHigh - atr[i] * boundaryToleranceAtr * 1.6
+        if nearSupport and hVolRatio >= highVolumeRatio and hSpreadRatio <= 1.20 and hCloseLocation >= 0.52 and na(absorptionOffset)
+            absorptionOffset := i
+        if nearSupport and hVolRatio <= lowVolumeRatio and hSpreadRatio <= narrowSpreadRatio and hCloseLocation >= 0.45 and na(nsOffset)
+            nsOffset := i
+        if nearResistance and hVolRatio <= lowVolumeRatio and hSpreadRatio <= narrowSpreadRatio and hCloseLocation <= 0.55 and na(ndOffset)
+            ndOffset := i
+
+if not na(springOffset)
+    for i = 1 to springOffset - 1
+        bool testCandidate = low[i] >= localLow - atr[i] * 0.45 and low[i] <= localLow + atr[i] * 0.80 and close[i] > localLow and (not volumeUsable or volume[i] <= volume[springOffset] * 0.95)
+        if testCandidate and (na(springTestOffset) or i > springTestOffset)
+            springTestOffset := i
+if not na(utadOffset)
+    for i = 1 to utadOffset - 1
+        bool testCandidate = high[i] <= localHigh + atr[i] * 0.45 and high[i] >= localHigh - atr[i] * 0.80 and close[i] < localHigh and (not volumeUsable or volume[i] <= volume[utadOffset] * 0.95)
+        if testCandidate and (na(utadTestOffset) or i > utadTestOffset)
+            utadTestOffset := i
+
+int phaseCOffset = hypothesisSide == 1 ? (not na(springTestOffset) ? springTestOffset : springOffset) : hypothesisSide == -1 ? (not na(utadTestOffset) ? utadTestOffset : utadOffset) : na
+if localRangeValid
+    int scanAfterC = not na(phaseCOffset) ? phaseCOffset - 1 : math.max(stOffset - 1, 1)
+    if scanAfterC >= 1
+        for i = 1 to scanAfterC
+            float hSpan = math.max(high[i] - low[i], syminfo.mintick)
+            float hCloseLocation = (close[i] - low[i]) / hSpan
+            float hVolRatio = volumeUsable and not na(avgVolume[i]) and avgVolume[i] > 0 ? volume[i] / avgVolume[i] : 1.0
+            bool sosCandidate = close[i] > localHigh + atr[i] * 0.06 and hCloseLocation >= 0.62 and hVolRatio >= 0.95
+            bool sowCandidate = close[i] < localLow - atr[i] * 0.06 and hCloseLocation <= 0.38 and hVolRatio >= 0.95
+            if hypothesisSide == 1 and sosCandidate and (na(sosOffset) or i > sosOffset)
+                sosOffset := i
+            if hypothesisSide == -1 and sowCandidate and (na(sowOffset) or i > sowOffset)
+                sowOffset := i
+
+if not na(sosOffset)
+    for i = 1 to sosOffset - 1
+        bool lpsCandidate = low[i] <= localHigh + atr[i] * 0.65 and low[i] >= localHigh - atr[i] * 0.90 and close[i] >= localHigh - atr[i] * 0.20
+        if lpsCandidate and (na(lpsOffset) or i > lpsOffset)
+            lpsOffset := i
+if not na(sowOffset)
+    for i = 1 to sowOffset - 1
+        bool lpsyCandidate = high[i] >= localLow - atr[i] * 0.65 and high[i] <= localLow + atr[i] * 0.90 and close[i] <= localLow + atr[i] * 0.20
+        if lpsyCandidate and (na(lpsyOffset) or i > lpsyOffset)
+            lpsyOffset := i
+
+int phaseDOffset = hypothesisSide == 1 ? (not na(lpsOffset) ? lpsOffset : sosOffset) : hypothesisSide == -1 ? (not na(lpsyOffset) ? lpsyOffset : sowOffset) : na
+bool phaseEUp = localRangeValid and hypothesisSide == 1 and close > localHigh + localWidth * phaseEAcceptance and close[1] > localHigh
+bool phaseEDown = localRangeValid and hypothesisSide == -1 and close < localLow - localWidth * phaseEAcceptance and close[1] < localLow
+int phaseEOffset = phaseEUp or phaseEDown ? 0 : na
+int activePhase = not localRangeValid ? 0 : phaseEUp or phaseEDown ? 5 : not na(phaseDOffset) ? 4 : not na(phaseCOffset) ? 3 : not na(stOffset) ? 2 : 1
+
+// Classification remains unresolved until Phase C/D evidence exists.
+int priorTrend = not na(phaseAOffset) and close[phaseAOffset + 12] < close[phaseAOffset] ? 1 : not na(phaseAOffset) and close[phaseAOffset + 12] > close[phaseAOffset] ? -1 : 0
+int rangeClass = activePhase < 3 ? 0 : hypothesisSide == 1 ? (priorTrend == 1 ? 2 : 1) : hypothesisSide == -1 ? (priorTrend == -1 ? -2 : -1) : 0
+
+//=============================================================================
+// Latest qualified plan only
+//=============================================================================
+int setupDirection = 0
+string setupName = "WAIT"
+int setupOffset = na
+if localRangeValid
+    if hypothesisSide == 1 and not na(springTestOffset)
+        setupDirection := 1
+        setupName := "SPRING TEST LONG"
+        setupOffset := springTestOffset
+    if hypothesisSide == 1 and not na(lpsOffset)
+        setupDirection := 1
+        setupName := "LPS / BACKUP LONG"
+        setupOffset := lpsOffset
+    if hypothesisSide == -1 and not na(utadTestOffset)
+        setupDirection := -1
+        setupName := "UTAD TEST SHORT"
+        setupOffset := utadTestOffset
+    if hypothesisSide == -1 and not na(lpsyOffset)
+        setupDirection := -1
+        setupName := "LPSY / RALLY SHORT"
+        setupOffset := lpsyOffset
+
+float planEntry = setupDirection != 0 ? close : na
+float planStop = setupDirection == 1 ? math.min(localLow, not na(springOffset) ? low[springOffset] : localLow) - atr * stopBufferAtr : setupDirection == -1 ? math.max(localHigh, not na(utadOffset) ? high[utadOffset] : localHigh) + atr * stopBufferAtr : na
+float planRisk = setupDirection != 0 ? math.abs(planEntry - planStop) : na
+float planTp1 = setupDirection == 1 ? planEntry + planRisk * tp1R : setupDirection == -1 ? planEntry - planRisk * tp1R : na
+float planTp2 = setupDirection == 1 ? planEntry + planRisk * tp2R : setupDirection == -1 ? planEntry - planRisk * tp2R : na
+float planTp3 = setupDirection == 1 ? planEntry + planRisk * tp3R : setupDirection == -1 ? planEntry - planRisk * tp3R : na
+float causeTarget = setupDirection == 1 ? localHigh + localWidth : setupDirection == -1 ? localLow - localWidth : na
+
+//=============================================================================
+// Professional rendering
+//=============================================================================
+var box macroBox = na
+var box intermediateBox = na
+var box localBox = na
+var line localResistance = na
+var line localSupport = na
+var label localHeader = na
+var array<label> eventLabels = array.new<label>()
+var array<label> phaseLabels = array.new<label>()
+var array<line> phaseLines = array.new<line>()
+var array<line> planLines = array.new<line>()
+var array<label> planLabels = array.new<label>()
+
+if barstate.islast
+    if not na(macroBox)
+        box.delete(macroBox)
+        macroBox := na
+    if not na(intermediateBox)
+        box.delete(intermediateBox)
+        intermediateBox := na
+    if not na(localBox)
+        box.delete(localBox)
+        localBox := na
+    if not na(localResistance)
+        line.delete(localResistance)
+        localResistance := na
+    if not na(localSupport)
+        line.delete(localSupport)
+        localSupport := na
+    if not na(localHeader)
+        label.delete(localHeader)
+        localHeader := na
+    f_clearLabels(eventLabels)
+    f_clearLabels(phaseLabels)
+    f_clearLines(phaseLines)
+    f_clearLines(planLines)
+    f_clearLabels(planLabels)
+
+    if showMacro and enoughBars
+        macroBox := box.new(bar_index - macroLookback, macroHigh, bar_index, macroLow, xloc = xloc.bar_index, bgcolor = color.new(color.rgb(100, 105, 125), 96), border_color = color.new(color.rgb(130, 135, 155), 78))
+    if showIntermediate and enoughBars
+        intermediateBox := box.new(bar_index - intermediateLookback, intermediateHigh, bar_index, intermediateLow, xloc = xloc.bar_index, bgcolor = color.new(color.rgb(60, 95, 135), 96), border_color = color.new(color.rgb(75, 125, 175), 72))
+
+    if showLocal and localRangeValid
+        int startBar = bar_index - phaseAOffset
+        color rangeColor = rangeClass > 0 ? color.rgb(25, 155, 105) : rangeClass < 0 ? color.rgb(190, 55, 65) : color.rgb(190, 145, 45)
+        localBox := box.new(startBar, localHigh, bar_index, localLow, xloc = xloc.bar_index, bgcolor = color.new(rangeColor, 91), border_color = color.new(rangeColor, 5), border_width = 2)
+        localResistance := line.new(startBar, localHigh, bar_index + 4, localHigh, xloc = xloc.bar_index, color = rangeColor, width = 2)
+        localSupport := line.new(startBar, localLow, bar_index + 4, localLow, xloc = xloc.bar_index, color = rangeColor, width = 2)
+        string header = f_className(rangeClass) + "  |  " + f_phaseName(activePhase)
+        string tooltip = "Bull hypothesis: " + str.tostring(bullSequenceScore, "#.0") + "\nBear hypothesis: " + str.tostring(bearSequenceScore, "#.0") + "\nContainment: " + str.tostring(hypothesisSide == 1 ? bullContainment : bearContainment, "#.0") + "%"
+        localHeader := label.new(startBar + int(math.max((bar_index - startBar) * 0.5, 1)), localHigh + localWidth * 0.035, header, xloc = xloc.bar_index, style = label.style_label_down, color = rangeColor, textcolor = color.white, size = size.small, tooltip = tooltip)
+
+        if showCoreEvents
+            if hypothesisSide == 1
+                f_eventLabel(eventLabels, bar_index - scOffset, scPrice, "SC", false, color.rgb(35, 155, 100), "Selling Climax / stopping action")
+                f_eventLabel(eventLabels, bar_index - bullArOffset, bullArPrice, "AR", true, color.rgb(60, 105, 190), "Automatic Rally")
+                f_eventLabel(eventLabels, bar_index - bullStOffset, bullStPrice, "ST", false, color.rgb(210, 145, 35), "Secondary Test")
+            else
+                f_eventLabel(eventLabels, bar_index - bcOffset, bcPrice, "BC", true, color.rgb(190, 55, 65), "Buying Climax / stopping action")
+                f_eventLabel(eventLabels, bar_index - bearArOffset, bearArPrice, "AR", false, color.rgb(60, 105, 190), "Automatic Reaction")
+                f_eventLabel(eventLabels, bar_index - bearStOffset, bearStPrice, "ST", true, color.rgb(210, 145, 35), "Secondary Test")
+            if not na(springOffset)
+                f_eventLabel(eventLabels, bar_index - springOffset, low[springOffset], "SPR", false, color.rgb(25, 170, 105), "Spring / Shakeout")
+            if not na(springTestOffset)
+                f_eventLabel(eventLabels, bar_index - springTestOffset, low[springTestOffset], "TEST", false, color.rgb(50, 190, 125), "Spring Test")
+            if not na(utadOffset)
+                f_eventLabel(eventLabels, bar_index - utadOffset, high[utadOffset], "UTAD", true, color.rgb(205, 45, 65), "UTAD / Upthrust")
+            if not na(utadTestOffset)
+                f_eventLabel(eventLabels, bar_index - utadTestOffset, high[utadTestOffset], "TEST", true, color.rgb(220, 75, 75), "UTAD Test")
+            if not na(sosOffset)
+                f_eventLabel(eventLabels, bar_index - sosOffset, high[sosOffset], "SOS", true, color.rgb(20, 175, 95), "Sign of Strength")
+            if not na(sowOffset)
+                f_eventLabel(eventLabels, bar_index - sowOffset, low[sowOffset], "SOW", false, color.rgb(205, 55, 65), "Sign of Weakness")
+            if not na(lpsOffset)
+                f_eventLabel(eventLabels, bar_index - lpsOffset, low[lpsOffset], "LPS", false, color.rgb(30, 155, 105), "Last Point of Support / Backup")
+            if not na(lpsyOffset)
+                f_eventLabel(eventLabels, bar_index - lpsyOffset, high[lpsyOffset], "LPSY", true, color.rgb(185, 55, 70), "Last Point of Supply / Rally")
+
+        if showContextVsa
+            if not na(absorptionOffset)
+                f_eventLabel(eventLabels, bar_index - absorptionOffset, low[absorptionOffset], "ABS", false, color.rgb(125, 70, 175), "Contextual absorption")
+            if not na(nsOffset)
+                f_eventLabel(eventLabels, bar_index - nsOffset, low[nsOffset], "NS", false, color.rgb(45, 165, 95), "No Supply near support")
+            if not na(ndOffset)
+                f_eventLabel(eventLabels, bar_index - ndOffset, high[ndOffset], "ND", true, color.rgb(190, 65, 75), "No Demand near resistance")
+
+        if showPhases
+            f_phaseSeparator(phaseLines, phaseLabels, bar_index - phaseAOffset, localLow, localHigh, "A", color.rgb(125, 125, 140))
+            f_phaseSeparator(phaseLines, phaseLabels, bar_index - phaseBOffset, localLow, localHigh, "B", color.rgb(55, 110, 185))
+            if not na(phaseCOffset)
+                f_phaseSeparator(phaseLines, phaseLabels, bar_index - phaseCOffset, localLow, localHigh, "C", color.rgb(210, 145, 35))
+            if not na(phaseDOffset)
+                f_phaseSeparator(phaseLines, phaseLabels, bar_index - phaseDOffset, localLow, localHigh, "D", color.rgb(35, 165, 100))
+            if activePhase == 5
+                f_phaseSeparator(phaseLines, phaseLabels, bar_index, localLow, localHigh, "E", color.rgb(30, 185, 120))
+
+    if showLatestPlan and setupDirection != 0 and planRisk > syminfo.mintick
+        int x1 = bar_index
+        int x2 = bar_index + 25
+        color entryColor = color.rgb(225, 225, 235)
+        color stopColor = color.rgb(215, 45, 55)
+        color tp1Color = color.rgb(225, 190, 45)
+        color tp2Color = color.rgb(235, 135, 35)
+        color tp3Color = setupDirection == 1 ? color.rgb(35, 185, 95) : color.rgb(35, 175, 175)
+        array.push(planLines, line.new(x1, planEntry, x2, planEntry, xloc = xloc.bar_index, color = entryColor, width = 2, style = line.style_dotted))
+        array.push(planLines, line.new(x1, planStop, x2, planStop, xloc = xloc.bar_index, color = stopColor, width = 2))
+        array.push(planLines, line.new(x1, planTp1, x2, planTp1, xloc = xloc.bar_index, color = tp1Color, width = 1, style = line.style_dashed))
+        array.push(planLines, line.new(x1, planTp2, x2, planTp2, xloc = xloc.bar_index, color = tp2Color, width = 1, style = line.style_dashed))
+        array.push(planLines, line.new(x1, planTp3, x2, planTp3, xloc = xloc.bar_index, color = tp3Color, width = 2, style = line.style_dashed))
+        array.push(planLabels, label.new(x2, planEntry, setupName + "\nENTRY " + str.tostring(planEntry, format.mintick), xloc = xloc.bar_index, style = label.style_label_left, color = entryColor, textcolor = color.black, size = size.tiny))
+        array.push(planLabels, label.new(x2, planStop, "SL " + str.tostring(planStop, format.mintick), xloc = xloc.bar_index, style = label.style_label_left, color = stopColor, textcolor = color.white, size = size.tiny))
+        array.push(planLabels, label.new(x2, planTp1, "TP1 " + str.tostring(planTp1, format.mintick), xloc = xloc.bar_index, style = label.style_label_left, color = tp1Color, textcolor = color.black, size = size.tiny))
+        array.push(planLabels, label.new(x2, planTp2, "TP2 " + str.tostring(planTp2, format.mintick), xloc = xloc.bar_index, style = label.style_label_left, color = tp2Color, textcolor = color.white, size = size.tiny))
+        array.push(planLabels, label.new(x2, planTp3, "TP3 " + str.tostring(planTp3, format.mintick) + "\nCAUSE " + str.tostring(causeTarget, format.mintick), xloc = xloc.bar_index, style = label.style_label_left, color = tp3Color, textcolor = color.white, size = size.tiny))
+
+//=============================================================================
+// Compact dashboard
+//=============================================================================
+var table dash = table.new(position.top_right, 2, 9, border_width = 1)
+if barstate.islast and showDashboard
+    color stateColor = rangeClass > 0 ? color.rgb(25, 145, 95) : rangeClass < 0 ? color.rgb(180, 50, 65) : color.rgb(165, 125, 35)
+    table.cell(dash, 0, 0, "V8 ATLAS", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 0, f_className(rangeClass), text_color = color.white, bgcolor = stateColor)
+    table.cell(dash, 0, 1, "Active phase", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 1, f_phaseName(activePhase), text_color = color.white, bgcolor = stateColor)
+    table.cell(dash, 0, 2, "Bull hypothesis", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 2, str.tostring(bullSequenceScore, "#.0"), text_color = color.white, bgcolor = color.rgb(25, 120, 80))
+    table.cell(dash, 0, 3, "Bear hypothesis", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 3, str.tostring(bearSequenceScore, "#.0"), text_color = color.white, bgcolor = color.rgb(145, 45, 55))
+    table.cell(dash, 0, 4, "Local range", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 4, localRangeValid ? "VALID" : "WAIT", text_color = color.white, bgcolor = localRangeValid ? color.rgb(25, 125, 80) : color.rgb(105, 80, 35))
+    table.cell(dash, 0, 5, "Intermediate", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 5, intermediateBias > 0 ? "UPPER HALF" : "LOWER HALF", text_color = color.white, bgcolor = color.rgb(45, 75, 120))
+    table.cell(dash, 0, 6, "Macro", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 6, macroBias > 0 ? "UPPER HALF" : "LOWER HALF", text_color = color.white, bgcolor = color.rgb(70, 70, 95))
+    table.cell(dash, 0, 7, "VSA", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    string vsaText = stoppingVolumeBull ? "STOPPING VOL" : stoppingVolumeBear ? "CLIMAX PRESSURE" : shakeout ? "SHAKEOUT" : upthrust ? "UPTHRUST" : noSupply ? "NO SUPPLY" : noDemand ? "NO DEMAND" : bullAbsorption ? "BULL ABS" : bearAbsorption ? "BEAR ABS" : "NEUTRAL"
+    table.cell(dash, 1, 7, vsaText, text_color = color.white, bgcolor = color.rgb(80, 55, 115))
+    table.cell(dash, 0, 8, "Latest plan", text_color = color.white, bgcolor = color.rgb(20, 22, 28))
+    table.cell(dash, 1, 8, setupName, text_color = color.white, bgcolor = setupDirection != 0 ? stateColor : color.rgb(95, 75, 35))
+
+alertcondition(localRangeValid and activePhase == 3, "Wyckoff Phase C", "V8 Atlas: Phase C test/trap detected")
+alertcondition(localRangeValid and activePhase == 4, "Wyckoff Phase D", "V8 Atlas: Phase D directional proof detected")
+alertcondition(setupDirection == 1, "Latest Wyckoff Long Plan", "V8 Atlas: latest qualified long plan")
+alertcondition(setupDirection == -1, "Latest Wyckoff Short Plan", "V8 Atlas: latest qualified short plan")
