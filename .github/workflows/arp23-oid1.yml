@@ -1,0 +1,45 @@
+name: ARP23 OID1 Development
+
+on:
+  push:
+    paths:
+      - "marketsgpt-research/arp23_oid1.py"
+      - "marketsgpt-research/ARP23_OID1_LOCK_20260915.json"
+      - ".github/workflows/arp23-oid1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install research dependencies
+        run: python -m pip install --disable-pip-version-check numpy requests
+      - name: Compile evaluator
+        run: python -m py_compile marketsgpt-research/arp23_oid1.py
+      - name: Run frozen ARP23-OID1 development
+        run: python marketsgpt-research/arp23_oid1.py
+      - name: Upload evidence bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: arp23-oid1-development
+          path: marketsgpt-research/results/ARP23_OID1_*
+      - name: Commit immutable result bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add marketsgpt-research/results/ARP23_OID1_*
+          if git diff --cached --quiet; then
+            echo "No result changes to commit"
+          else
+            git commit -m "results: ARP23 OID1 development [skip ci]"
+            git push
+          fi
