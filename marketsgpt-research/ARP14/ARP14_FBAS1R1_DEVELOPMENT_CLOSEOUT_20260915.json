@@ -1,0 +1,80 @@
+{
+  "schema": "mgpt_arp14_fbas1r1_development_closeout_v1",
+  "generatedAtUtc": "2026-09-15T19:45:46.386548Z",
+  "generation": "ARP14-FBAS1-R1",
+  "status": "REJECT_DEVELOPMENT_GATE_NO_VALIDATION",
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "lockFile": "ARP14_FBAS1R1_LOG_BASIS_LEVEL_LOCK_20260915.json",
+  "hypothesisFamily": "CRYPTO_PERPETUAL_LOG_BASIS_LEVEL",
+  "developmentWindow": {
+    "start": "2024-07-02",
+    "endExclusive": "2025-07-01"
+  },
+  "development": {
+    "symbolCount": 24,
+    "nBars": 1090,
+    "coverage": {
+      "minEligible": 19,
+      "maxEligible": 24,
+      "meanEligible": 23.1510989010989,
+      "skippedBarsBelowMinEligible": 2
+    },
+    "base": {
+      "meanNetReturnPer8h": -0.0008778496588302739,
+      "annualizedMean": -0.9612453764191499,
+      "annualizedSharpe": -3.4969163626840416,
+      "profitFactor": 0.7370873697233301,
+      "maxDrawdown": 0.6455879283589168,
+      "positiveMonthFraction": 0.08333333333333333,
+      "byYear": {
+        "2024": -0.5346700098749999,
+        "2025": -0.4221861182500001
+      },
+      "bootstrap": {
+        "probPositive": 0,
+        "ci95Low": -0.0013048419376146781,
+        "ci95High": -0.0004536402665137613
+      },
+      "meanTurnover": 1.4564220183486238
+    },
+    "stress1_5x": {
+      "meanNetReturnPer8h": -0.001314776264334862,
+      "annualizedSharpe": -5.238265294341486,
+      "profitFactor": 0.634039823979124,
+      "maxDrawdown": 0.7782046134819001
+    },
+    "stress2x": {
+      "meanNetReturnPer8h": -0.00175170286983945,
+      "annualizedSharpe": -6.979394558097004,
+      "profitFactor": 0.5460507761470734,
+      "maxDrawdown": 0.8612751500188424
+    },
+    "concentration": {
+      "maxPositiveSymbol": "XAIUSDT",
+      "maxPositiveContributionShare": 0.32458589204382937
+    }
+  },
+  "failedChecks": [
+    "meanNetReturnPer8hMin",
+    "annualizedSharpeMin",
+    "profitFactorMin",
+    "stress1_5xMeanPer8hMin",
+    "stress2xMeanPer8hMin",
+    "positiveMonthFractionMin",
+    "movingBlockBootstrapProbabilityPositiveMin",
+    "movingBlockBootstrapCi95LowMin",
+    "maxDrawdownMax",
+    "singleSymbolPositiveContributionMax"
+  ],
+  "freshValidationOpened": false,
+  "sealedHoldoutOpened": false,
+  "thresholdsChanged": false,
+  "r15MutationAllowed": false,
+  "decision": "CLOSE_ARP14_FBAS1_NO_RESCUE",
+  "interpretation": [
+    "The prelocked 8h log-basis level factor failed decisively in development before funding attribution.",
+    "The base price-only portfolio was strongly negative in both calendar-year segments, so transaction costs are not the root cause.",
+    "Fresh validation and sealed holdout remain unopened; no direction flip, threshold, cohort, horizon, or cost rescue is permitted."
+  ]
+}
