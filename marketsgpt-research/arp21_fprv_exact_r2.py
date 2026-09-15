@@ -346,7 +346,8 @@ def main():
         "first3VarianceExplainedMin": ve3>=gate_cfg["first3VarianceExplainedMin"],
         "baseCostMaxDrawdownMax": ns["maxDrawdown"]<=gate_cfg["baseCostMaxDrawdownMax"]
     }
-    gate={k:bool(v) for k,v in gate.items()}\n    failed=[k for k,v in gate.items() if not v]
+    gate={k:bool(v) for k,v in gate.items()}
+    failed=[k for k,v in gate.items() if not v]
 
     factor_stats=[]
     for j,name in enumerate(FACTOR_NAMES):
