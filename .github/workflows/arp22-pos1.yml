@@ -42,3 +42,4 @@ jobs:
             git commit -m "results: ARP22 POS1 development [skip ci]"
             git push
           fi
+# trigger: frozen ARP22-POS1 development
