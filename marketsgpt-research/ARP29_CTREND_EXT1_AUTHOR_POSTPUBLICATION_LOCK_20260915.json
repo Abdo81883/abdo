@@ -1,0 +1,67 @@
+{
+  "schema": "mgpt_arp29_ctrend_ext1_author_postpublication_lock_v1",
+  "generation": "ARP29-CTREND-EXT1",
+  "createdAtUtc": "2026-09-15T23:53:00Z",
+  "status": "LOCKED_BEFORE_POSTPUBLICATION_AUTHOR_FACTOR_STATISTICS",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "source": {
+    "authors": "Fieberg, Liedtke, Poddig, Walker, Zaremba",
+    "paper": "A Trend Factor for the Cross Section of Cryptocurrency Returns",
+    "journal": "Journal of Financial and Quantitative Analysis 60(7), 2025",
+    "doi": "10.1017/S0022109024000747",
+    "authorDataPage": "https://sites.google.com/view/gerrit-liedtke/publications",
+    "publicUpdatedWeeklySheetId": "1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG",
+    "statedCoverage": "January 2016 to February 2026"
+  },
+  "purpose": "Independent external benchmark before committing project resources to a Binance CTREND adaptation. This does not validate MarketsGPT trading execution and does not authorize R15 mutation.",
+  "windows": {
+    "publishedOriginalSampleDiagnostic": {
+      "start": "2016-01-01",
+      "endExclusive": "2022-06-01",
+      "evidenceAuthority": "DIAGNOSTIC_ONLY"
+    },
+    "postOriginalSampleDiagnostic": {
+      "start": "2022-06-01",
+      "endExclusive": "2025-07-15",
+      "evidenceAuthority": "DIAGNOSTIC_ONLY_NOT_CLEAN_POSTPUBLICATION"
+    },
+    "cleanPostPublication": {
+      "start": "2025-07-20",
+      "endExclusive": "2026-03-01",
+      "evidenceAuthority": "PRIMARY_EXTERNAL_OOS"
+    }
+  },
+  "columns": {
+    "primary": "CTREND",
+    "secondary": "CTREND_Ens",
+    "marketControls": [
+      "CMKT",
+      "CSMB",
+      "CMOM"
+    ]
+  },
+  "statistics": {
+    "annualizationWeeks": 52,
+    "bootstrap": {
+      "method": "CIRCULAR_MOVING_BLOCK",
+      "blockLengthWeeks": 4,
+      "iterations": 10000,
+      "seed": 29101
+    },
+    "returnUnit": "decimal weekly factor returns as supplied by authors"
+  },
+  "primaryExternalGate": {
+    "minimumWeeks": 30,
+    "meanWeeklyReturnMin": 0,
+    "annualizedSharpeMin": 0.5,
+    "profitFactorMin": 1,
+    "positiveMonthFractionMin": 0.5,
+    "bootstrapProbabilityPositiveMin": 0.75,
+    "bootstrapCi95LowMin": -0.01,
+    "maxDrawdownMax": 0.35
+  },
+  "decisionRule": "If the clean post-publication CTREND series fails the predeclared external gate, do not build an expensive exact/adapted CTREND implementation. If it passes, authorize only a separate prelocked Binance adaptation; author factor returns are never treated as MarketsGPT strategy PnL."
+}
