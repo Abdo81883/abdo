@@ -1,0 +1,44 @@
+name: ARP29 CTREND External Post-Publication Benchmark
+
+on:
+  push:
+    paths:
+      - "marketsgpt-research/arp29_ctrend_ext1.py"
+      - "marketsgpt-research/ARP29_CTREND_EXT1_AUTHOR_POSTPUBLICATION_LOCK_20260915.json"
+      - ".github/workflows/arp29-ctrend-ext1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy requests openpyxl
+      - name: Compile
+        run: python -m py_compile marketsgpt-research/arp29_ctrend_ext1.py
+      - name: Evaluate frozen external benchmark
+        run: python marketsgpt-research/arp29_ctrend_ext1.py
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: arp29-ctrend-ext1
+          path: marketsgpt-research/results/ARP29_CTREND_EXT1_*
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketsgpt-research/results/ARP29_CTREND_EXT1_*
+          if git diff --cached --quiet; then
+            echo "No result changes"
+          else
+            git commit -m "results: ARP29 CTREND post-publication benchmark [skip ci]"
+            git push
+          fi
