@@ -1,0 +1,128 @@
+{
+  "schema": "mgpt_arp23_oid1_lock_v1",
+  "generation": "ARP23-OID1",
+  "createdAtUtc": "2026-09-15T21:48:25Z",
+  "status": "LOCKED_BEFORE_DEVELOPMENT_PRICE_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority": {
+    "file": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V20_20260915.json",
+    "sha256": "f9c1c787bd7dfe1747318230cb6362b193ab241e1558ee9ea9acd20f621be6d3"
+  },
+  "researchFamily": "CRYPTO_OPEN_INTEREST_PRICE_DIVERGENCE",
+  "causalDistinctness": "Hourly divergence between completed-hour price return and open-interest percentage change; distinct from prior project basis, funding, price-volume, positioning-level, momentum, reversal, seasonality, breakout and equity hypotheses.",
+  "externalHypothesisEvidence": {
+    "source": "IliassSjm/crypto-perps-alpha public HEC Paris course project, oi_divergence_alpha.py",
+    "sourceStatus": "hypothesis-generating external evidence only; not accepted as project validation",
+    "sourceFormula": "alpha = -(pct_change(open_interest) - return) = return - pct_change(open_interest)",
+    "sourcePortfolio": "cross-sectional rank weights; rank/sum(abs(rank)) then subtract cross-sectional mean; next-hour return via positions.shift(1)",
+    "sourceCostCaveat": "external study used zero transaction cost for the standalone signal and explicitly warns that realistic crypto costs are binding",
+    "signLocked": "continuation in alpha score: long highest (price strength relative to OI change), short lowest"
+  },
+  "dataAuthority": {
+    "metrics": "Binance official data.binance.vision USD-M daily metrics archives",
+    "price": "Binance official data.binance.vision USD-M monthly 1h klines",
+    "openInterestField": "sum_open_interest",
+    "oiSampling": "last valid 5-minute metrics snapshot strictly before each UTC hour boundary; snapshot age must be >0 and <=10 minutes",
+    "priceReturn": "completed hourly open-to-next-open return ending at the decision boundary",
+    "signal": "completedHourReturn - pct_change(hourlySampledOpenInterest)",
+    "execution": "apply signal-generated weight at decision hour boundary to the next open-to-open hourly return",
+    "archiveChecksumRequired": true,
+    "futureInformationAllowed": false,
+    "missingData": "fail closed per symbol-hour; no interpolation of open interest or price"
+  },
+  "cohort": {
+    "symbols": [
+      "SAPIENUSDT",
+      "XPLUSDT",
+      "WLFIUSDT",
+      "SOMIUSDT",
+      "MITOUSDT",
+      "HEMIUSDT",
+      "LINEAUSDT",
+      "OPENUSDT",
+      "SKYUSDT",
+      "AVNTUSDT",
+      "HOLOUSDT",
+      "ZKCUSDT",
+      "0GUSDT",
+      "BARDUSDT",
+      "ASTERUSDT",
+      "MIRAUSDT",
+      "FFUSDT",
+      "EDENUSDT",
+      "NOMUSDT",
+      "2ZUSDT",
+      "GIGGLEUSDT",
+      "YBUSDT",
+      "METUSDT",
+      "EULUSDT",
+      "ENSOUSDT"
+    ],
+    "count": 25,
+    "selectionRule": "all 25 current-active Binance Spot-USDT + USD-M PERPETUAL symbols onboarded by 2025-10-15 that were absent from the V20 outcome-exposure union and ARP22 cohort after excluding multiplier/stable/commodity-backed contracts; fixed in onboarding order before ARP23 outcomes",
+    "fixedAfterLock": true,
+    "minimumEligiblePerDecision": 18
+  },
+  "portfolio": {
+    "ranking": "pandas-compatible ascending average rank on alpha; lexical order only for deterministic data assembly, not tie-breaking of equal values",
+    "weightFormula": "rank / sum(abs(rank)) then subtract cross-sectional mean; no gross renormalization",
+    "netExposureTarget": 0.0,
+    "rebalance": "hourly",
+    "terminalLiquidation": true
+  },
+  "costs": {
+    "baseOneWayRate": 0.0006,
+    "stress1_5xOneWayRate": 0.0009,
+    "stress2xOneWayRate": 0.0012,
+    "chargedOn": "sum absolute change in underlying portfolio weights each hour plus terminal liquidation"
+  },
+  "windows": {
+    "warmupStart": "2025-11-25T00:00:00Z",
+    "development": {
+      "start": "2025-12-01T00:00:00Z",
+      "endExclusive": "2026-03-01T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2026-03-01T00:00:00Z",
+      "endExclusive": "2026-06-01T00:00:00Z",
+      "openOnlyAfterDevelopmentPass": true
+    },
+    "sealedHoldout": {
+      "start": "2026-06-01T00:00:00Z",
+      "endExclusive": "2026-09-15T00:00:00Z",
+      "openOnlyAfterFreshValidationPass": true,
+      "oneShot": true
+    }
+  },
+  "statistics": {
+    "annualizationHours": 8760,
+    "bootstrap": {
+      "method": "CIRCULAR_MOVING_BLOCK",
+      "blockLengthHours": 24,
+      "iterations": 10000,
+      "developmentSeed": 23101,
+      "validationSeed": 23102,
+      "holdoutSeed": 23103
+    }
+  },
+  "developmentGate": {
+    "minimumEvaluatedHours": 2000,
+    "minimumCoverageFraction": 0.9,
+    "netMeanHourlyReturnMin": 3e-05,
+    "netAnnualizedSharpeMin": 1.0,
+    "netProfitFactorMin": 1.05,
+    "stress1_5xMeanHourlyReturnMin": 0.0,
+    "stress2xMeanHourlyReturnMin": -2e-05,
+    "positiveWeekFractionMin": 0.52,
+    "bootstrapProbabilityPositiveMin": 0.9,
+    "bootstrapCi95LowMin": -2e-05,
+    "maxDrawdownMax": 0.2,
+    "averageEligibleSymbolsMin": 18.0,
+    "singleSymbolPositiveContributionMax": 0.3
+  },
+  "failureRule": "Any development gate failure closes ARP23-OID1 with no sign, lag, cohort, cost, breadth or threshold rescue. Validation and sealed holdout remain sealed. Passing development authorizes only unchanged fresh validation."
+}
