@@ -1,0 +1,130 @@
+{
+  "schema": "mgpt_arp23_oid1_oi_price_divergence_lock_v1",
+  "generation": "ARP23-OID1",
+  "createdAtUtc": "2026-09-15T22:20:41Z",
+  "status": "LOCKED_BEFORE_DEVELOPMENT_PRICE_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority": {
+    "file": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V20_20260915.json",
+    "sha256": "2553c95da0958cc68c1fb6f2bd477b0b06c679d77c09009c8f2a8a0074ec18d9"
+  },
+  "researchFamily": "CRYPTO_OI_PRICE_DIVERGENCE",
+  "causalDistinctness": "Cross-sectional divergence between 24h price return and 24h open-interest change. Distinct from funding, basis, price-volume, top-trader positioning, trend, reversal, seasonality and breakout families already opened.",
+  "externalHypothesisEvidence": {
+    "source": "IliassSjm/crypto-perps-alpha oi_divergence_alpha.py",
+    "formula": "alpha = previous return - previous open-interest percentage change",
+    "sourceSign": "continuation in alpha: long high alpha, short low alpha",
+    "sourceExecution": "rank-based dollar-neutral cross-section",
+    "evidenceRole": "hypothesis generation only; not MarketsGPT validation"
+  },
+  "dataAuthority": {
+    "metrics": "Binance official data.binance.vision USD-M daily metrics archives",
+    "price": "Binance official data.binance.vision USD-M monthly 1d klines",
+    "oiField": "sum_open_interest",
+    "decision": "00:00 UTC",
+    "currentOiSnapshot": "latest metrics snapshot strictly before decision, age <=15 minutes",
+    "previousOiSnapshot": "latest metrics snapshot strictly before decision-24h, age <=15 minutes",
+    "priceReturn": "open[t]/open[t-1]-1, known at decision t",
+    "signal": "priceReturn - (OI[t]/OI[t-1]-1)",
+    "executionReturn": "open[t+1]/open[t]-1",
+    "liquidity": "prior 30 completed UTC days mean quoteAssetVolume >= 5,000,000 USD",
+    "archiveChecksumRequired": true,
+    "futureInformationAllowed": false
+  },
+  "cohort": {
+    "symbols": [
+      "SAPIENUSDT",
+      "XPLUSDT",
+      "WLFIUSDT",
+      "SOMIUSDT",
+      "MITOUSDT",
+      "HEMIUSDT",
+      "LINEAUSDT",
+      "OPENUSDT",
+      "SKYUSDT",
+      "AVNTUSDT",
+      "HOLOUSDT",
+      "ZKCUSDT",
+      "0GUSDT",
+      "BARDUSDT",
+      "ASTERUSDT",
+      "MIRAUSDT",
+      "FFUSDT",
+      "EDENUSDT",
+      "NOMUSDT",
+      "2ZUSDT",
+      "GIGGLEUSDT",
+      "YBUSDT",
+      "METUSDT",
+      "EULUSDT"
+    ],
+    "count": 24,
+    "selectionRule": "first 24 current-active Binance Spot-USDT + USD-M perpetual symbols after the V20 contamination union, ordered by onboarding date, excluding multiplier/stable/commodity-backed contracts and ARP22 outcomes.",
+    "fixedAfterLock": true,
+    "minimumEligiblePerDecision": 16
+  },
+  "portfolio": {
+    "ranking": "ascending signal with lexical symbol tie-break to assign ranks 1..N; highest signal receives highest rank",
+    "sourceRankWeight": "weight_i = rank_i / sum(ranks) - 1/N",
+    "postRankRescale": "none",
+    "expectedNetExposure": 0.0,
+    "rebalance": "daily at 00:00 UTC",
+    "holding": "one day open-to-open",
+    "parameterSweepAllowed": false,
+    "holdingPeriodSweepAllowed": false,
+    "signFlipAllowed": false
+  },
+  "costs": {
+    "baseOneWayRate": 0.0006,
+    "stress1_5xOneWayRate": 0.0009,
+    "stress2xOneWayRate": 0.0012,
+    "chargedOn": "sum absolute portfolio weight changes plus terminal liquidation"
+  },
+  "windows": {
+    "warmupStart": "2025-10-01T00:00:00Z",
+    "development": {
+      "start": "2025-11-15T00:00:00Z",
+      "endExclusive": "2026-03-15T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2026-03-15T00:00:00Z",
+      "endExclusive": "2026-06-15T00:00:00Z",
+      "openOnlyAfterDevelopmentPass": true
+    },
+    "sealedHoldout": {
+      "start": "2026-06-15T00:00:00Z",
+      "endExclusive": "2026-09-15T00:00:00Z",
+      "openOnlyAfterFreshValidationPass": true,
+      "oneShot": true
+    }
+  },
+  "statistics": {
+    "annualizationDays": 365,
+    "bootstrap": {
+      "method": "CIRCULAR_MOVING_BLOCK",
+      "blockLengthDays": 7,
+      "iterations": 10000,
+      "developmentSeed": 23101
+    }
+  },
+  "developmentGate": {
+    "minimumEvaluatedDays": 105,
+    "minimumCoverageFraction": 0.9,
+    "averageEligibleSymbolsMin": 18,
+    "netMeanDailyReturnMin": 0.00015,
+    "netAnnualizedSharpeMin": 0.6,
+    "netProfitFactorMin": 1.05,
+    "stress1_5xMeanDailyReturnMin": 0.0,
+    "stress2xMeanDailyReturnMin": -5e-05,
+    "positiveMonthFractionMin": 0.5,
+    "bootstrapProbabilityPositiveMin": 0.85,
+    "bootstrapCi95LowMin": -0.0005,
+    "maxDrawdownMax": 0.25,
+    "singleSymbolPositiveContributionMax": 0.3
+  },
+  "failureRule": "Any development gate failure closes ARP23-OID1. No sign flip, lag sweep, holding-period rescue, universe trimming or threshold relaxation is allowed after outcome opening. Validation and holdout remain sealed unless the unchanged development gate passes."
+}
