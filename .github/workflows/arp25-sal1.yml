@@ -1,0 +1,48 @@
+name: ARP25 SAL1 Weekly Salience Development
+
+on:
+  push:
+    paths:
+      - "marketsgpt-research/ARP25_SAL1_WEEKLY_SALIENCE_LOCK_20260915.json"
+      - "marketsgpt-research/arp25_sal1.py"
+      - "marketsgpt-research/arp25_sal1_sanity.py"
+      - ".github/workflows/arp25-sal1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install research dependencies
+        run: python -m pip install --disable-pip-version-check numpy requests
+      - name: Compile and sanity-check frozen evaluator
+        run: |
+          cd marketsgpt-research
+          python -m py_compile arp25_sal1.py arp25_sal1_sanity.py
+          python arp25_sal1_sanity.py
+      - name: Run frozen ARP25-SAL1 development
+        run: python marketsgpt-research/arp25_sal1.py
+      - name: Upload evidence bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: arp25-sal1-development
+          path: marketsgpt-research/results/ARP25_SAL1_*
+      - name: Commit immutable result bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketsgpt-research/results/ARP25_SAL1_*
+          if git diff --cached --quiet; then
+            echo "No result changes to commit"
+          else
+            git commit -m "results: ARP25 SAL1 development [skip ci]"
+            git push
+          fi
