@@ -1,0 +1,140 @@
+{
+  "schema": "mgpt_arp29_ctrend_author_data_probe_v1",
+  "generatedAtUtc": "2026-09-15T23:51:18.025975+00:00",
+  "sheetId": "1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG",
+  "probes": [
+    {
+      "name": "xlsx",
+      "url": "https://docs.google.com/spreadsheets/d/1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG/export?format=xlsx",
+      "status": 200,
+      "contentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "bytes": 56800,
+      "finalUrl": "https://doc-0o-2c-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/quffv624982focltg4olnqv6n4/1789516275000/111356089069901562005/*/1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG?format=xlsx"
+    },
+    {
+      "name": "csv_gid0",
+      "url": "https://docs.google.com/spreadsheets/d/1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG/export?format=csv&gid=0",
+      "status": 400,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 7981,
+      "finalUrl": "https://doc-0o-2c-sheets.googleusercontent.com/export/54bogvaave6cua4cdnls17ksc4/quffv624982focltg4olnqv6n4/1789516275000/111356089069901562005/*/1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG?format=csv&gid=0",
+      "head": "<!DOCTYPE html><html lang=\"en\"><head><script nonce=\"dvzJQfVmIndcAR61AFQsgQ\">window['ppConfig'] = {productName: '26981ed0d57bbad37e728ff58134270c', deleteIsEnforced:  false , sealIsEnforced:  false , heartbeatRate:  0.5 , periodicReportingRateMillis:  60000.0 , disableAllReporting:  false };(function(){'use strict';function k(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}function l(a){var b=typeof Symbol!=\"undefined\"&&Symbol.iterator&&a[Symbol.iterator];if(b)return b.call(a);if(typeof a.length==\"number\")return{next:k(a)};throw Error(String(a)+\" is not an iterable or ArrayLike\");}var m=typeof Object.defineProperties==\"function\"?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};\nfunction n(a){a=[\"object\"==typeof globalThis&&globalThis,a,\"object\"==typeof window&&window,\"object\"==typeof self&&self,\"object\"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return "
+    },
+    {
+      "name": "gviz_csv",
+      "url": "https://docs.google.com/spreadsheets/d/1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG/gviz/tq?tqx=out:csv",
+      "status": 200,
+      "contentType": "text/csv; charset=utf-8",
+      "bytes": 0,
+      "finalUrl": "https://docs.google.com/spreadsheets/d/1kE3P-4Q2KMRxLQxDbyRE2Gj2d2W-KDdG/gviz/tq?tqx=out:csv",
+      "head": ""
+    }
+  ],
+  "accessible": true,
+  "savedFile": "ARP29_CTREND_AUTHOR_UPDATED_WEEKLY_FACTOR_DATA_20260915.xlsx",
+  "sheets": [
+    "readme",
+    "Data"
+  ],
+  "preview": {
+    "readme": [],
+    "Data": [
+      [
+        "Time",
+        "CMKT",
+        "CSMB",
+        "CMOM",
+        "CTREND",
+        "CTREND_Ens"
+      ],
+      [
+        "2016-01-10 00:00:00",
+        "0.039591859919481796",
+        "0.009109865721561326",
+        "0.24892685696487699",
+        "0.04352930478219424",
+        "0.06754019979386211"
+      ],
+      [
+        "2016-01-17 00:00:00",
+        "-0.1375245726581053",
+        "0.004278430034815317",
+        "0.09922085467865256",
+        "0.10358927054754996",
+        "0.33023450671853755"
+      ],
+      [
+        "2016-01-24 00:00:00",
+        "0.06143157572799069",
+        "0.33890406675836715",
+        "0.2478468193769475",
+        "0.3176521444491349",
+        "0.3176521444491349"
+      ],
+      [
+        "2016-01-31 00:00:00",
+        "-0.06795501587019033",
+        "0.10135770185832567",
+        "0.29880309123287535",
+        "-0.02324156845142719",
+        "-0.12316426711305961"
+      ],
+      [
+        "2016-02-07 00:00:00",
+        "0.03872355582279676",
+        "0.02590311880849716",
+        "0.13786923862483202",
+        "0.2324902226849782",
+        "0.2058678923128502"
+      ],
+      [
+        "2016-02-14 00:00:00",
+        "0.10441631991988075",
+        "0.15323334492303786",
+        "0.2970818500238224",
+        "0.273588671197711",
+        "0.27206088973302656"
+      ],
+      [
+        "2016-02-21 00:00:00",
+        "0.058445340524515846",
+        "-0.0899661601284715",
+        "-0.22149713776703644",
+        "-0.11450112627140116",
+        "-0.15181472543009616"
+      ],
+      [
+        "2016-02-28 00:00:00",
+        "0.00730154912935088",
+        "-0.018485942481498423",
+        "0.17860439978679532",
+        "0.25760541912281054",
+        "0.25593892059613954"
+      ],
+      [
+        "2016-03-06 00:00:00",
+        "-0.0005246903576088701",
+        "-0.10478263502562138",
+        "0.10499598881593042",
+        "0.7873141620311794",
+        "0.787558785762609"
+      ],
+      [
+        "2016-03-13 00:00:00",
+        "0.051797190925213406",
+        "0.00821204208102598",
+        "0.09268328276536801",
+        "0.15837254542570556",
+        "0.1752331008675307"
+      ],
+      [
+        "2016-03-20 00:00:00",
+        "-0.04576975155212714",
+        "0.16409513353850724",
+        "0.11388225110538167",
+        "-0.25664849441634274",
+        "-0.23663747481032932"
+      ]
+    ]
+  }
+}
