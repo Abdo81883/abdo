@@ -1,0 +1,157 @@
+{
+  "schema": "mgpt_arp22_pos1_development_closeout_v1",
+  "generation": "ARP22-POS1",
+  "generatedAtUtc": "2026-09-15T21:19:00.048901+00:00",
+  "status": "REJECT_DEVELOPMENT_GATE",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "validationAuthorized": false,
+  "sealedHoldoutOpened": false,
+  "lockSha256": "f6e7fbadcd1e465f0c482ca254ff424e8802ede4ef89ba1327ef117f35277adf",
+  "development": {
+    "expectedDays": 120,
+    "evaluatedDays": 120,
+    "decisionCoverageDays": 82,
+    "coverageFraction": 0.6833333333333333,
+    "averageEligibleSymbols": 20.575,
+    "meanTurnover": 0.3875,
+    "singleSymbolPositiveContribution": 0.1459074454453683,
+    "gross": {
+      "n": 120,
+      "meanDailyReturn": 0.00212613924253322,
+      "annualizedMean": 0.7760408235246253,
+      "annualizedSharpe": 2.467487800451223,
+      "profitFactor": 1.5438206060513964,
+      "maxDrawdown": 0.12873735751798054,
+      "positiveMonthFraction": 0.6,
+      "monthSums": {
+        "2025-11": 0.08531568571290715,
+        "2025-12": -0.0056321992447593006,
+        "2026-01": 0.07503450522432195,
+        "2026-02": 0.10041871741151659,
+        "2026-03": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.9259,
+        "ci95Low": -0.000769746949699867,
+        "ci95High": 0.005024745342990509
+      }
+    },
+    "baseCost": {
+      "n": 120,
+      "meanDailyReturn": 0.0018936392425332195,
+      "annualizedMean": 0.6911783235246252,
+      "annualizedSharpe": 2.2013473222647915,
+      "profitFactor": 1.4705529110567366,
+      "maxDrawdown": 0.12979505248300482,
+      "positiveMonthFraction": 0.6,
+      "monthSums": {
+        "2025-11": 0.07751568571290715,
+        "2025-12": -0.014632199244759302,
+        "2026-01": 0.06903450522432193,
+        "2026-02": 0.09531871741151658,
+        "2026-03": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.9012,
+        "ci95Low": -0.0010359740083078453,
+        "ci95High": 0.004709653943672446
+      }
+    },
+    "stress1_5x": {
+      "n": 120,
+      "meanDailyReturn": 0.00177738924253322,
+      "annualizedMean": 0.6487470735246252,
+      "annualizedSharpe": 2.067759408421512,
+      "profitFactor": 1.4350443793379413,
+      "maxDrawdown": 0.13032359827946627,
+      "positiveMonthFraction": 0.6,
+      "monthSums": {
+        "2025-11": 0.07361568571290716,
+        "2025-12": -0.019132199244759313,
+        "2026-01": 0.06603450522432197,
+        "2026-02": 0.09276871741151659,
+        "2026-03": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.8912,
+        "ci95Low": -0.00112147386209343,
+        "ci95High": 0.004643993809407162
+      }
+    },
+    "stress2x": {
+      "n": 120,
+      "meanDailyReturn": 0.0016611392425332193,
+      "annualizedMean": 0.606315823524625,
+      "annualizedSharpe": 1.9338564127799145,
+      "profitFactor": 1.40039135803819,
+      "maxDrawdown": 0.13085194300090564,
+      "positiveMonthFraction": 0.6,
+      "monthSums": {
+        "2025-11": 0.06971568571290715,
+        "2025-12": -0.02363219924475933,
+        "2026-01": 0.06303450522432194,
+        "2026-02": 0.09021871741151657,
+        "2026-03": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.8738,
+        "ci95Low": -0.0011701074675851174,
+        "ci95High": 0.004474792639331492
+      }
+    },
+    "symbolGrossContributions": {
+      "PUNDIXUSDT": 0.0,
+      "CTKUSDT": 0.0,
+      "DOLOUSDT": 0.05988487285987992,
+      "HAEDALUSDT": -0.017261169358041173,
+      "SXTUSDT": 0.0,
+      "ASRUSDT": 0.04946210472761589,
+      "ALPINEUSDT": -0.031660572166588324,
+      "SYRUPUSDT": 0.013268648801264687,
+      "OGUSDT": 0.02227071943547207,
+      "NXPCUSDT": 0.01762291886856282,
+      "CVCUSDT": 0.024418147033839793,
+      "AWEUSDT": 0.0,
+      "HUMAUSDT": 0.050483980115102856,
+      "AUSDT": 0.013295553618134254,
+      "SOPHUSDT": 0.0021595859575910537,
+      "LAUSDT": 0.008082626532046305,
+      "HOMEUSDT": -0.014584109152555147,
+      "RESOLVUSDT": -0.0623672048339326,
+      "SPKUSDT": -0.013666790628486414,
+      "FUSDT": 0.056676542678250647,
+      "NEWTUSDT": 0.0,
+      "SAHARAUSDT": 0.031319264906842115,
+      "PUMPUSDT": 0.011160814984918138,
+      "CUSDT": -0.0004991027709875251,
+      "ERAUSDT": 0.02586488225404196,
+      "CVXUSDT": 0.013407184365825359,
+      "SLPUSDT": 0.0,
+      "TREEUSDT": -0.0065813247389721885,
+      "TOWNSUSDT": 0.0110527013297953,
+      "PROVEUSDT": -0.008673565715633408
+    }
+  },
+  "gate": {
+    "minimumEvaluatedDays": true,
+    "minimumCoverageFraction": false,
+    "netMeanDailyReturnMin": true,
+    "netAnnualizedSharpeMin": true,
+    "netProfitFactorMin": true,
+    "stress1_5xMeanDailyReturnMin": true,
+    "stress2xMeanDailyReturnMin": true,
+    "positiveMonthFractionMin": true,
+    "bootstrapProbabilityPositiveMin": true,
+    "bootstrapCi95LowMin": false,
+    "maxDrawdownMax": true,
+    "averageEligibleSymbolsMin": false,
+    "singleSymbolPositiveContributionMax": true
+  },
+  "failedChecks": [
+    "minimumCoverageFraction",
+    "bootstrapCi95LowMin",
+    "averageEligibleSymbolsMin"
+  ],
+  "nextAction": "Close ARP22-POS1; validation and holdout remain sealed."
+}
