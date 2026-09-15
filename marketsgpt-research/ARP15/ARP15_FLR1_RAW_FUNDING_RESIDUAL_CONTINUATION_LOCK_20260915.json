@@ -1,0 +1,112 @@
+{
+  "automaticExecutionAllowed": false,
+  "costs": {
+    "baseOneWayRate": 0.0006,
+    "chargedOn": "full opening gross notional + full terminal liquidation for every event; total turnover=2.0 per event",
+    "stress1_5xOneWayRate": 0.0009,
+    "stress2xOneWayRate": 0.0012
+  },
+  "createdAtUtc": "2026-09-15T19:50:49.301429Z",
+  "dataAuthority": {
+    "fundingEndpoint": "funding rate history",
+    "futureInformationAllowed": false,
+    "liquidity": "trailing 30 calendar days quote volume from bars strictly before funding decision; mean >= USD 5m/day",
+    "priceEndpoint": "1h USD-M klines",
+    "provider": "Binance USD-M Futures public market data",
+    "timezone": "UTC"
+  },
+  "developmentGate": {
+    "annualizedSharpeMin": 0.75,
+    "maxDrawdownMax": 0.25,
+    "meanNetReturnPerEventMin": 0.00015,
+    "minimumEvents": 600,
+    "movingBlockBootstrapCi95LowMin": 0.0,
+    "movingBlockBootstrapProbabilityPositiveMin": 0.95,
+    "positiveMonthFractionMin": 0.55,
+    "profitFactorMin": 1.05,
+    "singleSymbolPositiveContributionMax": 0.3,
+    "stress1_5xMeanPerEventMin": 0.0,
+    "stress2xMeanPerEventMin": 0.0
+  },
+  "failureRule": "Development failure closes ARP15-FLR1 with validation and holdout sealed. Validation failure closes without holdout. Holdout failure forbids retuning. No R15 mutation unless all gates plus integration and final QA pass.",
+  "generation": "ARP15-FLR1",
+  "governance": {
+    "cohortRescueAllowedAfterOutcome": false,
+    "cohortSelection": "Binance USD-M exchangeInfo metadata only; current trading USDT perpetuals, onboarded by 2023-10-20 inclusive, zero overlap with V13 closedEvidence plus manually recovered Q6-G4 cohort; fixed first 20 by onboardDate/lexical among qualifying fresh symbols.",
+    "contaminationRegistryAuthority": {
+      "branch": "marketsgpt-research-20260915",
+      "commit": "2c5ebec023f104721ed711c49838fa1cf90d1e39",
+      "path": "marketsgpt-research/Governance/MGPT_ALPHA_CONTAMINATION_REGISTRY_V13_20260915.json",
+      "repository": "Abdo81883/abdo"
+    },
+    "directionFlipAllowedAfterOutcome": false,
+    "horizonRescueAllowedAfterOutcome": false,
+    "outcomesOpenedAtLock": false,
+    "symbols": ["XVSUSDT","BLURUSDT","EDUUSDT","SUIUSDT","1000PEPEUSDT","1000FLOKIUSDT","UMAUSDT","NMRUSDT","MAVUSDT","XVGUSDT","WLDUSDT","ARKMUSDT","PENDLEUSDT","AGLDUSDT","YGGUSDT","DODOXUSDT","BNTUSDT","SEIUSDT","CYBERUSDT","BSVUSDT"],
+    "thresholdRescueAllowed": false
+  },
+  "holdoutGate": {
+    "annualizedSharpeMin": 0.3,
+    "maxDrawdownMax": 0.22,
+    "meanNetReturnPerEventMin": 0.0,
+    "minimumEvents": 900,
+    "movingBlockBootstrapProbabilityPositiveMin": 0.8,
+    "profitFactorMin": 1.0,
+    "stress1_5xMeanPerEventMin": 0.0
+  },
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "researchRationale": {
+    "causalDistinctness": "Not carry harvesting, not log-basis, not trailing-7d funding carry. Uses the just-realized raw funding level only as a cross-sectional price-continuation signal after the settlement is known.",
+    "externalDiscoveryOnly": [
+      "Public 2026 research reports raw funding-level return predictability concentrated at short horizons and stronger from 2024 onward.",
+      "Execution is deliberately delayed one full hour after the funding print and exits one hour before a standard next 8h settlement, making this stricter than contemporaneous-settlement backtests."
+    ],
+    "hypothesisFamily": "RAW_FUNDING_LEVEL_POST_SETTLEMENT_PRICE_CONTINUATION",
+    "noParameterSweep": true
+  },
+  "schema": "mgpt_arp15_flr1_raw_funding_residual_continuation_lock_v1",
+  "signalContract": {
+    "causalEntry": "perpetual 1h bar open at t+1h",
+    "causalExit": "perpetual 1h bar open at t+7h",
+    "decisionEvent": "actual realized funding event timestamp t; funding rate must be final and observable at t",
+    "eventOverlap": "none by construction for standard 8h schedules",
+    "fundingCashflowInsideTrade": "forbidden; symbol is ineligible for event t if any fundingTime occurs strictly after t and on/before t+7h",
+    "holding": "6 hours; portfolio is flat from t+7h through the next standard t+8h funding boundary",
+    "leverage": 1.0,
+    "longBook": "top quintile highest raw funding",
+    "minimumValidSymbols": 16,
+    "pricePnl": "weight*(exitOpen/entryOpen-1)",
+    "quintileRule": "q=max(3,floor(validSymbols*0.20))",
+    "rankingSignal": "raw realized fundingRate at t; descending signal means stronger continuation",
+    "shortBook": "bottom quintile lowest raw funding",
+    "weights": "+0.50 equally long / -0.50 equally short; gross 1.0, net 0"
+  },
+  "statistics": {
+    "annualizationEventsPerYear": 1095,
+    "bootstrap": {"blockLengthEvents":9,"developmentSeed":15101,"holdoutSeed":15103,"iterations":10000,"method":"CIRCULAR_MOVING_BLOCK","validationSeed":15102},
+    "concentrationChecks": ["single-symbol positive gross contribution share"],
+    "portfolioOrdering": "funding event timestamp UTC"
+  },
+  "status": "LOCKED_BEFORE_ANY_ARP15_PRICE_OR_FUNDING_OUTCOME",
+  "validationGate": {
+    "annualizedSharpeMin": 0.45,
+    "maxDrawdownMax": 0.22,
+    "meanNetReturnPerEventMin": 0.00008,
+    "minimumEvents": 600,
+    "movingBlockBootstrapCi95LowMin": -0.00015,
+    "movingBlockBootstrapProbabilityPositiveMin": 0.85,
+    "positiveMonthFractionMin": 0.5,
+    "profitFactorMin": 1.03,
+    "singleSymbolPositiveContributionMax": 0.35,
+    "stress2xMeanPerEventMin": 0.0
+  },
+  "windows": {
+    "development": ["2024-01-01","2024-10-01"],
+    "freshValidation": ["2024-10-01","2025-07-01"],
+    "sealedHoldout": ["2025-07-01","2026-09-15"],
+    "warmup": ["2023-12-01","2024-01-01"]
+  }
+}
