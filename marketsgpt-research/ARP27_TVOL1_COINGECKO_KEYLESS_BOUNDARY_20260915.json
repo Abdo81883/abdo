@@ -1,0 +1,31 @@
+{
+  "schema": "mgpt_arp27_tvol1_coingecko_keyless_boundary_v1",
+  "generation": "ARP27-TVOL1",
+  "generatedAtUtc": "2026-09-15T23:43:00Z",
+  "status": "KEYLESS_PROVIDER_HISTORY_BOUNDARY_NO_ALPHA_JUDGMENT",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "outcomesOpened": false,
+  "alphaCalculated": false,
+  "provider": "CoinGecko Keyless Public API",
+  "probeRunId": 35036669033,
+  "observed": {
+    "identityEndpoint": "/coins/markets",
+    "historicalEndpoint": "/coins/{id}/market_chart?days=max&interval=daily",
+    "errorCode": 10012,
+    "httpStatus": 401,
+    "limitation": "Public API users are limited to historical data within the past 365 days.",
+    "requiredByLockedARP27": "Historical daily market cap and USD volume beginning 2024-07-01 for a development window beginning 2024-08-05."
+  },
+  "integrityDecision": "Do not shorten or shift the already-locked ARP27-TVOL1 windows after this provider boundary. No return outcome was calculated, so this is a data-access boundary, not an alpha failure.",
+  "allowedNextActions": [
+    "Connect an authorized historical provider with >365-day market cap and volume history.",
+    "Create a causally distinct new research generation using data already available without altering ARP27-TVOL1."
+  ],
+  "forbidden": [
+    "Backfill historical market cap with current market cap.",
+    "Use Binance quote volume divided by current market cap.",
+    "Treat the provider limitation as an alpha reject.",
+    "Open ARP27 validation or holdout."
+  ]
+}
