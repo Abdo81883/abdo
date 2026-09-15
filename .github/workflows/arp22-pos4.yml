@@ -44,5 +44,9 @@ jobs:
             echo "No result changes to commit"
           else
             git commit -m "results: ARP22 POS4 development [skip ci]"
-            git push
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
+
+# persistence-repair-trigger: 2026-09-15T22:47Z
