@@ -1,0 +1,19 @@
+{
+  "schema": "mgpt_arp21_fprv_exact_r2_software_repair_v1",
+  "generation": "ARP21-FPRV-EXACT-R2",
+  "generatedAtUtc": "2026-09-15T21:00:00Z",
+  "status": "AUTHORIZED_DETERMINISTIC_SERIALIZATION_REPAIR_BEFORE_RESULT_DISCLOSURE",
+  "failedRunId": 35022790608,
+  "failedJobId": 104562423977,
+  "observedFailure": "json.dumps rejected numpy boolean scalar values in the gate dictionary after all locked calculations completed.",
+  "outcomeStatisticsDisclosedByFailedRun": false,
+  "mathematicalLogicChanged": false,
+  "dataCohortChanged": false,
+  "windowsChanged": false,
+  "thresholdsChanged": false,
+  "pcaChanged": false,
+  "costModelChanged": false,
+  "repair": "Cast each gate comparison result to built-in Python bool before JSON serialization.",
+  "integrityDecision": "Rerun the identical locked evaluator on the same R2 cohort is permitted because this is a reporting-layer type repair; no market statistic was disclosed and no research rule is retuned.",
+  "r15MutationAllowed": false
+}
