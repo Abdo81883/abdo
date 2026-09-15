@@ -41,3 +41,4 @@ jobs:
             git commit -m "results: ARP27 CoinGecko transport probe [skip ci]"
             git push
           fi
+# trigger: ARP27 provider probe
