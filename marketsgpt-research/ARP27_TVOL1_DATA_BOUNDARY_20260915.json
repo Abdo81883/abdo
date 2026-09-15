@@ -1,0 +1,14 @@
+{
+  "schema": "mgpt_arp27_tvol1_data_boundary_v1",
+  "generation": "ARP27-TVOL1",
+  "generatedAtUtc": "2026-09-15T23:01:33Z",
+  "status": "DATA_PROVIDER_CONNECTION_REQUIRED_NO_ALPHA_JUDGMENT",
+  "lockSha256": "50730b560e5fbff3fd8c14d041da0536441559492ae3bbbe5046fbce51b830f8",
+  "outcomesOpened": false,
+  "missingCapability": "Historical per-asset daily market capitalization and daily USD trading volume in a bulk/time-series form. Existing CoinMarketCap ChatGPT connector exposes latest quote fields but not its documented quotes/historical endpoint.",
+  "acceptableUnlocks": [
+    "CoinGecko connector if it exposes historical market_chart/history fields with market_caps and total_volumes",
+    "CoinMarketCap Pro historical quotes endpoint using an authorized API integration"
+  ],
+  "forbidden": "Do not substitute current market cap into past turnover, infer historical supply from today's supply, or use Binance quote volume divided by present-day market cap."
+}
