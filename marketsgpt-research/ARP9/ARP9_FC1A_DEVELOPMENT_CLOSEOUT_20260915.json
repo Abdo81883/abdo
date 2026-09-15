@@ -1,0 +1,73 @@
+{
+  "schema": "mgpt_arp9_fc1a_development_closeout_v1",
+  "generatedAtUtc": "2026-09-15T19:45:46.386713Z",
+  "generation": "ARP9-FC1A",
+  "status": "REJECT_DEVELOPMENT_GATE_SINGLE_STRICT_BOOTSTRAP_CI_FAILURE",
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "preDataLock": {
+    "file": "ARP9_FC1A_CRYPTO_FUNDING_CARRY_REPAIR_LOCK_20260915.json",
+    "sha256": "f8da6b0e1cde7dc8f75862400663af2297ec99d5bc616d5419b8852982f607fb"
+  },
+  "evaluatorSha256": "db4a2c432188b04f65138f0f2a393e20c961cfccd0ec75d2cfd9b1db72a03546",
+  "hypothesisFamily": "CROSS_SECTIONAL_PERPETUAL_FUNDING_CARRY",
+  "developmentWindow": {
+    "start": "2021-01-01",
+    "endExclusive": "2023-01-01"
+  },
+  "dataAudit": {
+    "symbols": 16,
+    "validDaysPerSymbol": 730,
+    "fundingEventsPerSymbol": 2232,
+    "trailing7dFundingEvents": 21,
+    "fundingTransportTruncated": false
+  },
+  "development": {
+    "nDays": 730,
+    "meanDailyNetReturn": 0.0009627665546232879,
+    "annualizedMeanReturn": 0.3514097924375001,
+    "annualizedSharpe": 1.340794397149727,
+    "profitFactor": 1.2316889003855471,
+    "stress1_5MeanDailyReturn": 0.0008901295683219181,
+    "stress2xMeanDailyReturn": 0.0008174925820205472,
+    "meanFundingContribution": 0.0003345963664383566,
+    "meanPriceContribution": 0.0007734441607876715,
+    "meanCost": 0.00014527397260273868,
+    "meanDailyTurnover": 0.24212328767123287,
+    "maxDrawdown": 0.18802525397787428,
+    "positiveMonthFraction": 0.625,
+    "positiveCalendarYears": 2,
+    "byYear": {
+      "2021": 0.49506650250000056,
+      "2022": 0.2077530823749999
+    },
+    "bootstrap": {
+      "probabilityPositive": 0.9749,
+      "ci95Low": -9.758292808220382e-7,
+      "ci95High": 0.0020179124938356145
+    }
+  },
+  "gate": {
+    "pass": false,
+    "failed": [
+      "movingBlockBootstrapCi95LowMin"
+    ],
+    "note": "All other predeclared development checks passed. The locked CI95 lower-bound rule is >=0 and is not relaxed after outcome opening."
+  },
+  "precisionAudit": {
+    "stagingFundingPrecision": 1e-12,
+    "stagingReturnPrecision": 1e-9,
+    "ciFailureMagnitude": 9.758292808220382e-7,
+    "conclusion": "Compression resolution is orders of magnitude smaller than the failed CI margin; no threshold rescue is justified."
+  },
+  "freshValidationOpened": false,
+  "sealedHoldoutOpened": false,
+  "thresholdsChanged": false,
+  "r15MutationAllowed": false,
+  "decision": "CLOSE_FC1A_AS_LOCKED_NO_VALIDATION",
+  "interpretation": [
+    "FC1A is the strongest near-pass found in this research program to date, but it failed the exact predeclared bootstrap CI lower-bound gate.",
+    "Because the outcome is now opened, changing the CI threshold or reusing the same cohort to rescue FC1A would invalidate the research contract.",
+    "The result remains useful as evidence that funding carry deserves a causally distinct fresh-generation test, not as authorization to integrate into R15."
+  ]
+}
