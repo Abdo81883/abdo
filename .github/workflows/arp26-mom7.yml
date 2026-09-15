@@ -1,0 +1,48 @@
+name: ARP26 MOM7 Weekly Cross-Section Development
+
+on:
+  push:
+    paths:
+      - "marketsgpt-research/ARP26_MOM7_WEEKLY_CROSS_SECTION_LOCK_20260915.json"
+      - "marketsgpt-research/arp26_mom7.py"
+      - "marketsgpt-research/arp26_mom7_sanity.py"
+      - ".github/workflows/arp26-mom7.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install research dependencies
+        run: python -m pip install --disable-pip-version-check numpy requests
+      - name: Compile and sanity-check frozen evaluator
+        run: |
+          cd marketsgpt-research
+          python -m py_compile arp26_mom7.py arp26_mom7_sanity.py
+          python arp26_mom7_sanity.py
+      - name: Run frozen ARP26-MOM7 development
+        run: python marketsgpt-research/arp26_mom7.py
+      - name: Upload evidence bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: arp26-mom7-development
+          path: marketsgpt-research/results/ARP26_MOM7_*
+      - name: Commit immutable result bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketsgpt-research/results/ARP26_MOM7_*
+          if git diff --cached --quiet; then
+            echo "No result changes to commit"
+          else
+            git commit -m "results: ARP26 MOM7 development [skip ci]"
+            git push
+          fi
