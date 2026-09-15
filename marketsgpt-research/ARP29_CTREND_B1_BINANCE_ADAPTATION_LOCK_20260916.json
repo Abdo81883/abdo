@@ -1,0 +1,252 @@
+{
+  "schema": "mgpt_arp29_ctrend_b1_binance_adaptation_lock_v1",
+  "generation": "ARP29-CTREND-B1",
+  "createdAtUtc": "2026-09-16T00:02:00Z",
+  "status": "LOCKED_BEFORE_BINANCE_CTREND_DEVELOPMENT_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "governance": {
+    "contaminationRegistry": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V28_20260915.json",
+    "hypothesisFamily": "CRYPTO_CROSS_SECTIONAL_CTREND_MACHINE_LEARNING",
+    "priorProjectOutcomeForThisFamily": false,
+    "externalAuthorBenchmark": "marketsgpt-research/results/ARP29_CTREND_EXT1_AUTHOR_POSTPUBLICATION_RESULT_20260915.json",
+    "externalAuthorBenchmarkDecision": "PASS_AUTHORIZE_PRELOCKED_BINANCE_ADAPTATION",
+    "externalOutcomeKnownThrough": "2026-03-01",
+    "rule": "External author-factor outcomes are hypothesis evidence only; they are not MarketsGPT strategy PnL and cannot authorize R15 integration."
+  },
+  "methodAuthority": {
+    "paper": "Fieberg, Liedtke, Poddig, Walker & Zaremba (2025), A Trend Factor for the Cross Section of Cryptocurrency Returns, JFQA 60(7), 3116-3153",
+    "doi": "10.1017/S0022109024000747",
+    "signalCount": 28,
+    "signalFamilies": {
+      "momentum": [
+        "rsi14",
+        "stochrsi14",
+        "stochk14",
+        "stochd3",
+        "cci20"
+      ],
+      "movingAverage": [
+        "sma3",
+        "sma5",
+        "sma10",
+        "sma20",
+        "sma50",
+        "sma100",
+        "sma200",
+        "macd12_26",
+        "macd_diff_signal9"
+      ],
+      "volume": [
+        "volsma3",
+        "volsma5",
+        "volsma10",
+        "volsma20",
+        "volsma50",
+        "volsma100",
+        "volsma200",
+        "volmacd12_26",
+        "volmacd_diff_signal9",
+        "chaikin21"
+      ],
+      "volatility": [
+        "boll_low20",
+        "boll_mid20",
+        "boll_high20",
+        "boll_width20"
+      ]
+    },
+    "crossSectionTransform": "rank each technical signal each week and map ranks linearly to [-0.5,0.5]",
+    "univariateForecast": "weekly cross-sectional OLS for next-week return on each ranked indicator; forecast coefficients are arithmetic means of the prior 52 weekly cross-sectional alpha/beta estimates",
+    "combination": "CS-C-ENet adaptation: l1_ratio=0.5; lambda chosen from a deterministic log grid by corrected AIC; retain only univariate forecasts with positive elastic-net coefficient; CTREND is the equal-weight average of retained forecasts",
+    "rollingWindowWeeks": 52,
+    "implementationLag": "Sunday completed daily bar -> Monday 00:00 UTC execution; no same-bar execution",
+    "parameterSweepAllowed": false,
+    "postOutcomeFeatureSelectionAllowed": false
+  },
+  "adaptationDisclosure": {
+    "exactPaperReplication": false,
+    "differences": [
+      "Binance USD-M perpetual daily OHLCV replaces the paper's broad spot-coin database.",
+      "Cross-sectional regressions are equal-weight rather than historical-market-cap weighted because point-in-time market-cap history is not available in the connected free data stack.",
+      "Portfolio legs are equal-weight rather than market-cap weighted.",
+      "Development is a price-alpha screen on perpetual price returns; exact funding cashflow replay is mandatory before any later validation can authorize a sealed holdout."
+    ],
+    "robustnessBasis": "The source paper reports robustness across alternative research designs and persistence in large/liquid coins; this does not guarantee this adaptation.",
+    "promotionLimit": "A development pass only authorizes funding replay and the locked replication-validation stage."
+  },
+  "dataAuthority": {
+    "provider": "Binance official public data archive data.binance.vision",
+    "instrument": "USD-M perpetual",
+    "interval": "1d",
+    "fields": [
+      "open",
+      "high",
+      "low",
+      "close",
+      "quoteAssetVolume"
+    ],
+    "archiveChecksumRequired": true,
+    "signalVolume": "quoteAssetVolume as dollar trading volume",
+    "futureInformationAllowed": false
+  },
+  "universe": {
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BCHUSDT",
+      "XRPUSDT",
+      "LTCUSDT",
+      "TRXUSDT",
+      "ETCUSDT",
+      "LINKUSDT",
+      "XLMUSDT",
+      "ADAUSDT",
+      "DASHUSDT",
+      "ZECUSDT",
+      "XTZUSDT",
+      "ATOMUSDT",
+      "ONTUSDT",
+      "IOTAUSDT",
+      "BATUSDT",
+      "VETUSDT",
+      "NEOUSDT",
+      "QTUMUSDT",
+      "IOSTUSDT",
+      "THETAUSDT",
+      "ALGOUSDT",
+      "ZILUSDT",
+      "KNCUSDT",
+      "ZRXUSDT",
+      "COMPUSDT",
+      "DOGEUSDT",
+      "KAVAUSDT",
+      "BANDUSDT",
+      "RLCUSDT",
+      "SNXUSDT",
+      "DOTUSDT",
+      "SKLUSDT",
+      "YFIUSDT",
+      "CRVUSDT",
+      "SUSHIUSDT",
+      "RUNEUSDT",
+      "EGLDUSDT",
+      "SOLUSDT",
+      "UNIUSDT",
+      "AVAXUSDT",
+      "ENJUSDT",
+      "KSMUSDT",
+      "NEARUSDT",
+      "FILUSDT",
+      "AAVEUSDT",
+      "RSRUSDT",
+      "BELUSDT",
+      "AXSUSDT",
+      "ZENUSDT",
+      "GRTUSDT",
+      "1INCHUSDT",
+      "SANDUSDT",
+      "CHZUSDT",
+      "ANKRUSDT",
+      "RVNUSDT",
+      "SFPUSDT",
+      "COTIUSDT",
+      "CHRUSDT"
+    ],
+    "count": 60,
+    "selection": "first 60 symbols from the already-frozen ARP27 120-name current-active tradable universe; no post-outcome substitution",
+    "minimumEligiblePerWeek": 35,
+    "minimumPrior30dMeanQuoteVolumeUsd": 5000000,
+    "fixedAfterLock": true
+  },
+  "windows": {
+    "archiveFetchStart": "2021-01-01T00:00:00Z",
+    "development": {
+      "start": "2024-07-08T00:00:00Z",
+      "endExclusive": "2025-07-14T00:00:00Z"
+    },
+    "externalReplicationValidation": {
+      "start": "2025-07-21T00:00:00Z",
+      "endExclusive": "2026-03-02T00:00:00Z",
+      "knownExternalAggregateOutcome": true,
+      "openOnlyAfterDevelopmentPassAndFundingReplay": true
+    },
+    "sealedHoldout": {
+      "start": "2026-03-09T00:00:00Z",
+      "endExclusive": "2026-09-14T00:00:00Z",
+      "oneShot": true,
+      "externalAuthorUpdatedSeriesEndsBeforeWindow": true,
+      "openOnlyAfterReplicationValidationPass": true
+    }
+  },
+  "elasticNet": {
+    "l1Ratio": 0.5,
+    "lambdaGridCount": 50,
+    "lambdaMaxFractionMin": 0.001,
+    "fitIntercept": true,
+    "standardizeForecastColumns": true,
+    "aiccParameterCount": "intercept + number of nonzero forecast coefficients",
+    "positiveCoefficientThreshold": 1e-10
+  },
+  "costs": {
+    "baseLongOneWayRate": 0.003,
+    "baseShortOneWayRate": 0.004,
+    "stressLongOneWayRate": 0.004,
+    "stressShortOneWayRate": 0.005,
+    "extremeLongOneWayRate": 0.005,
+    "extremeShortOneWayRate": 0.006,
+    "chargedOn": "absolute change in separate long and short portfolio weights plus terminal liquidation"
+  },
+  "statistics": {
+    "annualizationWeeks": 52,
+    "bootstrap": {
+      "method": "CIRCULAR_MOVING_BLOCK",
+      "blockLengthWeeks": 4,
+      "iterations": 10000,
+      "developmentSeed": 29111,
+      "replicationSeed": 29112,
+      "holdoutSeed": 29113
+    }
+  },
+  "developmentGate": {
+    "minimumEvaluatedWeeks": 45,
+    "minimumCoverageFraction": 0.85,
+    "averageEligibleSymbolsMin": 35,
+    "baseNetMeanWeeklyReturnMin": 0.003,
+    "baseNetAnnualizedSharpeMin": 0.8,
+    "baseNetProfitFactorMin": 1.1,
+    "stressNetMeanWeeklyReturnMin": 0,
+    "positiveMonthFractionMin": 0.55,
+    "firstHalfNetReturnPositive": true,
+    "secondHalfNetReturnPositive": true,
+    "bootstrapProbabilityPositiveMin": 0.9,
+    "bootstrapCi95LowMin": -0.002,
+    "maxDrawdownMax": 0.3,
+    "singleSymbolPositiveContributionMax": 0.2,
+    "averageSelectedForecastCountMin": 3,
+    "zeroSelectedForecastWeekFractionMax": 0.15
+  },
+  "replicationValidationGate": {
+    "minimumEvaluatedWeeks": 28,
+    "baseNetMeanWeeklyReturnMin": 0.002,
+    "baseNetAnnualizedSharpeMin": 0.5,
+    "baseNetProfitFactorMin": 1.05,
+    "stressNetMeanWeeklyReturnMin": 0,
+    "positiveMonthFractionMin": 0.5,
+    "bootstrapProbabilityPositiveMin": 0.75,
+    "maxDrawdownMax": 0.3
+  },
+  "sealedHoldoutGate": {
+    "minimumEvaluatedWeeks": 26,
+    "baseNetMeanWeeklyReturnMin": 0,
+    "baseNetAnnualizedSharpeMin": 0.3,
+    "baseNetProfitFactorMin": 1,
+    "stressNetMeanWeeklyReturnMin": -0.001,
+    "bootstrapProbabilityPositiveMin": 0.7,
+    "maxDrawdownMax": 0.25
+  },
+  "failureRule": "Any development gate failure closes ARP29-CTREND-B1 without feature, lambda-grid, cost, cadence, universe, direction, or gate rescue. A development pass requires an exact funding-cashflow replay under unchanged signals before replication validation. R15 remains frozen until all gates and final integration QA pass."
+}
