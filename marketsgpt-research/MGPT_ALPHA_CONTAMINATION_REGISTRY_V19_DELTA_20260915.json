@@ -1,0 +1,22 @@
+{
+  "schema": "mgpt_alpha_contamination_registry_v19",
+  "generatedAtUtc": "2026-09-15T21:10:00Z",
+  "governanceUpdateV19": {
+    "arp21FprvR2": "Development rejected under the immutable R2 gate. Positive point estimates do not override bootstrap-tail and drawdown failures.",
+    "freshValidationOpened": false,
+    "sealedHoldoutOpened": false,
+    "r15MutationAllowed": false,
+    "rule": "Do not rescue R2 by selecting its strongest factors, changing its cost schedule, loosening the bootstrap/drawdown gates, or reusing its cohort for identical/closely-related FPRV hypotheses. The next generation must be causally distinct and prelocked before outcomes."
+  },
+  "newClosedEvidence": {
+    "assets": ["ANIMEUSDT","BERAUSDT","TSTUSDT","LAYERUSDT","HEIUSDT","GPSUSDT","SHELLUSDT","KAITOUSDT","REDUSDT","EPICUSDT","BMTUSDT","MUBARAKUSDT","FORMUSDT","TUTUSDT","BROCCOLI714USDT","PLUMEUSDT","BANANAS31USDT","NILUSDT","PARTIUSDT","WALUSDT","GUNUSDT","BABYUSDT","STOUSDT","KERNELUSDT","WCTUSDT","INITUSDT","BANKUSDT","HYPERUSDT","JSTUSDT","SIGNUSDT"],
+    "branch": "ARP21-FPRV-EXACT-R2-DEVELOPMENT",
+    "hypothesisFamily": "CRYPTO_PERPETUAL_FPRV_EXACT",
+    "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED_STRICT_GATE",
+    "windows": ["2026-04-20 to 2026-06-20 development opened; fresh validation and sealed holdout remained unopened"],
+    "developmentCloseoutSha256": "d98fdb00b8f277dd4adfea65cec8faf82054961c22dfec062f30a4eff79cbe79",
+    "failedChecks": ["baseCostBootstrapCi95LowMin","baseCostMaxDrawdownMax"]
+  },
+  "authorityNote": "The full canonical V19 registry is preserved in the MarketsGPT Research Library. This repository mirror records the V19 delta and immutable R2 closure for execution continuity.",
+  "r15MutationAllowed": false
+}
