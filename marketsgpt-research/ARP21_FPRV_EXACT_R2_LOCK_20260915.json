@@ -1,0 +1,82 @@
+{
+  "schema": "mgpt_arp21_fprv_exact_r2_lock_v1",
+  "generation": "ARP21-FPRV-EXACT-R2",
+  "createdAtUtc": "2026-09-15T20:56:30Z",
+  "status": "LOCKED_BEFORE_R2_DEVELOPMENT_PRICE_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority": {
+    "file": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V18_20260915.json",
+    "sha256": "8b0e8527fd659d36c29c946a2678ae642ba87931a0ff02e4676c6e78794897a2"
+  },
+  "researchFamily": "CRYPTO_PERPETUAL_FPRV_EXACT",
+  "r1Disposition": "R1 closed with NO_ALPHA_JUDGMENT after partial outcome transport hit the connector tool-call ceiling. R1 symbols are not reused.",
+  "methodAuthority": {
+    "primary": "Pengfei Luo (2025), Chapter 3, Eq. 71 / Table 23 / Table 35",
+    "fprvFormula": "0.5*(LowBasis_Q1 + HighBasis_Q1) - 0.5*(LowBasis_Q5 + HighBasis_Q5)",
+    "basisSplit": "ascending log basis into equal Low/High halves; if odd, deterministic median observation is dropped",
+    "quintileOrientation": "Q1 is the LOWEST characteristic quintile and Q5 is the HIGHEST characteristic quintile",
+    "formationDays": [1,7,14,21,28,56,112,350],
+    "families": ["log mean Price-Volume","mean Signed Price-Volume Imbalance","variance Price-Volume","variance Signed Price-Volume Imbalance"],
+    "factorCount": 32,
+    "pca": "covariance PCA of 32 development FPRV return series; first 3 PCs",
+    "pcSignRule": "orient each eigenvector so its sum of loadings is non-negative; if numerically zero, largest-absolute loading is positive",
+    "composite": "variance-explained-weighted average of the 3 oriented raw PC portfolio-return series",
+    "parameterSweepAllowed": false,
+    "postOutcomeThresholdRescueAllowed": false
+  },
+  "dataAuthority": {
+    "primary": "Binance official public archive data.binance.vision",
+    "market": "USD-M perpetual futures",
+    "interval": "8h",
+    "perpetual": "monthly klines; quoteAssetVolume and takerBuyQuoteAssetVolume used",
+    "basisReference": "monthly indexPriceKlines",
+    "archiveChecksumRequired": true,
+    "futureInformationAllowed": false,
+    "priceVolume": "quoteAssetVolume, equivalent to aggregate price-times-volume for the 8h bar",
+    "signedPriceVolumeImbalance": "2*takerBuyQuoteAssetVolume - quoteAssetVolume",
+    "logBasis": "ln(perpetualClose/indexPriceClose)",
+    "executionReturn": "next 8h open to following 8h open after the completed decision bar"
+  },
+  "cohort": {
+    "symbols": ["ANIMEUSDT","BERAUSDT","TSTUSDT","LAYERUSDT","HEIUSDT","GPSUSDT","SHELLUSDT","KAITOUSDT","REDUSDT","EPICUSDT","BMTUSDT","MUBARAKUSDT","FORMUSDT","TUTUSDT","BROCCOLI714USDT","PLUMEUSDT","BANANAS31USDT","NILUSDT","PARTIUSDT","WALUSDT","GUNUSDT","BABYUSDT","STOUSDT","KERNELUSDT","WCTUSDT","INITUSDT","BANKUSDT","HYPERUSDT","JSTUSDT","SIGNUSDT"],
+    "count": 30,
+    "selectionRule": "new current-active Binance Spot USDT + USD-M PERPETUAL symbols absent from the V18 outcome-exposure union for identical/closely-related FPRV research; stable and commodity-backed contracts excluded",
+    "fixedAfterLock": true,
+    "minimumEligiblePerTimestamp": 30
+  },
+  "windows": {
+    "archiveFetchStart": "2025-04-28T00:00:00Z",
+    "development": {"start":"2026-04-20T00:00:00Z","endExclusive":"2026-06-20T00:00:00Z"},
+    "freshValidation": {"start":"2026-06-20T00:00:00Z","endExclusive":"2026-08-01T00:00:00Z","openOnlyAfterDevelopmentPass":true},
+    "sealedHoldout": {"start":"2026-08-01T00:00:00Z","endExclusive":"2026-09-15T00:00:00Z","openOnlyAfterFreshValidationPass":true,"oneShot":true}
+  },
+  "statistics": {
+    "annualizationBars": 1095,
+    "bootstrap": {"method":"CIRCULAR_MOVING_BLOCK","blockLengthBars":21,"iterations":10000,"developmentSeed":21202},
+    "varianceEstimator": "sample variance ddof=1"
+  },
+  "costs": {
+    "baseOneWayRate": 0.0006,
+    "stress1_5xOneWayRate": 0.0009,
+    "stress2xOneWayRate": 0.0012,
+    "chargedOn": "absolute composite portfolio weight changes plus terminal liquidation"
+  },
+  "developmentGate": {
+    "minimumEvaluated8hBars": 160,
+    "minimum32FactorCoverageFraction": 0.95,
+    "grossCompositeAnnualizedSharpeMin": 0.75,
+    "grossCompositeMeanPer8hMin": 0.0001,
+    "baseCostNetMeanPer8hMin": 0.0,
+    "stress1_5xNetMeanPer8hMin": 0.0,
+    "baseCostBootstrapProbabilityPositiveMin": 0.8,
+    "baseCostBootstrapCi95LowMin": -0.0002,
+    "positiveMonthFractionMin": 0.5,
+    "first3VarianceExplainedMin": 0.5,
+    "baseCostMaxDrawdownMax": 0.25
+  },
+  "failureRule": "Any development gate failure closes R2 without threshold rescue. Fresh validation and sealed holdout remain sealed. Passing development authorizes only freezing the development PCA transform and opening fresh validation; it does not authorize production or R15 mutation."
+}
