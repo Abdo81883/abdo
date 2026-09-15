@@ -1,0 +1,70 @@
+{
+  "schema":"mgpt_arp22_pos1_top_trader_positioning_lock_v1",
+  "generation":"ARP22-POS1",
+  "status":"LOCKED_BEFORE_DEVELOPMENT_PRICE_OUTCOMES",
+  "productionAuthority":false,
+  "automaticExecutionAllowed":false,
+  "r15MutationAllowed":false,
+  "parentRelease":"RC4S3H5R4R15",
+  "parentWorkerSha256":"8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority":{"file":"MGPT_ALPHA_CONTAMINATION_REGISTRY_V19_20260915.json","sha256":"e64a0e249ace65a6b81ac23271ab8a6f1b89522e13641e88a38c0aa136d293ae"},
+  "researchFamily":"CRYPTO_TOP_TRADER_POSITIONING_CONTINUATION",
+  "causalDistinctness":"Uses Binance top-trader long/short ACCOUNT positioning level, not funding, basis, price-volume, momentum, reversal, seasonality or OHLC breakout rules used in prior project branches.",
+  "externalHypothesisEvidence":{
+    "source":"OctopusTakopi/funding-rate-alpha public survivorship-aware study, positioning.py and report Section 11",
+    "sourceStatus":"external hypothesis-generating evidence only; not project validation",
+    "reportedFinding":"Top-trader long/short account ratio level had positive cross-sectional association with next-24h returns and lower turnover than funding-based books.",
+    "signLocked":"CONTINUATION: long highest positioning ratio, short lowest positioning ratio",
+    "noOutcomeDrivenProjectRetuning":true
+  },
+  "dataAuthority":{
+    "metrics":"Binance official data.binance.vision USD-M daily metrics archives",
+    "price":"Binance official data.binance.vision USD-M monthly 1d klines",
+    "metricsField":"count_toptrader_long_short_ratio",
+    "signalTransform":"ln(max(ratio,1e-8))",
+    "signalTimestamp":"latest metrics snapshot strictly before 00:00 UTC decision, maximum age 15 minutes",
+    "execution":"00:00 UTC daily perpetual open; hold to following 00:00 UTC open",
+    "liquidity":"prior 90 completed UTC days mean daily quoteAssetVolume >= 5,000,000 USD",
+    "futureInformationAllowed":false,
+    "archiveChecksumRequired":true
+  },
+  "cohort":{
+    "symbols":["PUNDIXUSDT","CTKUSDT","DOLOUSDT","HAEDALUSDT","SXTUSDT","ASRUSDT","ALPINEUSDT","SYRUPUSDT","OGUSDT","NXPCUSDT","CVCUSDT","AWEUSDT","HUMAUSDT","AUSDT","SOPHUSDT","LAUSDT","HOMEUSDT","RESOLVUSDT","SPKUSDT","FUSDT","NEWTUSDT","SAHARAUSDT","PUMPUSDT","CUSDT","ERAUSDT","CVXUSDT","SLPUSDT","TREEUSDT","TOWNSUSDT","PROVEUSDT"],
+    "count":30,
+    "selectionRule":"deterministic next 30 current-active Binance Spot-USDT + USD-M PERPETUAL symbols after the completed ARP21-R2 cohort in current onboarding order; no R2 symbols reused.",
+    "fixedAfterLock":true,
+    "minimumEligiblePerDecision":20
+  },
+  "portfolio":{
+    "ranking":"descending signal with lexical symbol tie-break",
+    "longBook":"top 10% of eligible symbols, equal-weight total +0.50",
+    "shortBook":"bottom 10% of eligible symbols, equal-weight total -0.50",
+    "grossExposure":1.0,
+    "netExposure":0.0,
+    "rebalance":"daily at 00:00 UTC"
+  },
+  "costs":{"baseOneWayRate":0.0006,"stress1_5xOneWayRate":0.0009,"stress2xOneWayRate":0.0012,"chargedOn":"sum absolute portfolio weight changes plus terminal liquidation"},
+  "windows":{
+    "warmupStart":"2025-08-01T00:00:00Z",
+    "development":{"start":"2025-11-15T00:00:00Z","endExclusive":"2026-03-15T00:00:00Z"},
+    "freshValidation":{"start":"2026-03-15T00:00:00Z","endExclusive":"2026-06-15T00:00:00Z","openOnlyAfterDevelopmentPass":true},
+    "sealedHoldout":{"start":"2026-06-15T00:00:00Z","endExclusive":"2026-09-15T00:00:00Z","openOnlyAfterFreshValidationPass":true,"oneShot":true}
+  },
+  "statistics":{"annualizationDays":365,"bootstrap":{"method":"CIRCULAR_MOVING_BLOCK","blockLengthDays":7,"iterations":10000,"developmentSeed":22101,"validationSeed":22102,"holdoutSeed":22103}},
+  "developmentGate":{
+    "minimumEvaluatedDays":105,
+    "minimumCoverageFraction":0.90,
+    "netMeanDailyReturnMin":0.00020,
+    "netAnnualizedSharpeMin":0.60,
+    "netProfitFactorMin":1.05,
+    "stress1_5xMeanDailyReturnMin":0.0,
+    "stress2xMeanDailyReturnMin":-0.00005,
+    "positiveMonthFractionMin":0.50,
+    "bootstrapProbabilityPositiveMin":0.85,
+    "bootstrapCi95LowMin":-0.00050,
+    "maxDrawdownMax":0.25,
+    "averageEligibleSymbolsMin":22,
+    "singleSymbolPositiveContributionMax":0.30
+  },
+  "failureRule":"Any development gate failure closes ARP22-POS1 without threshold, universe, cost, holding-period or signal-transform rescue. Validation and holdout remain sealed. Development pass authorizes only fresh validation under the unchanged lock."
+}
