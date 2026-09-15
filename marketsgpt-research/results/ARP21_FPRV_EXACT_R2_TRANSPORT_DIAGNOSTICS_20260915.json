@@ -1,0 +1,416 @@
+{
+  "schema": "mgpt_arp21_fprv_exact_r2_transport_diagnostics_v1",
+  "generation": "ARP21-FPRV-EXACT-R2",
+  "generatedAtUtc": "2026-09-15T21:03:05.506117+00:00",
+  "archiveMonths": [
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06"
+  ],
+  "checksumRequired": true,
+  "manifestFileCount": 900,
+  "symbols": [
+    {
+      "symbol": "ANIMEUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "BERAUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "TSTUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "LAYERUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "HEIUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "GPSUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "SHELLUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "KAITOUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "REDUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "EPICUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "BMTUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "MUBARAKUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "FORMUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "TUTUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "BROCCOLI714USDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "PLUMEUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "BANANAS31USDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "NILUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "PARTIUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "WALUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "GUNUSDT",
+      "perpRows": 1368,
+      "indexRows": 1365,
+      "alignedRows": 1365,
+      "firstUtc": "2025-04-01T00:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "BABYUSDT",
+      "perpRows": 1355,
+      "indexRows": 1337,
+      "alignedRows": 1337,
+      "firstUtc": "2025-04-10T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "STOUSDT",
+      "perpRows": 1334,
+      "indexRows": 1331,
+      "alignedRows": 1331,
+      "firstUtc": "2025-04-12T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "KERNELUSDT",
+      "perpRows": 1328,
+      "indexRows": 1325,
+      "alignedRows": 1325,
+      "firstUtc": "2025-04-14T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "WCTUSDT",
+      "perpRows": 1325,
+      "indexRows": 1322,
+      "alignedRows": 1322,
+      "firstUtc": "2025-04-15T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "INITUSDT",
+      "perpRows": 1323,
+      "indexRows": 1295,
+      "alignedRows": 1295,
+      "firstUtc": "2025-04-24T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "BANKUSDT",
+      "perpRows": 1315,
+      "indexRows": 1312,
+      "alignedRows": 1312,
+      "firstUtc": "2025-04-18T16:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "HYPERUSDT",
+      "perpRows": 1304,
+      "indexRows": 1301,
+      "alignedRows": 1301,
+      "firstUtc": "2025-04-22T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "JSTUSDT",
+      "perpRows": 1286,
+      "indexRows": 1284,
+      "alignedRows": 1283,
+      "firstUtc": "2025-04-28T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    },
+    {
+      "symbol": "SIGNUSDT",
+      "perpRows": 1286,
+      "indexRows": 1283,
+      "alignedRows": 1283,
+      "firstUtc": "2025-04-28T08:00:00+00:00",
+      "lastUtc": "2026-06-30T16:00:00+00:00",
+      "postFirstTimestampGapCount": 1,
+      "duplicateArchiveRows": {
+        "klines": 0,
+        "indexPriceKlines": 0
+      }
+    }
+  ]
+}

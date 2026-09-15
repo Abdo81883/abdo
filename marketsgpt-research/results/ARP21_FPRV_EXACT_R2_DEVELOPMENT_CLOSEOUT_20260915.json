@@ -1,0 +1,199 @@
+{
+  "schema": "mgpt_arp21_fprv_exact_r2_development_closeout_v1",
+  "generation": "ARP21-FPRV-EXACT-R2",
+  "generatedAtUtc": "2026-09-15T21:03:05.505999+00:00",
+  "status": "REJECT_DEVELOPMENT_GATE",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "validationAuthorized": false,
+  "sealedHoldoutOpened": false,
+  "lockSha256": "6fe213bfffc4c47bda3789a97f8c4dd718b0fc26e5d3d29f4d29057914a12c4c",
+  "development": {
+    "evaluated8hBars": 183,
+    "expected8hBars": 183,
+    "factorCoverageFraction": 1.0,
+    "timestampsBelowMinimumEligible": 0,
+    "firstDecisionUtc": "2026-04-20T00:00:00+00:00",
+    "lastDecisionUtc": "2026-06-19T16:00:00+00:00",
+    "first3VarianceExplained": 0.7229445261167895,
+    "pcaEigenvalues": [
+      0.010053212440391479,
+      0.00391461290366637,
+      0.0015854194258016559
+    ],
+    "pcaExplainedVariance": [
+      0.46729251749156925,
+      0.18195868530636627,
+      0.07369332331885395
+    ],
+    "pcaCompositeWeights": [
+      0.6463739617776421,
+      0.25169107550165115,
+      0.10193496272070675
+    ],
+    "meanCompositeTurnover": 2.2349148506616734,
+    "gross": {
+      "n": 183,
+      "meanPer8h": 0.005150325517699387,
+      "annualizedMean": 5.6396064418808285,
+      "annualizedSharpe": 2.550623828172631,
+      "profitFactor": 1.2361809974492983,
+      "maxDrawdown": 0.5322007464372462,
+      "positiveMonthFraction": 0.6666666666666666,
+      "monthSums": {
+        "2026-04": 0.3729602591445225,
+        "2026-05": 0.82748938617485,
+        "2026-06": -0.257940075580385
+      },
+      "bootstrap": {
+        "probPositive": 0.8805,
+        "ci95Low": -0.003554132446047601,
+        "ci95High": 0.013622751238319698
+      }
+    },
+    "baseCost": {
+      "n": 183,
+      "meanPer8h": 0.0038093766073023817,
+      "annualizedMean": 4.171267384996108,
+      "annualizedSharpe": 1.8869393903476577,
+      "profitFactor": 1.1697738410486376,
+      "maxDrawdown": 0.5824341840413988,
+      "positiveMonthFraction": 0.6666666666666666,
+      "monthSums": {
+        "2026-04": 0.3310430253029795,
+        "2026-05": 0.7046553554928094,
+        "2026-06": -0.3385824616594533
+      },
+      "bootstrap": {
+        "probPositive": 0.8095,
+        "ci95Low": -0.005018679287024909,
+        "ci95High": 0.012089184989219546
+      }
+    },
+    "stress1_5x": {
+      "n": 183,
+      "meanPer8h": 0.003138902152103881,
+      "annualizedMean": 3.4370978565537498,
+      "annualizedSharpe": 1.55495447779074,
+      "profitFactor": 1.137938805440878,
+      "maxDrawdown": 0.6123106063541783,
+      "positiveMonthFraction": 0.6666666666666666,
+      "monthSums": {
+        "2026-04": 0.3100844083822081,
+        "2026-05": 0.6432383401517893,
+        "2026-06": -0.37890365469898707
+      },
+      "bootstrap": {
+        "probPositive": 0.7642,
+        "ci95Low": -0.005395031097529707,
+        "ci95High": 0.011507748283174633
+      }
+    },
+    "stress2x": {
+      "n": 183,
+      "meanPer8h": 0.002468427696905377,
+      "annualizedMean": 2.702928328111388,
+      "annualizedSharpe": 1.2228953902665443,
+      "profitFactor": 1.1069659517904247,
+      "maxDrawdown": 0.6400695752151746,
+      "positiveMonthFraction": 0.6666666666666666,
+      "monthSums": {
+        "2026-04": 0.28912579146143663,
+        "2026-05": 0.5818213248107685,
+        "2026-06": -0.4192248477385212
+      },
+      "bootstrap": {
+        "probPositive": 0.7067,
+        "ci95Low": -0.006418751543671464,
+        "ci95High": 0.011017363033329248
+      }
+    },
+    "strongestIndividualFactors": [
+      {
+        "name": "varSPVI_28d",
+        "meanPer8h": 0.004706441935768076,
+        "annualizedSharpe": 5.7131272276847165
+      },
+      {
+        "name": "meanPV_112d",
+        "meanPer8h": 0.0036536214478867495,
+        "annualizedSharpe": 5.495735863519726
+      },
+      {
+        "name": "varPV_56d",
+        "meanPer8h": 0.003533696078880649,
+        "annualizedSharpe": 4.814382155692523
+      },
+      {
+        "name": "meanPV_28d",
+        "meanPer8h": 0.002503165288517052,
+        "annualizedSharpe": 3.4052373529264846
+      },
+      {
+        "name": "meanPV_56d",
+        "meanPer8h": 0.002261719268515608,
+        "annualizedSharpe": 3.0559052456912306
+      },
+      {
+        "name": "varPV_112d",
+        "meanPer8h": 0.0019392920849484914,
+        "annualizedSharpe": 2.939540311758178
+      },
+      {
+        "name": "varSPVI_14d",
+        "meanPer8h": 0.002133576996243247,
+        "annualizedSharpe": 2.7328147842595976
+      },
+      {
+        "name": "varSPVI_21d",
+        "meanPer8h": 0.002186735739462512,
+        "annualizedSharpe": 2.6871006706580762
+      }
+    ],
+    "weakestIndividualFactors": [
+      {
+        "name": "meanSPVI_21d",
+        "meanPer8h": -5.659212092058628e-05,
+        "annualizedSharpe": -0.07154472635330204
+      },
+      {
+        "name": "meanSPVI_56d",
+        "meanPer8h": -0.00011789590986345988,
+        "annualizedSharpe": -0.141836085597921
+      },
+      {
+        "name": "meanSPVI_28d",
+        "meanPer8h": -0.000824836697348858,
+        "annualizedSharpe": -1.0538523792853287
+      },
+      {
+        "name": "meanPV_1d",
+        "meanPer8h": -0.0010816190924947363,
+        "annualizedSharpe": -1.2107315499916127
+      },
+      {
+        "name": "varPV_1d",
+        "meanPer8h": -0.0016442703696532366,
+        "annualizedSharpe": -1.8094818436202005
+      }
+    ]
+  },
+  "gate": {
+    "minimumEvaluated8hBars": true,
+    "minimum32FactorCoverageFraction": true,
+    "grossCompositeAnnualizedSharpeMin": true,
+    "grossCompositeMeanPer8hMin": true,
+    "baseCostNetMeanPer8hMin": true,
+    "stress1_5xNetMeanPer8hMin": true,
+    "baseCostBootstrapProbabilityPositiveMin": true,
+    "baseCostBootstrapCi95LowMin": false,
+    "positiveMonthFractionMin": true,
+    "first3VarianceExplainedMin": true,
+    "baseCostMaxDrawdownMax": false
+  },
+  "failedChecks": [
+    "baseCostBootstrapCi95LowMin",
+    "baseCostMaxDrawdownMax"
+  ],
+  "nextAction": "Close R2; validation and holdout remain sealed."
+}
