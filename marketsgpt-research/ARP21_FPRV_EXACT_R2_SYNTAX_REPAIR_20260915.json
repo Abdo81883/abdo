@@ -1,0 +1,14 @@
+{
+  "schema":"mgpt_arp21_fprv_exact_r2_software_repair_v2",
+  "generation":"ARP21-FPRV-EXACT-R2",
+  "generatedAtUtc":"2026-09-15T21:01:00Z",
+  "status":"AUTHORIZED_SYNTAX_ONLY_REPAIR_NO_OUTCOME_OPENED_IN_RUN2",
+  "failedRunId":35023003755,
+  "failedJobId":104563154614,
+  "observedFailure":"The first serialization repair commit inserted the two Python statements with a literal backslash-n sequence, causing SyntaxError before the evaluator executed.",
+  "marketDataOpenedByFailedRun":false,
+  "researchMathChanged":false,
+  "thresholdsChanged":false,
+  "repair":"Replace the literal backslash-n characters with an actual newline between the bool-cast line and failed-check line.",
+  "r15MutationAllowed":false
+}
