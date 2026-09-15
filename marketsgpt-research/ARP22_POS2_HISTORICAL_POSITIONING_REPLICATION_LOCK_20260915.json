@@ -1,0 +1,112 @@
+{
+  "schema": "mgpt_arp22_pos2_historical_positioning_replication_lock_v1",
+  "generation": "ARP22-POS2",
+  "createdAtUtc": "2026-09-15T21:25:00Z",
+  "status": "LOCKED_BEFORE_POS2_MARKET_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority": {
+    "file": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V20_20260915.json",
+    "sha256": "085f290258dae1e119aa20ab97d4dee12af49b230cb3884ebdcdd2d42859ed3a"
+  },
+  "researchFamily": "CRYPTO_TOP_TRADER_POSITIONING_CONTINUATION",
+  "relationshipToPOS1": "Strict independent temporal/cohort replication of the exact POS1 economic hypothesis. POS1 thresholds are not relaxed and its cohort is not reused. POS2 uses older, broader contracts; many names are globally outcome-exposed under causally distinct prior hypotheses, so POS2 is hypothesis-fresh rather than globally symbol-pristine and therefore uses stronger statistical gates.",
+  "signalContract": {
+    "source": "Binance USD-M public daily metrics archive",
+    "field": "count_toptrader_long_short_ratio",
+    "transform": "ln(max(ratio,1e-8))",
+    "decisionTime": "00:00 UTC daily",
+    "signalTimestamp": "latest metrics snapshot strictly before decisionTime, maximum age 15 minutes",
+    "direction": "CONTINUATION: long highest ratio, short lowest ratio",
+    "longBook": "top 10% of eligible symbols, equal weight total +0.50",
+    "shortBook": "bottom 10% of eligible symbols, equal weight total -0.50",
+    "grossExposure": 1.0,
+    "netExposure": 0.0,
+    "execution": "decision-day 00:00 UTC perpetual open to next-day 00:00 UTC open",
+    "liquidity": "prior 90 completed UTC days mean daily quoteAssetVolume >= 5,000,000 USD",
+    "parameterSweepAllowed": false,
+    "signalTransformSweepAllowed": false,
+    "holdingPeriodSweepAllowed": false,
+    "thresholdRescueAllowed": false
+  },
+  "dataAuthority": {
+    "metrics": "Binance official data.binance.vision USD-M daily metrics ZIP + CHECKSUM",
+    "price": "Binance official data.binance.vision USD-M monthly 1d klines ZIP + CHECKSUM",
+    "archiveChecksumRequired": true,
+    "futureInformationAllowed": false,
+    "transportRule": "missing/corrupt days fail closed; no interpolation or forward fill across decisions"
+  },
+  "cohort": {
+    "count": 55,
+    "selection": "all current-active Spot-USDT + USD-M PERPETUAL contracts onboarded no later than 2020-12-31, excluding stable/commodity-backed contracts; deterministic onboarding-date then lexical order",
+    "hypothesisFreshNotGloballySymbolPristine": true,
+    "symbols": [
+      "BTCUSDT","ETHUSDT","BCHUSDT","XRPUSDT","LTCUSDT","TRXUSDT","ETCUSDT","LINKUSDT","XLMUSDT","ADAUSDT","DASHUSDT","ZECUSDT","XTZUSDT","ATOMUSDT","BNBUSDT","ONTUSDT","IOTAUSDT","BATUSDT","VETUSDT","NEOUSDT","QTUMUSDT","IOSTUSDT","THETAUSDT","ALGOUSDT","ZILUSDT","KNCUSDT","ZRXUSDT","COMPUSDT","DOGEUSDT","KAVAUSDT","BANDUSDT","RLCUSDT","SNXUSDT","DOTUSDT","SKLUSDT","YFIUSDT","CRVUSDT","TRBUSDT","SUSHIUSDT","RUNEUSDT","EGLDUSDT","SOLUSDT","UNIUSDT","AVAXUSDT","ENJUSDT","KSMUSDT","NEARUSDT","FILUSDT","AAVEUSDT","RSRUSDT","BELUSDT","AXSUSDT","ZENUSDT","GRTUSDT","1INCHUSDT"
+    ],
+    "minimumEligiblePerDecision": 45
+  },
+  "costs": {
+    "baseOneWayRate": 0.0006,
+    "stress1_5xOneWayRate": 0.0009,
+    "stress2xOneWayRate": 0.0012,
+    "chargedOn": "sum absolute portfolio weight changes plus terminal liquidation"
+  },
+  "windows": {
+    "warmupStart": "2020-12-20T00:00:00Z",
+    "development": {"start":"2021-04-01T00:00:00Z","endExclusive":"2022-04-01T00:00:00Z"},
+    "freshValidation": {"start":"2022-04-01T00:00:00Z","endExclusive":"2023-04-01T00:00:00Z","openOnlyAfterDevelopmentPass":true},
+    "sealedHoldout": {"start":"2023-04-01T00:00:00Z","endExclusive":"2024-04-01T00:00:00Z","openOnlyAfterFreshValidationPass":true,"oneShot":true}
+  },
+  "statistics": {
+    "annualizationDays": 365,
+    "bootstrap": {"method":"CIRCULAR_MOVING_BLOCK","blockLengthDays":7,"iterations":10000,"developmentSeed":22201,"validationSeed":22202,"holdoutSeed":22203},
+    "multiplicityProtection": "Development bootstrap probability threshold strengthened to 0.975 because POS2 follows a promising but rejected POS1 and the wider project contains many prior hypothesis tests."
+  },
+  "developmentGate": {
+    "minimumEvaluatedDays": 350,
+    "minimumCoverageFraction": 0.90,
+    "averageEligibleSymbolsMin": 45,
+    "netMeanDailyReturnMin": 0.0004,
+    "netAnnualizedSharpeMin": 1.0,
+    "netProfitFactorMin": 1.10,
+    "stress1_5xMeanDailyReturnMin": 0.0002,
+    "stress2xMeanDailyReturnMin": 0.0,
+    "positiveMonthFractionMin": 0.58,
+    "firstHalfNetReturnPositive": true,
+    "secondHalfNetReturnPositive": true,
+    "bootstrapProbabilityPositiveMin": 0.975,
+    "bootstrapCi95LowMin": 0.0,
+    "maxDrawdownMax": 0.20,
+    "singleSymbolPositiveContributionMax": 0.20
+  },
+  "freshValidationGate": {
+    "minimumEvaluatedDays": 350,
+    "minimumCoverageFraction": 0.90,
+    "averageEligibleSymbolsMin": 45,
+    "netMeanDailyReturnMin": 0.0002,
+    "netAnnualizedSharpeMin": 0.60,
+    "netProfitFactorMin": 1.05,
+    "stress2xMeanDailyReturnMin": 0.0,
+    "positiveMonthFractionMin": 0.50,
+    "bootstrapProbabilityPositiveMin": 0.90,
+    "bootstrapCi95LowMin": -0.00025,
+    "maxDrawdownMax": 0.22,
+    "singleSymbolPositiveContributionMax": 0.25
+  },
+  "sealedHoldoutGate": {
+    "minimumEvaluatedDays": 350,
+    "minimumCoverageFraction": 0.90,
+    "averageEligibleSymbolsMin": 45,
+    "netMeanDailyReturnMin": 0.0,
+    "netAnnualizedSharpeMin": 0.30,
+    "netProfitFactorMin": 1.0,
+    "stress1_5xMeanDailyReturnMin": 0.0,
+    "bootstrapProbabilityPositiveMin": 0.80,
+    "maxDrawdownMax": 0.25,
+    "singleSymbolPositiveContributionMax": 0.30
+  },
+  "failureRule": "Any development failure closes POS2 with no rescue. Fresh validation remains sealed unless every development gate passes. Holdout remains sealed unless every validation gate passes. R15 remains untouched regardless of point estimates until the full release contract is satisfied."
+}
