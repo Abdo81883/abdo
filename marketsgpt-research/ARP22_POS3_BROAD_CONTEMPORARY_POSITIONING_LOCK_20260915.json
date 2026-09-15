@@ -1,0 +1,110 @@
+{
+  "schema": "mgpt_arp22_pos3_broad_contemporary_positioning_lock_v1",
+  "generation": "ARP22-POS3",
+  "createdAtUtc": "2026-09-15T21:33:01Z",
+  "status": "LOCKED_BEFORE_POS3_MARKET_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority": {
+    "file": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V21_20260915.json",
+    "sha256": "fe7e45c1f406528176a30833c84a925fc89ce3e955a6e4424e28674ff241707c"
+  },
+  "researchFamily": "CRYPTO_TOP_TRADER_POSITIONING_CONTINUATION",
+  "relationshipToPrior": "Exact economic signal/cost/liquidity replication on a third same-family-fresh cohort. No POS1/POS2 symbol is reused. Many names were used under causally distinct prior hypotheses, so the evidence is hypothesis-fresh rather than globally symbol-pristine. POS3 widens breadth and lengthens development while strengthening the gate after the promising-but-rejected POS1.",
+  "signalContract": {
+    "source": "Binance USD-M public daily metrics archive",
+    "field": "count_toptrader_long_short_ratio",
+    "transform": "ln(max(ratio,1e-8))",
+    "decisionTime": "00:00 UTC daily",
+    "signalTimestamp": "latest metrics snapshot strictly before decisionTime, maximum age 15 minutes",
+    "direction": "CONTINUATION: long highest ratio, short lowest ratio",
+    "longBook": "top 10% eligible, equal weight total +0.50",
+    "shortBook": "bottom 10% eligible, equal weight total -0.50",
+    "grossExposure": 1.0,
+    "netExposure": 0.0,
+    "execution": "decision-day 00:00 UTC perpetual open to next-day 00:00 UTC open",
+    "liquidity": "prior 90 completed UTC days mean daily quoteAssetVolume >= 5,000,000 USD",
+    "parameterSweepAllowed": false,
+    "thresholdRescueAllowed": false
+  },
+  "dataAuthority": {
+    "metrics": "Binance official data.binance.vision USD-M daily metrics ZIP + CHECKSUM",
+    "price": "Binance official data.binance.vision USD-M monthly 1d klines ZIP + CHECKSUM",
+    "archiveChecksumRequired": true,
+    "futureInformationAllowed": false,
+    "transportRule": "missing/corrupt decisions fail closed; no interpolation/forward fill"
+  },
+  "cohort": {
+    "count": 132,
+    "symbols": [
+      "SANDUSDT","CHZUSDT","ANKRUSDT","RVNUSDT","SFPUSDT","COTIUSDT","CHRUSDT","MANAUSDT","ALICEUSDT","GTCUSDT","HBARUSDT","ONEUSDT","CELRUSDT","HOTUSDT","MTLUSDT","OGNUSDT","MASKUSDT","ICPUSDT","IOTXUSDT","C98USDT","DYDXUSDT","GALAUSDT","CELOUSDT","ARUSDT","ARPAUSDT","CTSIUSDT","LPTUSDT","ENSUSDT","PEOPLEUSDT","ROSEUSDT","DUSKUSDT","FLOWUSDT","IMXUSDT","API3USDT","GMTUSDT","APEUSDT","WOOUSDT","JASMYUSDT","OPUSDT","INJUSDT","STGUSDT","SPELLUSDT","LDOUSDT","APTUSDT","QNTUSDT","FETUSDT","MAGICUSDT","TUSDT","MINAUSDT","ASTRUSDT","GMXUSDT","CFXUSDT","STXUSDT","ACHUSDT","SSVUSDT","CKBUSDT","LQTYUSDT","IDUSDT","ARBUSDT","JOEUSDT","TLMUSDT","XVSUSDT","BLURUSDT","EDUUSDT","SUIUSDT","UMAUSDT","NMRUSDT","MAVUSDT","XVGUSDT","WLDUSDT","PENDLEUSDT","ARKMUSDT","AGLDUSDT","YGGUSDT","BNTUSDT","SEIUSDT","CYBERUSDT","ARKUSDT","BICOUSDT","BIGTIMEUSDT","WAXPUSDT","RIFUSDT","POLYXUSDT","GASUSDT","POWRUSDT","TIAUSDT","CAKEUSDT","MEMEUSDT","TWTUSDT","ORDIUSDT","STEEMUSDT","ILVUSDT","BEAMXUSDT","PYTHUSDT","SUPERUSDT","USTCUSDT","ONGUSDT","JTOUSDT","AUCTIONUSDT","ACEUSDT","MOVRUSDT","XAIUSDT","MANTAUSDT","WIFUSDT","ONDOUSDT","ALTUSDT","LSKUSDT","JUPUSDT","RONINUSDT","DYMUSDT","PIXELUSDT","STRKUSDT","GLMUSDT","PORTALUSDT","AXLUSDT","METISUSDT","AEVOUSDT","BOMEUSDT","ETHFIUSDT","ENAUSDT","WUSDT","TNSRUSDT","SAGAUSDT","TAOUSDT","REZUSDT","BBUSDT","NOTUSDT","TURBOUSDT","IOUSDT","ZKUSDT","LISTAUSDT","ZROUSDT"
+    ],
+    "selection": "all current-active Spot-USDT + USD-M perpetuals onboarded 2021-01-01 through 2024-06-30 after excluding POS1/POS2 same-family cohorts, stable/commodity-backed and multiplier contracts; onboarding-date then lexical order",
+    "hypothesisFreshNotGloballySymbolPristine": true,
+    "minimumEligiblePerDecision": 60
+  },
+  "costs": {
+    "baseOneWayRate": 0.0006,
+    "stress1_5xOneWayRate": 0.0009,
+    "stress2xOneWayRate": 0.0012,
+    "chargedOn": "sum absolute portfolio weight changes plus terminal liquidation"
+  },
+  "windows": {
+    "warmupStart": "2025-04-01T00:00:00Z",
+    "development": {"start":"2025-07-01T00:00:00Z","endExclusive":"2026-03-15T00:00:00Z"},
+    "freshValidation": {"start":"2026-03-15T00:00:00Z","endExclusive":"2026-06-15T00:00:00Z","openOnlyAfterDevelopmentPass":true},
+    "sealedHoldout": {"start":"2026-06-15T00:00:00Z","endExclusive":"2026-09-15T00:00:00Z","openOnlyAfterFreshValidationPass":true,"oneShot":true}
+  },
+  "statistics": {
+    "annualizationDays": 365,
+    "bootstrap": {"method":"CIRCULAR_MOVING_BLOCK","blockLengthDays":7,"iterations":10000,"developmentSeed":22301,"validationSeed":22302,"holdoutSeed":22303},
+    "multiplicityProtection": "POS3 development uses materially stronger gates than POS1 because this is a third test of the family."
+  },
+  "developmentGate": {
+    "minimumEvaluatedDays": 250,
+    "minimumCoverageFraction": 0.95,
+    "averageEligibleSymbolsMin": 60,
+    "netMeanDailyReturnMin": 0.0005,
+    "netAnnualizedSharpeMin": 1.25,
+    "netProfitFactorMin": 1.15,
+    "stress1_5xMeanDailyReturnMin": 0.0003,
+    "stress2xMeanDailyReturnMin": 0.0001,
+    "positiveMonthFractionMin": 0.6,
+    "firstHalfNetReturnPositive": true,
+    "secondHalfNetReturnPositive": true,
+    "bootstrapProbabilityPositiveMin": 0.99,
+    "bootstrapCi95LowMin": 0.0,
+    "maxDrawdownMax": 0.18,
+    "singleSymbolPositiveContributionMax": 0.15
+  },
+  "freshValidationGate": {
+    "minimumEvaluatedDays": 85,
+    "minimumCoverageFraction": 0.95,
+    "averageEligibleSymbolsMin": 60,
+    "netMeanDailyReturnMin": 0.0002,
+    "netAnnualizedSharpeMin": 0.6,
+    "netProfitFactorMin": 1.05,
+    "stress2xMeanDailyReturnMin": 0.0,
+    "positiveMonthFractionMin": 0.5,
+    "bootstrapProbabilityPositiveMin": 0.9,
+    "bootstrapCi95LowMin": -0.00025,
+    "maxDrawdownMax": 0.18,
+    "singleSymbolPositiveContributionMax": 0.2
+  },
+  "sealedHoldoutGate": {
+    "minimumEvaluatedDays": 85,
+    "minimumCoverageFraction": 0.95,
+    "averageEligibleSymbolsMin": 60,
+    "netMeanDailyReturnMin": 0.0,
+    "netAnnualizedSharpeMin": 0.3,
+    "netProfitFactorMin": 1.0,
+    "stress1_5xMeanDailyReturnMin": 0.0,
+    "bootstrapProbabilityPositiveMin": 0.8,
+    "maxDrawdownMax": 0.2,
+    "singleSymbolPositiveContributionMax": 0.25
+  },
+  "failureRule": "Any development failure closes POS3 with no rescue. Validation and holdout remain sealed unless prior stage passes every locked gate. R15 remains untouched until the full release contract passes."
+}
