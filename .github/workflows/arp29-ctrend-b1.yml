@@ -1,0 +1,44 @@
+name: ARP29 CTREND B1 Binance Development
+
+on:
+  push:
+    paths:
+      - "marketsgpt-research/arp29_ctrend_b1.py"
+      - "marketsgpt-research/ARP29_CTREND_B1_BINANCE_ADAPTATION_LOCK_20260916.json"
+      - ".github/workflows/arp29-ctrend-b1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy pandas requests scikit-learn
+      - name: Compile evaluator
+        run: python -m py_compile marketsgpt-research/arp29_ctrend_b1.py
+      - name: Run frozen CTREND Binance development
+        run: python marketsgpt-research/arp29_ctrend_b1.py
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: arp29-ctrend-b1-development
+          path: marketsgpt-research/results/ARP29_CTREND_B1_*
+      - name: Commit immutable result bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketsgpt-research/results/ARP29_CTREND_B1_*
+          if git diff --cached --quiet; then
+            echo "No result changes"
+          else
+            git commit -m "results: ARP29 CTREND B1 development [skip ci]"
+            git push
+          fi
