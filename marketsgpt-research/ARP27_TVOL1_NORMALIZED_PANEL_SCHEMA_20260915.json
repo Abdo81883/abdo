@@ -1,0 +1,22 @@
+{
+  "schema": "mgpt_arp27_tvol1_normalized_panel_schema_v1",
+  "description": "Transport contract only; contains no market outcome by itself.",
+  "symbols": {
+    "<SYMBOL>": {
+      "daily": [
+        {
+          "t": "UTC midnight Unix ms",
+          "marketCap": "historical same-provider USD market cap",
+          "volumeUsd": "historical same-provider 24h USD trading volume",
+          "binanceOpen": "Binance USD-M daily open"
+        }
+      ]
+    }
+  },
+  "requirements": {
+    "timestamps": "exact UTC daily grid",
+    "marketCapAndVolume": "same frozen provider and same daily timestamp semantics",
+    "binanceOpen": "official Binance USD-M",
+    "missing": "no interpolation; fail closed"
+  }
+}
