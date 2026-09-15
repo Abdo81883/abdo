@@ -1,0 +1,1000 @@
+{
+  "arp2Cohorts": {
+    "development": [
+      "COST",
+      "LOW",
+      "UNH",
+      "LLY",
+      "CAT",
+      "DE",
+      "GE",
+      "BKNG",
+      "ISRG",
+      "TMO",
+      "ADP",
+      "ABBV"
+    ],
+    "freshValidation": [
+      "AMAT",
+      "MU",
+      "KLAC",
+      "LRCX",
+      "VRTX",
+      "REGN",
+      "CI",
+      "PGR"
+    ],
+    "immutableAfterPriceOpen": true,
+    "metadataCheckedOnly": true,
+    "priceOutcomeOpened": false,
+    "sealedHoldout": [
+      "NOW",
+      "PANW",
+      "CRWD",
+      "SNPS",
+      "CDNS",
+      "ANET",
+      "MCK",
+      "ORLY"
+    ]
+  },
+  "closedEvidence": [
+    {
+      "assets": [
+        "IXN",
+        "IGM",
+        "ARKW",
+        "MGK",
+        "IWF",
+        "IWY",
+        "ONEQ",
+        "MTUM",
+        "QQQE",
+        "PTF"
+      ],
+      "branch": "Q7-T4",
+      "status": "NON_PRISTINE_CLOSED",
+      "windows": [
+        "2017-2022 development",
+        "2022-2024 validation",
+        "2024-2026 sealed holdout opened once"
+      ]
+    },
+    {
+      "assets": [
+        "ADBE",
+        "HD",
+        "PG",
+        "JNJ",
+        "MRK",
+        "V",
+        "MA",
+        "HON",
+        "UPS",
+        "DUK",
+        "SO",
+        "CSCO"
+      ],
+      "branch": "Q11-RC1",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "assets": [
+        "LMT",
+        "RTX",
+        "GD",
+        "EMR",
+        "ITW",
+        "APD",
+        "SHW",
+        "WM",
+        "RSG",
+        "KMB",
+        "CL",
+        "GIS"
+      ],
+      "branch": "Q11-RC2",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "assets": [
+        "MMM",
+        "ETN",
+        "PH",
+        "CMI",
+        "NOC",
+        "NSC",
+        "CCI",
+        "PSA",
+        "EIX",
+        "SYY",
+        "ADM",
+        "KR"
+      ],
+      "branch": "Q12-R1",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED_2026-09-15",
+      "windows": [
+        "2017-2022 development opened; validation and holdout remain sealed"
+      ]
+    },
+    {
+      "assets": [
+        "BCHUSDT",
+        "XRPUSDT",
+        "LTCUSDT",
+        "TRXUSDT",
+        "LINKUSDT",
+        "XLMUSDT",
+        "ADAUSDT",
+        "DOGEUSDT",
+        "DOTUSDT",
+        "AVAXUSDT"
+      ],
+      "branch": "Q13-C1B",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "assets": [
+        "XMRUSDT",
+        "DASHUSDT",
+        "VETUSDT",
+        "QTUMUSDT",
+        "IOSTUSDT",
+        "KNCUSDT",
+        "ZRXUSDT",
+        "RLCUSDT",
+        "TRBUSDT",
+        "MANAUSDT",
+        "HBARUSDT"
+      ],
+      "branch": "Q14-TPC3",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "branch": "Q14-R1",
+      "status": "OUTCOME_EXPOSED_AND_TEMPORAL_VALIDATION_FAILED"
+    },
+    {
+      "assets": [
+        "ONEUSDT",
+        "CELRUSDT",
+        "HOTUSDT",
+        "MTLUSDT",
+        "OGNUSDT",
+        "1000SHIBUSDT",
+        "ICPUSDT",
+        "IOTXUSDT",
+        "C98USDT",
+        "DYDXUSDT"
+      ],
+      "branch": "Q15-CBR1",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "assets": [
+        "1000XECUSDT",
+        "GALAUSDT",
+        "CELOUSDT",
+        "ARPAUSDT",
+        "CTSIUSDT",
+        "ENSUSDT",
+        "ROSEUSDT",
+        "GMTUSDT",
+        "APEUSDT",
+        "WOOUSDT"
+      ],
+      "branch": "Q16-RSR1",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "assets": [
+        "SKLUSDT",
+        "SANDUSDT",
+        "JASMYUSDT",
+        "OPUSDT",
+        "INJUSDT",
+        "STGUSDT",
+        "SPELLUSDT",
+        "LDOUSDT",
+        "APTUSDT",
+        "QNTUSDT"
+      ],
+      "branch": "Q17-XSM1",
+      "status": "OUTCOME_EXPOSED_BUT_INVALIDATED_SOFTWARE_DEFECT"
+    },
+    {
+      "assets": [
+        "FETUSDT",
+        "MAGICUSDT",
+        "TUSDT",
+        "MINAUSDT",
+        "ASTRUSDT",
+        "GMXUSDT",
+        "CFXUSDT",
+        "STXUSDT",
+        "SSVUSDT",
+        "CKBUSDT"
+      ],
+      "branch": "Q17-XSM2",
+      "status": "PRESERVED_NO_OUTCOME; reusable only under causally distinct new hypothesis"
+    },
+    {
+      "assets": [
+        "HACK",
+        "CIBR",
+        "SKYY",
+        "FINX",
+        "ROBO",
+        "BOTZ",
+        "SOCL",
+        "FDN",
+        "QTEC",
+        "PSI"
+      ],
+      "branch": "Q18-E1",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "assets": [
+        "IHI",
+        "IBB",
+        "XBI",
+        "XHB",
+        "ITB",
+        "XRT",
+        "KRE",
+        "KBE",
+        "IYT",
+        "IYR"
+      ],
+      "branch": "Q19-E1",
+      "status": "OUTCOME_EXPOSED"
+    },
+    {
+      "assets": [
+        "SOXX",
+        "SMH",
+        "IGV",
+        "XLK",
+        "VGT",
+        "IYW",
+        "XSD",
+        "FTEC",
+        "RYT",
+        "XNTK"
+      ],
+      "branch": "Q20-E2",
+      "status": "DEVELOPMENT_AND_VALIDATION_EXPOSED_NO_HOLDOUT"
+    },
+    {
+      "assets": [
+        "XSW",
+        "PNQI",
+        "ARKK",
+        "ARKQ",
+        "CQQQ",
+        "KWEB",
+        "SNSR",
+        "IPAY",
+        "PSCT",
+        "XITK"
+      ],
+      "branch": "Q21-E1",
+      "status": "DEVELOPMENT_EXPOSED"
+    },
+    {
+      "assets": [
+        "VUG",
+        "SCHG",
+        "SPYG",
+        "VOOG",
+        "RPG",
+        "PWB",
+        "VOT",
+        "IJK",
+        "VBK",
+        "IWO"
+      ],
+      "branch": "Q22-E1",
+      "status": "DEVELOPMENT_EXPOSED_FINAL_OLD_PROGRAM"
+    },
+    {
+      "assets": [
+        "AAPL"
+      ],
+      "branch": "R3C16C_AAPL",
+      "status": "WINDOW_A_EXPOSED; WINDOW_B unopened but may be opened only as a new Alpha program, not to reverse old closure"
+    },
+    {
+      "assetsOpened": [
+        "XOM",
+        "LIN",
+        "NEE",
+        "AMGN",
+        "PLD"
+      ],
+      "assetsUnopenedPreserved": [
+        "VZ",
+        "GS",
+        "PEP",
+        "SCHW",
+        "KHC",
+        "KDP",
+        "EOG"
+      ],
+      "branch": "ARP3-CBR2",
+      "sealedHoldoutOpened": false,
+      "status": "PARTIAL_DEVELOPMENT_OUTCOME_EXPOSED_EARLY_GATE_IMPOSSIBILITY_REJECT",
+      "validationOpened": false
+    },
+    {
+      "assets": [
+        "BCHUSDT",
+        "XRPUSDT",
+        "LTCUSDT",
+        "TRXUSDT",
+        "ETCUSDT",
+        "LINKUSDT",
+        "XLMUSDT",
+        "ADAUSDT"
+      ],
+      "branch": "ARP10-B1-DEVELOPMENT",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_PASS"
+    },
+    {
+      "assets": [
+        "XMRUSDT",
+        "DASHUSDT",
+        "ZECUSDT",
+        "XTZUSDT",
+        "ATOMUSDT",
+        "BNBUSDT",
+        "ONTUSDT",
+        "IOTAUSDT"
+      ],
+      "branch": "ARP10-B1-FRESH-VALIDATION",
+      "status": "OUTCOME_EXPOSED_VALIDATION_FAILED_BOOTSTRAP; HOLDOUT_SEALED"
+    },
+    {
+      "assets": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "SOLUSDT",
+        "DOTUSDT",
+        "AVAXUSDT",
+        "UNIUSDT",
+        "AAVEUSDT",
+        "NEARUSDT"
+      ],
+      "branch": "ARP10-B2-DEVELOPMENT",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED"
+    },
+    {
+      "assets": [
+        "DOGEUSDT",
+        "VETUSDT",
+        "ALGOUSDT",
+        "ZILUSDT",
+        "KAVAUSDT",
+        "SUSHIUSDT",
+        "RUNEUSDT",
+        "EGLDUSDT"
+      ],
+      "branch": "ARP10-B3-DEVELOPMENT",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED"
+    },
+    {
+      "assets": [
+        "BATUSDT",
+        "NEOUSDT",
+        "QTUMUSDT",
+        "IOSTUSDT",
+        "THETAUSDT",
+        "KNCUSDT",
+        "ZRXUSDT",
+        "COMPUSDT",
+        "BANDUSDT",
+        "RLCUSDT",
+        "SNXUSDT",
+        "SKLUSDT"
+      ],
+      "branch": "ARP10-B4-DEVELOPMENT",
+      "status": "OUTCOME_EXPOSED_BUT_RESEARCH_INTEGRITY_INVALIDATED_REGISTRY_CONFLICT; NO_ALPHA_EVIDENCE"
+    },
+    {
+      "assets": [
+        "YFIUSDT",
+        "CRVUSDT",
+        "ENJUSDT",
+        "KSMUSDT",
+        "FILUSDT",
+        "RSRUSDT",
+        "BELUSDT",
+        "AXSUSDT",
+        "ZENUSDT",
+        "GRTUSDT",
+        "1INCHUSDT",
+        "CHZUSDT",
+        "ANKRUSDT",
+        "RVNUSDT",
+        "SFPUSDT"
+      ],
+      "branch": "ARP12-BM1-DEVELOPMENT-TRANSPORT",
+      "status": "OUTCOME_PAYLOAD_EXPOSED_BUT_EVALUATION_ABORTED_TOOL_CALL_LIMIT; NO_ALPHA_JUDGMENT",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development transport only; validation and holdout unopened"
+      ]
+    },
+    {
+      "assets": [
+        "COTIUSDT",
+        "CHRUSDT",
+        "ACHUSDT",
+        "LQTYUSDT",
+        "IDUSDT",
+        "ARBUSDT",
+        "JOEUSDT",
+        "TLMUSDT"
+      ],
+      "branch": "ARP12-BM2-DEVELOPMENT",
+      "hypothesisFamily": "PERPETUAL_BASIS_MOMENTUM_LEVEL_CHANGE",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "POWRUSDT",
+        "TIAUSDT",
+        "CAKEUSDT",
+        "MEMEUSDT",
+        "TWTUSDT",
+        "ORDIUSDT",
+        "STEEMUSDT",
+        "ILVUSDT"
+      ],
+      "branch": "ARP13-BS1-DEVELOPMENT",
+      "hypothesisFamily": "PERPETUAL_BASIS_LEVEL",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "BEAMXUSDT",
+        "PYTHUSDT",
+        "SUPERUSDT",
+        "USTCUSDT",
+        "ONGUSDT",
+        "JTOUSDT",
+        "AUCTIONUSDT",
+        "ACEUSDT"
+      ],
+      "branch": "ARP14-PVI1-DEVELOPMENT",
+      "hypothesisFamily": "PERPETUAL_PRICE_VOLUME_IMBALANCE",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "AEVOUSDT",
+        "BOMEUSDT",
+        "ETHFIUSDT",
+        "ENAUSDT",
+        "WUSDT",
+        "TNSRUSDT",
+        "SAGAUSDT",
+        "TAOUSDT"
+      ],
+      "branch": "ARP15-FPRV1-DEVELOPMENT",
+      "hypothesisFamily": "PERPETUAL_BASIS_NEUTRAL_PRICE_VOLUME",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "RPLUSDT",
+        "POLUSDT",
+        "NEIROUSDT",
+        "FIDAUSDT",
+        "CATIUSDT",
+        "HMSTRUSDT",
+        "EIGENUSDT",
+        "DIAUSDT"
+      ],
+      "branch": "ARP16-RV1-DEVELOPMENT",
+      "hypothesisFamily": "PERPETUAL_DAILY_REVERSAL",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED_STRICT_GATE",
+      "windows": [
+        "2024-11-01 to 2025-10-01 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "REZUSDT",
+        "BBUSDT",
+        "NOTUSDT",
+        "TURBOUSDT",
+        "IOUSDT",
+        "ZKUSDT",
+        "LISTAUSDT",
+        "ZROUSDT"
+      ],
+      "branch": "ARP17-SEAS1-DEVELOPMENT",
+      "hypothesisFamily": "PERPETUAL_WEEKDAY_SEASONALITY",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2024-11-10 to 2025-11-20 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "XLB",
+        "XLC",
+        "XLE",
+        "XLF",
+        "XLI",
+        "XLK",
+        "XLP",
+        "XLRE",
+        "XLU",
+        "XLV",
+        "XLY"
+      ],
+      "branch": "ARP18-IM1-DEVELOPMENT",
+      "hypothesisFamily": "US_EQUITY_SECTOR_CROSS_SECTIONAL_MOMENTUM",
+      "sourceRepair": "IEX history boundary repaired pre-outcome to Alpaca SIP; signal/cost/gates unchanged",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2019-07-01 to 2022-07-01 development opened via SIP source-authority repair; fresh validation and sealed holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "VOO",
+        "IAU",
+        "SLV",
+        "TLT",
+        "IEF",
+        "LQD",
+        "HYG",
+        "UUP",
+        "USO",
+        "DBC",
+        "DBA",
+        "FXE"
+      ],
+      "branch": "ARP19-TSM1-TRANSPORT",
+      "hypothesisFamily": "MULTI_ASSET_ETF_TIME_SERIES_MOMENTUM",
+      "status": "PRICE_TRANSPORT_EXPOSED_NO_ALPHA_JUDGMENT",
+      "windows": [
+        "2016-01-04 to 2020-06-30 price transport opened; no portfolio performance computed"
+      ]
+    },
+    {
+      "assets": [
+        "VOO",
+        "IAU",
+        "SLV",
+        "TLT",
+        "IEF",
+        "LQD",
+        "HYG",
+        "UUP",
+        "USO",
+        "DBC",
+        "DBA",
+        "FXE"
+      ],
+      "branch": "ARP19-TSM2-DEVELOPMENT",
+      "hypothesisFamily": "MULTI_ASSET_ETF_TIME_SERIES_MOMENTUM",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2017-02-01 to 2020-07-01 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "SPLG",
+        "SCHX",
+        "VV",
+        "OEF",
+        "IWB",
+        "IWC",
+        "IJR",
+        "SPTM",
+        "SCHA",
+        "SCHM"
+      ],
+      "branch": "ARP20-TOM1",
+      "hypothesisFamily": "US_EQUITY_TURN_OF_MONTH",
+      "status": "DATA_BOUNDARY_NO_ALPHA_JUDGMENT",
+      "windows": [
+        "2016-01-01 to 2020-01-01 development not evaluated because SPLG coverage began 2017-10-16; validation/holdout unopened"
+      ]
+    },
+    {
+      "assets": [
+        "VONE",
+        "SCHX",
+        "VV",
+        "OEF",
+        "IWB",
+        "IWC",
+        "IJR",
+        "SPTM",
+        "SCHA",
+        "SCHM"
+      ],
+      "branch": "ARP20-TOM2-DEVELOPMENT",
+      "hypothesisFamily": "US_EQUITY_TURN_OF_MONTH",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2016-01-01 to 2020-01-01 development opened; validation and holdout not opened"
+      ]
+    },
+    {
+      "assets": [
+        "YFIUSDT",
+        "CRVUSDT",
+        "ENJUSDT",
+        "KSMUSDT",
+        "FILUSDT",
+        "RSRUSDT",
+        "BELUSDT",
+        "AXSUSDT",
+        "ZENUSDT",
+        "GRTUSDT",
+        "1INCHUSDT",
+        "CHZUSDT",
+        "ANKRUSDT",
+        "RVNUSDT",
+        "SFPUSDT"
+      ],
+      "branch": "ARP12-BM1-DEVELOPMENT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_BASIS_MOMENTUM",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development opened; fresh validation and sealed holdout remain sealed"
+      ]
+    },
+    {
+      "assets": [
+        "ALICEUSDT",
+        "GTCUSDT",
+        "MASKUSDT",
+        "ARUSDT",
+        "LPTUSDT",
+        "PEOPLEUSDT",
+        "DUSKUSDT",
+        "FLOWUSDT",
+        "IMXUSDT",
+        "API3USDT"
+      ],
+      "branch": "Q6-G4-DEVELOPMENT",
+      "hypothesisFamily": "CRYPTO_UNIVERSAL_ALTCOIN_DONCHIAN_ASSET_SMA200",
+      "sourceRepairReason": "Q6-G4 opened cohort was documented in project chat/PDF but absent from V3. Added before ARP13 cohort lock.",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED_RETROACTIVE_REGISTRY_REPAIR",
+      "windows": [
+        "Development outcomes were opened before this registry family existed; validation cohort GMT/JASMY/SPELL/STX/ACH/JOE remained unopened."
+      ]
+    },
+    {
+      "assets": [
+        "COTIUSDT",
+        "CHRUSDT",
+        "ACHUSDT",
+        "LQTYUSDT",
+        "IDUSDT",
+        "ARBUSDT",
+        "JOEUSDT",
+        "TLMUSDT",
+        "XVSUSDT",
+        "BLURUSDT",
+        "EDUUSDT",
+        "SUIUSDT",
+        "UMAUSDT",
+        "NMRUSDT",
+        "MAVUSDT",
+        "XVGUSDT",
+        "WLDUSDT",
+        "PENDLEUSDT",
+        "ARKMUSDT",
+        "AGLDUSDT",
+        "YGGUSDT",
+        "BNTUSDT",
+        "SEIUSDT",
+        "CYBERUSDT"
+      ],
+      "branch": "ARP13-PVI7-DEVELOPMENT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_BASIS_NEUTRAL_SIGNED_PRICE_VOLUME_IMBALANCE",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED",
+      "windows": [
+        "2024-07-02 to 2025-07-01 8h development opened; validation and holdout unopened"
+      ]
+    },
+    {
+      "assets": [
+        "ARKUSDT",
+        "BICOUSDT",
+        "BIGTIMEUSDT",
+        "WAXPUSDT",
+        "RIFUSDT",
+        "POLYXUSDT",
+        "GASUSDT",
+        "MOVRUSDT",
+        "XAIUSDT",
+        "MANTAUSDT",
+        "WIFUSDT",
+        "ONDOUSDT",
+        "ALTUSDT",
+        "LSKUSDT",
+        "JUPUSDT",
+        "RONINUSDT",
+        "DYMUSDT",
+        "PIXELUSDT",
+        "STRKUSDT",
+        "GLMUSDT",
+        "PORTALUSDT",
+        "AXLUSDT",
+        "METISUSDT",
+        "RENDERUSDT"
+      ],
+      "branch": "ARP14-FBAS1-R2-DEVELOPMENT-TRANSPORT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_LOG_BASIS_LEVEL",
+      "status": "OUTCOME_PAYLOAD_EXPOSED_BUT_EVALUATION_ABORTED_TOOL_CALL_LIMIT; NO_ALPHA_JUDGMENT",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development transport attempted; aggregate evaluation not returned; validation and holdout unopened"
+      ]
+    },
+    {
+      "assets": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "DOTUSDT",
+        "TRBUSDT",
+        "SOLUSDT",
+        "UNIUSDT",
+        "AVAXUSDT",
+        "NEARUSDT",
+        "AAVEUSDT",
+        "SANDUSDT",
+        "MANAUSDT",
+        "ALICEUSDT",
+        "GTCUSDT",
+        "HBARUSDT",
+        "ONEUSDT",
+        "CELRUSDT",
+        "HOTUSDT",
+        "MTLUSDT",
+        "OGNUSDT",
+        "MASKUSDT",
+        "ICPUSDT",
+        "IOTXUSDT",
+        "C98USDT",
+        "DYDXUSDT"
+      ],
+      "branch": "ARP14-FBAS2-I1-DEVELOPMENT-TRANSPORT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_INDEX_LOG_BASIS_LEVEL",
+      "status": "OUTCOME_PAYLOAD_EXPOSED_BUT_EVALUATION_ABORTED_TOOL_CALL_LIMIT; NO_ALPHA_JUDGMENT",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development transport attempted; aggregate evaluation not returned; validation/holdout unopened"
+      ]
+    },
+    {
+      "assets": [
+        "GALAUSDT",
+        "CELOUSDT",
+        "ARUSDT",
+        "ARPAUSDT",
+        "CTSIUSDT",
+        "LPTUSDT",
+        "ENSUSDT",
+        "PEOPLEUSDT",
+        "ROSEUSDT",
+        "DUSKUSDT",
+        "FLOWUSDT",
+        "IMXUSDT"
+      ],
+      "branch": "ARP14-FBAS3-C12-DEVELOPMENT-TRANSPORT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_INDEX_LOG_BASIS_LEVEL",
+      "status": "OUTCOME_PAYLOAD_EXPOSED_BUT_EVALUATION_ABORTED_TOOL_CALL_LIMIT; NO_ALPHA_JUDGMENT",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development transport attempted; aggregate evaluation not returned; validation/holdout unopened"
+      ]
+    },
+    {
+      "assets": [
+        "API3USDT",
+        "GMTUSDT",
+        "APEUSDT",
+        "WOOUSDT",
+        "JASMYUSDT",
+        "OPUSDT",
+        "INJUSDT",
+        "STGUSDT"
+      ],
+      "branch": "ARP14-FBAS4-C8-DEVELOPMENT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_INDEX_LOG_BASIS_LEVEL",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED_STRICT_GATE",
+      "windows": [
+        "2024-07-02 to 2025-07-01 development opened; validation and holdout remain unopened"
+      ]
+    },
+    {
+      "assets": [
+        "BANANAUSDT",
+        "GUSDT",
+        "RAREUSDT",
+        "SYNUSDT",
+        "SUNUSDT",
+        "DOGSUSDT",
+        "FLUXUSDT",
+        "SCRUSDT",
+        "SANTOSUSDT",
+        "COWUSDT",
+        "CETUSUSDT",
+        "ACTUSDT",
+        "PNUTUSDT",
+        "THEUSDT",
+        "MORPHOUSDT",
+        "KAIAUSDT",
+        "AEROUSDT",
+        "ORCAUSDT",
+        "MOVEUSDT",
+        "VIRTUALUSDT",
+        "MEUSDT",
+        "AVAUSDT",
+        "VELODROMEUSDT",
+        "VANAUSDT",
+        "PENGUUSDT",
+        "LUMIAUSDT",
+        "USUALUSDT",
+        "AIXBTUSDT",
+        "KMNOUSDT",
+        "CGPTUSDT",
+        "HIVEUSDT",
+        "DEXEUSDT",
+        "PHAUSDT",
+        "BIOUSDT",
+        "COOKIEUSDT",
+        "PROMUSDT",
+        "SUSDT",
+        "SOLVUSDT",
+        "TRUMPUSDT",
+        "VTHOUSDT"
+      ],
+      "branch": "ARP21-FPRV-EXACT-R1-DEVELOPMENT-TRANSPORT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_FPRV_EXACT",
+      "status": "OUTCOME_PAYLOAD_PARTIALLY_EXPOSED_EVALUATION_ABORTED_TOOL_CALL_LIMIT_NO_ALPHA_JUDGMENT",
+      "windows": [
+        "2026-01-25 to 2026-05-20 development transport partially opened; validation and holdout unopened"
+      ]
+    },
+    {
+      "assets": [
+        "ANIMEUSDT",
+        "BERAUSDT",
+        "TSTUSDT",
+        "LAYERUSDT",
+        "HEIUSDT",
+        "GPSUSDT",
+        "SHELLUSDT",
+        "KAITOUSDT",
+        "REDUSDT",
+        "EPICUSDT",
+        "BMTUSDT",
+        "MUBARAKUSDT",
+        "FORMUSDT",
+        "TUTUSDT",
+        "BROCCOLI714USDT",
+        "PLUMEUSDT",
+        "BANANAS31USDT",
+        "NILUSDT",
+        "PARTIUSDT",
+        "WALUSDT",
+        "GUNUSDT",
+        "BABYUSDT",
+        "STOUSDT",
+        "KERNELUSDT",
+        "WCTUSDT",
+        "INITUSDT",
+        "BANKUSDT",
+        "HYPERUSDT",
+        "JSTUSDT",
+        "SIGNUSDT"
+      ],
+      "branch": "ARP21-FPRV-EXACT-R2-DEVELOPMENT",
+      "hypothesisFamily": "CRYPTO_PERPETUAL_FPRV_EXACT",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED_STRICT_GATE",
+      "windows": [
+        "2026-04-20 to 2026-06-20 development opened; fresh validation and sealed holdout remained unopened"
+      ],
+      "developmentCloseoutSha256": "d98fdb00b8f277dd4adfea65cec8faf82054961c22dfec062f30a4eff79cbe79",
+      "failedChecks": [
+        "baseCostBootstrapCi95LowMin",
+        "baseCostMaxDrawdownMax"
+      ]
+    },
+    {
+      "assets": [
+        "PUNDIXUSDT",
+        "CTKUSDT",
+        "DOLOUSDT",
+        "HAEDALUSDT",
+        "SXTUSDT",
+        "ASRUSDT",
+        "ALPINEUSDT",
+        "SYRUPUSDT",
+        "OGUSDT",
+        "NXPCUSDT",
+        "CVCUSDT",
+        "AWEUSDT",
+        "HUMAUSDT",
+        "AUSDT",
+        "SOPHUSDT",
+        "LAUSDT",
+        "HOMEUSDT",
+        "RESOLVUSDT",
+        "SPKUSDT",
+        "FUSDT",
+        "NEWTUSDT",
+        "SAHARAUSDT",
+        "PUMPUSDT",
+        "CUSDT",
+        "ERAUSDT",
+        "CVXUSDT",
+        "SLPUSDT",
+        "TREEUSDT",
+        "TOWNSUSDT",
+        "PROVEUSDT"
+      ],
+      "branch": "ARP22-POS1-DEVELOPMENT",
+      "hypothesisFamily": "CRYPTO_TOP_TRADER_POSITIONING_CONTINUATION",
+      "status": "OUTCOME_EXPOSED_DEVELOPMENT_REJECTED_STRICT_GATE",
+      "windows": [
+        "2025-11-15 to 2026-03-15 development opened; validation and holdout remained sealed"
+      ],
+      "failedChecks": [
+        "minimumCoverageFraction",
+        "bootstrapCi95LowMin",
+        "averageEligibleSymbolsMin"
+      ]
+    },
+    {
+      "assets": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "BCHUSDT",
+        "XRPUSDT",
+        "LTCUSDT",
+        "TRXUSDT",
+        "ETCUSDT",
+        "LINKUSDT",
+        "XLMUSDT",
+        "ADAUSDT",
+        "DASHUSDT",
+        "ZECUSDT",
+        "XTZUSDT",
+        "ATOMUSDT",
+        "BNBUSDT",
+        "ONTUSDT",
+        "IOTAUSDT",
+        "BATUSDT",
+        "VETUSDT",
+        "NEOUSDT",
+        "QTUMUSDT",
+        "IOSTUSDT",
+        "THETAUSDT",
+        "ALGOUSDT",
+        "ZILUSDT",
+        "KNCUSDT",
+        "ZRXUSDT",
+        "COMPUSDT",
+        "DOGEUSDT",
