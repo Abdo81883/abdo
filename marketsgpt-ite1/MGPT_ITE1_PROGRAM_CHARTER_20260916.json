@@ -1,0 +1,159 @@
+{
+  "schema": "mgpt_ite1_program_charter_v1",
+  "generatedAtUtc": "2026-09-16T01:05:00Z",
+  "program": "MGPT-ITE1 — Institutional Trade Engine",
+  "status": "ACTIVE_NEW_RESEARCH_PROGRAM",
+  "mission": "Build and validate a market-adaptive trade decision engine that produces a complete executable trade plan — setup, entry, invalidation/SL, TP1/TP2/TP3, sizing, management and exit — while maximizing net expectancy and opportunity capture under realistic costs, drawdown and overfitting controls.",
+  "frozenBaseline": {
+    "release": "RC4S3H5R4R15",
+    "version": "31.6.982-r1-65d7a5h1-final-closure-rc4s3h5r4r15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "mutationAllowedDuringResearch": false,
+    "role": "FROZEN_INSTITUTIONAL_BASELINE_AND_DATA_TRUTH_LAYER"
+  },
+  "separationFromPriorAlphaCampaign": {
+    "priorCampaignStatus": "CLOSED_PRODUCT_STABLE_ALPHA_NOT_PROVEN",
+    "newNamespace": "MGPT_ITE1",
+    "newContaminationRegistryRequired": true,
+    "failedPriorAlphaRescueAllowed": false,
+    "reason": "ITE1 is a new trade-construction, selection and opportunity-capture program; it must not rescue or continue ARP/Q-series hypotheses after their terminal stop rule."
+  },
+  "targetOutputContract": {
+    "requiredFields": [
+      "marketFamily",
+      "regime",
+      "setupClass",
+      "direction",
+      "entryMode",
+      "entryZone",
+      "preferredEntry",
+      "trigger",
+      "invalidation",
+      "stopLoss",
+      "tp1",
+      "tp2",
+      "tp3",
+      "positionRisk",
+      "managementPlan",
+      "timeStop",
+      "cancelConditions",
+      "dataQuality",
+      "executionRisk",
+      "evidenceBreakdown",
+      "decision"
+    ],
+    "decisionStates": [
+      "TRADE",
+      "WAIT_FOR_ENTRY",
+      "WAIT_FOR_TRIGGER",
+      "AVOID",
+      "DATA_GAP"
+    ],
+    "probabilityRule": "No field may be labelled probability/confidence-of-success unless it is empirically calibrated out-of-sample. Heuristic scores must be labelled score/rank only."
+  },
+  "architecture": [
+    "Instrument and market-family resolver",
+    "Data quality/provenance and executable-evidence gate",
+    "Market regime classifier",
+    "Opportunity/candidate generator",
+    "Setup classifier",
+    "Entry engine",
+    "Structural invalidation and stop engine",
+    "TP1/TP2/TP3 target-ladder engine",
+    "Position sizing and portfolio-risk engine",
+    "Trade lifecycle/management engine",
+    "Opportunity recall and missed-opportunity auditor",
+    "Calibrated trade-quality/meta-label engine",
+    "Validation, overfitting and release governance"
+  ],
+  "marketPlaybooks": {
+    "crypto_spot": ["24x7 regime", "leader/relative-strength context", "volatility", "liquidity", "fees", "spot execution constraints"],
+    "crypto_futures": ["24x7 regime", "volatility", "funding", "open interest when causally available", "liquidation/liquidity risk", "fees/slippage", "leverage constraints"],
+    "fx": ["session structure", "relative currency context", "realized volatility", "spread", "macro-event window", "roll/session risk"],
+    "metals": ["London/New York session structure", "USD/rates context when causally available", "volatility expansion", "liquidity sweeps", "macro-event risk"],
+    "equities": ["cash-session structure", "gap state", "volume/liquidity", "index/sector context", "earnings/corporate-event risk", "corporate actions"],
+    "indices": ["cash/overnight structure", "opening regime", "breadth/volatility context when available", "gap state", "macro-event risk"],
+    "commodities_futures": ["contract/session structure", "roll awareness", "term/market context when available", "volatility", "event risk", "liquidity"]
+  },
+  "designRules": [
+    "Market-family policies are permitted; post-outcome symbol/timeframe one-off patches are prohibited.",
+    "Instrument-contract rules are allowed only when they describe exogenous market mechanics and are declared before outcome inspection.",
+    "Entry quality must be separated from idea quality: a valid idea may return WAIT_FOR_ENTRY instead of forcing execution.",
+    "Stop placement is an invalidation/noise model, not a fixed percentage chosen to improve backtest hit rate.",
+    "Targets must be progressive and must combine market structure with volatility and realistic execution; synthetic R-multiple extension alone cannot create a target.",
+    "Costs, spread and slippage are part of the decision gate, not a reporting afterthought.",
+    "No automatic widening of a stop or extension of a target solely to make RR pass a threshold.",
+    "No auto-execution or broker order submission during research."
+  ],
+  "opportunityCaptureFramework": {
+    "purpose": "Measure both false positives and false negatives.",
+    "metrics": [
+      "precision",
+      "opportunityRecall",
+      "missedOpportunityRate",
+      "capturedForwardMfeFraction",
+      "netExpectancyR",
+      "payoffRatio",
+      "profitFactor",
+      "hitRate",
+      "MAE",
+      "MFE",
+      "timeToTarget",
+      "timeToInvalidation"
+    ],
+    "antiHindsightRule": "Ex-post opportunity labels may be used only for audit/recall measurement. They may not become causal input features or be used to move a decision-time level."
+  },
+  "validationProtocol": {
+    "stages": [
+      "Phase 0 frozen baseline audit and metric lock",
+      "Phase 1 development only",
+      "Phase 2 purged/embargoed walk-forward validation",
+      "Phase 3 fresh out-of-sample validation",
+      "Phase 4 one-shot sealed holdout",
+      "Phase 5 forward shadow verification",
+      "Phase 6 R15 integration candidate and full Senior Council release gate"
+    ],
+    "multipleTestingControls": [
+      "trial ledger",
+      "family-level hypothesis budget",
+      "Deflated Sharpe Ratio",
+      "Probability of Backtest Overfitting/CSCV where sample geometry permits",
+      "bootstrap confidence intervals",
+      "parameter-perturbation stability"
+    ],
+    "promotionGates": {
+      "netExpectancyRPerTradeMin": 0.08,
+      "netProfitFactorMin": 1.25,
+      "netAnnualizedSharpeMin": 1.0,
+      "stressCostMultiplier": 1.5,
+      "stressNetExpectancyRMin": 0.0,
+      "bootstrapProbabilityPositiveNetExpectancyMin": 0.95,
+      "opportunityRecallMin": 0.60,
+      "precisionMin": 0.50,
+      "capturedForwardMfeFractionMin": 0.60,
+      "maxSingleMarketContributionFraction": 0.45,
+      "minimumActiveMarketFamilies": 4,
+      "holdoutRescueOrRetuneAllowed": false
+    },
+    "note": "Promotion gates are deliberately portfolio-level plus breadth constraints; a market family may abstain when no robust edge is present. High trade frequency is not a target."
+  },
+  "releaseRule": "R16/ITE1 production integration is forbidden until the same frozen engine passes all required validation stages and then passes R15 parity, regression, static, mutation, package and live gates.",
+  "executionAuthorityDuringResearch": "MANUAL_SHADOW_ONLY",
+  "references": [
+    {
+      "topic": "backtest overfitting / CSCV",
+      "citation": "Bailey, Borwein, Lopez de Prado & Zhu, The Probability of Backtest Overfitting, Journal of Computational Finance",
+      "url": "https://papers.ssrn.com/sol3/Papers.cfm?abstract_id=2326253"
+    },
+    {
+      "topic": "selection-bias adjusted performance",
+      "citation": "Bailey & Lopez de Prado, The Deflated Sharpe Ratio, Journal of Portfolio Management 40(5)",
+      "doi": "10.3905/jpm.2014.40.5.094"
+    },
+    {
+      "topic": "stop-loss regime dependence",
+      "citation": "Kaminski & Lo, When do stop-loss rules stop losses?, Journal of Financial Markets 18",
+      "doi": "10.1016/j.finmar.2013.07.001"
+    }
+  ]
+}
