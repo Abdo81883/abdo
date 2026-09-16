@@ -1,0 +1,39 @@
+{
+  "schema": "mgpt_final_project_closure_v1",
+  "generatedAtUtc": "2026-09-16T01:15:00Z",
+  "project": "MarketsGPT final closure",
+  "closureStatus": "CLOSED_PRODUCT_STABLE_ALPHA_NOT_PROVEN",
+  "finalOperationalWorker": {
+    "release": "RC4S3H5R4R15",
+    "version": "31.6.982-r1-65d7a5h1-final-closure-rc4s3h5r4r15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "byteChangeAfterStableFreeze": false,
+    "newWorkerBytesCreatedForResearchClosure": false,
+    "role": "FINAL_STABLE_NON_ALPHA_PRODUCT_BASELINE"
+  },
+  "productEvidence": {
+    "priorLiveGate": "PASS",
+    "priorPackageGate": "PASS",
+    "priorOfflineRegression": "592/592 PASS x3",
+    "priorSurgicalRegression": "66/66 PASS x2",
+    "priorStaticSeniorCouncilAudit": "81/81 PASS",
+    "priorMutationAudit": "14/14 seeded regressions detected",
+    "priorLiveSameRun": "84/84 HTTP 200 and Cloudflare outcome=ok; 0 response-level 1101/1102/resource exceptions",
+    "externalDataBoundariesRemainFailClosed": true
+  },
+  "alphaReleaseContract": {
+    "required": "Same frozen market-family module must pass development, fresh validation, sealed holdout/walk-forward, then R15 parity/regression/live-gate integration.",
+    "satisfied": false,
+    "reason": "No alpha family passed the complete chain. ARP32 terminal stop rule closed the search campaign before any unproven alpha could be integrated."
+  },
+  "finalAuthority": {
+    "productTruthStable": true,
+    "alphaIntegratedFinalWorkerAuthorized": false,
+    "automaticExecutionAllowed": false,
+    "brokerOrderSubmissionAllowed": false,
+    "profitabilityClaimAllowed": false,
+    "manualDecisionSupportOnly": true
+  },
+  "deliveryRule": "Distribute the byte-identical RC4S3H5R4R15 worker as the last stable Worker together with the terminal research closeout. Do not label it an alpha-integrated or profitability-validated Worker.",
+  "reopeningRule": "Any future Worker-byte change, provider-authority change, trading-math change, or new alpha integration starts a new Senior Council protocol. Future alpha research must be a new research program, not a continuation/rescue of this closure campaign."
+}
