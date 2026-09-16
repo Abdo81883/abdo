@@ -40,7 +40,6 @@ jobs:
             echo "No IFE1 freeze changes"
           else
             git commit -m "ife1 data: freeze fit/development and causal context inputs"
-            git pull --rebase origin main
             git push
           fi
       - name: Enforce freeze exit
