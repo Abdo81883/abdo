@@ -1,0 +1,46 @@
+{
+  "schema": "mgpt_mie1_terminal_registry_v1",
+  "generatedAtUtc": "2026-09-16T13:45:00Z",
+  "program": "MGPT-MIE1",
+  "status": "REJECTED_DEVELOPMENT_NEW_INFORMATION_REQUIRED",
+  "frozenProductionBaseline": {
+    "release": "RC4S3H5R4R15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "mutated": false
+  },
+  "trial": {
+    "id": "MIE1-MICROSTRUCTURE1",
+    "status": "REJECT_MIE1_DEVELOPMENT_GATE",
+    "resultCommit": "4d75faba1bbdafc2b1d5beac70b5e880258efcbf",
+    "closeoutSha256": "74efd5f0061eda835cb5f477e0188744fd7300c03d44cbb434fd90725488e633",
+    "fitCandidates": 105384,
+    "developmentCandidates": 68520,
+    "selectedTrades": 8487,
+    "netExpectancyR": -0.20409944710935193,
+    "stressNetExpectancyR": -0.273761684304471,
+    "profitFactor": 0.7094953682957016,
+    "opportunityRecall": 0.11332489200059585,
+    "opportunityPrecision": 0.35854836809237656,
+    "clockBaselineExpectancyR": -0.12098714621224617,
+    "selectedDeltaVsClockBaselineR": -0.08311230089710576,
+    "bootstrapProbabilityPositiveNet": 0,
+    "bootstrapProbabilityPositiveDelta": 0.0004
+  },
+  "scientificInterpretation": "Adding archived taker flow, trade intensity, premium index and realized funding did not create directional selection edge under the frozen MIE1 objective. The selected set was worse than the uninformed clock baseline and negative across every symbol. MIE1 may not be rescued or retuned.",
+  "contaminationBoundary": {
+    "fit": "2025-07-01 through 2026-01-01 contaminated by MIE1 model fitting.",
+    "development": "2026-01-01 through 2026-05-01 contaminated by MIE1 development evaluation.",
+    "freshValidationOpened": false,
+    "sealedHoldoutOpened": false
+  },
+  "prohibited": [
+    "No MIE1 threshold/model/feature rescue.",
+    "No symbol subset promotion.",
+    "No reuse of MIE1 development subgroup winners as evidence.",
+    "No R15 mutation."
+  ],
+  "nextAuthorizedProgram": "MGPT-MIE2 — Futures Positioning / Open-Interest Intelligence",
+  "newInformationRequirement": "Historical open interest and trader-positioning/crowding metrics from Binance official futures metrics archives.",
+  "productionAuthority": false,
+  "brokerExecutionEnabled": false
+}
