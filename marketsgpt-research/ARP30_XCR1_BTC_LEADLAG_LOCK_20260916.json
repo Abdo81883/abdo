@@ -1,0 +1,167 @@
+{
+  "schema": "mgpt_arp30_xcr1_btc_leadlag_lock_v1",
+  "generation": "ARP30-XCR1",
+  "createdAtUtc": "2026-09-16T00:40:00Z",
+  "status": "LOCKED_BEFORE_ARP30_MARKET_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority": {
+    "file": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V29_20260916.json",
+    "gitBlobSha1": "b95868765407058c9356068de5225c16694a254e"
+  },
+  "researchFamily": "CRYPTO_INTRADAY_CROSS_CRYPTO_BTC_LEAD_LAG",
+  "methodAuthority": {
+    "paper": "Guo, Sang, Tu & Wang (2024), Cross-cryptocurrency return predictability, Journal of Economic Dynamics and Control 163, 104863",
+    "doi": "10.1016/j.jedc.2024.104863",
+    "sourceFacts": [
+      "Minute-frequency Binance returns exhibit cross-cryptocurrency predictability up to ten minutes without reversal.",
+      "BTC is a leading positive predictor for other non-stable cryptocurrencies.",
+      "The paper forms equal-weight quintiles on out-of-sample forecasts and reports positive futures long-short performance after taker costs with ten-minute rebalancing."
+    ],
+    "adaptation": "Frozen univariate BTC lead-lag replication screen on Binance USD-M perpetuals; not an exact reconstruction of the paper's full adaptive-LASSO model.",
+    "trainingWindowMinutes": 720,
+    "estimator": "Per-target OLS with intercept: target 1m return at s on BTC 1m return at s-1, using the prior 720 completed training pairs only.",
+    "decisionCadenceMinutes": 10,
+    "forecast": "At decision minute t after its close, forecast target minute t+1 using the fitted intercept/beta and completed BTC return at t.",
+    "holding": "Enter at next 1m open and hold ten minutes to the open ten minutes later.",
+    "portfolio": "Equal-weight long highest forecast quintile +0.50, short lowest forecast quintile -0.50; BTC is predictor only and is not a target.",
+    "parameterSweepAllowed": false,
+    "postOutcomeDirectionFlipAllowed": false,
+    "thresholdRescueAllowed": false
+  },
+  "dataAuthority": {
+    "provider": "Binance official data.binance.vision",
+    "market": "USD-M perpetual",
+    "interval": "1m",
+    "fields": [
+      "open",
+      "close",
+      "quoteAssetVolume"
+    ],
+    "archiveChecksumRequired": true,
+    "futureInformationAllowed": false,
+    "transportRule": "Missing/corrupt decisions fail closed; no interpolation or forward fill."
+  },
+  "universe": {
+    "predictor": "BTCUSDT",
+    "targets": [
+      "ETHUSDT",
+      "BCHUSDT",
+      "XRPUSDT",
+      "LTCUSDT",
+      "TRXUSDT",
+      "ETCUSDT",
+      "LINKUSDT",
+      "XLMUSDT",
+      "ADAUSDT",
+      "ATOMUSDT",
+      "VETUSDT",
+      "NEOUSDT",
+      "QTUMUSDT",
+      "THETAUSDT",
+      "ALGOUSDT",
+      "KNCUSDT",
+      "ZRXUSDT",
+      "COMPUSDT",
+      "DOGEUSDT",
+      "KAVAUSDT",
+      "RLCUSDT",
+      "SNXUSDT",
+      "DOTUSDT",
+      "YFIUSDT",
+      "CRVUSDT",
+      "SUSHIUSDT",
+      "RUNEUSDT",
+      "SOLUSDT",
+      "UNIUSDT"
+    ],
+    "countTargets": 29,
+    "selection": "Prelocked established USD-M contracts chosen only from already-used causally-distinct project universes before ARP30 price outcomes; no post-outcome substitution.",
+    "minimumEligibleTargetsPerDecision": 20,
+    "minimumTrainingPairsPerTarget": 600,
+    "prior60mMeanQuoteVolumeUsdMin": 20000,
+    "fixedAfterLock": true
+  },
+  "windows": {
+    "archiveFetchStart": "2024-12-31T00:00:00Z",
+    "development": {
+      "start": "2025-01-02T00:00:00Z",
+      "endExclusive": "2025-02-02T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2025-04-01T00:00:00Z",
+      "endExclusive": "2025-05-01T00:00:00Z",
+      "openOnlyAfterDevelopmentPassAndFundingReplay": true
+    },
+    "sealedHoldout": {
+      "start": "2026-07-01T00:00:00Z",
+      "endExclusive": "2026-09-14T00:00:00Z",
+      "oneShot": true,
+      "openOnlyAfterFreshValidationPass": true
+    }
+  },
+  "costs": {
+    "baseOneWayRate": 0.0004,
+    "stressOneWayRate": 0.0006,
+    "extremeOneWayRate": 0.0008,
+    "chargedOn": "sum absolute long/short portfolio weight changes plus terminal liquidation",
+    "funding": "Development is a price-alpha screen. Exact Binance funding cashflow replay under unchanged signals is mandatory before validation authorization."
+  },
+  "statistics": {
+    "decisionReturnAggregation": "Compound ten-minute portfolio returns within UTC day, then evaluate daily series.",
+    "annualizationDays": 365,
+    "bootstrap": {
+      "method": "CIRCULAR_MOVING_BLOCK",
+      "blockLengthDays": 5,
+      "iterations": 10000,
+      "developmentSeed": 30101,
+      "validationSeed": 30102,
+      "holdoutSeed": 30103
+    }
+  },
+  "developmentGate": {
+    "minimumEvaluatedDays": 28,
+    "minimumDecisionCoverageFraction": 0.95,
+    "averageEligibleTargetsMin": 20,
+    "baseNetMeanDailyReturnMin": 0.001,
+    "baseNetAnnualizedSharpeMin": 1.5,
+    "baseNetProfitFactorMin": 1.1,
+    "stressNetMeanDailyReturnMin": 0,
+    "extremeNetMeanDailyReturnMin": -0.0005,
+    "positiveDayFractionMin": 0.55,
+    "firstHalfNetReturnPositive": true,
+    "secondHalfNetReturnPositive": true,
+    "bootstrapProbabilityPositiveMin": 0.95,
+    "bootstrapCi95LowMin": -0.0005,
+    "maxDrawdownMax": 0.15,
+    "averagePositiveBetaFractionMin": 0.65,
+    "singleSymbolPositiveContributionMax": 0.2
+  },
+  "freshValidationGate": {
+    "minimumEvaluatedDays": 27,
+    "minimumDecisionCoverageFraction": 0.9,
+    "averageEligibleTargetsMin": 18,
+    "baseNetMeanDailyReturnMin": 0.0005,
+    "baseNetAnnualizedSharpeMin": 0.75,
+    "baseNetProfitFactorMin": 1.05,
+    "stressNetMeanDailyReturnMin": -0.00025,
+    "positiveDayFractionMin": 0.5,
+    "bootstrapProbabilityPositiveMin": 0.8,
+    "maxDrawdownMax": 0.15
+  },
+  "sealedHoldoutGate": {
+    "minimumEvaluatedDays": 65,
+    "minimumDecisionCoverageFraction": 0.9,
+    "averageEligibleTargetsMin": 18,
+    "baseNetMeanDailyReturnMin": 0,
+    "baseNetAnnualizedSharpeMin": 0.3,
+    "baseNetProfitFactorMin": 1,
+    "stressNetMeanDailyReturnMin": -0.0005,
+    "bootstrapProbabilityPositiveMin": 0.7,
+    "maxDrawdownMax": 0.18
+  },
+  "failureRule": "Any development gate failure closes ARP30-XCR1 with no cadence, universe, training-window, direction, cost, liquidity, estimator, or gate rescue. A development pass does not open validation: exact funding cashflows must first be replayed under identical frozen signals. Validation failure keeps holdout sealed. R15 remains untouched until all final release gates pass."
+}
