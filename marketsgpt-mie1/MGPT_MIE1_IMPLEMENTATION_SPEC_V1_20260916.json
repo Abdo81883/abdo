@@ -1,0 +1,136 @@
+{
+  "schema": "mgpt_mie1_implementation_spec_v1",
+  "generatedAtUtc": "2026-09-16T13:16:00Z",
+  "program": "MGPT-MIE1",
+  "status": "FROZEN_BEFORE_MIE1_PERFORMANCE_OUTCOMES",
+  "parentLock": "MGPT_MIE1_MICROSTRUCTURE_LOCK_20260916.json",
+  "dataIntegrity": {
+    "source": "Only checksum-verified frozen files listed in MGPT_MIE1_DATA_FREEZE_STATUS_20260916.json.",
+    "joins": "Contract 1h is the decision spine. Premium index is exact timestamp left-joined; rows without exact premium are ineligible. Funding is event-time as-of only; no interpolation/backfill from future.",
+    "duplicates": "Any duplicate timestamp in frozen source blocks the program.",
+    "validationHoldout": "No file at or after 2026-05-01 is read or requested."
+  },
+  "timeSemantics": {
+    "contractTimestamp": "Bar open time.",
+    "decisionTime": "signal bar open time + 1 hour, after the signal bar is complete.",
+    "entryTime": "decisionTime; entry price is the next contract bar open at that exact timestamp.",
+    "premiumCausality": "Premium-index bar with the same open timestamp as the signal contract bar is complete at decisionTime.",
+    "fundingCausality": "Feature history includes funding events timestamp <= decisionTime. Trade funding cashflows include events timestamp > entryTime and occurring at or before the start of an exit bar while the position is still open."
+  },
+  "candidateGrid": {
+    "directions": [
+      "LONG",
+      "SHORT"
+    ],
+    "directionSign": {
+      "LONG": 1,
+      "SHORT": -1
+    },
+    "twoCandidatesPerEligibleSignalBar": true,
+    "splitBoundary": "Signal, entry and the full 24-bar maximum holding horizon must remain strictly inside the fit/development split; otherwise candidate is discarded.",
+    "noCandidateSampling": true
+  },
+  "execution": {
+    "atr": "Wilder ATR14 on contract OHLC, causal.",
+    "entry": "next 1h open",
+    "risk": "exactly 1.00 * signal ATR",
+    "stop": "entry - sign*1.00ATR",
+    "tp1": "entry + sign*0.75ATR",
+    "tp2": "entry + sign*1.50ATR",
+    "tp3Diagnostic": "entry + sign*2.50ATR",
+    "holding": "entry bar through at most 24 evaluated 1h bars; if neither stop nor TP2 occurs, exit at the close of the final evaluated bar.",
+    "sameBar": "stop is evaluated before TP2.",
+    "baseFriction": "5 bps one-way applied at entry and exit.",
+    "stressFriction": "8 bps one-way applied at entry and exit.",
+    "fundingR": "For each funding event paid while open: -directionSign * fundingRate * entryPrice / initialRisk. This approximation fixes notional to entry-price reference and is applied identically in base/stress.",
+    "netR": "price gross R - round-trip friction R + cumulative funding R."
+  },
+  "featureDefinitions": {
+    "ret1": "close/close[-1]-1",
+    "ret3": "close/close[-3]-1",
+    "ret6": "close/close[-6]-1",
+    "ret12": "close/close[-12]-1",
+    "ret24": "close/close[-24]-1",
+    "atrPct": "ATR14/close",
+    "rv24": "std of 1h log returns over 24 completed bars",
+    "range24Atr": "(prior completed 24h high - prior completed 24h low)/ATR14",
+    "closePos24": "(close-prior24Low)/(prior24High-prior24Low)",
+    "quoteVolumeZ24": "Current signal-bar quote volume standardized by previous 24 completed signal bars only.",
+    "tradeCountZ24": "Current trade count standardized by previous 24 completed bars only.",
+    "avgTradeSizeZ24": "(quoteVolume/trades) standardized by previous 24 completed bars only.",
+    "takerBuyQuoteRatio": "takerBuyQuote/quoteVolume",
+    "takerImbalance": "2*takerBuyQuoteRatio-1",
+    "takerImbalanceZ24": "Current takerImbalance standardized by previous 24 completed bars only.",
+    "takerImbalanceDelta3": "takerImbalance - takerImbalance[-3]",
+    "takerImbalanceDelta6": "takerImbalance - takerImbalance[-6]",
+    "premiumClose": "Signal premium-index close.",
+    "premiumZ24": "premiumClose standardized by previous 24 completed premium closes only.",
+    "premiumDelta1": "premiumClose-premiumClose[-1]",
+    "premiumDelta3": "premiumClose-premiumClose[-3]",
+    "premiumAbsZ24": "abs(premiumClose) standardized as abs level using previous 24 completed abs premium closes.",
+    "latestFundingRate": "Latest funding event rate with event timestamp <= decisionTime.",
+    "fundingMean3": "Mean of latest up to 3 funding events available at decisionTime; requires 3.",
+    "fundingMean9": "Mean of latest 9 funding events; requires 9.",
+    "fundingZ20Events": "Latest funding rate z-score versus the 20 funding events preceding the latest event; current event excluded from reference mean/std.",
+    "hoursSinceFunding": "(decisionTime-latestFundingTimestamp) in hours.",
+    "signedRet3": "directionSign*ret3",
+    "signedRet12": "directionSign*ret12",
+    "signedTakerImbalance": "directionSign*takerImbalance",
+    "signedPremium": "directionSign*premiumClose",
+    "signedFunding": "directionSign*latestFundingRate"
+  },
+  "preprocessing": {
+    "numeric": "MedianImputer fitted on fit only -> StandardScaler fitted on fit only.",
+    "categorical": "Most-frequent imputer -> OneHotEncoder(handle_unknown=ignore,dense) for direction and symbolGroup.",
+    "symbolIdentityForbidden": true
+  },
+  "models": {
+    "goodLogit": "LogisticRegression exactly per parent lock.",
+    "goodHgb": "HistGradientBoostingClassifier(log_loss) exactly per parent lock.",
+    "positiveNetLogit": "LogisticRegression exactly per parent lock.",
+    "tailHgb": "HistGradientBoostingClassifier(log_loss) exactly per parent lock.",
+    "fitPopulation": "All eligible directional candidates in 2025-07-01 <= signal < 2026-01-01.",
+    "outcomes": {
+      "goodLogit": "goodOpportunity",
+      "goodHgb": "goodOpportunity",
+      "positiveNetLogit": "positiveNet",
+      "tailHgb": "tailLoss"
+    }
+  },
+  "scoreAndSelection": {
+    "qualityScore": "0.35*pGoodLogit + 0.30*pGoodHgb + 0.20*pPositiveNetLogit - 0.15*pTailHgb",
+    "scoreClaim": "Ranking score only; no calibration/probability claim.",
+    "longShortMargin": "For a symbol/timestamp, abs(LONG score - SHORT score) must be >=0.03; otherwise that symbol abstains.",
+    "symbolWinner": "Higher-score direction after margin gate.",
+    "crossSection": "Rank symbol winners by score descending; deterministic tie-break symbol ascending then LONG before SHORT.",
+    "selected": "Top 3 winners at each entry timestamp.",
+    "noAbsoluteThreshold": true,
+    "noOutcomeAdaptiveThreshold": true
+  },
+  "benchmark": {
+    "clockBaseline": "At each decision timestamp, the mean realized base netR across every eligible LONG/SHORT candidate at that timestamp. This represents the expected result of an uninformed random direction/symbol clock candidate.",
+    "selectedDelta": "Selected-trade mean base netR minus clock-baseline mean base netR over the same sampled decision timestamps.",
+    "purpose": "Quality-ranking benchmark only; absolute profitability gates remain mandatory."
+  },
+  "metrics": {
+    "opportunityRecall": "selected goodOpportunity / all eligible goodOpportunity candidates.",
+    "opportunityPrecision": "selected goodOpportunity / selected trades.",
+    "positiveSymbol": "selected-trade mean netR >0 for that symbol.",
+    "positiveMonth": "UTC signal-month selected netR sum >0.",
+    "firstSecondHalf": "chronological midpoint of selected trades.",
+    "concentration": "largest positive symbol total netR / sum positive symbol total netR.",
+    "activeDirections": "Both LONG and SHORT must each have at least one selected trade."
+  },
+  "bootstrap": {
+    "implementation": "For each symbol independently, circularly sample 24-candidate-time blocks with replacement from chronological development rows while preserving each row's frozen selected flag and realized outcomes. Aggregate sampled selected netR for absolute expectancy. For clock delta, compare sampled selected-trade mean to sampled all-candidate mean. Repeat 5000 times with seed 17001.",
+    "noReselectionInsideBootstrap": true
+  },
+  "forbidden": [
+    "No feature change after MIE1 development outcomes.",
+    "No model/hyperparameter change.",
+    "No top-K or margin change.",
+    "No symbol removal or symbol-specific rule.",
+    "No management-rule change.",
+    "No opening May-2026 onward unless every development gate passes."
+  ]
+}
