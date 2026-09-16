@@ -1,0 +1,63 @@
+{
+  "schema":"mgpt_ite1_b1_range_reversion_lock_v1",
+  "generatedAtUtc":"2026-09-16T02:09:00Z",
+  "program":"MGPT-ITE1",
+  "trial":"ITE1-B1",
+  "status":"LOCKED_BEFORE_B1_DATA_OR_PERFORMANCE_OUTCOMES",
+  "architectureBudgetAuthority":"MGPT_ITE1_CONTAMINATION_REGISTRY_V2_20260916.json",
+  "productionAuthority":false,
+  "r15MutationAllowed":false,
+  "researchFamily":"RANGE_REVERSION_LIQUIDITY_RECLAIM",
+  "hypothesis":"When both local and completed higher-timeframe structure are non-trending, a genuine sweep beyond a completed range extreme followed by a strong reclaim can exhibit mean-reversion edge if entry, invalidation and range targets preserve executable payoff geometry.",
+  "freshness":{"e1SymbolsReused":false,"a1SymbolsReused":false,"c1SymbolsReservedSeparately":true,"timeOosClaimAllowed":false},
+  "windows":{"warmupStart":"2024-11-01T00:00:00Z","freshInstrumentDevelopment":{"start":"2025-01-06T00:00:00Z","endExclusive":"2025-07-01T00:00:00Z"},"timeValidationSealed":{"start":"2025-07-01T00:00:00Z","endExclusive":"2026-01-01T00:00:00Z"},"holdoutSealed":{"start":"2026-01-01T00:00:00Z","endExclusive":"2026-09-01T00:00:00Z"}},
+  "freshUniverse":[
+    {"marketFamily":"CRYPTO_SPOT","symbol":"ADA-USD","fileKey":"ADA_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"DOGE-USD","fileKey":"DOGE_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"BCH-USD","fileKey":"BCH_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"EURJPY=X","fileKey":"EURJPY_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"GBPJPY=X","fileKey":"GBPJPY_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"EURGBP=X","fileKey":"EURGBP_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"AUDJPY=X","fileKey":"AUDJPY_X","timeframes":["1h","4h"]},
+    {"marketFamily":"COMMODITY_FUTURES_PROXY","symbol":"CL=F","fileKey":"CL_F","timeframes":["1h","4h"]},
+    {"marketFamily":"COMMODITY_FUTURES_PROXY","symbol":"NG=F","fileKey":"NG_F","timeframes":["1h","4h"]},
+    {"marketFamily":"EQUITY","symbol":"TSLA","fileKey":"TSLA","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"AMD","fileKey":"AMD","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"NFLX","fileKey":"NFLX","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"AVGO","fileKey":"AVGO","timeframes":["1h"]},
+    {"marketFamily":"INDEX","symbol":"^DJI","fileKey":"DJI","timeframes":["1h"]},
+    {"marketFamily":"INDEX","symbol":"^STOXX50E","fileKey":"STOXX50E","timeframes":["1h"]}
+  ],
+  "timeframePolicy":{"continuousMarkets":"1h and exact UTC 4h","equityIndex":"1h only","higherTimeframe":"1h continuous -> previous completed 4h; 4h continuous -> previous completed UTC day; equity/index 1h -> previous completed daily"},
+  "context":{
+    "localNeutral":"abs(EMA20-EMA50) <= 0.35*ATR14 AND abs(EMA50-EMA50[-5]) <= 0.35*ATR14.",
+    "higherNeutral":"previous completed HTF: abs(EMA20-EMA50) <= 0.50*HTF_ATR14 AND abs(EMA50-EMA50[-5]) <= 0.50*HTF_ATR14.",
+    "volatility":["COMPRESSION","NORMAL"],
+    "rangeQuality":"prior completed 20-bar range width must be between 3.0 and 8.0 ATR14."
+  },
+  "setup":{
+    "long":"signal low < prior20Low - 0.10*ATR14; close > prior20Low; close location >=0.65; lower rejection wick >=0.35*ATR14.",
+    "short":"mirror: signal high > prior20High + 0.10*ATR14; close < prior20High; close location <=0.35; upper rejection wick >=0.35*ATR14.",
+    "dedup":"one setup per instrument/timeframe/bar/direction"
+  },
+  "entry":"next bar open; long must remain below or equal to prior20 midpoint and above structural stop; short mirror.",
+  "riskGeometry":{
+    "longStop":"signalLow - 0.20*ATR14",
+    "shortStop":"signalHigh + 0.20*ATR14",
+    "riskAtrRange":[0.40,1.75],
+    "targetsLong":["prior20 midpoint","prior20 75-percent level","prior20 high"],
+    "targetsShort":"mirror",
+    "tp1MinR":0.75,"tp2MinR":1.25,"tp3MinR":1.75,
+    "rule":"All three progressive structural targets must clear their R floors; otherwise WAIT."
+  },
+  "management":{"exit":"full at TP2, structural stop, or time stop","holdBars":{"1h":36,"4h":20},"sameBar":"stop wins"},
+  "referenceUniverse":"Fresh-instrument generic SWEEP_RECLAIM events from the frozen E1 generator, deduplicated by instrument/timeframe/timestamp/direction.",
+  "referenceAudit":{"positiveBarrierR":1.25,"adverseBarrierR":1.0,"sameBar":"adverse wins","matching":"exact signal key"},
+  "baseline":"Frozen E1 SWEEP_RECLAIM trigger_close + structure_plus_atr_noise + hybrid targets + fixed_full_exit on the same fresh reference events.",
+  "costModelOneWayBps":{"CRYPTO_SPOT":{"base":10.0,"stress":15.0},"FX":{"base":1.5,"stress":3.0},"COMMODITY_FUTURES_PROXY":{"base":3.0,"stress":6.0},"EQUITY":{"base":3.0,"stress":6.0},"INDEX":{"base":1.5,"stress":3.0}},
+  "bootstrap":{"method":"hierarchical instrument-timeframe circular reference-event blocks","iterations":5000,"seed":13001,"blockLengthCandidates":20},
+  "developmentGate":{"minimumEnteredTrades":180,"minimumActiveMarketFamilies":5,"minimumActiveBlocks":18,"netExpectancyRMin":0.08,"stressNetExpectancyRMin":0.0,"profitFactorMin":1.20,"referenceOpportunityRecallMin":0.25,"referenceOpportunityPrecisionMin":0.50,"positiveMarketFamilyFractionMin":0.60,"positiveBlockFractionMin":0.55,"firstHalfPositive":true,"secondHalfPositive":true,"positiveMonthFractionMin":0.55,"bootstrapProbabilityPositiveNetMin":0.95,"bootstrapProbabilityPositiveUtilityDeltaVsBaselineMin":0.95,"singleMarketFamilyPositiveContributionMax":0.50},
+  "antiOverfit":["No threshold sweep.","No symbol/timeframe patch.","No post-outcome direction flip.","No cost rescue.","No B1/C1 fresh-universe overlap.","No time validation or holdout access on failure."],
+  "provider":"Yahoo Finance hourly development transport only; independent authority replication required after any pass.",
+  "nextAuthorizedAction":"Freeze B1 fresh data and hashes, then run exactly this architecture."
+}
