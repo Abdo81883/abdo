@@ -1,0 +1,77 @@
+{
+  "schema": "mgpt_ife1_implementation_spec_v1",
+  "generatedAtUtc": "2026-09-16T12:36:00Z",
+  "program": "MGPT-IFE1",
+  "status": "FROZEN_BEFORE_MODEL_OUTCOMES",
+  "parentLock": "MGPT_IFE1_PROGRAM_LOCK_20260916.json",
+  "candidateDedup": {
+    "key": "symbol/timeframe/signal timestamp/direction",
+    "encoding": "All generic candidates on the same key are collapsed into one row. isBreakout/isPullback/isSweep record which setup families fired.",
+    "representativeCandidate": "The first generated candidate is used only to call the frozen trigger_close plan builder; trigger_close stop/target geometry does not depend on setup_level."
+  },
+  "splitPurity": {
+    "fit": "Candidate signal and worst-case baseline exit (signal + 4 entry-wait bars + holding horizon + 1) must both be strictly before 2025-10-01.",
+    "development": "Candidate signal and worst-case baseline exit must both be strictly before 2026-01-01.",
+    "boundaryCandidates": "Discarded rather than allowed to cross split boundaries."
+  },
+  "featureDefinitions": {
+    "trend20_50_atr": "(EMA20-EMA50)/ATR14 at signal close.",
+    "trend50_200_atr": "(EMA50-EMA200)/ATR14.",
+    "ema50_slope5_atr": "(EMA50-EMA50 five evaluated bars earlier)/ATR14.",
+    "close_ema20_atr": "(close-EMA20)/ATR14.",
+    "range20_atr": "(prior20High-prior20Low)/ATR14.",
+    "range50_atr": "(prior50High-prior50Low)/ATR14.",
+    "bar_range_atr": "(high-low)/ATR14.",
+    "body_atr": "abs(close-open)/ATR14.",
+    "clv": "(close-low)/(high-low), clipped only for numerical safety to [0,1].",
+    "lower_wick_atr": "(min(open,close)-low)/ATR14.",
+    "upper_wick_atr": "(high-max(open,close))/ATR14.",
+    "vol_ratio": "ATR-percent / causal prior rolling ATR-percent median from compute_features.",
+    "rv20": "Frozen compute_features 20-bar log-return standard deviation.",
+    "breakout_up_atr": "(close-prior20High)/ATR14.",
+    "breakout_down_atr": "(prior20Low-close)/ATR14.",
+    "next_open_gap_atr": "direction-normalized next-open gap: sign(direction)*(nextOpen-signalClose)/ATR14. Positive means gap in trade direction.",
+    "actual_risk_atr": "abs(nextOpen - frozen structural stop)/ATR14.",
+    "actual_tp2_r": "direction-normalized distance from nextOpen to frozen TP2 divided by actual initial risk.",
+    "htf_trend_signed": "Previous completed higher-timeframe state encoded LONG=+1, SHORT=-1, neutral/unknown=0.",
+    "htf_neutral_flag": "1 only when previous completed HTF satisfies abs(EMA20-EMA50)<=0.50 ATR and abs(EMA50-EMA50[-5])<=0.50 ATR.",
+    "htfAligned": "1 when previous completed HTF trend state equals candidate direction.",
+    "vix_z60": "Latest available completed daily VIX close minus 60-day rolling mean, divided by 60-day rolling std.",
+    "spx_trend_atr": "Latest available completed daily S&P500 (EMA20-EMA50)/ATR14.",
+    "dxy_trend_atr": "Latest available completed daily DXY (EMA20-EMA50)/ATR14.",
+    "tnx_change5": "Latest available completed daily US10Y close/close[-5]-1.",
+    "btc_trend_atr": "Latest available completed daily BTC (EMA20-EMA50)/ATR14."
+  },
+  "contextAvailability": "A daily context row timestamped D becomes available only at D + 1 UTC day. Merge-asof uses only availabilityTime <= candidate entry timestamp.",
+  "modelFit": {
+    "population": "Only candidate rows whose frozen baseline plan is valid and actually enters.",
+    "regressionTarget": "Base-cost frozen baseline net R.",
+    "logisticTarget": "1 if base-cost frozen baseline net R > 0 else 0.",
+    "models": "Exactly the fixed models and hyperparameters in the parent lock.",
+    "trainingWindow": "2025-07-01 <= signal < 2025-10-01."
+  },
+  "developmentScreen": {
+    "window": "2025-10-01 <= signal < 2026-01-01.",
+    "selection": "Use the fixed parent-lock conjunction: ensemble predictedNetR>=0.10, Ridge>0, HGB>0, pWinScore>=0.55.",
+    "utility": "Selected candidate realized baseline netR; abstained candidate utility=0.",
+    "baselineComparator": "All eligible development candidates' realized frozen baseline netR.",
+    "opportunityAudit": "1.5 ATR favorable before 1.0 ATR adverse over frozen holding horizon; adverse wins same-bar."
+  },
+  "modelScoreSemantics": "pWinScore is a classifier score only. No calibrated probability, confidence percentage or production probability claim is allowed from IFE1 development.",
+  "metricBreadth": {
+    "activeFamily": "A market family with at least one selected trade.",
+    "activeBlock": "A symbol/timeframe block with at least one selected trade.",
+    "positiveFamily": "Selected-trade mean netR >0.",
+    "positiveBlock": "Selected-trade mean netR >0.",
+    "positiveMonth": "UTC signal-month total selected netR >0.",
+    "concentration": "Maximum positive family total netR divided by sum of positive family total netR."
+  },
+  "forbidden": [
+    "No feature addition/removal after development outcomes.",
+    "No feature importance-based rescue.",
+    "No model or hyperparameter change.",
+    "No decision-threshold sweep.",
+    "No symbol feature or symbol-specific patch.",
+    "No opening validation/holdout unless every development gate passes."
+  ]
+}
