@@ -1,0 +1,8 @@
+{
+  "status": "PASS_DATA_FREEZE",
+  "archiveDays": 334,
+  "archiveObjectsVerified": 4008,
+  "symbolsFrozen": 12,
+  "errorCount": 0,
+  "errors": []
+}

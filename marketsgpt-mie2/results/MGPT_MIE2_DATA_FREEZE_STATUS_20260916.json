@@ -1,0 +1,163 @@
+{
+  "archiveDays": 334,
+  "archiveManifestFile": "MGPT_MIE2_ARCHIVE_MANIFEST_20260916.jsonl",
+  "archiveManifestSha256": "d46192e172bc8a2b29745d978a3127491c19ae61948c547eb282d2d7b4c19307",
+  "archiveObjectsVerified": 4008,
+  "errors": [],
+  "freshValidationOpened": false,
+  "generatedAtUtc": "2026-09-16T13:51:46.503635+00:00",
+  "lockSha256": "a6d2c2d5d7bc1cea2303754e0cffc669ab7936d5e6b349f870ef384b11d21850",
+  "performanceOutcomesComputed": false,
+  "schema": "mgpt_mie2_data_freeze_v1",
+  "sealedHoldoutOpened": false,
+  "sourceAuthority": {
+    "cadence": "5m",
+    "checksumRequired": true,
+    "checksumSibling": ".CHECKSUM",
+    "dataset": "data/futures/um/daily/metrics/<SYMBOL>/<SYMBOL>-metrics-YYYY-MM-DD.zip",
+    "knownArchiveNormalization": {
+      "before20260625": "create_time is treated as end-of-period availability time.",
+      "from20260625": "create_time is shifted +5 minutes before causal use because archive labels changed to start-of-period while content represents the following 5-minute interval.",
+      "transitionDuplicateRule": "After normalization, exact duplicate availability timestamps must agree numerically or the symbol/day is fail-closed; the 2026-06-25 transition window is excluded from formal validation/holdout."
+    },
+    "noInterpolation": true,
+    "provider": "Binance official public data archive",
+    "requiredColumns": [
+      "create_time",
+      "symbol",
+      "sum_open_interest",
+      "sum_open_interest_value",
+      "count_toptrader_long_short_ratio",
+      "sum_toptrader_long_short_ratio",
+      "count_long_short_ratio",
+      "sum_taker_long_short_vol_ratio"
+    ]
+  },
+  "status": "PASS_DATA_FREEZE",
+  "symbols": [
+    {
+      "file": "data/positioning_hourly/BTCUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995217897538257,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96146,
+      "sha256": "fb7e52bb3e4e622cc66bde5a69379c14bf1e3c313c85ff73431c492c3ad76ce3",
+      "symbol": "BTCUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/ETHUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995217897538257,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96146,
+      "sha256": "5d828239cd710068aaeea8069b4b573cd01d6dcab1be0e5d7b84a7437f0a3cbe",
+      "symbol": "ETHUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/BNBUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995321856287425,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96147,
+      "sha256": "5c8a1c4f521f5e78062c2aacb107b7ffdcfd54a5cba086f0e9f48fec54ea4556",
+      "symbol": "BNBUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/SOLUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995217897538257,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96146,
+      "sha256": "aa9fa5711c15a7d619e5b6a890aa4d640b7c1c4eb03967a4103e7742846ce46f",
+      "symbol": "SOLUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/XRPUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995217897538257,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96146,
+      "sha256": "96abd298e436e8db098aceaa8c20135a8313ba570d08583c4cd74b3e19c32861",
+      "symbol": "XRPUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/DOGEUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995217897538257,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96146,
+      "sha256": "3a3a1c74e654afad307bfb3acf709b1e779a2eb990d54c9bf7997c87b972d297",
+      "symbol": "DOGEUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/ADAUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995217897538257,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96146,
+      "sha256": "554345d536b99a86b321ddbd1b80ee4e1afccdd823a38c5ad038bbb19632a340",
+      "symbol": "ADAUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/LINKUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995217897538257,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96146,
+      "sha256": "a3ca24d923e4c0bd794c6ca89cd5b67a95392f52246fee3858c7eedb16810a4e",
+      "symbol": "LINKUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/LTCUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995321856287425,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96147,
+      "sha256": "3058c1fd768d2b0f4d0a7f44c5c29abdeafbef3cdbb96453f68ad508fdc5fb05",
+      "symbol": "LTCUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/BCHUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995321856287425,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96147,
+      "sha256": "275806a1adb0b343986ae3665361fcbe28de24d424246fcba3242cc956a020f7",
+      "symbol": "BCHUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/AVAXUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995321856287425,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96147,
+      "sha256": "669aaa17f21ebc9106142c49d84560f491f8186309547524173c72b75ad22810",
+      "symbol": "AVAXUSDT"
+    },
+    {
+      "file": "data/positioning_hourly/DOTUSDT_1h.csv",
+      "hourlyAvailabilityCoverage": 0.9995009980039921,
+      "hourlyRows": 8016,
+      "metric5mCoverage": 0.9995321856287425,
+      "normalizedDuplicateRowsCollapsed": 0,
+      "rows5m": 96147,
+      "sha256": "02a977f545c63de3e991056a5e8b72c726a7926ad201ca15133270c1ec12b2b6",
+      "symbol": "DOTUSDT"
+    }
+  ],
+  "window": {
+    "endExclusive": "2026-05-01T00:00:00+00:00",
+    "start": "2025-06-01T00:00:00+00:00"
+  }
+}
