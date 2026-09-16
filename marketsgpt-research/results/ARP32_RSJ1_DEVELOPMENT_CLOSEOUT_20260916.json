@@ -1,0 +1,181 @@
+{
+  "schema": "mgpt_arp32_rsj1_development_closeout_v1",
+  "generation": "ARP32-RSJ1",
+  "generatedAtUtc": "2026-09-16T00:35:38.541215+00:00",
+  "status": "REJECT_DEVELOPMENT_GATE_TERMINAL_STOP_RULE",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "fundingReplayRequiredBeforeValidation": false,
+  "freshValidationOpened": false,
+  "sealedHoldoutOpened": false,
+  "lockSha256": "95d9d11d2ff15036a8805e3356c1410132bf6529e0c41e3ee519151b00d9f72d",
+  "development": {
+    "expectedDays": 181,
+    "evaluatedDays": 181,
+    "activeCoverageDays": 150,
+    "coverageFraction": 0.8287292817679558,
+    "averageEligibleSymbols": 26.370165745856355,
+    "meanTurnover": 1.206998158379374,
+    "singleSymbolPositiveContribution": 0.21995885051039743,
+    "firstHalfNetReturn": -0.17381522125607107,
+    "secondHalfNetReturn": -0.06866748614022333,
+    "gross": {
+      "n": 181,
+      "meanDailyReturn": -0.0006412494499325264,
+      "annualizedMean": -0.23405604922537215,
+      "annualizedSharpe": -0.9668632098339501,
+      "profitFactor": 0.8461968157653702,
+      "maxDrawdown": 0.15425217094844268,
+      "positiveMonthFraction": 0.14285714285714285,
+      "monthSums": {
+        "2025-01": -0.009521326166357195,
+        "2025-02": -0.04825195520101711,
+        "2025-03": -0.05790782164625811,
+        "2025-04": 0.06012437207343259,
+        "2025-05": -0.003358994479414005,
+        "2025-06": -0.05715042501817344,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.1712,
+        "ci95Low": -0.002028685272788471,
+        "ci95High": 0.0005948229202325232
+      }
+    },
+    "baseCost": {
+      "n": 181,
+      "meanDailyReturn": -0.0013654483449601507,
+      "annualizedMean": -0.498388645910455,
+      "annualizedSharpe": -2.0562220822294766,
+      "profitFactor": 0.7012131283257621,
+      "maxDrawdown": 0.23800304609450262,
+      "positiveMonthFraction": 0.14285714285714285,
+      "monthSums": {
+        "2025-01": -0.03530132616635721,
+        "2025-02": -0.07219195520101715,
+        "2025-03": -0.08538782164625808,
+        "2025-04": 0.03444437207343259,
+        "2025-05": -0.02075899447941401,
+        "2025-06": -0.06795042501817343,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.0152,
+        "ci95Low": -0.002732908444902318,
+        "ci95High": -0.00012101908028372054
+      }
+    },
+    "stress1_5x": {
+      "n": 181,
+      "meanDailyReturn": -0.0017275477924739633,
+      "annualizedMean": -0.6305549442529966,
+      "annualizedSharpe": -2.5990935367416377,
+      "profitFactor": 0.6382616904306283,
+      "maxDrawdown": 0.28623145700583064,
+      "positiveMonthFraction": 0.14285714285714285,
+      "monthSums": {
+        "2025-01": -0.0481913261663572,
+        "2025-02": -0.08416195520101712,
+        "2025-03": -0.0991278216462581,
+        "2025-04": 0.021604372073432587,
+        "2025-05": -0.029458994479414004,
+        "2025-06": -0.07335042501817343,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.0025,
+        "ci95Low": -0.00316925765183993,
+        "ci95High": -0.0004777057038640844
+      }
+    },
+    "stress2x": {
+      "n": 181,
+      "meanDailyReturn": -0.002089647239987775,
+      "annualizedMean": -0.7627212425955379,
+      "annualizedSharpe": -3.140328037149087,
+      "profitFactor": 0.5811792111166271,
+      "maxDrawdown": 0.331427223786699,
+      "positiveMonthFraction": 0.14285714285714285,
+      "monthSums": {
+        "2025-01": -0.06108132616635718,
+        "2025-02": -0.09613195520101712,
+        "2025-03": -0.11286782164625808,
+        "2025-04": 0.008764372073432586,
+        "2025-05": -0.03815899447941401,
+        "2025-06": -0.07875042501817345,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.0002,
+        "ci95Low": -0.003524789131591991,
+        "ci95High": -0.0008229670078692023
+      }
+    },
+    "symbolGrossContributions": {
+      "BTCUSDT": -0.029199454416063742,
+      "ETHUSDT": 0.06909581034859115,
+      "BCHUSDT": 0.02374589650545901,
+      "XRPUSDT": 0.04187715245878314,
+      "LTCUSDT": -0.027473639590779066,
+      "TRXUSDT": 0.023316488490567555,
+      "ETCUSDT": 0.001620225410215075,
+      "LINKUSDT": -0.034777150723614036,
+      "XLMUSDT": 0.02535040374452776,
+      "ADAUSDT": -0.05301526185558646,
+      "ATOMUSDT": -0.030516761391908013,
+      "VETUSDT": -0.017353134793934456,
+      "NEOUSDT": 0.019166130024393248,
+      "QTUMUSDT": 0.007152008211646117,
+      "THETAUSDT": -0.031077160371867366,
+      "ALGOUSDT": -0.005502860590161831,
+      "KNCUSDT": 0.007544946734298173,
+      "ZRXUSDT": 0.008532770533272019,
+      "COMPUSDT": -0.020975346740218455,
+      "DOGEUSDT": 0.0032132174542603984,
+      "KAVAUSDT": -0.055810694634910694,
+      "RLCUSDT": 0.039542728109951616,
+      "SNXUSDT": -0.06180389767998719,
+      "DOTUSDT": 0.03611850655296954,
+      "YFIUSDT": -0.014121746143891032,
+      "CRVUSDT": -0.07722759296893722,
+      "SUSHIUSDT": -0.0359877231593315,
+      "RUNEUSDT": 0.0054065168028448185,
+      "SOLUSDT": -0.020795980745073037,
+      "UNIUSDT": 0.08788945398669712
+    }
+  },
+  "checks": {
+    "minimumEvaluatedDays": true,
+    "minimumCoverageFraction": false,
+    "averageEligibleSymbolsMin": true,
+    "baseNetMeanDailyReturnMin": false,
+    "baseNetAnnualizedSharpeMin": false,
+    "baseNetProfitFactorMin": false,
+    "stress1_5xMeanDailyReturnMin": false,
+    "stress2xMeanDailyReturnMin": false,
+    "positiveMonthFractionMin": false,
+    "firstHalfNetReturnPositive": false,
+    "secondHalfNetReturnPositive": false,
+    "bootstrapProbabilityPositiveMin": false,
+    "bootstrapCi95LowMin": false,
+    "maxDrawdownMax": false,
+    "singleSymbolPositiveContributionMax": false
+  },
+  "failedChecks": [
+    "minimumCoverageFraction",
+    "baseNetMeanDailyReturnMin",
+    "baseNetAnnualizedSharpeMin",
+    "baseNetProfitFactorMin",
+    "stress1_5xMeanDailyReturnMin",
+    "stress2xMeanDailyReturnMin",
+    "positiveMonthFractionMin",
+    "firstHalfNetReturnPositive",
+    "secondHalfNetReturnPositive",
+    "bootstrapProbabilityPositiveMin",
+    "bootstrapCi95LowMin",
+    "maxDrawdownMax",
+    "singleSymbolPositiveContributionMax"
+  ],
+  "researchProgramStopRuleTriggered": true,
+  "nextAction": "Trigger the predeclared terminal research-program stop rule. Do not launch another price-alpha family in this closure campaign; preserve RC4S3H5R4R15 unchanged and close profitability as not proven."
+}
