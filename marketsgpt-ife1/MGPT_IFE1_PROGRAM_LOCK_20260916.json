@@ -723,7 +723,9 @@
     "bootstrapProbabilityPositiveUtilityDeltaVsAllEligibleBaselineMin": 0.95,
     "candidateUtilityDeltaRMin": 0.03,
     "pWinScoreAucMin": 0.55,
-    "singleMarketFamilyPositiveContributionMax": 0.45
+    "singleMarketFamilyPositiveContributionMax": 0.45,
+    "minimumActiveMarketFamilies": 6,
+    "minimumActiveBlocks": 30
   },
   "antiOverfit": [
     "No model hyperparameter search.",
