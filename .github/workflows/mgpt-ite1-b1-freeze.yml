@@ -35,6 +35,7 @@ jobs:
           git add marketsgpt-ite1/data/b1_fresh marketsgpt-ite1/results/MGPT_ITE1_B1_*
           if git diff --cached --quiet; then echo "No changes"; else
             git commit -m "ite1 data: freeze B1 fresh-instrument inputs"
+            git pull --rebase origin main
             git push
           fi
       - name: Enforce freeze exit
