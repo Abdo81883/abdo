@@ -34,7 +34,8 @@
       "endExclusive": "2026-09-01T00:00:00Z",
       "sealed": true,
       "oneShot": true
-    }
+    },
+    "contextWarmupStart": "2025-01-01T00:00:00Z"
   },
   "universeSelectionRule": "All 56 unique instruments objectively registered in ITE1 E1/A1/B1/C1 locks. No symbol was added/dropped using IFE1-period outcomes.",
   "universe": [
@@ -734,5 +735,20 @@
     "No probability/calibration claim from pWinScore.",
     "No R15 mutation before independent replication + fresh validation + sealed holdout."
   ],
-  "nextAuthorizedAction": "Freeze complete hourly research bars for warmup+fit+development and complete daily context series, hash all inputs, then build the frozen candidate table without opening fresh validation or sealed holdout."
+  "nextAuthorizedAction": "Freeze complete hourly research bars for warmup+fit+development and complete daily context series, hash all inputs, then build the frozen candidate table without opening fresh validation or sealed holdout.",
+  "dataFreezeGate": {
+    "firstMarketBarNoLaterThan": "2025-05-05T00:00:00Z",
+    "lastMarketBarNoEarlierThan": "2025-12-31T00:00:00Z",
+    "minimumRowsByFamily": {
+      "CRYPTO_SPOT": 5500,
+      "FX": 3800,
+      "METALS_FUTURES_PROXY": 2800,
+      "COMMODITY_FUTURES_PROXY": 2400,
+      "EQUITY": 900,
+      "INDEX": 900
+    },
+    "minimumContextDailyRows": 240,
+    "providerErrorPayloadAllowed": false,
+    "manifestSha256Required": true
+  }
 }
