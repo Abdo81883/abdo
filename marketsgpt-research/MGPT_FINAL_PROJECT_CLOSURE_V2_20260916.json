@@ -1,0 +1,100 @@
+{
+  "schema": "mgpt_final_project_closure_v2",
+  "generatedAtUtc": "2026-09-16T14:16:30Z",
+  "project": "MarketsGPT final closure after ITE/IFE/MIE extension",
+  "closureStatus": "CLOSED_PRODUCT_STABLE_ALPHA_NOT_PROVEN_AFTER_EXTENDED_PROGRAM",
+  "finalOperationalWorker": {
+    "release": "RC4S3H5R4R15",
+    "version": "31.6.982-r1-65d7a5h1-final-closure-rc4s3h5r4r15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "byteChangeAfterStableFreeze": false,
+    "role": "FINAL_STABLE_NON_ALPHA_PRODUCT_BASELINE"
+  },
+  "productEvidence": {
+    "liveGate": "PASS",
+    "packageGate": "PASS",
+    "offlineRegression": "592/592 PASS x3",
+    "surgicalRegression": "66/66 PASS x2",
+    "staticSeniorCouncilAudit": "81/81 PASS",
+    "mutationAudit": "14/14 seeded regressions detected",
+    "liveSameRun": "84/84 HTTP 200 and Cloudflare outcome=ok; zero response-level 1101/1102/resource exceptions",
+    "externalDataBoundariesRemainFailClosed": true
+  },
+  "extendedResearchProgram": {
+    "originalAlphaCampaign": "CLOSED_ALPHA_NOT_PROVEN",
+    "ITE1": {
+      "status": "CLOSED_PRICE_PATTERN_ARCHITECTURE_NOT_PROVEN",
+      "trials": [
+        "E1 rejected",
+        "A1 rejected",
+        "B1 rejected",
+        "C1 rejected"
+      ],
+      "timeValidationOpened": false,
+      "holdoutOpened": false
+    },
+    "IFE1": {
+      "status": "REJECT_IFE1_DEVELOPMENT_GATE",
+      "fitRows": 22581,
+      "developmentRows": 22358,
+      "selectedTrades": 0,
+      "freshValidationOpened": false,
+      "holdoutOpened": false
+    },
+    "IFE2": {
+      "status": "REJECT_IFE2_DEVELOPMENT_GATE",
+      "fitRows": 13468,
+      "developmentRows": 14366,
+      "selectedTrades": 0,
+      "goodScoreAuc": 0.5144146257641198,
+      "tailLossScoreAuc": 0.7023695892893025,
+      "freshValidationOpened": false,
+      "holdoutOpened": false
+    },
+    "MIE1": {
+      "status": "REJECT_MIE1_DEVELOPMENT_GATE",
+      "fitCandidates": 105384,
+      "developmentCandidates": 68520,
+      "selectedTrades": 8487,
+      "netExpectancyR": -0.20409944710935193,
+      "stressNetExpectancyR": -0.273761684304471,
+      "profitFactor": 0.7094953682957016,
+      "freshValidationOpened": false,
+      "holdoutOpened": false
+    },
+    "MIE2": {
+      "status": "REJECT_MIE2_DEVELOPMENT_GATE_TERMINAL_STOP",
+      "fitSymbolHours": 52116,
+      "developmentSymbolHours": 34260,
+      "selectedTrades": 5710,
+      "pairDirectionAccuracy": 0.5690017513134851,
+      "netExpectancyR": 0.0036859329976336656,
+      "stressNetExpectancyR": -0.06535045822312774,
+      "profitFactor": 1.006033118506785,
+      "selectedDeltaVsPairMeanR": 0.11948784901301278,
+      "bootstrapProbabilityPositiveNetExpectancy": 0.5532,
+      "bootstrapProbabilityPositiveDeltaVsPairMean": 1,
+      "positiveSymbolFraction": 0.5,
+      "secondHalfNetExpectancyR": -0.023841937614529806,
+      "freshValidationOpened": false,
+      "holdoutOpened": false
+    }
+  },
+  "scientificConclusion": "The extension found some real ranking information, especially pairwise direction discrimination in MIE2, but no candidate satisfied the locked absolute profitability, robustness and breadth gates. Relative improvement over a weak baseline is not sufficient production evidence.",
+  "terminalStop": {
+    "activated": true,
+    "rule": "Do not launch another derived-price/positioning alpha family inside this closure project. Future research requires a separately authorized project with materially different data such as historical order-book depth, liquidations or event-level execution data.",
+    "freshEvidencePreserved": true
+  },
+  "finalAuthority": {
+    "productTruthStable": true,
+    "alphaIntegratedFinalWorkerAuthorized": false,
+    "automaticExecutionAllowed": false,
+    "brokerOrderSubmissionAllowed": false,
+    "profitabilityClaimAllowed": false,
+    "manualDecisionSupportOnly": true
+  },
+  "integrationDecisionFile": "MGPT_FINAL_WORKER_INTEGRATION_DECISION_20260916.json",
+  "deliveryRule": "Distribute byte-identical RC4S3H5R4R15 plus the full terminal research closeout. Do not label R15 as alpha-integrated or profitability-validated.",
+  "reopeningRule": "Any future Worker byte change, provider-authority change, trading-math change or alpha integration starts a new Senior Council project with new locks and untouched evidence."
+}
