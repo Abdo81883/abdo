@@ -3027,7 +3027,7 @@
   ],
   "errors": [],
   "freshValidationOpened": false,
-  "generatedAtUtc": "2026-09-16T13:08:13.251815+00:00",
+  "generatedAtUtc": "2026-09-16T13:27:52.309904+00:00",
   "lockSha256": "05cde5d0189e28b75268c650cbedad4072e8432f45f4323d1dff3af2c6f81825",
   "performanceOutcomesComputed": false,
   "schema": "mgpt_mie1_data_freeze_v1",
@@ -3052,7 +3052,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "7c45d20526f8e9e23122facf3b44989f7bc9bc80d367b65ebc38aeeaac622b7c"
+        "sha256": "2da76452b439ef6c5649cfcab698f08f97ee40e09afa6ac67bf7e6cc1640777f"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3071,7 +3071,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "e19c70036b0cdab6afdd35e6a396e5aa931bc272efea497b92c80f5aa0a7f471"
+        "sha256": "51e324f2232c8e4d855fff820f2fb6fc70a84f28176589f29a8dba73fa9ae4ac"
       },
       "premiumCoverage": 1.0,
       "symbol": "BTCUSDT"
@@ -3082,7 +3082,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "552e149de7c59cebfeca70b3f74bc8d0dd74b716d6b816e799ab8917edd9ac01"
+        "sha256": "b32f12471e671a47e6004cf3b2ffbb2a3f8418e95005ae0377ced2d00e3daf4a"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3101,7 +3101,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "5b9c8749b84a0bd0fc739ba4885f7f1b99d134b5f83b617b6252c71a09443b5c"
+        "sha256": "dc0143ff5e75134fca0eb96ff072fcaca94c3ff9ce39449287c769fb0c769815"
       },
       "premiumCoverage": 1.0,
       "symbol": "ETHUSDT"
@@ -3112,7 +3112,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "44d61dbe9a4c62aa840055ce41e0d48d92778fb7415262452f10815c9ba0a2ca"
+        "sha256": "34811d5897876fec53b6e6cba699370f15bf9f9927a98820dbd1f02e7c68002b"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3131,7 +3131,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "f90cc2fdb0eb0b839fea7d50a219d9a5354ccd1a60fbf734609e6bbae78a4f67"
+        "sha256": "d1cc9b3fb86efcc057fe1669792871a9e26e0bb0fe7bbe3f21ce47d6fc9efba6"
       },
       "premiumCoverage": 1.0,
       "symbol": "BNBUSDT"
@@ -3142,7 +3142,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "65db559b3ca43628ac99e4ad97bc923700fc232f92aa5fc09bc2c137cdf05fda"
+        "sha256": "e9942b6fbd149919303a043f0a5983a5fb3babae58af9ed80ae30391607b4675"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3161,7 +3161,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "fb019e655897793858b53278b69017c30f3d1d27be3b355b5ebb687b098764d7"
+        "sha256": "2244e39a3a428629c69bb145308ef06ee578cde808205d0f3c36174f4105e70e"
       },
       "premiumCoverage": 1.0,
       "symbol": "SOLUSDT"
@@ -3172,7 +3172,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "5ab41ac99904a6519c0a250d82912a359fe86889b061bd9ad50ca8ab486927a5"
+        "sha256": "b9cad3863ed21a5e82ebb2bc9375b45d9f4bc0248e6f834aa82a918d3403fb06"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3191,7 +3191,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "dc380ca78d531e56a987d4edd6a435928d3c0d5aadaa6ecdedc9a0c38d3527d9"
+        "sha256": "e888035d2e453c6fea6dd40bf3ae99310fd11e41c3b1ed147572293dc33345de"
       },
       "premiumCoverage": 1.0,
       "symbol": "XRPUSDT"
@@ -3202,7 +3202,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "6126493385d0a40d1daf3c35c2d420ec7d3374792bc6bd191c7aa33a1891e624"
+        "sha256": "6a1348745644b3e72f734913a829129d0f26df16553eccb88400672f602651d1"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3221,7 +3221,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "0732d4541d2ac5b79b4f63336ea3f470edf5737a457cc3ec102369120012059a"
+        "sha256": "493002bfad4d0d1d1428bc8a20f4d38a812555587164389f43711cae425760a3"
       },
       "premiumCoverage": 1.0,
       "symbol": "DOGEUSDT"
@@ -3232,7 +3232,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "cd7827c5b741e5b629d4ae96062a0f90db6fd9b896f07f8fe9ede5129835c4e7"
+        "sha256": "007e025925c34df969aa8aab1f3370a1afcad7fbb8ca41cc3c3e53784da35597"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3251,7 +3251,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "c7f7b63233494ca7dfa70d41c89fbfa114f4016081458698db26fe59b90e47bd"
+        "sha256": "09394ad2458e176f0fa7543a764d9ca6da7235df97eedf7f3b9a2780176133d4"
       },
       "premiumCoverage": 1.0,
       "symbol": "ADAUSDT"
@@ -3262,7 +3262,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "68de5613cdae5d168d9b793d4d44df387f54f752ed4504d1dbd9dfb315b52947"
+        "sha256": "d5b4932abe02ee49d61b9c9250df45994417c70aabfbd5dc45897a29aa4d2aac"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3281,7 +3281,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "1d9a479fef98b06c94314b370fbd304e25546e0f9acc36542fca832fccc05f32"
+        "sha256": "02c7a0d48ac186ca9626d4cffa475754b4ae59e97ce2d812a9fba2fb30cfe4f3"
       },
       "premiumCoverage": 1.0,
       "symbol": "LINKUSDT"
@@ -3292,7 +3292,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "d76aed102a907f1a2b17404e00d58fffb479096d5d656aa224be7d946796336c"
+        "sha256": "aabb1acd7f6489921137298a8fc14128da43efbf7740df5e1dc41aa761755cb9"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3311,7 +3311,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "5e61bfcb181610faa0aae6bd6d789e3948dc07b206ecf8d4b68a9b2aad681ac1"
+        "sha256": "723e938501fe4ec6c72f199b1c9cde819294f117df6428cb8e9c318a70511b92"
       },
       "premiumCoverage": 1.0,
       "symbol": "LTCUSDT"
@@ -3322,7 +3322,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "7f07e0f3a40f9afc9412c116e1464fa7c6944b323e4403d6f43251995259efaf"
+        "sha256": "59b970b4df07f504bfc594607f4148415a4807808be1c5231cb06053182a0bfb"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3341,7 +3341,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "1b9f7c21c2bb2b0c4d5261572b991337a5bdb78cf8d76db5fc16954aa32d60b1"
+        "sha256": "48088a51910b605e5380beff6998ef79ec59eb77b1ca750a0e419bee0059d580"
       },
       "premiumCoverage": 1.0,
       "symbol": "BCHUSDT"
@@ -3352,7 +3352,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "33f9675059fecd0f89f3dc6f35c893848afc908b4248a35ee9d01d907397219e"
+        "sha256": "057b960ca08cb1395ef0eb1ddfbab06b91fb727fa3b13d6dbc0e7a54f0ec3f6e"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3371,7 +3371,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "ad0712bdbcac2e29173d85a07d1468f4e01efbfeed299aa176c98ddafa048047"
+        "sha256": "6f5baac64bbfa89cb5ca55c07a39522540610c97431525e809a735d624502103"
       },
       "premiumCoverage": 1.0,
       "symbol": "AVAXUSDT"
@@ -3382,7 +3382,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "5344a8669c1101e686ee440765a285bfa447b7d655474e293f7ab8d6de7e3112"
+        "sha256": "b6eb46c66a776d1676c31b6119f3e725bb070238d6ff4c4eead9ea1e2bca6b29"
       },
       "contractCoverage": 1.0,
       "funding": {
@@ -3401,7 +3401,7 @@
         "firstUtc": "2025-05-01T00:00:00+00:00",
         "lastUtc": "2026-04-30T23:00:00+00:00",
         "rows": 8760,
-        "sha256": "c162d3f8cba54e44eaf26edd82b671d251c81a31e633529309f259b72c8ea848"
+        "sha256": "e777473abea4a4badd1f3b9948fb204e6689fb0cffda0d86276c2f79827ceb9a"
       },
       "premiumCoverage": 1.0,
       "symbol": "DOTUSDT"
