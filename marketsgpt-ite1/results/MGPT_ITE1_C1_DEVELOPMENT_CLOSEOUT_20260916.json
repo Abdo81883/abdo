@@ -1,0 +1,331 @@
+{
+  "blockDiagnostics": [
+    {
+      "bars": 5807,
+      "c1EnteredTrades": 0,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 462,
+      "status": "OK",
+      "symbol": "AVAX-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1451,
+      "c1EnteredTrades": 0,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 96,
+      "status": "OK",
+      "symbol": "AVAX-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 5807,
+      "c1EnteredTrades": 0,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 449,
+      "status": "OK",
+      "symbol": "DOT-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1451,
+      "c1EnteredTrades": 0,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 84,
+      "status": "OK",
+      "symbol": "DOT-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 5807,
+      "c1EnteredTrades": 1,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 462,
+      "status": "OK",
+      "symbol": "LINK-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1451,
+      "c1EnteredTrades": 0,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 103,
+      "status": "OK",
+      "symbol": "LINK-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4062,
+      "c1EnteredTrades": 1,
+      "marketFamily": "FX",
+      "referenceCandidates": 202,
+      "status": "OK",
+      "symbol": "EURCAD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 986,
+      "c1EnteredTrades": 1,
+      "marketFamily": "FX",
+      "referenceCandidates": 47,
+      "status": "OK",
+      "symbol": "EURCAD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4087,
+      "c1EnteredTrades": 0,
+      "marketFamily": "FX",
+      "referenceCandidates": 224,
+      "status": "OK",
+      "symbol": "GBPAUD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 991,
+      "c1EnteredTrades": 0,
+      "marketFamily": "FX",
+      "referenceCandidates": 52,
+      "status": "OK",
+      "symbol": "GBPAUD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4062,
+      "c1EnteredTrades": 0,
+      "marketFamily": "FX",
+      "referenceCandidates": 239,
+      "status": "OK",
+      "symbol": "EURAUD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 986,
+      "c1EnteredTrades": 0,
+      "marketFamily": "FX",
+      "referenceCandidates": 61,
+      "status": "OK",
+      "symbol": "EURAUD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4093,
+      "c1EnteredTrades": 0,
+      "marketFamily": "FX",
+      "referenceCandidates": 145,
+      "status": "OK",
+      "symbol": "AUDCAD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 996,
+      "c1EnteredTrades": 0,
+      "marketFamily": "FX",
+      "referenceCandidates": 32,
+      "status": "OK",
+      "symbol": "AUDCAD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3055,
+      "c1EnteredTrades": 1,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 169,
+      "status": "OK",
+      "symbol": "ZC=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 639,
+      "c1EnteredTrades": 0,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 37,
+      "status": "OK",
+      "symbol": "ZC=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3055,
+      "c1EnteredTrades": 0,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 159,
+      "status": "OK",
+      "symbol": "ZS=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 639,
+      "c1EnteredTrades": 1,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 22,
+      "status": "OK",
+      "symbol": "ZS=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 1133,
+      "c1EnteredTrades": 1,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 79,
+      "status": "OK",
+      "symbol": "ORCL",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1133,
+      "c1EnteredTrades": 0,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 72,
+      "status": "OK",
+      "symbol": "CRM",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1133,
+      "c1EnteredTrades": 0,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 72,
+      "status": "OK",
+      "symbol": "QCOM",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1133,
+      "c1EnteredTrades": 0,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 88,
+      "status": "OK",
+      "symbol": "MU",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1133,
+      "c1EnteredTrades": 0,
+      "marketFamily": "INDEX",
+      "referenceCandidates": 79,
+      "status": "OK",
+      "symbol": "^IXIC",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1133,
+      "c1EnteredTrades": 0,
+      "marketFamily": "INDEX",
+      "referenceCandidates": 81,
+      "status": "OK",
+      "symbol": "^NYA",
+      "timeframe": "1h"
+    }
+  ],
+  "bootstrap": {
+    "blockLengthCandidates": 20,
+    "ci95NetExpectancyR": [
+      -1.189552399120542,
+      1.624515077139935
+    ],
+    "ci95UtilityDeltaVsBaseline": [
+      0.02131274396087259,
+      0.08892173436658041
+    ],
+    "iterations": 5000,
+    "method": "hierarchical instrument-timeframe circular reference-event blocks",
+    "probabilityPositiveNetExpectancy": 0.258,
+    "probabilityPositiveUtilityDeltaVsBaseline": 0.9986,
+    "seed": 14001
+  },
+  "checks": {
+    "bootstrapProbabilityPositiveNetMin": false,
+    "bootstrapProbabilityPositiveUtilityDeltaVsBaselineMin": true,
+    "firstHalfPositive": true,
+    "minimumActiveBlocks": false,
+    "minimumActiveMarketFamilies": false,
+    "minimumEnteredTrades": false,
+    "netExpectancyRMin": false,
+    "positiveBlockFractionMin": false,
+    "positiveMarketFamilyFractionMin": false,
+    "positiveMonthFractionMin": false,
+    "profitFactorMin": false,
+    "referenceOpportunityPrecisionMin": false,
+    "referenceOpportunityRecallMin": false,
+    "secondHalfPositive": false,
+    "singleMarketFamilyPositiveContributionMax": false,
+    "stressNetExpectancyRMin": false
+  },
+  "dataFreezeSha256": "b7676003201d3d4ca8ecaf85403f673378c48ee944b64999d7b2c4c23bbf34e1",
+  "failedChecks": [
+    "minimumEnteredTrades",
+    "minimumActiveMarketFamilies",
+    "minimumActiveBlocks",
+    "netExpectancyRMin",
+    "stressNetExpectancyRMin",
+    "profitFactorMin",
+    "referenceOpportunityRecallMin",
+    "referenceOpportunityPrecisionMin",
+    "positiveMarketFamilyFractionMin",
+    "positiveBlockFractionMin",
+    "secondHalfPositive",
+    "positiveMonthFractionMin",
+    "bootstrapProbabilityPositiveNetMin",
+    "singleMarketFamilyPositiveContributionMax"
+  ],
+  "generatedAtUtc": "2026-09-16T12:23:23.949002+00:00",
+  "implementationSpecSha256": "5716abe2f90f4ee65c837862ae2e43e74d1ca04b839807a8c113f0446c61a96d",
+  "lockSha256": "99c8974e4d40a76f3f6f90e6dc694f1eafadcd3d72632b6c0979b445c1ac1825",
+  "metrics": {
+    "activeBlocks": 6,
+    "activeMarketFamilies": 4,
+    "baselineOnFreshUniverse": {
+      "architectureCandidateUtilityMeanR": -0.0006346704448714544,
+      "candidateUtilityDeltaR": 0.05542364488462049,
+      "candidateUtilityMeanR": -0.05605831532949194,
+      "enteredTrades": 3497,
+      "netExpectancyR": -0.05636289296496816
+    },
+    "blockExpectancyR": {
+      "EURCAD=X|1h": 2.87396872572794,
+      "EURCAD=X|4h": -0.874392220036075,
+      "LINK-USD|1h": -1.1912219012635836,
+      "ORCL|1h": -0.8138050336345771,
+      "ZC=F|1h": -1.189552399120542,
+      "ZS=F|4h": -1.0364984558411963
+    },
+    "enteredTrades": 6,
+    "exitTypeExpectancyR": {
+      "FAILED_BREAKOUT": -0.8440986268353261,
+      "STOP": -1.139090918741774,
+      "TP2": 2.87396872572794
+    },
+    "familyExpectancyR": {
+      "COMMODITY_FUTURES_PROXY": -1.113025427480869,
+      "CRYPTO_SPOT": -1.1912219012635836,
+      "EQUITY": -0.8138050336345771,
+      "FX": 0.9997882528459325
+    },
+    "firstHalfNetExpectancyR": 0.3210260166168896,
+    "hitRate": 0.16666666666666666,
+    "maxDrawdownR": 4.231077789859899,
+    "meanMaeR": 1.015152853833397,
+    "meanMfeR": 1.24078587595884,
+    "netExpectancyR": -0.37191688069467227,
+    "positiveBlockFraction": 0.16666666666666666,
+    "positiveMarketFamilyFraction": 0.25,
+    "positiveMonthFraction": 0.3333333333333333,
+    "profitFactor": 0.5629195196832619,
+    "referenceCandidateCount": 3516,
+    "referenceGoodOpportunityCount": 1201,
+    "referenceOpportunityPrecision": 0.16666666666666666,
+    "referenceOpportunityRecall": 0.0008326394671107411,
+    "secondHalfNetExpectancyR": -1.064859778006234,
+    "singleMarketFamilyPositiveContribution": 1.0,
+    "stressNetExpectancyR": -0.47310029278043647
+  },
+  "nextAction": "Register C1 rejection. If B1 is also rejected, activate the prelocked terminal price-pattern stop rule; do not rescue C1 and do not open time validation/holdout.",
+  "productionAuthority": false,
+  "providerReplicationRequiredBeforeNextPhase": false,
+  "r15MutationAllowed": false,
+  "schema": "mgpt_ite1_c1_development_closeout_v1",
+  "sealedHoldoutOpened": false,
+  "status": "REJECT_C1_FRESH_INSTRUMENT_GATE",
+  "terminalBudgetRuleIfB1AlsoFails": "Do not launch another price-pattern architecture in ITE1. Freeze this family and move any future work to a new data/feature program with fresh evidence and governance.",
+  "timeValidationOpened": false
+}
