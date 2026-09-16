@@ -1,0 +1,280 @@
+{
+  "schema": "mgpt_mie2_positioning_oi_lock_v1",
+  "generatedAtUtc": "2026-09-16T13:49:00Z",
+  "program": "MGPT-MIE2",
+  "name": "Futures Positioning / Open-Interest Intelligence — Pairwise Direction Engine",
+  "status": "LOCKED_BEFORE_MIE2_DATA_OR_PERFORMANCE_OUTCOMES",
+  "activationAuthority": "marketsgpt-mie1/MGPT_MIE1_TERMINAL_REGISTRY_20260916.json",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "researchClass": "GENUINELY_NEW_FUTURES_POSITIONING_AND_OPEN_INTEREST_INFORMATION",
+  "hypothesis": "Historical open-interest and trader-positioning/crowding state can improve the pairwise LONG-versus-SHORT decision and identify the strongest directional opportunities more effectively than the failed absolute candidate scorers.",
+  "priorOutcomeBoundary": "MIE1 price/microstructure outcomes through 2026-05-01 are contaminated and may not be used for symbol filtering or threshold rescue. MIE2 uses a new positioning data family and a prelocked pairwise target. May-2026 onward remains unopened.",
+  "universe": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "LTCUSDT",
+    "BCHUSDT",
+    "AVAXUSDT",
+    "DOTUSDT"
+  ],
+  "symbolGroup": {
+    "LARGE": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT",
+      "XRPUSDT"
+    ],
+    "ALT": [
+      "DOGEUSDT",
+      "ADAUSDT",
+      "LINKUSDT",
+      "LTCUSDT",
+      "BCHUSDT",
+      "AVAXUSDT",
+      "DOTUSDT"
+    ]
+  },
+  "windows": {
+    "positioningWarmupStart": "2025-06-01T00:00:00Z",
+    "modelFit": {
+      "start": "2025-07-01T00:00:00Z",
+      "endExclusive": "2026-01-01T00:00:00Z"
+    },
+    "developmentScreen": {
+      "start": "2026-01-01T00:00:00Z",
+      "endExclusive": "2026-05-01T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2026-05-01T00:00:00Z",
+      "endExclusive": "2026-06-25T00:00:00Z",
+      "sealed": true
+    },
+    "transitionQuarantine": {
+      "start": "2026-06-25T00:00:00Z",
+      "endExclusive": "2026-07-01T00:00:00Z",
+      "reason": "Binance USD-M metrics archive create_time convention changed on 2026-06-25; transition days are excluded from formal validation/holdout scoring."
+    },
+    "sealedHoldout": {
+      "start": "2026-07-01T00:00:00Z",
+      "endExclusive": "2026-09-01T00:00:00Z",
+      "sealed": true,
+      "oneShot": true
+    }
+  },
+  "sourceAuthority": {
+    "provider": "Binance official public data archive",
+    "dataset": "data/futures/um/daily/metrics/<SYMBOL>/<SYMBOL>-metrics-YYYY-MM-DD.zip",
+    "checksumSibling": ".CHECKSUM",
+    "cadence": "5m",
+    "requiredColumns": [
+      "create_time",
+      "symbol",
+      "sum_open_interest",
+      "sum_open_interest_value",
+      "count_toptrader_long_short_ratio",
+      "sum_toptrader_long_short_ratio",
+      "count_long_short_ratio",
+      "sum_taker_long_short_vol_ratio"
+    ],
+    "checksumRequired": true,
+    "noInterpolation": true,
+    "knownArchiveNormalization": {
+      "before20260625": "create_time is treated as end-of-period availability time.",
+      "from20260625": "create_time is shifted +5 minutes before causal use because archive labels changed to start-of-period while content represents the following 5-minute interval.",
+      "transitionDuplicateRule": "After normalization, exact duplicate availability timestamps must agree numerically or the symbol/day is fail-closed; the 2026-06-25 transition window is excluded from formal validation/holdout."
+    }
+  },
+  "inheritedExecutionAuthority": {
+    "sourceProgram": "MGPT-MIE1",
+    "sourceFiles": [
+      "marketsgpt-mie1/data/contract/<SYMBOL>_1h.csv",
+      "marketsgpt-mie1/data/premium/<SYMBOL>_1h.csv",
+      "marketsgpt-mie1/data/funding/<SYMBOL>.csv"
+    ],
+    "rule": "Use exactly the MIE1 frozen 1h execution simulation: next-open entry, 1ATR stop, 1.5R TP2 full exit, 24h max hold, stop-first same-bar, base/stress costs and realized funding. No execution-rule change is permitted inside MIE2."
+  },
+  "pairwiseDecisionUnit": {
+    "unit": "one symbol at one completed 1h decision time",
+    "outcomes": "simulate both LONG and SHORT using the inherited frozen execution plan before constructing pairwise targets",
+    "targetSpreadR": "longNetR - shortNetR",
+    "longBetter": "1 if targetSpreadR > 0, otherwise 0; exact ties are discarded from model fitting but retained in baseline diagnostics.",
+    "tradableOpportunity": "1 if max(longNetR, shortNetR) > 0, otherwise 0.",
+    "bestGoodOpportunity": "1 if either direction reaches the frozen +1.5R TP2 before stop within 24h.",
+    "chosenDirectionOpportunity": "For evaluation only: whether the model-selected direction reaches TP2 before stop."
+  },
+  "causalPositioningFeatures": [
+    "oiContractsLogChange1h",
+    "oiContractsLogChange3h",
+    "oiContractsLogChange6h",
+    "oiContractsLogChange24h",
+    "oiValueLogChange1h",
+    "oiValueLogChange3h",
+    "oiValueLogChange6h",
+    "oiValueLogChange24h",
+    "oiContractsZ24h",
+    "oiValueZ24h",
+    "topAccountLogRatio",
+    "topPositionLogRatio",
+    "globalAccountLogRatio",
+    "takerLogRatio",
+    "topAccountDelta1h",
+    "topAccountDelta3h",
+    "topAccountDelta6h",
+    "topAccountDelta24h",
+    "topPositionDelta1h",
+    "topPositionDelta3h",
+    "topPositionDelta6h",
+    "topPositionDelta24h",
+    "globalAccountDelta1h",
+    "globalAccountDelta3h",
+    "globalAccountDelta6h",
+    "globalAccountDelta24h",
+    "takerRatioDelta1h",
+    "takerRatioDelta3h",
+    "takerRatioDelta6h",
+    "topVsGlobalCrowding",
+    "positionVsAccountDivergence",
+    "topPositionVsGlobal",
+    "priceRet1h",
+    "priceRet3h",
+    "priceRet6h",
+    "priceRet12h",
+    "priceRet24h",
+    "priceOiInteraction3h",
+    "priceOiInteraction6h",
+    "priceOiInteraction24h",
+    "premiumClose",
+    "latestFundingRate",
+    "hourSin",
+    "hourCos",
+    "weekdaySin",
+    "weekdayCos"
+  ],
+  "categoricalFeatures": [
+    "symbolGroup"
+  ],
+  "forbiddenFeatures": [
+    "symbol identity",
+    "future positioning row",
+    "future funding",
+    "future price",
+    "post-outcome subgroup label"
+  ],
+  "model": {
+    "preprocessing": "MedianImputer + StandardScaler numeric; OneHotEncoder symbolGroup; all fitted on MIE2 fit only.",
+    "longBetterLogit": {
+      "C": 0.25,
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 18001
+    },
+    "longBetterHgb": {
+      "loss": "log_loss",
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_depth": 3,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1,
+      "early_stopping": false,
+      "random_state": 18002
+    },
+    "spreadHgb": {
+      "loss": "squared_error",
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_depth": 3,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1,
+      "early_stopping": false,
+      "random_state": 18003
+    },
+    "tradableHgb": {
+      "loss": "log_loss",
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_depth": 3,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1,
+      "early_stopping": false,
+      "random_state": 18004
+    },
+    "noHyperparameterSearch": true
+  },
+  "scoring": {
+    "directionalScore": "0.35*(2*pLongLogit-1) + 0.35*(2*pLongHgb-1) + 0.30*tanh(predSpreadR/1.25)",
+    "direction": "LONG if directionalScore >= 0, otherwise SHORT.",
+    "strength": "abs(directionalScore) * (0.50 + 0.50*pTradableHgb)",
+    "semantics": "All model outputs are research ranking scores; no calibrated probability claim."
+  },
+  "selection": {
+    "perDecisionTimestamp": "Rank the 12 symbol decisions by strength descending; deterministic tie-break symbol ascending. Select exactly top 2 symbols and execute each model-chosen direction.",
+    "maxTradesPerHour": 2,
+    "noAbsoluteThreshold": true,
+    "noThresholdSearch": true,
+    "noSymbolSpecificRule": true
+  },
+  "developmentMetrics": {
+    "pairDirectionAccuracy": "Fraction of selected symbol-hours where chosen direction realized netR >= opposite direction realized netR.",
+    "opportunityRecall": "Selected chosen-direction goodOpportunity count / all eligible directional goodOpportunity count.",
+    "opportunityPrecision": "Selected chosen-direction goodOpportunity count / selected trades.",
+    "baseline": "At the same selected symbol-hours, compare chosen-direction netR to the 50/50 LONG/SHORT pair mean; also compare portfolio expectancy to all symbol-hour pair means."
+  },
+  "bootstrap": {
+    "method": "hierarchical symbol circular 24-hour decision blocks with frozen selections",
+    "iterations": 5000,
+    "seed": 18001,
+    "blockLengthHours": 24
+  },
+  "developmentGate": {
+    "minimumFitSymbolHours": 50000,
+    "minimumDevelopmentSymbolHours": 33000,
+    "minimumSelectedTrades": 5000,
+    "activeSymbolsRequired": 12,
+    "bothDirectionsActive": true,
+    "netExpectancyRMin": 0.05,
+    "stressNetExpectancyRMin": 0.01,
+    "profitFactorMin": 1.1,
+    "pairDirectionAccuracyMin": 0.55,
+    "opportunityRecallMin": 0.07,
+    "opportunityPrecisionMin": 0.45,
+    "positiveSymbolFractionMin": 0.67,
+    "positiveMonthFractionMin": 0.75,
+    "firstHalfPositive": true,
+    "secondHalfPositive": true,
+    "longBetterLogitAucMin": 0.56,
+    "longBetterHgbAucMin": 0.56,
+    "tradableHgbAucMin": 0.56,
+    "spreadSpearmanMin": 0.05,
+    "bootstrapProbabilityPositiveNetMin": 0.95,
+    "bootstrapProbabilityPositiveDeltaVsPairMeanMin": 0.95,
+    "singleSymbolPositiveContributionMax": 0.22
+  },
+  "dataFreezeGate": {
+    "minimumMetric5mCoverage": 0.985,
+    "minimumHourlyAvailabilityCoverage": 0.99,
+    "checksumRequired": true,
+    "noInterpolation": true,
+    "duplicateNormalizedTimestampAllowedOnlyIfNumericallyIdentical": true,
+    "requiredSymbols": 12
+  },
+  "antiOverfit": [
+    "No model/hyperparameter search.",
+    "No top-K search.",
+    "No feature addition/removal after development outcomes.",
+    "No symbol deletion after outcomes.",
+    "No use of MIE1 winners/losers to filter MIE2.",
+    "No opening fresh validation or holdout unless every MIE2 development gate passes.",
+    "No R15 mutation before independent live-provider parity, fresh validation, sealed holdout and final Senior Council gate."
+  ],
+  "terminalRule": "MIE2 is the final positioning/OHLC-derived research family in this closure campaign. If MIE2 fails development, do not launch another derived-price/positioning model inside this project. Close alpha research as not proven and keep R15 frozen. Only a future separately authorized project with materially different data such as historical order-book depth/liquidations may restart research.",
+  "nextAuthorizedAction": "Freeze checksum-verified Binance USD-M daily metrics only through 2026-04-30, aggregate causally to hourly positioning snapshots, and do not touch 2026-05-01 onward unless development passes."
+}
