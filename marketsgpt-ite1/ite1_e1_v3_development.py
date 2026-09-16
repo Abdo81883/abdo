@@ -124,29 +124,57 @@ def circular(n,rng,bl):
 def bootstrap(df):
     cfg=LOCK["bootstrap"]; iters=int(cfg["iterations"]); rng=np.random.default_rng(int(cfg["seed"])); bl=int(cfg["blockLengthCandidates"])
     blocks=sorted(df[["symbol","timeframe"]].drop_duplicates().itertuples(index=False,name=None))
-    by={}
-    for b in blocks: by[b]=df[(df.symbol==b[0])&(df.timeframe==b[1])].sort_values("signalUtc").reset_index(drop=True)
-    abs_s={m:np.zeros(iters) for m in ENTRY_MODES}; delta={m:np.zeros(iters) for m in ENTRY_MODES if m!="trigger_close"}
+
+    # Computational optimization only: freeze each block into aligned candidate arrays once.
+    # Statistical method, seed, block sampling, circular candidate blocks and gate values are unchanged.
+    packed={}
+    for b in blocks:
+        z=df[(df.symbol==b[0])&(df.timeframe==b[1])].copy()
+        order=z[["candidateId","signalUtc"]].drop_duplicates().sort_values("signalUtc").candidateId.tolist()
+        mode_arrays={}
+        for m in ENTRY_MODES:
+            q=z[z.entryMode==m].set_index("candidateId")
+            entered=np.zeros(len(order),dtype=bool)
+            net=np.zeros(len(order),dtype=float)
+            for i,cid in enumerate(order):
+                if cid in q.index:
+                    rr=q.loc[cid]
+                    if isinstance(rr,pd.DataFrame): rr=rr.iloc[0]
+                    entered[i]=bool(rr["entered"])
+                    net[i]=float(rr["netR"]) if entered[i] else 0.0
+            mode_arrays[m]={"entered":entered,"net":net,"utility":net.copy()}
+        packed[b]={"n":len(order),"modes":mode_arrays}
+
+    abs_s={m:np.zeros(iters) for m in ENTRY_MODES}
+    delta={m:np.zeros(iters) for m in ENTRY_MODES if m!="trigger_close"}
+
     for it in range(iters):
         sampled=[blocks[int(rng.integers(0,len(blocks)))] for _ in blocks]
-        tr={m:[] for m in ENTRY_MODES}; util={m:[] for m in ENTRY_MODES}
+        tr_sum={m:0.0 for m in ENTRY_MODES}; tr_n={m:0 for m in ENTRY_MODES}
+        util_sum={m:0.0 for m in ENTRY_MODES}; util_n={m:0 for m in ENTRY_MODES}
+
         for b in sampled:
-            z=by[b]; ids=z[["candidateId","signalUtc"]].drop_duplicates().sort_values("signalUtc").candidateId.tolist()
-            if not ids: continue
-            for k in circular(len(ids),rng,bl):
-                cz=z[z.candidateId==ids[k]]
-                for m in ENTRY_MODES:
-                    q=cz[cz.entryMode==m]
-                    if q.empty: util[m].append(0.0); continue
-                    rr=q.iloc[0]; u=float(rr.netR) if bool(rr.entered) else 0.0
-                    util[m].append(u)
-                    if bool(rr.entered): tr[m].append(float(rr.netR))
+            pb=packed[b]; n=pb["n"]
+            if n<=0: continue
+            idx=circular(n,rng,bl)
+            for m in ENTRY_MODES:
+                a=pb["modes"][m]
+                ent=a["entered"][idx]
+                vals=a["net"][idx]
+                tr_sum[m]+=float(vals[ent].sum())
+                tr_n[m]+=int(ent.sum())
+                util_sum[m]+=float(a["utility"][idx].sum())
+                util_n[m]+=int(len(idx))
+
         for m in ENTRY_MODES:
-            a=np.asarray(tr[m],float); abs_s[m][it]=float(a.mean()) if len(a) else 0.0
-        bu=float(np.mean(util["trigger_close"])) if util["trigger_close"] else 0.0
+            abs_s[m][it]=tr_sum[m]/tr_n[m] if tr_n[m] else 0.0
+        bu=util_sum["trigger_close"]/util_n["trigger_close"] if util_n["trigger_close"] else 0.0
         for m in delta:
-            delta[m][it]=(float(np.mean(util[m])) if util[m] else 0.0)-bu
-    out={"method":cfg["method"],"iterations":iters,"seed":int(cfg["seed"]),"blockLengthCandidates":bl,"modes":{}}
+            u=util_sum[m]/util_n[m] if util_n[m] else 0.0
+            delta[m][it]=u-bu
+
+    out={"method":cfg["method"],"iterations":iters,"seed":int(cfg["seed"]),"blockLengthCandidates":bl,
+         "implementation":"array-optimized-equivalent","modes":{}}
     for m in ENTRY_MODES:
         a=abs_s[m]
         d={"probabilityPositiveNetExpectancy":float(np.mean(a>0)),
