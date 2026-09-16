@@ -1,0 +1,330 @@
+{
+  "baselineMeanNetR": -0.14527921772083777,
+  "baselinePositiveRate": 0.5439663655067537,
+  "byMarketFamily": [
+    {
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "meanNetR": -0.0951915471516952,
+      "meanPWinScore": 0.5110922874964055,
+      "meanPredictedNetR": -0.11656540189617616,
+      "pWinAuc": 0.6553780635990554,
+      "positiveRate": 0.5191387559808612,
+      "rows": 1672
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "meanNetR": -0.1388090440637276,
+      "meanPWinScore": 0.5055278743010425,
+      "meanPredictedNetR": -0.2057566841760291,
+      "pWinAuc": 0.6564202506181009,
+      "positiveRate": 0.5616274431591544,
+      "rows": 7521
+    },
+    {
+      "marketFamily": "EQUITY",
+      "meanNetR": -0.11984723057479772,
+      "meanPWinScore": 0.4870573963685468,
+      "meanPredictedNetR": -0.16400252603942858,
+      "pWinAuc": 0.6814417518897288,
+      "positiveRate": 0.5126760563380282,
+      "rows": 1420
+    },
+    {
+      "marketFamily": "FX",
+      "meanNetR": -0.20316922485064795,
+      "meanPWinScore": 0.4879231833709813,
+      "meanPredictedNetR": -0.21028305199362934,
+      "pWinAuc": 0.6793290539776082,
+      "positiveRate": 0.5289181220231345,
+      "rows": 8818
+    },
+    {
+      "marketFamily": "INDEX",
+      "meanNetR": -0.08189477296644516,
+      "meanPWinScore": 0.5068895778414126,
+      "meanPredictedNetR": -0.15540694670790473,
+      "pWinAuc": 0.6927621612523144,
+      "positiveRate": 0.5395513577331759,
+      "rows": 847
+    },
+    {
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "meanNetR": -0.006690143129690199,
+      "meanPWinScore": 0.5247985246010547,
+      "meanPredictedNetR": -0.11932017169003627,
+      "pWinAuc": 0.7052226318815376,
+      "positiveRate": 0.5870192307692308,
+      "rows": 2080
+    }
+  ],
+  "byPWinScoreDecile": [
+    {
+      "decile": 0,
+      "meanPWinScore": 0.20106437888994996,
+      "meanRealizedNetR": -0.2963253087632843,
+      "positiveRate": 0.24150268336314848,
+      "rows": 2236
+    },
+    {
+      "decile": 1,
+      "meanPWinScore": 0.3202645491653766,
+      "meanRealizedNetR": -0.1840352322227267,
+      "positiveRate": 0.35912343470483005,
+      "rows": 2236
+    },
+    {
+      "decile": 2,
+      "meanPWinScore": 0.393943312192643,
+      "meanRealizedNetR": -0.18264786064599992,
+      "positiveRate": 0.4275491949910555,
+      "rows": 2236
+    },
+    {
+      "decile": 3,
+      "meanPWinScore": 0.4594981390293867,
+      "meanRealizedNetR": -0.16289836202206717,
+      "positiveRate": 0.5038031319910514,
+      "rows": 2235
+    },
+    {
+      "decile": 4,
+      "meanPWinScore": 0.5099202266088346,
+      "meanRealizedNetR": -0.1831881373138354,
+      "positiveRate": 0.5478533094812165,
+      "rows": 2236
+    },
+    {
+      "decile": 5,
+      "meanPWinScore": 0.5487319285980535,
+      "meanRealizedNetR": -0.15600041221984762,
+      "positiveRate": 0.5952593917710197,
+      "rows": 2236
+    },
+    {
+      "decile": 6,
+      "meanPWinScore": 0.5799559758897982,
+      "meanRealizedNetR": -0.0925138786012051,
+      "positiveRate": 0.6483221476510067,
+      "rows": 2235
+    },
+    {
+      "decile": 7,
+      "meanPWinScore": 0.612031277307339,
+      "meanRealizedNetR": -0.06973289100944116,
+      "positiveRate": 0.6905187835420393,
+      "rows": 2236
+    },
+    {
+      "decile": 8,
+      "meanPWinScore": 0.6497314818133808,
+      "meanRealizedNetR": -0.061425033862398,
+      "positiveRate": 0.7101967799642218,
+      "rows": 2236
+    },
+    {
+      "decile": 9,
+      "meanPWinScore": 0.7215964044039719,
+      "meanRealizedNetR": -0.06400934221357484,
+      "positiveRate": 0.7155635062611807,
+      "rows": 2236
+    }
+  ],
+  "byPredictedNetRDecile": [
+    {
+      "decile": 0,
+      "meanPWinScore": 0.26557740684409115,
+      "meanPredictedNetR": -0.4039291091022185,
+      "meanRealizedNetR": -0.3412071191507558,
+      "meanStressNetR": -0.691382547865741,
+      "positiveRate": 0.31663685152057247,
+      "rows": 2236
+    },
+    {
+      "decile": 1,
+      "meanPWinScore": 0.3636931932759187,
+      "meanPredictedNetR": -0.2849223652027995,
+      "meanRealizedNetR": -0.23991525584576928,
+      "meanStressNetR": -0.4466238224748366,
+      "positiveRate": 0.4020572450805009,
+      "rows": 2236
+    },
+    {
+      "decile": 2,
+      "meanPWinScore": 0.4236770460831626,
+      "meanPredictedNetR": -0.24388829695834408,
+      "meanRealizedNetR": -0.17230504212682404,
+      "meanStressNetR": -0.32763366744930983,
+      "positiveRate": 0.4754025044722719,
+      "rows": 2236
+    },
+    {
+      "decile": 3,
+      "meanPWinScore": 0.4685757446670044,
+      "meanPredictedNetR": -0.21535641691195107,
+      "meanRealizedNetR": -0.20049906880145207,
+      "meanStressNetR": -0.3209819967838186,
+      "positiveRate": 0.5046979865771812,
+      "rows": 2235
+    },
+    {
+      "decile": 4,
+      "meanPWinScore": 0.5072029415214716,
+      "meanPredictedNetR": -0.19132774948195566,
+      "meanRealizedNetR": -0.13534901503235808,
+      "meanStressNetR": -0.2315755861309459,
+      "positiveRate": 0.5684257602862254,
+      "rows": 2236
+    },
+    {
+      "decile": 5,
+      "meanPWinScore": 0.5308465137816158,
+      "meanPredictedNetR": -0.16948909578117968,
+      "meanRealizedNetR": -0.10497742391417668,
+      "meanStressNetR": -0.18311976908958272,
+      "positiveRate": 0.5952593917710197,
+      "rows": 2236
+    },
+    {
+      "decile": 6,
+      "meanPWinScore": 0.5601932949362848,
+      "meanPredictedNetR": -0.14705184104927457,
+      "meanRealizedNetR": -0.10845573827229471,
+      "meanStressNetR": -0.17178751254054495,
+      "positiveRate": 0.610738255033557,
+      "rows": 2235
+    },
+    {
+      "decile": 7,
+      "meanPWinScore": 0.5820770705267309,
+      "meanPredictedNetR": -0.12147108777996925,
+      "meanRealizedNetR": -0.09172495221782005,
+      "meanStressNetR": -0.1447146456167826,
+      "positiveRate": 0.6131484794275492,
+      "rows": 2236
+    },
+    {
+      "decile": 8,
+      "meanPWinScore": 0.617061135767328,
+      "meanPredictedNetR": -0.0876676105979317,
+      "meanRealizedNetR": -0.038990849830513305,
+      "meanStressNetR": -0.08027595920382666,
+      "positiveRate": 0.669051878354204,
+      "rows": 2236
+    },
+    {
+      "decile": 9,
+      "meanPWinScore": 0.6778285478389023,
+      "meanPredictedNetR": -0.01760258203105096,
+      "meanRealizedNetR": -0.019375939374030836,
+      "meanStressNetR": -0.04645448176420758,
+      "positiveRate": 0.684257602862254,
+      "rows": 2236
+    }
+  ],
+  "byTimeframe": [
+    {
+      "meanNetR": -0.15129801992415368,
+      "meanPWinScore": 0.506688975734879,
+      "meanPredictedNetR": -0.1917353330070491,
+      "pWinAuc": 0.6749432504148767,
+      "positiveRate": 0.5496236559139785,
+      "rows": 18600,
+      "timeframe": "1h"
+    },
+    {
+      "meanNetR": -0.11548951016850266,
+      "meanPWinScore": 0.46494173391535437,
+      "meanPredictedNetR": -0.1711259606598965,
+      "pWinAuc": 0.6639060901191679,
+      "positiveRate": 0.5159659393294306,
+      "rows": 3758,
+      "timeframe": "4h"
+    }
+  ],
+  "distributions": {
+    "hgbPredR": {
+      "0": -1.3482146399182051,
+      "0.01": -0.5176742467613755,
+      "0.05": -0.3515680091179158,
+      "0.1": -0.2949594996581873,
+      "0.25": -0.2203592590831103,
+      "0.5": -0.1676706103038514,
+      "0.75": -0.1381283279702155,
+      "0.9": -0.1017898575708333,
+      "0.95": -0.08270419510825279,
+      "0.99": -0.0621474874829431,
+      "1": 0.3710131218733125
+    },
+    "pWinScore": {
+      "0": 7.769782320432111e-207,
+      "0.01": 0.11810392252502284,
+      "0.05": 0.21279425904569887,
+      "0.1": 0.27593039985309503,
+      "0.25": 0.39413198727238286,
+      "0.5": 0.5312332437017586,
+      "0.75": 0.6119484735867196,
+      "0.9": 0.673607108378678,
+      "0.95": 0.7096806976829195,
+      "0.99": 0.7797578359783542,
+      "1": 0.951332067007291
+    },
+    "predictedNetR": {
+      "0": -21.36397620311211,
+      "0.01": -0.4926678338871006,
+      "0.05": -0.3575546238860745,
+      "0.1": -0.31266958361899955,
+      "0.25": -0.2434051349219024,
+      "0.5": -0.17989765717915665,
+      "0.75": -0.12207683893405849,
+      "0.9": -0.0652593574652358,
+      "0.95": -0.030686473543010018,
+      "0.99": 0.03669581454360163,
+      "1": 0.5802305516173245
+    },
+    "realizedNetR": {
+      "0": -32.775513191413914,
+      "0.01": -1.6541405064828394,
+      "0.05": -1.376117260481225,
+      "0.1": -1.2533030208516835,
+      "0.25": -1.1061472792213896,
+      "0.5": 0.17241089404996335,
+      "0.75": 0.4705798629708816,
+      "0.9": 1.0387177563103476,
+      "0.95": 1.616001284407174,
+      "0.99": 3.065830215525379,
+      "1": 10.60612164199992
+    },
+    "ridgePredR": {
+      "0": -42.900903469514375,
+      "0.01": -0.47475592822795765,
+      "0.05": -0.39091991670723925,
+      "0.1": -0.3449694970377351,
+      "0.25": -0.2725524133105814,
+      "0.5": -0.19151719199701284,
+      "0.75": -0.10227244360373165,
+      "0.9": -0.014794406932588527,
+      "0.95": 0.040974063013514715,
+      "0.99": 0.16579210120741328,
+      "1": 1.2877825544998778
+    }
+  },
+  "generatedAtUtc": "2026-09-16T12:40:55.481500+00:00",
+  "globalPWinScoreAuc": 0.6737737096858166,
+  "immutableVerdict": "REJECT_IFE1_DEVELOPMENT_GATE",
+  "interpretationBoundary": "This file is diagnosis only. Decile/subgroup outcomes are contaminated and cannot be promoted, thresholded or used to rescue IFE1. They may motivate a causally distinct, prelocked next-program objective on untouched evidence.",
+  "lockedConditionCombinations": {
+    "all_locked_conditions": 0,
+    "positive_both_plus_pWin": 0,
+    "positive_both_regressors": 5,
+    "predicted_ge_0.10_plus_pWin": 42
+  },
+  "lockedConditionPassCounts": {
+    "hgb_gt_0": 26,
+    "pWinScore_ge_0.55": 10012,
+    "predictedNetR_ge_0.10": 52,
+    "ridge_gt_0": 1896
+  },
+  "rows": 22358,
+  "schema": "mgpt_ife1_diagnostic_v1",
+  "status": "CONTAMINATED_DEVELOPMENT_DIAGNOSTIC_ONLY"
+}
