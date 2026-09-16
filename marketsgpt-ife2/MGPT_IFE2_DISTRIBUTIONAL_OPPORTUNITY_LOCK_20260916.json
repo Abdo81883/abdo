@@ -785,8 +785,9 @@
       "EQUITY": 800,
       "INDEX": 800
     },
-    "minimumContextDailyRows": 210,
-    "manifestSha256Required": true
+    "minimumContextDailyRows": 150,
+    "manifestSha256Required": true,
+    "contextRowRationale": "2025-09 through 2026-04 contains roughly 170 business-session observations for VIX/SPX/DXY/TNX; 150 is a pre-performance completeness floor. Crypto daily context naturally has more rows."
   },
   "antiOverfit": [
     "No model hyperparameter search.",
