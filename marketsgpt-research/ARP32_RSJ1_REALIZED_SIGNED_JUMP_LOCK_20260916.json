@@ -1,0 +1,190 @@
+{
+  "schema": "mgpt_arp32_rsj1_realized_signed_jump_lock_v1",
+  "generation": "ARP32-RSJ1",
+  "createdAtUtc": "2026-09-16T00:58:00Z",
+  "status": "LOCKED_BEFORE_ARP32_PRICE_OUTCOMES",
+  "productionAuthority": false,
+  "automaticExecutionAllowed": false,
+  "r15MutationAllowed": false,
+  "parentRelease": "RC4S3H5R4R15",
+  "parentWorkerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+  "registryAuthority": {
+    "file": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V31_20260916.json"
+  },
+  "researchFamily": "CRYPTO_DAILY_REALIZED_SIGNED_JUMP_CROSS_SECTION",
+  "programRole": "TERMINAL_HIGH_FREQUENCY_ALPHA_FAMILY_SCREEN",
+  "causalDistinctness": "Realized signed jump is a high-frequency semivariance characteristic and is causally distinct from prior daily/weekly momentum, MAX, salience, basis, positioning, OI, liquidity, CTREND, reversal, seasonality, breakout and BTC lead-lag programs. Reused symbols are hypothesis-fresh, not globally pristine.",
+  "externalEvidence": {
+    "primary": "Zhang & Zhao (2023), Good volatility, bad volatility, and the cross section of cryptocurrency returns, International Review of Financial Analysis 89, 102712.",
+    "doi": "10.1016/j.irfa.2023.102712",
+    "sourceUniverse": "51 mostly traded cryptocurrencies using high-frequency transaction data.",
+    "sourceDefinition": "RSJ_t = RVplus_t - RVminus_t, where realized semivariances sum squared intraday returns separately for positive and negative returns.",
+    "sourcePortfolio": "Daily quintile sorts; hold subsequent trading day; equal-weight and value-weight implementations.",
+    "sourceDirection": "Negative relation: LONG lowest RSJ quintile and SHORT highest RSJ quintile.",
+    "sourceEconomicReference": "The paper reports the equal-weight highest-minus-lowest RSJ return difference at about -84.4 bp/day; this is external hypothesis evidence only, not a MarketsGPT expected return.",
+    "sourceRobustness": "Negative RSJ relation remains after controls for short-term reversal, realized volatility, salience, beta, market capitalization and momentum."
+  },
+  "adaptationDisclosure": {
+    "exactPaperReplication": false,
+    "differences": [
+      "Binance USD-M perpetual 1-minute klines replace the paper's transaction-level volume-weighted return database.",
+      "One-minute close-to-close log returns within each UTC day are used to estimate realized semivariances; the overnight/day-boundary return is excluded from RSJ.",
+      "A fixed 30-contract liquid survivor-conditioned universe replaces the historical broad spot universe.",
+      "Books are equal-weight because point-in-time market capitalization is unavailable in the current free stack.",
+      "Development is price-alpha only; exact funding-cashflow replay is mandatory before validation can open."
+    ],
+    "promotionLimit": "A development pass authorizes only frozen-signal funding replay. It does not authorize validation, holdout, R15 integration, or production."
+  },
+  "dataAuthority": {
+    "provider": "Binance official data archive data.binance.vision",
+    "market": "USD-M perpetual",
+    "interval": "1m",
+    "fields": [
+      "open",
+      "close",
+      "quoteAssetVolume"
+    ],
+    "archiveChecksumRequired": true,
+    "minimumMinuteBarsPerSignalDay": 1430,
+    "futureInformationAllowed": false,
+    "transportRule": "Missing/corrupt archives or incomplete signal days fail closed; no interpolation or forward fill."
+  },
+  "universe": {
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BCHUSDT",
+      "XRPUSDT",
+      "LTCUSDT",
+      "TRXUSDT",
+      "ETCUSDT",
+      "LINKUSDT",
+      "XLMUSDT",
+      "ADAUSDT",
+      "ATOMUSDT",
+      "VETUSDT",
+      "NEOUSDT",
+      "QTUMUSDT",
+      "THETAUSDT",
+      "ALGOUSDT",
+      "KNCUSDT",
+      "ZRXUSDT",
+      "COMPUSDT",
+      "DOGEUSDT",
+      "KAVAUSDT",
+      "RLCUSDT",
+      "SNXUSDT",
+      "DOTUSDT",
+      "YFIUSDT",
+      "CRVUSDT",
+      "SUSHIUSDT",
+      "RUNEUSDT",
+      "SOLUSDT",
+      "UNIUSDT"
+    ],
+    "count": 30,
+    "selection": "30 established long-history USD-M perpetuals frozen before ARP32 outcomes; no post-outcome substitution.",
+    "minimumEligiblePerDecision": 25,
+    "prior30CompletedDaysMeanDailyQuoteVolumeUsdMin": 10000000,
+    "fixedAfterLock": true,
+    "survivorConditioned": true
+  },
+  "signalContract": {
+    "decisionTime": "00:00 UTC daily after the immediately preceding UTC day is fully complete.",
+    "intradayReturn": "log(close_m / close_m-1) within the same UTC day only; first minute of each UTC day has no RSJ return.",
+    "realizedPositiveSemivariance": "sum(r_m^2 * I[r_m>0]) over completed minute returns of prior UTC day.",
+    "realizedNegativeSemivariance": "sum(r_m^2 * I[r_m<0]) over completed minute returns of prior UTC day.",
+    "rsj": "RVplus - RVminus",
+    "direction": "LONG lowest RSJ quintile; SHORT highest RSJ quintile",
+    "longBook": "lowest 20% eligible, equal weight total +0.50",
+    "shortBook": "highest 20% eligible, equal weight total -0.50",
+    "grossExposure": 1,
+    "netExposure": 0,
+    "execution": "decision-day 00:00 UTC perpetual open to next-day 00:00 UTC perpetual open",
+    "parameterSweepAllowed": false,
+    "directionFlipAllowed": false,
+    "thresholdRescueAllowed": false
+  },
+  "costs": {
+    "baseOneWayRate": 0.0006,
+    "stress1_5xOneWayRate": 0.0009,
+    "stress2xOneWayRate": 0.0012,
+    "chargedOn": "sum absolute changes in long/short portfolio weights plus terminal liquidation",
+    "funding": "Not included in development price-alpha screen; exact historical funding cashflow replay under identical positions is mandatory before validation authorization."
+  },
+  "windows": {
+    "archiveFetchStart": "2024-12-01T00:00:00Z",
+    "development": {
+      "start": "2025-01-02T00:00:00Z",
+      "endExclusive": "2025-07-02T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2025-07-02T00:00:00Z",
+      "endExclusive": "2026-01-02T00:00:00Z",
+      "openOnlyAfterDevelopmentPassAndFundingReplay": true
+    },
+    "sealedHoldout": {
+      "start": "2026-01-02T00:00:00Z",
+      "endExclusive": "2026-09-14T00:00:00Z",
+      "oneShot": true,
+      "openOnlyAfterFreshValidationPass": true
+    }
+  },
+  "statistics": {
+    "annualizationDays": 365,
+    "bootstrap": {
+      "method": "CIRCULAR_MOVING_BLOCK",
+      "blockLengthDays": 7,
+      "iterations": 10000,
+      "developmentSeed": 32101,
+      "validationSeed": 32102,
+      "holdoutSeed": 32103
+    },
+    "multiplicityPolicy": "Terminal late-stage screen. Development requires strong cost-surviving effect, positive split halves, high bootstrap support, breadth and concentration controls before any further data window opens."
+  },
+  "developmentGate": {
+    "minimumEvaluatedDays": 175,
+    "minimumCoverageFraction": 0.95,
+    "averageEligibleSymbolsMin": 25,
+    "baseNetMeanDailyReturnMin": 0.0015,
+    "baseNetAnnualizedSharpeMin": 1.2,
+    "baseNetProfitFactorMin": 1.15,
+    "stress1_5xMeanDailyReturnMin": 0.0005,
+    "stress2xMeanDailyReturnMin": 0,
+    "positiveMonthFractionMin": 0.6,
+    "firstHalfNetReturnPositive": true,
+    "secondHalfNetReturnPositive": true,
+    "bootstrapProbabilityPositiveMin": 0.99,
+    "bootstrapCi95LowMin": 0,
+    "maxDrawdownMax": 0.2,
+    "singleSymbolPositiveContributionMax": 0.15
+  },
+  "freshValidationGate": {
+    "minimumEvaluatedDays": 175,
+    "minimumCoverageFraction": 0.9,
+    "averageEligibleSymbolsMin": 23,
+    "baseNetMeanDailyReturnMin": 0.00075,
+    "baseNetAnnualizedSharpeMin": 0.7,
+    "baseNetProfitFactorMin": 1.08,
+    "stress2xMeanDailyReturnMin": -0.00025,
+    "positiveMonthFractionMin": 0.55,
+    "bootstrapProbabilityPositiveMin": 0.9,
+    "bootstrapCi95LowMin": -0.0005,
+    "maxDrawdownMax": 0.22,
+    "singleSymbolPositiveContributionMax": 0.2
+  },
+  "sealedHoldoutGate": {
+    "minimumEvaluatedDays": 240,
+    "minimumCoverageFraction": 0.9,
+    "averageEligibleSymbolsMin": 23,
+    "baseNetMeanDailyReturnMin": 0,
+    "baseNetAnnualizedSharpeMin": 0.3,
+    "baseNetProfitFactorMin": 1,
+    "stress1_5xMeanDailyReturnMin": -0.00025,
+    "bootstrapProbabilityPositiveMin": 0.8,
+    "maxDrawdownMax": 0.25,
+    "singleSymbolPositiveContributionMax": 0.25
+  },
+  "researchProgramStopRule": "If ARP32-RSJ1 fails its predeclared development gate, do not launch another price-alpha family in this closure campaign. Freeze the research campaign as PROFITABILITY_NOT_PROVEN_UNDER_CURRENT_EVIDENCE, preserve RC4S3H5R4R15 unchanged, and issue the final scientific closeout rather than continuing hypothesis search. If it passes, only the predeclared funding -> fresh validation -> sealed holdout chain may continue.",
+  "failureRule": "Any development failure closes ARP32-RSJ1 with no sign, frequency, universe, liquidity, cost, weighting, threshold or gate rescue. Funding replay, validation and holdout remain sealed after failure. R15 remains untouched."
+}
