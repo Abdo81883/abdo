@@ -161,7 +161,6 @@ def _evaluate_block(symbol: str, family: str, tf: str, raw: pd.DataFrame) -> tup
         return [], {"symbol": symbol, "marketFamily": family, "timeframe": tf, "status": "INSUFFICIENT_BARS", "bars": int(len(df))}
 
     f = compute_features(df)
-    f.insert(0, "timestamp", df["timestamp"].values)
     candidates = generate_candidates(f, start_index=200)
     rows = []
     max_hold = _max_hold(tf)
