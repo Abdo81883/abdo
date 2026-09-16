@@ -1,0 +1,56 @@
+{
+  "binaryFeatures": [
+    "isBreakout",
+    "isPullback",
+    "isSweep",
+    "htfAligned"
+  ],
+  "categoricalFeatures": [
+    "marketFamily",
+    "timeframe",
+    "direction",
+    "regime",
+    "volState"
+  ],
+  "developmentRows": 22358,
+  "fitRows": 22581,
+  "modelArtifactSha256": "c72c113bdf626cb2ea7b7def7f00beb99484f01bd813d10cdc6261e60e40d344",
+  "numericFeatures": [
+    "trend20_50_atr",
+    "trend50_200_atr",
+    "ema50_slope5_atr",
+    "close_ema20_atr",
+    "range20_atr",
+    "range50_atr",
+    "bar_range_atr",
+    "body_atr",
+    "clv",
+    "lower_wick_atr",
+    "upper_wick_atr",
+    "vol_ratio",
+    "rv20",
+    "breakout_up_atr",
+    "breakout_down_atr",
+    "next_open_gap_atr",
+    "actual_risk_atr",
+    "actual_tp2_r",
+    "htf_trend_signed",
+    "htf_neutral_flag",
+    "vix_z60",
+    "spx_trend_atr",
+    "dxy_trend_atr",
+    "tnx_change5",
+    "btc_trend_atr"
+  ],
+  "pWinScoreSemantics": "classifier score only; not calibrated probability",
+  "schema": "mgpt_ife1_model_summary_v1",
+  "selectionRule": {
+    "histGradientPredictionMustBePositive": true,
+    "noThresholdSearch": true,
+    "outputStateIfPass": "TRADE",
+    "outputStateOtherwise": "WAIT",
+    "pWinScoreMin": 0.55,
+    "predictedNetRMin": 0.1,
+    "ridgePredictionMustBePositive": true
+  }
+}
