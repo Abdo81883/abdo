@@ -1,0 +1,28 @@
+{
+  "schema":"mgpt_ite1_reliance_gate_v1",
+  "generatedAtUtc":"2026-09-16T01:57:00Z",
+  "program":"MGPT-ITE1",
+  "purpose":"Define what must be true before MarketsGPT may be described as a trade engine that can be relied upon for real-money execution decisions.",
+  "currentState":"NOT_SATISFIED",
+  "requiredBeforeRelianceClaim":[
+    "Frozen complete trade-construction engine passes development.",
+    "Purged/embargoed walk-forward validation passes without rule changes.",
+    "Fresh out-of-sample validation passes under realistic costs and slippage.",
+    "One-shot sealed holdout passes with no rescue.",
+    "Independent provider/execution replication passes for each promoted market family.",
+    "Forward shadow period confirms signal generation, timestamps, data freshness and execution assumptions.",
+    "Calibration is demonstrated for any probability/confidence field.",
+    "Missed-opportunity audit demonstrates acceptable recall without precision collapse.",
+    "Tail-loss, drawdown, concentration and correlation limits pass.",
+    "R15 parity/regression/static/mutation/package/live gates pass after integration.",
+    "Broker order submission remains disabled until a separate execution-safety gate is explicitly opened."
+  ],
+  "forbiddenClaimsUntilSatisfied":[
+    "proven high profitability",
+    "best trades",
+    "does not miss good trades",
+    "safe to auto-execute",
+    "institutional probability of success"
+  ],
+  "permittedCurrentDescription":"Institutional research and decision-support program under validation above the frozen R15 product baseline."
+}
