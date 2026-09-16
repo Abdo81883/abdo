@@ -364,8 +364,6 @@ def select_cross_section(dev: pd.DataFrame) -> pd.DataFrame:
             top=sg.iloc[0]; second=sg.iloc[1]
             margin=float(top.qualityScore-second.qualityScore)
             z.loc[sg.index,"directionMargin"]=margin
-            if margin + 1e-15 >= float(LOCK["selection"]["perTimestamp"].split(">=")[-1].split(";")[0].strip()) if False else False:
-                pass
             if margin >= 0.03:
                 winners.append((float(top.qualityScore),str(symbol),str(top.direction),int(top.name)))
         winners=sorted(winners,key=lambda t:(-t[0],t[1],0 if t[2]=="LONG" else 1))
