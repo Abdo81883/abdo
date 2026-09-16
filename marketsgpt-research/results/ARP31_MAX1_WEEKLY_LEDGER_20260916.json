@@ -1,0 +1,1366 @@
+{
+  "schema": "mgpt_arp31_max1_weekly_ledger_v1",
+  "rows": [
+    {
+      "rebalanceUtc": "2024-08-05T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-08-12T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-08-19T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-08-26T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-09-02T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-09-09T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-09-16T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-09-23T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-09-30T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-10-07T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-10-14T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-10-21T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-10-28T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-11-04T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-11-11T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-11-18T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-11-25T00:00:00+00:00",
+      "eligible": 0,
+      "long": [],
+      "short": [],
+      "longSignals": [],
+      "shortSignals": [],
+      "grossReturn": 0.0,
+      "turnover": 0.0
+    },
+    {
+      "rebalanceUtc": "2024-12-02T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "KSMUSDT",
+        "SANDUSDT",
+        "HBARUSDT",
+        "XLMUSDT",
+        "ENSUSDT"
+      ],
+      "short": [
+        "GMTUSDT",
+        "MASKUSDT",
+        "BCHUSDT",
+        "BTCUSDT",
+        "APEUSDT"
+      ],
+      "longSignals": [
+        1.1093110504774897,
+        0.7637694711154697,
+        0.595808383233533,
+        0.5353562082855547,
+        0.5165480427046263
+      ],
+      "shortSignals": [
+        0.1153777672265417,
+        0.11242257800631061,
+        0.10446715328467149,
+        0.10345603780624302,
+        0.09902813299232727
+      ],
+      "grossReturn": 0.027447537322340475,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2024-12-09T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "RSRUSDT",
+        "KSMUSDT",
+        "TRXUSDT",
+        "XVGUSDT",
+        "SANDUSDT"
+      ],
+      "short": [
+        "MASKUSDT",
+        "BTCUSDT",
+        "BCHUSDT",
+        "SOLUSDT",
+        "ETHUSDT"
+      ],
+      "longSignals": [
+        1.5599723128646295,
+        1.1093110504774897,
+        0.9582128659197688,
+        0.8007920627844531,
+        0.7637694711154697
+      ],
+      "shortSignals": [
+        0.10614998016135435,
+        0.10345603780624302,
+        0.10118587850424832,
+        0.10070875990179284,
+        0.09879567319974636
+      ],
+      "grossReturn": -0.035376258871053154,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2024-12-16T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "RSRUSDT",
+        "KSMUSDT",
+        "TRXUSDT",
+        "XVGUSDT",
+        "SANDUSDT"
+      ],
+      "short": [
+        "ETHUSDT",
+        "SOLUSDT",
+        "PEOPLEUSDT",
+        "DOGEUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        1.5599723128646295,
+        1.1093110504774897,
+        0.9582128659197688,
+        0.8007920627844531,
+        0.7637694711154697
+      ],
+      "shortSignals": [
+        0.09879567319974636,
+        0.08969295451649884,
+        0.08116197183098595,
+        0.06720930232558131,
+        0.04671623065265473
+      ],
+      "grossReturn": 0.0031532539064814107,
+      "turnover": 0.4
+    },
+    {
+      "rebalanceUtc": "2024-12-23T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "RSRUSDT",
+        "TRXUSDT",
+        "XVGUSDT",
+        "ZENUSDT",
+        "ENSUSDT"
+      ],
+      "short": [
+        "ADAUSDT",
+        "DOTUSDT",
+        "DOGEUSDT",
+        "SOLUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        1.5599723128646295,
+        0.9582128659197688,
+        0.8007920627844531,
+        0.6504424778761062,
+        0.5165480427046263
+      ],
+      "shortSignals": [
+        0.07839127471029328,
+        0.0777502957307239,
+        0.06510941726088015,
+        0.06419140368948395,
+        0.04671623065265473
+      ],
+      "grossReturn": 0.03610868933663732,
+      "turnover": 0.7999999999999999
+    },
+    {
+      "rebalanceUtc": "2024-12-30T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "RSRUSDT",
+        "TRXUSDT",
+        "XVGUSDT",
+        "ZENUSDT",
+        "HBARUSDT"
+      ],
+      "short": [
+        "RUNEUSDT",
+        "DOGEUSDT",
+        "SOLUSDT",
+        "ETHUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        1.5599723128646295,
+        0.9582128659197688,
+        0.8007920627844531,
+        0.6504424778761062,
+        0.49179072327796636
+      ],
+      "shortSignals": [
+        0.07682080070911512,
+        0.06510941726088015,
+        0.06419140368948395,
+        0.061913504127935504,
+        0.04671623065265473
+      ],
+      "grossReturn": -0.02285026583127759,
+      "turnover": 0.6000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-01-06T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ZENUSDT",
+        "GMTUSDT",
+        "XLMUSDT",
+        "XVGUSDT",
+        "LPTUSDT"
+      ],
+      "short": [
+        "SOLUSDT",
+        "BCHUSDT",
+        "ETHUSDT",
+        "TRXUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        0.6504424778761062,
+        0.36158636512618836,
+        0.279657194406856,
+        0.2680747126436782,
+        0.2597853332476381
+      ],
+      "shortSignals": [
+        0.07182576459684897,
+        0.059065268381569114,
+        0.055682945650975535,
+        0.05201205460024805,
+        0.04671623065265473
+      ],
+      "grossReturn": -0.038677519491505594,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2025-01-13T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ZENUSDT",
+        "GMTUSDT",
+        "XLMUSDT",
+        "XVGUSDT",
+        "LPTUSDT"
+      ],
+      "short": [
+        "STXUSDT",
+        "MASKUSDT",
+        "ETHUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.6504424778761062,
+        0.36158636512618836,
+        0.279657194406856,
+        0.2680747126436782,
+        0.2597853332476381
+      ],
+      "shortSignals": [
+        0.05577486310963953,
+        0.05575221238938033,
+        0.04430319292121454,
+        0.039701205235865844,
+        0.03894102815520384
+      ],
+      "grossReturn": -0.021554012966172157,
+      "turnover": 0.4
+    },
+    {
+      "rebalanceUtc": "2025-01-20T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "GMTUSDT",
+        "ZENUSDT",
+        "XLMUSDT",
+        "LPTUSDT",
+        "STGUSDT"
+      ],
+      "short": [
+        "ETHUSDT",
+        "ETCUSDT",
+        "BCHUSDT",
+        "APTUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        0.36158636512618836,
+        0.3119815097610301,
+        0.279657194406856,
+        0.2597853332476381,
+        0.2369020501138952
+      ],
+      "shortSignals": [
+        0.07004053982797731,
+        0.0680609712867779,
+        0.06629991463530294,
+        0.06431699342547903,
+        0.04107671402297841
+      ],
+      "grossReturn": -0.030618292797155916,
+      "turnover": 0.8
+    },
+    {
+      "rebalanceUtc": "2025-01-27T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "SPELLUSDT",
+        "ZENUSDT",
+        "RUNEUSDT",
+        "XLMUSDT",
+        "SUSHIUSDT"
+      ],
+      "short": [
+        "BCHUSDT",
+        "APTUSDT",
+        "XTZUSDT",
+        "GMTUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        0.555886306894565,
+        0.3119815097610301,
+        0.2962786259541985,
+        0.279657194406856,
+        0.2223588902555691
+      ],
+      "shortSignals": [
+        0.06629991463530294,
+        0.06431699342547903,
+        0.06386292834890961,
+        0.048485309788400155,
+        0.04107671402297841
+      ],
+      "grossReturn": -0.047080044706868523,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2025-02-03T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ACHUSDT",
+        "SPELLUSDT",
+        "ZENUSDT",
+        "RUNEUSDT",
+        "JASMYUSDT"
+      ],
+      "short": [
+        "OPUSDT",
+        "BCHUSDT",
+        "APTUSDT",
+        "GMTUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        0.6924660534384581,
+        0.555886306894565,
+        0.3119815097610301,
+        0.2962786259541985,
+        0.2749676793794442
+      ],
+      "shortSignals": [
+        0.06842678279804026,
+        0.06629991463530294,
+        0.06431699342547903,
+        0.048485309788400155,
+        0.04107671402297841
+      ],
+      "grossReturn": -0.05804564576124957,
+      "turnover": 0.6000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-02-10T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ACHUSDT",
+        "SPELLUSDT",
+        "ZENUSDT",
+        "RUNEUSDT",
+        "JASMYUSDT"
+      ],
+      "short": [
+        "ATOMUSDT",
+        "OPUSDT",
+        "APTUSDT",
+        "BCHUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        0.6924660534384581,
+        0.555886306894565,
+        0.3119815097610301,
+        0.2962786259541985,
+        0.2749676793794442
+      ],
+      "shortSignals": [
+        0.06980273141122906,
+        0.06842678279804026,
+        0.06431699342547903,
+        0.060188495287617716,
+        0.04107671402297841
+      ],
+      "grossReturn": 0.007951296174191623,
+      "turnover": 0.2
+    },
+    {
+      "rebalanceUtc": "2025-02-17T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ACHUSDT",
+        "SPELLUSDT",
+        "RUNEUSDT",
+        "JASMYUSDT",
+        "ARUSDT"
+      ],
+      "short": [
+        "SANDUSDT",
+        "ETHUSDT",
+        "BCHUSDT",
+        "AVAXUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        0.6924660534384581,
+        0.555886306894565,
+        0.2962786259541985,
+        0.2749676793794442,
+        0.2556985579159561
+      ],
+      "shortSignals": [
+        0.05513986697965567,
+        0.052329269558597735,
+        0.04820003375690218,
+        0.04573049818481323,
+        0.03781898059220934
+      ],
+      "grossReturn": 0.02487297289784504,
+      "turnover": 0.8
+    },
+    {
+      "rebalanceUtc": "2025-02-24T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ACHUSDT",
+        "SPELLUSDT",
+        "JASMYUSDT",
+        "ARUSDT",
+        "SKLUSDT"
+      ],
+      "short": [
+        "ALGOUSDT",
+        "SANDUSDT",
+        "ETHUSDT",
+        "BCHUSDT",
+        "BTCUSDT"
+      ],
+      "longSignals": [
+        0.6924660534384581,
+        0.27893849424528994,
+        0.2749676793794442,
+        0.2556985579159561,
+        0.25122549019607865
+      ],
+      "shortSignals": [
+        0.05734265734265742,
+        0.05513986697965567,
+        0.052329269558597735,
+        0.04820003375690218,
+        0.037159868734289336
+      ],
+      "grossReturn": -0.02449758034415297,
+      "turnover": 0.4
+    },
+    {
+      "rebalanceUtc": "2025-03-03T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ADAUSDT",
+        "XRPUSDT",
+        "SOLUSDT",
+        "KAVAUSDT",
+        "ACHUSDT"
+      ],
+      "short": [
+        "ATOMUSDT",
+        "STXUSDT",
+        "SPELLUSDT",
+        "BCHUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.7204431628471692,
+        0.3414901387874363,
+        0.24418442680038988,
+        0.23369691343699217,
+        0.22134080475290285
+      ],
+      "shortSignals": [
+        0.09218436873747504,
+        0.08511163192302962,
+        0.07855019437457122,
+        0.07317699967876634,
+        0.06057733735458859
+      ],
+      "grossReturn": -0.05144730998839418,
+      "turnover": 1.6
+    },
+    {
+      "rebalanceUtc": "2025-03-10T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ADAUSDT",
+        "XRPUSDT",
+        "IOTAUSDT",
+        "SOLUSDT",
+        "BCHUSDT"
+      ],
+      "short": [
+        "STXUSDT",
+        "QTUMUSDT",
+        "SPELLUSDT",
+        "TRXUSDT",
+        "MASKUSDT"
+      ],
+      "longSignals": [
+        0.7204431628471692,
+        0.3414901387874363,
+        0.27132530120481935,
+        0.24418442680038988,
+        0.2230227045908184
+      ],
+      "shortSignals": [
+        0.08511163192302962,
+        0.08303378864126532,
+        0.07855019437457122,
+        0.06057733735458859,
+        0.043953043953044
+      ],
+      "grossReturn": -0.016666310809637364,
+      "turnover": 0.8
+    },
+    {
+      "rebalanceUtc": "2025-03-17T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ADAUSDT",
+        "XRPUSDT",
+        "IOSTUSDT",
+        "IOTAUSDT",
+        "SOLUSDT"
+      ],
+      "short": [
+        "STXUSDT",
+        "GMTUSDT",
+        "CHZUSDT",
+        "TRXUSDT",
+        "MASKUSDT"
+      ],
+      "longSignals": [
+        0.7204431628471692,
+        0.3414901387874363,
+        0.30386178861788626,
+        0.27132530120481935,
+        0.24418442680038988
+      ],
+      "shortSignals": [
+        0.08511163192302962,
+        0.07611814345991563,
+        0.0671716165038867,
+        0.04973380080509027,
+        0.043953043953044
+      ],
+      "grossReturn": -0.016776073079914536,
+      "turnover": 0.6000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-03-24T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "ADAUSDT",
+        "API3USDT",
+        "XRPUSDT",
+        "IOSTUSDT",
+        "IOTAUSDT"
+      ],
+      "short": [
+        "STXUSDT",
+        "MANAUSDT",
+        "GMTUSDT",
+        "TRXUSDT",
+        "MASKUSDT"
+      ],
+      "longSignals": [
+        0.7204431628471692,
+        0.504057500579643,
+        0.3414901387874363,
+        0.30386178861788626,
+        0.27132530120481935
+      ],
+      "shortSignals": [
+        0.08511163192302962,
+        0.08330499829989813,
+        0.07611814345991563,
+        0.07476762638857415,
+        0.043953043953044
+      ],
+      "grossReturn": -0.03731666148919924,
+      "turnover": 0.4
+    },
+    {
+      "rebalanceUtc": "2025-03-31T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "API3USDT",
+        "IOSTUSDT",
+        "BCHUSDT",
+        "SPELLUSDT",
+        "AAVEUSDT"
+      ],
+      "short": [
+        "GALAUSDT",
+        "GMTUSDT",
+        "BTCUSDT",
+        "DOTUSDT",
+        "LTCUSDT"
+      ],
+      "longSignals": [
+        0.504057500579643,
+        0.30386178861788626,
+        0.2230227045908184,
+        0.1905886056027699,
+        0.14199612938899642
+      ],
+      "shortSignals": [
+        0.06271186440677967,
+        0.06223818073010179,
+        0.055088725915705794,
+        0.05204928337943171,
+        0.045121138030673524
+      ],
+      "grossReturn": -0.035211295994515016,
+      "turnover": 1.4000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-04-07T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "API3USDT",
+        "IOSTUSDT",
+        "SPELLUSDT",
+        "ACHUSDT",
+        "RSRUSDT"
+      ],
+      "short": [
+        "NEOUSDT",
+        "HBARUSDT",
+        "LTCUSDT",
+        "BCHUSDT",
+        "MASKUSDT"
+      ],
+      "longSignals": [
+        0.504057500579643,
+        0.30386178861788626,
+        0.1905886056027699,
+        0.12946740695044223,
+        0.12161024086238847
+      ],
+      "shortSignals": [
+        0.05184420944028911,
+        0.04809172461383282,
+        0.045121138030673524,
+        0.04005057782221311,
+        0.014101218454798392
+      ],
+      "grossReturn": -0.009718212981386259,
+      "turnover": 1.2
+    },
+    {
+      "rebalanceUtc": "2025-04-14T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "API3USDT",
+        "EDUUSDT",
+        "RSRUSDT",
+        "JASMYUSDT",
+        "LDOUSDT"
+      ],
+      "short": [
+        "BTCUSDT",
+        "NEOUSDT",
+        "DOTUSDT",
+        "TRXUSDT",
+        "KAVAUSDT"
+      ],
+      "longSignals": [
+        0.504057500579643,
+        0.32636815920398,
+        0.21255488697349167,
+        0.20461958917393996,
+        0.17626471524021614
+      ],
+      "shortSignals": [
+        0.08244132538379167,
+        0.08029197080291972,
+        0.07881481481481489,
+        0.07476762638857415,
+        0.07471264367816088
+      ],
+      "grossReturn": -0.011668811488799478,
+      "turnover": 1.4000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-04-21T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "MAGICUSDT",
+        "TUSDT",
+        "EDUUSDT",
+        "ACHUSDT",
+        "API3USDT"
+      ],
+      "short": [
+        "APTUSDT",
+        "BTCUSDT",
+        "NEOUSDT",
+        "DOTUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.6323337679269883,
+        0.4043679682329582,
+        0.32636815920398,
+        0.29736917086143033,
+        0.23089632383312697
+      ],
+      "shortSignals": [
+        0.08625955951588082,
+        0.08244132538379167,
+        0.08029197080291972,
+        0.07881481481481489,
+        0.035672157819808925
+      ],
+      "grossReturn": -0.01742066097428616,
+      "turnover": 0.8
+    },
+    {
+      "rebalanceUtc": "2025-04-28T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "MAGICUSDT",
+        "TUSDT",
+        "ENJUSDT",
+        "EDUUSDT",
+        "ACHUSDT"
+      ],
+      "short": [
+        "BTCUSDT",
+        "NEOUSDT",
+        "DOTUSDT",
+        "ICPUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.6323337679269883,
+        0.4043679682329582,
+        0.3308790383170548,
+        0.32636815920398,
+        0.29736917086143033
+      ],
+      "shortSignals": [
+        0.08244132538379167,
+        0.08029197080291972,
+        0.07881481481481489,
+        0.07860545690775211,
+        0.042613048694716715
+      ],
+      "grossReturn": -0.020599946171335426,
+      "turnover": 0.4
+    },
+    {
+      "rebalanceUtc": "2025-05-05T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "MAGICUSDT",
+        "TUSDT",
+        "LPTUSDT",
+        "ENJUSDT",
+        "EDUUSDT"
+      ],
+      "short": [
+        "BTCUSDT",
+        "NEOUSDT",
+        "DOTUSDT",
+        "ICPUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.6323337679269883,
+        0.4043679682329582,
+        0.3343065693430656,
+        0.3308790383170548,
+        0.32636815920398
+      ],
+      "shortSignals": [
+        0.08244132538379167,
+        0.08029197080291972,
+        0.07881481481481489,
+        0.07860545690775211,
+        0.042613048694716715
+      ],
+      "grossReturn": 0.013247974497252124,
+      "turnover": 0.2
+    },
+    {
+      "rebalanceUtc": "2025-05-12T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "MAGICUSDT",
+        "TUSDT",
+        "ENJUSDT",
+        "ACHUSDT",
+        "UNIUSDT"
+      ],
+      "short": [
+        "XRPUSDT",
+        "ATOMUSDT",
+        "MASKUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.6323337679269883,
+        0.4043679682329582,
+        0.3308790383170548,
+        0.29736917086143033,
+        0.2617972917521545
+      ],
+      "shortSignals": [
+        0.094613032227711,
+        0.08951283897288231,
+        0.08642286675073563,
+        0.06789952667322163,
+        0.042613048694716715
+      ],
+      "grossReturn": -0.056520790400600145,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2025-05-19T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "PEOPLEUSDT",
+        "UNIUSDT",
+        "LDOUSDT",
+        "DOGEUSDT",
+        "ETHUSDT"
+      ],
+      "short": [
+        "TUSDT",
+        "ATOMUSDT",
+        "MASKUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.5233812949640289,
+        0.2617972917521545,
+        0.2378510065392998,
+        0.22104185955850109,
+        0.21898858651816977
+      ],
+      "shortSignals": [
+        0.0941906373378456,
+        0.08951283897288231,
+        0.08642286675073563,
+        0.06789952667322163,
+        0.042613048694716715
+      ],
+      "grossReturn": -0.019556077908511493,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2025-05-26T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "PEOPLEUSDT",
+        "SUSHIUSDT",
+        "UNIUSDT",
+        "LDOUSDT",
+        "DOGEUSDT"
+      ],
+      "short": [
+        "XRPUSDT",
+        "MASKUSDT",
+        "ATOMUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.5233812949640289,
+        0.26841842674205907,
+        0.2617972917521545,
+        0.2378510065392998,
+        0.22104185955850109
+      ],
+      "shortSignals": [
+        0.094613032227711,
+        0.09021986353297962,
+        0.08951283897288231,
+        0.06433449773374966,
+        0.033903076613713834
+      ],
+      "grossReturn": -0.08060162290376709,
+      "turnover": 0.4
+    },
+    {
+      "rebalanceUtc": "2025-06-02T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "LPTUSDT",
+        "PEOPLEUSDT",
+        "MASKUSDT",
+        "SUSHIUSDT",
+        "UNIUSDT"
+      ],
+      "short": [
+        "BCHUSDT",
+        "XRPUSDT",
+        "ATOMUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        1.132675438596491,
+        0.5233812949640289,
+        0.3246197949565133,
+        0.26841842674205907,
+        0.2617972917521545
+      ],
+      "shortSignals": [
+        0.09920458990741943,
+        0.094613032227711,
+        0.08951283897288231,
+        0.06433449773374966,
+        0.033903076613713834
+      ],
+      "grossReturn": -0.062382746868757596,
+      "turnover": 0.6000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-06-09T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "LPTUSDT",
+        "PEOPLEUSDT",
+        "RVNUSDT",
+        "MASKUSDT",
+        "SSVUSDT"
+      ],
+      "short": [
+        "DOTUSDT",
+        "HBARUSDT",
+        "XLMUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        1.132675438596491,
+        0.5233812949640289,
+        0.3588560885608856,
+        0.3246197949565133,
+        0.17050465458108754
+      ],
+      "shortSignals": [
+        0.04434121621621623,
+        0.03965183752417789,
+        0.03752985329239156,
+        0.03228572869898594,
+        0.03195854027207945
+      ],
+      "grossReturn": -0.003407668021319669,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2025-06-16T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "LPTUSDT",
+        "RVNUSDT",
+        "MASKUSDT",
+        "UNIUSDT",
+        "UMAUSDT"
+      ],
+      "short": [
+        "LTCUSDT",
+        "BTCUSDT",
+        "XRPUSDT",
+        "XLMUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        1.132675438596491,
+        0.3588560885608856,
+        0.3246197949565133,
+        0.2667348728441976,
+        0.19635036496350367
+      ],
+      "shortSignals": [
+        0.04417574524123058,
+        0.04306917810487665,
+        0.041505791505791256,
+        0.03752985329239156,
+        0.03195854027207945
+      ],
+      "grossReturn": -0.05208738741744661,
+      "turnover": 0.8
+    },
+    {
+      "rebalanceUtc": "2025-06-23T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "LPTUSDT",
+        "RVNUSDT",
+        "MASKUSDT",
+        "UNIUSDT",
+        "MAGICUSDT"
+      ],
+      "short": [
+        "XRPUSDT",
+        "ATOMUSDT",
+        "DOTUSDT",
+        "TRXUSDT",
+        "XLMUSDT"
+      ],
+      "longSignals": [
+        1.132675438596491,
+        0.3588560885608856,
+        0.3246197949565133,
+        0.2667348728441976,
+        0.2517605633802815
+      ],
+      "shortSignals": [
+        0.041505791505791256,
+        0.03866885399578157,
+        0.03759979397373159,
+        0.03195854027207945,
+        0.027058339873678117
+      ],
+      "grossReturn": 0.0029727979683170144,
+      "turnover": 0.6000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-06-30T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "RVNUSDT",
+        "LPTUSDT",
+        "UNIUSDT",
+        "MAGICUSDT",
+        "LQTYUSDT"
+      ],
+      "short": [
+        "XLMUSDT",
+        "XRPUSDT",
+        "LTCUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.3588560885608856,
+        0.3250667684090043,
+        0.2667348728441976,
+        0.2517605633802815,
+        0.24707495429616078
+      ],
+      "shortSignals": [
+        0.07387481957748321,
+        0.07024157944342502,
+        0.058764815970056006,
+        0.04346873832437925,
+        0.03514037153819838
+      ],
+      "grossReturn": -0.05166091741622783,
+      "turnover": 0.6000000000000001
+    },
+    {
+      "rebalanceUtc": "2025-07-07T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "RVNUSDT",
+        "UNIUSDT",
+        "MAGICUSDT",
+        "LQTYUSDT",
+        "UMAUSDT"
+      ],
+      "short": [
+        "XLMUSDT",
+        "XRPUSDT",
+        "LTCUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.2922782386726228,
+        0.2667348728441976,
+        0.2517605633802815,
+        0.24707495429616078,
+        0.19635036496350367
+      ],
+      "shortSignals": [
+        0.07387481957748321,
+        0.07024157944342502,
+        0.058764815970056006,
+        0.04346873832437925,
+        0.03514037153819838
+      ],
+      "grossReturn": -0.0672088905588467,
+      "turnover": 0.2
+    },
+    {
+      "rebalanceUtc": "2025-07-14T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "KNCUSDT",
+        "MAGICUSDT",
+        "1INCHUSDT",
+        "LQTYUSDT",
+        "HBARUSDT"
+      ],
+      "short": [
+        "ETCUSDT",
+        "XRPUSDT",
+        "LTCUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        0.931541106595811,
+        0.3813488759367194,
+        0.2576660988074957,
+        0.24707495429616078,
+        0.22249252445390488
+      ],
+      "shortSignals": [
+        0.0787774996706625,
+        0.07351843851863471,
+        0.058764815970056006,
+        0.04346873832437925,
+        0.03514037153819838
+      ],
+      "grossReturn": -0.05331880719170562,
+      "turnover": 0.8
+    },
+    {
+      "rebalanceUtc": "2025-07-21T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "CFXUSDT",
+        "KNCUSDT",
+        "XTZUSDT",
+        "MAGICUSDT",
+        "1INCHUSDT"
+      ],
+      "short": [
+        "ETHUSDT",
+        "BCHUSDT",
+        "TUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        1.0753134131397868,
+        0.931541106595811,
+        0.47776183644189407,
+        0.3813488759367194,
+        0.2576660988074957
+      ],
+      "shortSignals": [
+        0.08267417678421429,
+        0.06853801169590645,
+        0.05892547660311953,
+        0.04346873832437925,
+        0.03514037153819838
+      ],
+      "grossReturn": -0.06701363946398287,
+      "turnover": 1.0
+    },
+    {
+      "rebalanceUtc": "2025-07-28T00:00:00+00:00",
+      "eligible": 50,
+      "long": [
+        "CFXUSDT",
+        "KNCUSDT",
+        "XTZUSDT",
+        "MAGICUSDT",
+        "UMAUSDT"
+      ],
+      "short": [
+        "MASKUSDT",
+        "AAVEUSDT",
+        "APTUSDT",
+        "BTCUSDT",
+        "TRXUSDT"
+      ],
+      "longSignals": [
+        1.0753134131397868,
+        0.931541106595811,
+        0.47776183644189407,
+        0.3813488759367194,
+        0.3388931008339653
+      ],
+      "shortSignals": [
+        0.06571158960281376,
+        0.06271173390822304,
+        0.05558030741813336,
+        0.042979355197261926,
+        0.03343156827328331
+      ],
+      "grossReturn": 0.04008608020014168,
+      "turnover": 0.8,
+      "terminalLiquidationTurnover": 1.0
+    }
+  ]
+}

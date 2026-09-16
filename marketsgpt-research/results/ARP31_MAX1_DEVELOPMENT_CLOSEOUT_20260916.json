@@ -1,0 +1,772 @@
+{
+  "schema": "mgpt_arp31_max1_development_closeout_v1",
+  "generation": "ARP31-MAX1",
+  "generatedAtUtc": "2026-09-16T00:30:41.068171+00:00",
+  "status": "REJECT_DEVELOPMENT_GATE",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "freshValidationAuthorized": false,
+  "sealedHoldoutOpened": false,
+  "lockSha256": "92e2dfacdadd6ee89b3c1c7e1389c4aae9dec54e61affe3cb87e3f7ed4565ecd",
+  "development": {
+    "expectedWeeks": 52,
+    "evaluatedWeeks": 52,
+    "activeCoverageWeeks": 35,
+    "coverageFraction": 0.6730769230769231,
+    "averageEligibleSymbols": 33.65384615384615,
+    "meanTurnover": 0.5307692307692308,
+    "singleSymbolPositiveContribution": 0.1951933664478292,
+    "firstHalfNetReturn": -0.13644691409857373,
+    "secondHalfNetReturn": -0.7445959354962882,
+    "gross": {
+      "n": 52,
+      "meanWeeklyReturn": -0.016412362492208885,
+      "annualizedMean": -0.853442849594862,
+      "annualizedSharpe": -4.258187879286537,
+      "profitFactor": 0.15440717076073254,
+      "maxDrawdown": 0.6132699786482138,
+      "positiveMonthFraction": 0.08333333333333333,
+      "monthSums": {
+        "2024-08": 0.0,
+        "2024-09": 0.0,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.008482955863128465,
+        "2025-01": -0.1379298699617022,
+        "2025-02": -0.049718957033365874,
+        "2025-03": -0.15741765136166033,
+        "2025-04": -0.059407631615807324,
+        "2025-05": -0.14343051671562662,
+        "2025-06": -0.1665659217554347,
+        "2025-07": -0.14745525701439352
+      },
+      "bootstrap": {
+        "probPositive": 0.0001,
+        "ci95Low": -0.026283266004047123,
+        "ci95High": -0.007436249034062554
+      }
+    },
+    "baseCost": {
+      "n": 52,
+      "meanWeeklyReturn": -0.016943131722978115,
+      "annualizedMean": -0.881042849594862,
+      "annualizedSharpe": -4.376488767487261,
+      "profitFactor": 0.14551741862116457,
+      "maxDrawdown": 0.6222011085144551,
+      "positiveMonthFraction": 0.08333333333333333,
+      "monthSums": {
+        "2024-08": 0.0,
+        "2024-09": 0.0,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.00468295586312846,
+        "2025-01": -0.14112986996170218,
+        "2025-02": -0.051718957033365875,
+        "2025-03": -0.16221765136166033,
+        "2025-04": -0.06320763161580732,
+        "2025-05": -0.1460305167156266,
+        "2025-06": -0.1701659217554347,
+        "2025-07": -0.15125525701439352
+      },
+      "bootstrap": {
+        "probPositive": 0.0001,
+        "ci95Low": -0.026880774309035686,
+        "ci95High": -0.007791657907961506
+      }
+    },
+    "stress1_5x": {
+      "n": 52,
+      "meanWeeklyReturn": -0.017208516338362737,
+      "annualizedMean": -0.8948428495948624,
+      "annualizedSharpe": -4.434771175905236,
+      "profitFactor": 0.14121203367978305,
+      "maxDrawdown": 0.6268572458319417,
+      "positiveMonthFraction": 0.08333333333333333,
+      "monthSums": {
+        "2024-08": 0.0,
+        "2024-09": 0.0,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.0027829558631284577,
+        "2025-01": -0.1427298699617022,
+        "2025-02": -0.052718957033365876,
+        "2025-03": -0.16461765136166034,
+        "2025-04": -0.06510763161580732,
+        "2025-05": -0.1473305167156266,
+        "2025-06": -0.17196592175543468,
+        "2025-07": -0.1531552570143935
+      },
+      "bootstrap": {
+        "probPositive": 0.0,
+        "ci95Low": -0.0270669449314932,
+        "ci95High": -0.008014801030966108
+      }
+    },
+    "stress2x": {
+      "n": 52,
+      "meanWeeklyReturn": -0.017473900953747346,
+      "annualizedMean": -0.908642849594862,
+      "annualizedSharpe": -4.492466403525057,
+      "profitFactor": 0.13699579193041667,
+      "maxDrawdown": 0.631603674691779,
+      "positiveMonthFraction": 0.08333333333333333,
+      "monthSums": {
+        "2024-08": 0.0,
+        "2024-09": 0.0,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.0008829558631284623,
+        "2025-01": -0.1443298699617022,
+        "2025-02": -0.05371895703336588,
+        "2025-03": -0.1670176513616603,
+        "2025-04": -0.06700763161580732,
+        "2025-05": -0.1486305167156266,
+        "2025-06": -0.1737659217554347,
+        "2025-07": -0.1550552570143935
+      },
+      "bootstrap": {
+        "probPositive": 0.0,
+        "ci95Low": -0.027545988532943703,
+        "ci95High": -0.008132764122046608
+      }
+    },
+    "symbolGrossContributions": {
+      "BTCUSDT": -0.018825882067122275,
+      "ETHUSDT": 0.02501227704492228,
+      "BCHUSDT": -0.03503554708688977,
+      "XRPUSDT": -0.0779324308177637,
+      "LTCUSDT": -0.016111176569890653,
+      "TRXUSDT": -0.02620801206109547,
+      "ETCUSDT": -0.03684710271575693,
+      "LINKUSDT": 0.0,
+      "XLMUSDT": -0.11504755742587092,
+      "ADAUSDT": -0.042032016434706845,
+      "DASHUSDT": 0.0,
+      "ZECUSDT": 0.0,
+      "XTZUSDT": -0.01074474637153796,
+      "ATOMUSDT": 0.026147623267737716,
+      "ONTUSDT": 0.0,
+      "IOTAUSDT": -0.0030596241568945255,
+      "BATUSDT": 0.0,
+      "VETUSDT": 0.0,
+      "NEOUSDT": -0.045632478136887256,
+      "QTUMUSDT": -0.0028864970645792634,
+      "IOSTUSDT": -0.02348086186053607,
+      "THETAUSDT": 0.0,
+      "ALGOUSDT": -0.012143407864302215,
+      "ZILUSDT": 0.0,
+      "KNCUSDT": -0.015111462609754343,
+      "ZRXUSDT": 0.0,
+      "COMPUSDT": 0.0,
+      "DOGEUSDT": -0.01650175735867625,
+      "KAVAUSDT": -0.007357548700111916,
+      "BANDUSDT": 0.0,
+      "RLCUSDT": 0.0,
+      "SNXUSDT": 0.0,
+      "DOTUSDT": -0.03584625916075167,
+      "SKLUSDT": -0.0036083916083916034,
+      "YFIUSDT": 0.0,
+      "CRVUSDT": 0.0,
+      "SUSHIUSDT": -0.03728225563845692,
+      "RUNEUSDT": -0.04850082211646762,
+      "EGLDUSDT": 0.0,
+      "SOLUSDT": -0.005092960395471177,
+      "UNIUSDT": 0.012015958440628437,
+      "AVAXUSDT": 3.622896707189405e-05,
+      "ENJUSDT": 0.01209904422396886,
+      "KSMUSDT": -0.02749035953928476,
+      "NEARUSDT": 0.0,
+      "FILUSDT": 0.0,
+      "AAVEUSDT": -0.006429751060853318,
+      "RSRUSDT": 0.020125329296722755,
+      "BELUSDT": 0.0,
+      "AXSUSDT": 0.0,
+      "ZENUSDT": -0.05522961531408976,
+      "GRTUSDT": 0.0,
+      "1INCHUSDT": -0.008366090557365537,
+      "SANDUSDT": -0.00028371256185063913,
+      "CHZUSDT": -0.0035299476201321013,
+      "ANKRUSDT": 0.0,
+      "RVNUSDT": -0.0032568883900476048,
+      "SFPUSDT": 0.0,
+      "COTIUSDT": 0.0,
+      "CHRUSDT": 0.0,
+      "MANAUSDT": 0.006727135298563869,
+      "ALICEUSDT": 0.0,
+      "GTCUSDT": 0.0,
+      "HBARUSDT": 0.07069131525535347,
+      "ONEUSDT": 0.0,
+      "CELRUSDT": 0.0,
+      "HOTUSDT": 0.0,
+      "MTLUSDT": 0.0,
+      "OGNUSDT": 0.0,
+      "MASKUSDT": -0.12466747618196827,
+      "ICPUSDT": -0.016788822276039228,
+      "IOTXUSDT": 0.0,
+      "C98USDT": 0.0,
+      "DYDXUSDT": 0.0,
+      "GALAUSDT": 0.01574495770982434,
+      "CELOUSDT": 0.0,
+      "ARUSDT": -0.003234473207218958,
+      "ARPAUSDT": 0.0,
+      "CTSIUSDT": 0.0,
+      "LPTUSDT": -0.03580021448649976,
+      "ENSUSDT": -0.0024116720069159107,
+      "PEOPLEUSDT": -0.004428147130917348,
+      "ROSEUSDT": 0.0,
+      "DUSKUSDT": 0.0,
+      "FLOWUSDT": 0.0,
+      "IMXUSDT": 0.0,
+      "API3USDT": -0.04753784473051917,
+      "GMTUSDT": -0.009088088326760006,
+      "APEUSDT": -0.02416759703158864,
+      "WOOUSDT": 0.0,
+      "JASMYUSDT": -0.029146751129363047,
+      "OPUSDT": -3.423217304813217e-05,
+      "INJUSDT": 0.0,
+      "STGUSDT": 0.006580493537015286,
+      "SPELLUSDT": -0.05801835299691585,
+      "LDOUSDT": -0.009959166336379544,
+      "APTUSDT": 0.0428598716222457,
+      "QNTUSDT": 0.0,
+      "FETUSDT": 0.0,
+      "MAGICUSDT": 0.02828659709716873,
+      "TUSDT": 0.003541643056457688,
+      "MINAUSDT": 0.0,
+      "ASTRUSDT": 0.0,
+      "GMXUSDT": 0.0,
+      "CFXUSDT": 0.0007989607203026539,
+      "STXUSDT": 0.038185676581219276,
+      "ACHUSDT": -0.05466254319669696,
+      "SSVUSDT": -0.005274351339855388,
+      "LQTYUSDT": -0.00580883175412774,
+      "IDUSDT": 0.0,
+      "JOEUSDT": 0.0,
+      "TLMUSDT": 0.0,
+      "XVSUSDT": 0.0,
+      "BLURUSDT": 0.0,
+      "EDUUSDT": 0.053307326741037026,
+      "SUIUSDT": 0.0,
+      "UMAUSDT": -0.016209141492776927,
+      "NMRUSDT": 0.0,
+      "MAVUSDT": 0.0,
+      "XVGUSDT": -0.02849041939197199
+    },
+    "selectionCounts": {
+      "BTCUSDT": {
+        "long": 0,
+        "short": 29
+      },
+      "ETHUSDT": {
+        "long": 1,
+        "short": 9
+      },
+      "BCHUSDT": {
+        "long": 2,
+        "short": 13
+      },
+      "XRPUSDT": {
+        "long": 4,
+        "short": 8
+      },
+      "LTCUSDT": {
+        "long": 0,
+        "short": 6
+      },
+      "TRXUSDT": {
+        "long": 4,
+        "short": 22
+      },
+      "ETCUSDT": {
+        "long": 0,
+        "short": 2
+      },
+      "LINKUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "XLMUSDT": {
+        "long": 5,
+        "short": 5
+      },
+      "ADAUSDT": {
+        "long": 4,
+        "short": 1
+      },
+      "DASHUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "ZECUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "XTZUSDT": {
+        "long": 2,
+        "short": 1
+      },
+      "ATOMUSDT": {
+        "long": 0,
+        "short": 7
+      },
+      "ONTUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "IOTAUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "BATUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "VETUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "NEOUSDT": {
+        "long": 0,
+        "short": 5
+      },
+      "QTUMUSDT": {
+        "long": 0,
+        "short": 1
+      },
+      "IOSTUSDT": {
+        "long": 4,
+        "short": 0
+      },
+      "THETAUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "ALGOUSDT": {
+        "long": 0,
+        "short": 1
+      },
+      "ZILUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "KNCUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "ZRXUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "COMPUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "DOGEUSDT": {
+        "long": 2,
+        "short": 3
+      },
+      "KAVAUSDT": {
+        "long": 1,
+        "short": 1
+      },
+      "BANDUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "RLCUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "SNXUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "DOTUSDT": {
+        "long": 0,
+        "short": 8
+      },
+      "SKLUSDT": {
+        "long": 1,
+        "short": 0
+      },
+      "YFIUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "CRVUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "SUSHIUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "RUNEUSDT": {
+        "long": 4,
+        "short": 1
+      },
+      "EGLDUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "SOLUSDT": {
+        "long": 3,
+        "short": 5
+      },
+      "UNIUSDT": {
+        "long": 8,
+        "short": 0
+      },
+      "AVAXUSDT": {
+        "long": 0,
+        "short": 1
+      },
+      "ENJUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "KSMUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "NEARUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "FILUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "AAVEUSDT": {
+        "long": 1,
+        "short": 1
+      },
+      "RSRUSDT": {
+        "long": 6,
+        "short": 0
+      },
+      "BELUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "AXSUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "ZENUSDT": {
+        "long": 8,
+        "short": 0
+      },
+      "GRTUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "1INCHUSDT": {
+        "long": 2,
+        "short": 0
+      },
+      "SANDUSDT": {
+        "long": 3,
+        "short": 2
+      },
+      "CHZUSDT": {
+        "long": 0,
+        "short": 1
+      },
+      "ANKRUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "RVNUSDT": {
+        "long": 5,
+        "short": 0
+      },
+      "SFPUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "COTIUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "CHRUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "MANAUSDT": {
+        "long": 0,
+        "short": 1
+      },
+      "ALICEUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "GTCUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "HBARUSDT": {
+        "long": 3,
+        "short": 2
+      },
+      "ONEUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "CELRUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "HOTUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "MTLUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "OGNUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "MASKUSDT": {
+        "long": 4,
+        "short": 11
+      },
+      "ICPUSDT": {
+        "long": 0,
+        "short": 2
+      },
+      "IOTXUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "C98USDT": {
+        "long": 0,
+        "short": 0
+      },
+      "DYDXUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "GALAUSDT": {
+        "long": 0,
+        "short": 1
+      },
+      "CELOUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "ARUSDT": {
+        "long": 2,
+        "short": 0
+      },
+      "ARPAUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "CTSIUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "LPTUSDT": {
+        "long": 9,
+        "short": 0
+      },
+      "ENSUSDT": {
+        "long": 2,
+        "short": 0
+      },
+      "PEOPLEUSDT": {
+        "long": 4,
+        "short": 1
+      },
+      "ROSEUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "DUSKUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "FLOWUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "IMXUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "API3USDT": {
+        "long": 5,
+        "short": 0
+      },
+      "GMTUSDT": {
+        "long": 3,
+        "short": 6
+      },
+      "APEUSDT": {
+        "long": 0,
+        "short": 1
+      },
+      "WOOUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "JASMYUSDT": {
+        "long": 5,
+        "short": 0
+      },
+      "OPUSDT": {
+        "long": 0,
+        "short": 2
+      },
+      "INJUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "STGUSDT": {
+        "long": 1,
+        "short": 0
+      },
+      "SPELLUSDT": {
+        "long": 7,
+        "short": 2
+      },
+      "LDOUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "APTUSDT": {
+        "long": 0,
+        "short": 6
+      },
+      "QNTUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "FETUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "MAGICUSDT": {
+        "long": 10,
+        "short": 0
+      },
+      "TUSDT": {
+        "long": 4,
+        "short": 2
+      },
+      "MINAUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "ASTRUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "GMXUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "CFXUSDT": {
+        "long": 2,
+        "short": 0
+      },
+      "STXUSDT": {
+        "long": 0,
+        "short": 5
+      },
+      "ACHUSDT": {
+        "long": 9,
+        "short": 0
+      },
+      "SSVUSDT": {
+        "long": 1,
+        "short": 0
+      },
+      "LQTYUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "IDUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "JOEUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "TLMUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "XVSUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "BLURUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "EDUUSDT": {
+        "long": 4,
+        "short": 0
+      },
+      "SUIUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "UMAUSDT": {
+        "long": 3,
+        "short": 0
+      },
+      "NMRUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "MAVUSDT": {
+        "long": 0,
+        "short": 0
+      },
+      "XVGUSDT": {
+        "long": 6,
+        "short": 0
+      }
+    }
+  },
+  "checks": {
+    "minimumEvaluatedWeeks": true,
+    "minimumCoverageFraction": false,
+    "averageEligibleSymbolsMin": false,
+    "netMeanWeeklyReturnMin": false,
+    "netAnnualizedSharpeMin": false,
+    "netProfitFactorMin": false,
+    "stress1_5xMeanWeeklyReturnMin": false,
+    "stress2xMeanWeeklyReturnMin": false,
+    "positiveMonthFractionMin": false,
+    "firstHalfNetReturnPositive": false,
+    "secondHalfNetReturnPositive": false,
+    "bootstrapProbabilityPositiveMin": false,
+    "bootstrapCi95LowMin": false,
+    "maxDrawdownMax": false,
+    "singleSymbolPositiveContributionMax": false
+  },
+  "failedChecks": [
+    "minimumCoverageFraction",
+    "averageEligibleSymbolsMin",
+    "netMeanWeeklyReturnMin",
+    "netAnnualizedSharpeMin",
+    "netProfitFactorMin",
+    "stress1_5xMeanWeeklyReturnMin",
+    "stress2xMeanWeeklyReturnMin",
+    "positiveMonthFractionMin",
+    "firstHalfNetReturnPositive",
+    "secondHalfNetReturnPositive",
+    "bootstrapProbabilityPositiveMin",
+    "bootstrapCi95LowMin",
+    "maxDrawdownMax",
+    "singleSymbolPositiveContributionMax"
+  ],
+  "nextAction": "Close ARP31-MAX1; no rescue; validation and holdout remain sealed."
+}
