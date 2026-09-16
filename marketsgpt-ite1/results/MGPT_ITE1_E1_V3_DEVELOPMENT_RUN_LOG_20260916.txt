@@ -1,0 +1,70 @@
+{
+  "status": "REJECT_E1_COMPONENT_GATE",
+  "selectedEntryMode": null,
+  "selectionReason": "NO_ENTRY_MODE_CLEARED_ABSOLUTE_AND_ROBUSTNESS_GATES",
+  "failedChecksByEntryMode": {
+    "trigger_close": [
+      "minimumNetExpectancyR",
+      "minimumStressNetExpectancyR",
+      "minimumProfitFactor",
+      "minimumPrecision",
+      "minimumPositiveMarketFamilyFraction",
+      "minimumPositiveBlockFraction",
+      "bootstrapProbabilityPositiveExpectancyMin"
+    ],
+    "retest_limit": [
+      "minimumNetExpectancyR",
+      "minimumStressNetExpectancyR",
+      "minimumProfitFactor",
+      "minimumPrecision",
+      "minimumPositiveMarketFamilyFraction",
+      "minimumPositiveBlockFraction",
+      "bootstrapProbabilityPositiveExpectancyMin",
+      "challengerBootstrapProbabilityDeltaVsBaselinePositiveMin",
+      "maximumRelativeRecallDegradationVsBaseline"
+    ],
+    "structure_confirmed_retest": [
+      "minimumNetExpectancyR",
+      "minimumStressNetExpectancyR",
+      "minimumProfitFactor",
+      "minimumOpportunityRecall",
+      "minimumPrecision",
+      "minimumPositiveMarketFamilyFraction",
+      "minimumPositiveBlockFraction",
+      "bootstrapProbabilityPositiveExpectancyMin",
+      "maximumRelativeRecallDegradationVsBaseline"
+    ]
+  },
+  "headlineMetrics": {
+    "trigger_close": {
+      "enteredTrades": 8876,
+      "netExpectancyR": -0.1426950330829892,
+      "stressNetExpectancyR": -0.24590848399937487,
+      "netProfitFactor": 0.7220088370527209,
+      "opportunityRecall": 0.9909476661951909,
+      "precision": 0.39465975664713837,
+      "positiveMarketFamilyFraction": 0.2,
+      "positiveBlockFraction": 0.2222222222222222
+    },
+    "retest_limit": {
+      "enteredTrades": 6512,
+      "netExpectancyR": -0.18925960888439264,
+      "stressNetExpectancyR": -0.3504620111941733,
+      "netProfitFactor": 0.706462480620388,
+      "opportunityRecall": 0.49165487977369166,
+      "precision": 0.2668918918918919,
+      "positiveMarketFamilyFraction": 0.2,
+      "positiveBlockFraction": 0.2222222222222222
+    },
+    "structure_confirmed_retest": {
+      "enteredTrades": 3298,
+      "netExpectancyR": -0.1499100042379037,
+      "stressNetExpectancyR": -0.27185497508720613,
+      "netProfitFactor": 0.7140676877609362,
+      "opportunityRecall": 0.2876944837340877,
+      "precision": 0.3083687083080655,
+      "positiveMarketFamilyFraction": 0.0,
+      "positiveBlockFraction": 0.2222222222222222
+    }
+  }
+}
