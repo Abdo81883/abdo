@@ -1,0 +1,57 @@
+{
+  "schema":"mgpt_ite1_b1_implementation_spec_v1",
+  "generatedAtUtc":"2026-09-16T12:22:00Z",
+  "program":"MGPT-ITE1",
+  "trial":"ITE1-B1",
+  "status":"FROZEN_BEFORE_B1_PERFORMANCE_OUTCOMES",
+  "parentLock":"MGPT_ITE1_B1_RANGE_REVERSION_LOCK_20260916.json",
+  "higherTimeframeNeutrality":{
+    "definition":"On the previous completed higher-timeframe bar: abs(EMA20-EMA50) <= 0.50*ATR14 and abs(EMA50-EMA50[-5]) <= 0.50*ATR14.",
+    "causality":"Current/incomplete higher-timeframe bucket is never used."
+  },
+  "localNeutrality":{
+    "definition":"On the completed signal bar: abs(EMA20-EMA50) <= 0.35*ATR14 and abs(EMA50-EMA50[-5]) <= 0.35*ATR14."
+  },
+  "rangeLevels":{
+    "source":"prior completed 20-bar high/low from the frozen feature engine",
+    "midpoint":"low + 0.50*(high-low)",
+    "upperQuarter":"low + 0.75*(high-low)",
+    "lowerQuarter":"low + 0.25*(high-low)"
+  },
+  "wickDefinitions":{
+    "lowerRejection":"min(open,close)-low",
+    "upperRejection":"high-max(open,close)"
+  },
+  "entryMirror":{
+    "long":"next evaluated bar open must be > structural stop and <= prior20 midpoint.",
+    "short":"next evaluated bar open must be < structural stop and >= prior20 midpoint."
+  },
+  "targets":{
+    "long":["prior20 midpoint","prior20 upperQuarter","prior20 high"],
+    "short":["prior20 midpoint","prior20 lowerQuarter","prior20 low"],
+    "minimumR":[0.75,1.25,1.75],
+    "minimumProgressiveGap":"0.10 ATR14",
+    "failure":"No trade if target order or any R floor fails."
+  },
+  "reference":{
+    "events":"Generic frozen E1 candidates with setupClass=SWEEP_RECLAIM only.",
+    "dedupKey":"instrument/timeframe/signal timestamp/direction",
+    "baselineHoldingBars":{"1h":48,"4h":30},
+    "baselineExecution":"trigger_close + structure_plus_atr_noise + hybrid_structure_volatility_ladder + fixed_full_exit.",
+    "goodOpportunityAudit":"1.25 ATR favorable barrier before 1.0 ATR adverse barrier, adverse wins same-bar ambiguity."
+  },
+  "metrics":{
+    "positiveMonth":"UTC signal-month sum of net R > 0.",
+    "firstSecondHalf":"Chronological midpoint of entered B1 trades.",
+    "positiveFamilyBlock":"Mean net R > 0.",
+    "concentration":"max positive market-family total R / sum positive market-family total R.",
+    "bootstrapUtilityDelta":"candidate-level B1 utility (net R or zero on abstain) minus frozen E1 baseline utility on the same reference event."
+  },
+  "sameBarOrdering":["structural stop","TP2"],
+  "forbidden":[
+    "Changing neutrality thresholds after B1 outcomes.",
+    "Changing wick, range-width, entry, stop or target rules after B1 outcomes.",
+    "Any symbol/timeframe rescue.",
+    "Any time-validation or holdout access on B1 failure."
+  ]
+}
