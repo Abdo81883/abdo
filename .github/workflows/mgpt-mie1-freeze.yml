@@ -5,6 +5,8 @@ on:
     paths:
       - "marketsgpt-mie1/mie1_freeze.py"
       - "marketsgpt-mie1/MGPT_MIE1_MICROSTRUCTURE_LOCK_20260916.json"
+      - "marketsgpt-mie1/MGPT_MIE1_IMPLEMENTATION_SPEC_V1_20260916.json"
+      - "marketsgpt-mie1/MGPT_MIE1_PREOUTCOME_PARSER_CORRECTION_20260916.json"
       - ".github/workflows/mgpt-mie1-freeze.yml"
   workflow_dispatch:
 permissions:
@@ -40,6 +42,7 @@ jobs:
             echo "No MIE1 freeze changes"
           else
             git commit -m "mie1 data: freeze Binance microstructure and funding inputs"
+            git pull --rebase origin main
             git push
           fi
       - name: Enforce freeze exit
