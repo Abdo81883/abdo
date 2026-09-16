@@ -1,0 +1,148 @@
+{
+  "schema": "mgpt_ite1_a1_data_freeze_v1",
+  "generatedAtUtc": "2026-09-16T01:59:00.524371+00:00",
+  "status": "PASS_DATA_FREEZE",
+  "performanceOutcomesComputed": false,
+  "validationOpened": false,
+  "holdoutOpened": false,
+  "lockSha256": "9eea22b37779da9fc5debb7ef68d446624cdc9cf1b9517e8dd85f5e96eb9a6ce",
+  "provider": "Yahoo Finance via yfinance",
+  "files": [
+    {
+      "symbol": "SOL-USD",
+      "marketFamily": "CRYPTO_SPOT",
+      "file": "SOL_USD_1h.csv",
+      "rows": 5807,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T23:00:00+00:00",
+      "sha256": "ab9af10fdc5f6fc36c9319f171d817f707f1d356cc384838a12d70d19680758b"
+    },
+    {
+      "symbol": "XRP-USD",
+      "marketFamily": "CRYPTO_SPOT",
+      "file": "XRP_USD_1h.csv",
+      "rows": 5807,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T23:00:00+00:00",
+      "sha256": "d524fdd701728551dcf68841536a05f3d0f7e496fd3d019a63b03c513b07fc00"
+    },
+    {
+      "symbol": "LTC-USD",
+      "marketFamily": "CRYPTO_SPOT",
+      "file": "LTC_USD_1h.csv",
+      "rows": 5807,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T23:00:00+00:00",
+      "sha256": "bc6771be29d45672c6da297c6d80b0a7da8c5650ba63dc2d7b078e623fd31f4c"
+    },
+    {
+      "symbol": "AUDUSD=X",
+      "marketFamily": "FX",
+      "file": "AUDUSD_X_1h.csv",
+      "rows": 4093,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "048a03d307ee6e5382e7d81e1df513455029ec10713a106942c1695a059b16fc"
+    },
+    {
+      "symbol": "NZDUSD=X",
+      "marketFamily": "FX",
+      "file": "NZDUSD_X_1h.csv",
+      "rows": 4093,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "8b0ceb5f391a98fe12c892eaa03026ac71eb93eaa07d7fbdde7abe5f92c3f2d1"
+    },
+    {
+      "symbol": "CAD=X",
+      "marketFamily": "FX",
+      "file": "CAD_X_1h.csv",
+      "rows": 4089,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "a4bb7704d3978eddc10d86fe3549767eb3b39605b2e6c8227592664dbbeb99ee"
+    },
+    {
+      "symbol": "CHF=X",
+      "marketFamily": "FX",
+      "file": "CHF_X_1h.csv",
+      "rows": 4038,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "c10bd8f814a7b498a3c3d20df7f752eaedc260af14a4a329d2263d8d7b223209"
+    },
+    {
+      "symbol": "HG=F",
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "file": "HG_F_1h.csv",
+      "rows": 3775,
+      "firstUtc": "2024-11-01T04:00:00+00:00",
+      "lastUtc": "2025-07-01T03:00:00+00:00",
+      "sha256": "b68f70644877d1dd75aa7b82cddf4eafcd7688b69208abbc0173a4a2a344c9c1"
+    },
+    {
+      "symbol": "PL=F",
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "file": "PL_F_1h.csv",
+      "rows": 3776,
+      "firstUtc": "2024-11-01T04:00:00+00:00",
+      "lastUtc": "2025-07-01T03:00:00+00:00",
+      "sha256": "d79eaa2443ef4eafb00d2bff2e2c8ce32e783f1d516d91609b4fe73d103f3c68"
+    },
+    {
+      "symbol": "META",
+      "marketFamily": "EQUITY",
+      "file": "META_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "3a8fbeb36fec5fdf454f5e23299771aa80ddce2671edcb855d4982c667832e3b"
+    },
+    {
+      "symbol": "AMZN",
+      "marketFamily": "EQUITY",
+      "file": "AMZN_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "6267e6dc3d1a4fa432eeffac6f8e9d77c6735088c9de2e75751e7606bb29fde3"
+    },
+    {
+      "symbol": "GOOGL",
+      "marketFamily": "EQUITY",
+      "file": "GOOGL_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "e2d31bec32dc9f7f5203181106afa66f479902fc1e1aa5812811fd0af7c8da85"
+    },
+    {
+      "symbol": "JPM",
+      "marketFamily": "EQUITY",
+      "file": "JPM_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "3e5c754768eb26d4451d6543e95141294dc68262c48a3cd350f1058aef0feef8"
+    },
+    {
+      "symbol": "^GSPC",
+      "marketFamily": "INDEX",
+      "file": "GSPC_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "28c704315818ff8211607522dcef17c71bdc1a27aecd3143c114b2d7a810b24d"
+    },
+    {
+      "symbol": "^RUT",
+      "marketFamily": "INDEX",
+      "file": "RUT_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "3149082f4b441580be9c569953a32d3ce2aa795438e19d6d2a1af5b2224fd12a"
+    }
+  ],
+  "errors": []
+}
