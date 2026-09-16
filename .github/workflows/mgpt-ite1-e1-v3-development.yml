@@ -1,0 +1,54 @@
+name: MGPT ITE1 E1 V3 Development
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "marketsgpt-ite1/data/e1_v3/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install evaluator dependencies
+        run: python -m pip install --disable-pip-version-check numpy pandas
+      - name: Compile frozen V3 evaluator
+        run: |
+          python -m py_compile marketsgpt-ite1/ite1_core.py
+          python -m py_compile marketsgpt-ite1/ite1_e1_v3_development.py
+      - name: Run E1 V3 development only
+        shell: bash
+        run: |
+          mkdir -p marketsgpt-ite1/results
+          set +e
+          python marketsgpt-ite1/ite1_e1_v3_development.py 2>&1 | tee marketsgpt-ite1/results/MGPT_ITE1_E1_V3_DEVELOPMENT_RUN_LOG_20260916.txt
+          rc=${PIPESTATUS[0]}
+          echo "$rc" > marketsgpt-ite1/results/MGPT_ITE1_E1_V3_DEVELOPMENT_EXIT_CODE_20260916.txt
+          exit 0
+      - name: Commit immutable V3 development evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketsgpt-ite1/results/MGPT_ITE1_E1_V3_DEVELOPMENT_*
+          if git diff --cached --quiet; then
+            echo "No development result changes"
+          else
+            git commit -m "results: ITE1 E1 V3 development [skip ci]"
+            git push
+          fi
+      - name: Enforce evaluator exit code
+        run: |
+          rc="$(cat marketsgpt-ite1/results/MGPT_ITE1_E1_V3_DEVELOPMENT_EXIT_CODE_20260916.txt)"
+          if [ "$rc" != "0" ]; then
+            echo "E1 V3 evaluator failed with exit code $rc"
+            exit "$rc"
+          fi
