@@ -6,6 +6,7 @@ on:
       - "marketsgpt-mie1/mie1_evaluate.py"
       - "marketsgpt-mie1/MGPT_MIE1_MICROSTRUCTURE_LOCK_20260916.json"
       - "marketsgpt-mie1/MGPT_MIE1_IMPLEMENTATION_SPEC_V1_20260916.json"
+      - "marketsgpt-mie1/results/MGPT_MIE1_DATA_FREEZE_STATUS_20260916.json"
       - ".github/workflows/mgpt-mie1-evaluate.yml"
   workflow_dispatch:
 permissions:
@@ -43,6 +44,7 @@ jobs:
             echo "No MIE1 result changes"
           else
             git commit -m "results: MIE1 microstructure development [skip ci]"
+            git pull --rebase origin main
             git push
           fi
       - name: Enforce evaluator exit
