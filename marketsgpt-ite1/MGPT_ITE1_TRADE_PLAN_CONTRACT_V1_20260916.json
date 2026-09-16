@@ -1,0 +1,38 @@
+{
+  "schema":"mgpt_ite1_trade_plan_contract_v1",
+  "generatedAtUtc":"2026-09-16T01:56:00Z",
+  "program":"MGPT-ITE1",
+  "status":"DESIGN_CONTRACT",
+  "decisionStates":["TRADE","WAIT_FOR_ENTRY","WAIT_FOR_TRIGGER","AVOID","DATA_GAP"],
+  "requiredOutput":{
+    "identity":["instrument","marketFamily","timeframe","decisionTimestamp","dataTimestamp"],
+    "context":["regime","volatilityState","sessionState","eventRiskState","dataQuality"],
+    "setup":["setupClass","direction","setupThesis","trigger","cancelConditions"],
+    "entry":["entryMode","entryZoneLow","entryZoneHigh","preferredEntry","maxWait","entryQuality"],
+    "risk":["structuralInvalidation","noiseBuffer","executionBuffer","stopLoss","riskPerTrade","positionSizeRule","correlationRisk"],
+    "targets":["tp1","tp1Reason","tp2","tp2Reason","tp3","tp3Reason"],
+    "management":["tp1Action","tp2Action","runnerRule","breakEvenRule","trailingRule","timeStop","failureExit"],
+    "evidence":["structureEvidence","trendEvidence","momentumEvidence","liquidityEvidence","regimeFit","executionRisk","eventRisk","providerProvenance"],
+    "validation":["setupScoreLabel","calibratedProbabilityIfAvailable","oosCalibrationVersion","applicableMarketPlaybook"],
+    "decision":["state","whyTradeOrWait","whatChangesDecision"]
+  },
+  "geometryRules":[
+    "LONG: stop < executable entry < TP1 < TP2 < TP3.",
+    "SHORT: stop > executable entry > TP1 > TP2 > TP3.",
+    "A target must have causal structural/volatility provenance; an arbitrary R multiple alone is not enough for a structural target.",
+    "A stop must be outside the declared invalidation/noise boundary and inside the maximum accepted risk cap.",
+    "No widening stop or extending TP solely to repair RR."
+  ],
+  "managementRules":[
+    "Break-even movement requires a predeclared state transition; it cannot be discretionary hindsight.",
+    "Partial exits must be included in net expectancy and cost accounting.",
+    "Same-bar stop/target ambiguity defaults to the adverse ordering unless lower-timeframe sequence is available.",
+    "Time stops are market/timeframe specific and must be validated, not assumed."
+  ],
+  "scoreRules":{
+    "heuristicScores":"Allowed only when explicitly labelled score/rank.",
+    "probability":"Allowed only after out-of-sample calibration with reliability metrics.",
+    "grade":"A/B/C grades require an empirically frozen mapping; otherwise use descriptive evidence labels."
+  },
+  "noTradePrinciple":"The engine is allowed to abstain. Trade count is not a success metric; net expectancy, robustness, risk and opportunity recall are."
+}
