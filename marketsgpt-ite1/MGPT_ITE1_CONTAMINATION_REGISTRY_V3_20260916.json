@@ -1,0 +1,124 @@
+{
+  "schema": "mgpt_ite1_contamination_registry_v3",
+  "generatedAtUtc": "2026-09-16T12:25:00Z",
+  "program": "MGPT-ITE1",
+  "frozenBaseline": {
+    "release": "RC4S3H5R4R15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3"
+  },
+  "entries": [
+    {
+      "trial": "ITE1-E1-V3",
+      "researchAxis": "ENTRY_MECHANIC_ON_FROZEN_GENERIC_SETUP_ARCHITECTURE",
+      "status": "REJECT_DEVELOPMENT_GATE",
+      "developmentWindow": "2025-01-06 to 2025-07-01 exclusive",
+      "dataTransport": "Yahoo Finance hourly frozen V3 files",
+      "resultCommit": "e3f95c6d8036f1cfafca6fe5b4379b8f074e9315",
+      "closeoutSha256": "a7111a01c22e0bea86f8b6c4c9250d7c9bc53dff3320bc26b2eafdc8a050cf81",
+      "ledgerSha256": "e0424569061928e477db9105bea35046f647ebd59937280fa548dae01ff0371f",
+      "headline": {
+        "trigger_close": {
+          "netExpectancyR": -0.1426950330829892,
+          "stressNetExpectancyR": -0.24590848399937487,
+          "profitFactor": 0.7220088370527209,
+          "opportunityRecall": 0.9909476661951909,
+          "precision": 0.39465975664713837
+        },
+        "retest_limit": {
+          "netExpectancyR": -0.18925960888439264,
+          "stressNetExpectancyR": -0.3504620111941733,
+          "profitFactor": 0.706462480620388,
+          "opportunityRecall": 0.49165487977369166,
+          "precision": 0.2668918918918919
+        },
+        "structure_confirmed_retest": {
+          "netExpectancyR": -0.1499100042379037,
+          "stressNetExpectancyR": -0.27185497508720613,
+          "profitFactor": 0.7140676877609362,
+          "opportunityRecall": 0.2876944837340877,
+          "precision": 0.3083687083080655
+        }
+      },
+      "interpretation": "Entry mechanic alone is not the root cause. The generic candidate/setup architecture plus frozen stop/target/management stack has negative absolute expectancy across all three entry modes. structure_confirmed_retest improved candidate utility versus trigger_close with bootstrap support but remained absolutely negative and lost too much recall.",
+      "contaminationRule": "The E1-V3 development outcomes may be used only for diagnosis and hypothesis generation. They may not be reused as fresh proof for a redesigned architecture.",
+      "sealedEvidence": {
+        "freshValidationOpened": false,
+        "holdoutOpened": false
+      }
+    },
+    {
+      "trial": "ITE1-A1",
+      "researchAxis": "CONTEXTUAL_TREND_CONTINUATION_ARCHITECTURE_FRESH_INSTRUMENT_SCREEN",
+      "status": "REJECT_FRESH_INSTRUMENT_DEVELOPMENT_GATE",
+      "dataFreezeCommit": "6ade027814bdc0d33bdad5dfad0e4c18ea47a252",
+      "resultCommit": "6667ee51a72e96ec6b099960443bede3a1583114",
+      "closeoutSha256": "7c3c79264cb8944be8ccde0a62c8c3a8b075d91305a188f1f33fcbf704aa679a",
+      "tradeLedgerSha256": "f6fff3627c7b048b511286b77caa35328f1e21044b2a16c29878f60d27facd7f",
+      "referenceLedgerSha256": "a34b743782fdc147a81449b25526734832c77e65d4fa47b7a1fa0c3a1a32cc80",
+      "headline": {
+        "enteredTrades": 1376,
+        "netExpectancyR": -0.11407277196669692,
+        "stressNetExpectancyR": -0.23032038992308732,
+        "profitFactor": 0.847348448833234,
+        "referenceOpportunityRecall": 0.11526009065400389,
+        "referenceOpportunityPrecision": 0.38808139534883723,
+        "probabilityPositiveNetExpectancy": 0.0672,
+        "probabilityPositiveUtilityDeltaVsE1Baseline": 1,
+        "breakoutContinuationNetExpectancyR": -0.004826800546158053,
+        "pullbackContinuationNetExpectancyR": -0.19904186084933828
+      },
+      "interpretation": "A1 materially improved candidate-level utility versus the frozen E1 generic baseline, but absolute expectancy remained negative, robustness failed, precision/recall failed, and only one market family was positive. This proves that improved payoff geometry and trend alignment alone are insufficient.",
+      "contaminationRule": "A1 fresh-instrument outcomes are now contaminated and may be used only for diagnosis/hypothesis generation. They cannot be reused as fresh proof for B1/C1 or any later architecture.",
+      "sealedEvidence": {
+        "timeValidationOpened": false,
+        "holdoutOpened": false
+      }
+    },
+    {
+      "trial": "ITE1-B1",
+      "researchAxis": "RANGE_REVERSION_LIQUIDITY_RECLAIM_FRESH_INSTRUMENT_SCREEN",
+      "status": "REJECT_FRESH_INSTRUMENT_DEVELOPMENT_GATE",
+      "dataFreezeCommit": "c3aa713f3f033a11b075a33b8ce191637ea01555",
+      "resultSha256": "9bbd08e963e06e83aca02f8b0cd5199fb4ef8a197642f9b7cbedf6861671aa8e",
+      "headline": {
+        "enteredTrades": 69,
+        "netExpectancyR": -0.22811685831008913,
+        "stressNetExpectancyR": -0.33812921467368584,
+        "profitFactor": 0.7348613191849882,
+        "referenceOpportunityRecall": 0.013562858633281168,
+        "referenceOpportunityPrecision": 0.37681159420289856,
+        "probabilityPositiveNetExpectancy": 0.2116,
+        "probabilityPositiveUtilityDeltaVsBaseline": 1
+      },
+      "interpretation": "B1 strongly reduced exposure relative to the generic sweep/reclaim baseline and improved candidate utility, but it became too sparse, missed almost all audited good reference opportunities, and remained negative in absolute expectancy. Range-neutrality plus reclaim geometry is therefore not sufficient as a standalone broad cross-market engine.",
+      "sealedEvidence": {
+        "timeValidationOpened": false,
+        "holdoutOpened": false
+      },
+      "contaminationRule": "B1 outcomes are contaminated and may be used only for diagnosis. No B1 subgroup or threshold may be promoted."
+    }
+  ],
+  "nextAuthorizedResearch": "C1 remains the sole untested prelocked price-pattern architecture. If C1 fails, activate the finite-budget terminal stop rule and do not launch another price-pattern family in ITE1.",
+  "forbidden": [
+    "threshold rescue on E1",
+    "post-outcome symbol/timeframe patches",
+    "opening prior fresh validation as a rescue sample without explicit reclassification and loss of validation status",
+    "R15 mutation"
+  ],
+  "architectureBudget": {
+    "status": "LOCKED_AFTER_A1_BEFORE_B1_C1_OUTCOMES",
+    "remainingFamilies": [
+      {
+        "id": "ITE1-B1",
+        "name": "RANGE_REVERSION_LIQUIDITY_RECLAIM",
+        "purpose": "Separate range/reversal engine for non-trending regimes; causally distinct from A1 trend continuation."
+      },
+      {
+        "id": "ITE1-C1",
+        "name": "TREND_BREAKOUT_EXECUTABLE_PAYOFF",
+        "purpose": "Breakout-only continuation engine with execution/payoff confirmation; fresh proof required because A1 diagnostics motivate it."
+      }
+    ],
+    "terminalRule": "If both B1 and C1 fail their fresh-evidence development gates, do not launch another price-pattern architecture family in ITE1. Freeze price-pattern research as not proven and shift any future work to a separately scoped data/feature program with new evidence and governance."
+  }
+}
