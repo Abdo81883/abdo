@@ -1,0 +1,122 @@
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:76: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  n=z["close"].resample("1D",origin="epoch",label="left",closed="left").count()
+/home/runner/work/abdo/abdo/marketsgpt-ite1/ite1_a1_evaluate.py:77: RuntimeWarning: The 'origin' keyword does not take effect when resampling with a 'freq' that is not Tick-like (h, m, s, ms, us, ns)
+  o=z.resample("1D",origin="epoch",label="left",closed="left").agg(
+{
+  "status": "REJECT_A1_FRESH_INSTRUMENT_GATE",
+  "failedChecks": [
+    "netExpectancyRMin",
+    "stressNetExpectancyRMin",
+    "profitFactorMin",
+    "referenceOpportunityRecallMin",
+    "referenceOpportunityPrecisionMin",
+    "positiveMarketFamilyFractionMin",
+    "positiveBlockFractionMin",
+    "firstHalfNetExpectancyPositive",
+    "secondHalfNetExpectancyPositive",
+    "positiveMonthFractionMin",
+    "bootstrapProbabilityPositiveNetExpectancyMin",
+    "singleMarketFamilyPositiveContributionMax"
+  ],
+  "metrics": {
+    "referenceCandidateCount": 11749,
+    "referenceGoodOpportunityCount": 4633,
+    "enteredTrades": 1376,
+    "netExpectancyR": -0.11407277196669692,
+    "stressNetExpectancyR": -0.23032038992308732,
+    "profitFactor": 0.847348448833234,
+    "hitRate": 0.33502906976744184,
+    "meanMfeR": 1.3215338267368144,
+    "meanMaeR": 1.13368689042794,
+    "maxDrawdownR": 175.77779988924573,
+    "referenceOpportunityRecall": 0.11526009065400389,
+    "referenceOpportunityPrecision": 0.38808139534883723,
+    "activeMarketFamilies": 5,
+    "activeBlocks": 20,
+    "positiveMarketFamilyFraction": 0.2,
+    "positiveBlockFraction": 0.2,
+    "firstHalfNetExpectancyR": -0.0951481893196689,
+    "secondHalfNetExpectancyR": -0.132997354613725,
+    "positiveMonthFraction": 0.0,
+    "singleMarketFamilyPositiveContribution": 1.0,
+    "baselineOnFreshUniverse": {
+      "enteredTrades": 11646,
+      "netExpectancyR": -0.11051780164645025,
+      "candidateUtilityMeanR": -0.10954892484250231,
+      "a1CandidateUtilityMeanR": -0.013359786724502082,
+      "candidateUtilityDeltaR": 0.09618913811800023
+    }
+  },
+  "bootstrap": {
+    "method": "hierarchical instrument-timeframe circular candidate blocks",
+    "iterations": 5000,
+    "seed": 12001,
+    "blockLengthCandidates": 20,
+    "probabilityPositiveNetExpectancy": 0.0672,
+    "ci95NetExpectancyR": [
+      -0.26101078588372456,
+      0.0342689861411535
+    ],
+    "probabilityPositiveUtilityDeltaVsFrozenE1Baseline": 1.0,
+    "ci95UtilityDeltaVsFrozenE1Baseline": [
+      0.055507673203337174,
+      0.13316992796320373
+    ]
+  }
+}

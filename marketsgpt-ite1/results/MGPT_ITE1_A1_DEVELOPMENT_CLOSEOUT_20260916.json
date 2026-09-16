@@ -1,0 +1,342 @@
+{
+  "blockDiagnostics": [
+    {
+      "a1EnteredTrades": 116,
+      "bars": 5807,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 1161,
+      "status": "OK",
+      "symbol": "SOL-USD",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 0,
+      "bars": 1451,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 307,
+      "status": "OK",
+      "symbol": "SOL-USD",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 101,
+      "bars": 5807,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 1058,
+      "status": "OK",
+      "symbol": "XRP-USD",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 0,
+      "bars": 1451,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 251,
+      "status": "OK",
+      "symbol": "XRP-USD",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 0,
+      "bars": 5807,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 1130,
+      "status": "OK",
+      "symbol": "LTC-USD",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 0,
+      "bars": 1451,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 256,
+      "status": "OK",
+      "symbol": "LTC-USD",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 127,
+      "bars": 4093,
+      "marketFamily": "FX",
+      "referenceCandidates": 892,
+      "status": "OK",
+      "symbol": "AUDUSD=X",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 33,
+      "bars": 996,
+      "marketFamily": "FX",
+      "referenceCandidates": 229,
+      "status": "OK",
+      "symbol": "AUDUSD=X",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 96,
+      "bars": 4093,
+      "marketFamily": "FX",
+      "referenceCandidates": 799,
+      "status": "OK",
+      "symbol": "NZDUSD=X",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 39,
+      "bars": 996,
+      "marketFamily": "FX",
+      "referenceCandidates": 215,
+      "status": "OK",
+      "symbol": "NZDUSD=X",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 102,
+      "bars": 4089,
+      "marketFamily": "FX",
+      "referenceCandidates": 916,
+      "status": "OK",
+      "symbol": "CAD=X",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 36,
+      "bars": 997,
+      "marketFamily": "FX",
+      "referenceCandidates": 225,
+      "status": "OK",
+      "symbol": "CAD=X",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 134,
+      "bars": 4038,
+      "marketFamily": "FX",
+      "referenceCandidates": 912,
+      "status": "OK",
+      "symbol": "CHF=X",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 38,
+      "bars": 986,
+      "marketFamily": "FX",
+      "referenceCandidates": 211,
+      "status": "OK",
+      "symbol": "CHF=X",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 144,
+      "bars": 3775,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "referenceCandidates": 797,
+      "status": "OK",
+      "symbol": "HG=F",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 29,
+      "bars": 814,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "referenceCandidates": 175,
+      "status": "OK",
+      "symbol": "HG=F",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 153,
+      "bars": 3776,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "referenceCandidates": 814,
+      "status": "OK",
+      "symbol": "PL=F",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 50,
+      "bars": 814,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "referenceCandidates": 180,
+      "status": "OK",
+      "symbol": "PL=F",
+      "timeframe": "4h"
+    },
+    {
+      "a1EnteredTrades": 44,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 198,
+      "status": "OK",
+      "symbol": "META",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 20,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 186,
+      "status": "OK",
+      "symbol": "AMZN",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 17,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 186,
+      "status": "OK",
+      "symbol": "GOOGL",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 56,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 230,
+      "status": "OK",
+      "symbol": "JPM",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 27,
+      "bars": 1133,
+      "marketFamily": "INDEX",
+      "referenceCandidates": 226,
+      "status": "OK",
+      "symbol": "^GSPC",
+      "timeframe": "1h"
+    },
+    {
+      "a1EnteredTrades": 14,
+      "bars": 1133,
+      "marketFamily": "INDEX",
+      "referenceCandidates": 195,
+      "status": "OK",
+      "symbol": "^RUT",
+      "timeframe": "1h"
+    }
+  ],
+  "bootstrap": {
+    "blockLengthCandidates": 20,
+    "ci95NetExpectancyR": [
+      -0.26101078588372456,
+      0.0342689861411535
+    ],
+    "ci95UtilityDeltaVsFrozenE1Baseline": [
+      0.055507673203337174,
+      0.13316992796320373
+    ],
+    "iterations": 5000,
+    "method": "hierarchical instrument-timeframe circular candidate blocks",
+    "probabilityPositiveNetExpectancy": 0.0672,
+    "probabilityPositiveUtilityDeltaVsFrozenE1Baseline": 1.0,
+    "seed": 12001
+  },
+  "checks": {
+    "bootstrapProbabilityPositiveNetExpectancyMin": false,
+    "bootstrapProbabilityPositiveUtilityDeltaVsFrozenE1BaselineMin": true,
+    "firstHalfNetExpectancyPositive": false,
+    "minimumActiveBlocks": true,
+    "minimumActiveMarketFamilies": true,
+    "minimumEnteredTrades": true,
+    "netExpectancyRMin": false,
+    "positiveBlockFractionMin": false,
+    "positiveMarketFamilyFractionMin": false,
+    "positiveMonthFractionMin": false,
+    "profitFactorMin": false,
+    "referenceOpportunityPrecisionMin": false,
+    "referenceOpportunityRecallMin": false,
+    "secondHalfNetExpectancyPositive": false,
+    "singleMarketFamilyPositiveContributionMax": false,
+    "stressNetExpectancyRMin": false
+  },
+  "dataFreezeSha256": "714e0f6293a61289d177d2f2512ea9f2b010e57aa31068c80305df88e21c50ca",
+  "failedChecks": [
+    "netExpectancyRMin",
+    "stressNetExpectancyRMin",
+    "profitFactorMin",
+    "referenceOpportunityRecallMin",
+    "referenceOpportunityPrecisionMin",
+    "positiveMarketFamilyFractionMin",
+    "positiveBlockFractionMin",
+    "firstHalfNetExpectancyPositive",
+    "secondHalfNetExpectancyPositive",
+    "positiveMonthFractionMin",
+    "bootstrapProbabilityPositiveNetExpectancyMin",
+    "singleMarketFamilyPositiveContributionMax"
+  ],
+  "generatedAtUtc": "2026-09-16T02:04:05.272245+00:00",
+  "implementationSpecSha256": "7b05797669245cb0fe7f4f55a503526d3ba574f3c609e8d8b5f132ee634dc8e0",
+  "lockSha256": "9eea22b37779da9fc5debb7ef68d446624cdc9cf1b9517e8dd85f5e96eb9a6ce",
+  "metrics": {
+    "activeBlocks": 20,
+    "activeMarketFamilies": 5,
+    "baselineOnFreshUniverse": {
+      "a1CandidateUtilityMeanR": -0.013359786724502082,
+      "candidateUtilityDeltaR": 0.09618913811800023,
+      "candidateUtilityMeanR": -0.10954892484250231,
+      "enteredTrades": 11646,
+      "netExpectancyR": -0.11051780164645025
+    },
+    "blockExpectancyR": {
+      "AMZN|1h": -0.6287188948498731,
+      "AUDUSD=X|1h": -0.18487758538345908,
+      "AUDUSD=X|4h": -0.17412683261783857,
+      "CAD=X|1h": -0.1665277213475796,
+      "CAD=X|4h": -0.015282892524324057,
+      "CHF=X|1h": -0.2514561898023875,
+      "CHF=X|4h": 0.09334597205668822,
+      "GOOGL|1h": -0.3013961454568475,
+      "HG=F|1h": 0.2762267995829375,
+      "HG=F|4h": -0.0894612005930776,
+      "JPM|1h": 0.18902354997246834,
+      "META|1h": -0.10234962830044636,
+      "NZDUSD=X|1h": -0.2273702263775146,
+      "NZDUSD=X|4h": -0.09228846945564789,
+      "PL=F|1h": -0.0025455663012633922,
+      "PL=F|4h": 0.11493319407639241,
+      "SOL-USD|1h": -0.12604238753074057,
+      "XRP-USD|1h": -0.5117404071637481,
+      "^GSPC|1h": -0.4863422437510169,
+      "^RUT|1h": -0.4366475477816891
+    },
+    "enteredTrades": 1376,
+    "familyExpectancyR": {
+      "CRYPTO_SPOT": -0.3055608206318178,
+      "EQUITY": -0.08478961471916266,
+      "FX": -0.1691511158095772,
+      "INDEX": -0.4693733231761245,
+      "METALS_FUTURES_PROXY": 0.1131368946342289
+    },
+    "firstHalfNetExpectancyR": -0.0951481893196689,
+    "hitRate": 0.33502906976744184,
+    "maxDrawdownR": 175.77779988924573,
+    "meanMaeR": 1.13368689042794,
+    "meanMfeR": 1.3215338267368144,
+    "netExpectancyR": -0.11407277196669692,
+    "positiveBlockFraction": 0.2,
+    "positiveMarketFamilyFraction": 0.2,
+    "positiveMonthFraction": 0.0,
+    "profitFactor": 0.847348448833234,
+    "referenceCandidateCount": 11749,
+    "referenceGoodOpportunityCount": 4633,
+    "referenceOpportunityPrecision": 0.38808139534883723,
+    "referenceOpportunityRecall": 0.11526009065400389,
+    "secondHalfNetExpectancyR": -0.132997354613725,
+    "setupExpectancyR": {
+      "BREAKOUT_CONTINUATION": -0.004826800546158053,
+      "PULLBACK_CONTINUATION": -0.19904186084933828
+    },
+    "singleMarketFamilyPositiveContribution": 1.0,
+    "stressNetExpectancyR": -0.23032038992308732
+  },
+  "nextAction": "Do not rescue A1 thresholds or open time validation/holdout. Register rejection, diagnose only on contaminated A1 evidence, and keep subsequent hypotheses under a new prelock and fresh evidence budget.",
+  "productionAuthority": false,
+  "providerReplicationRequiredBeforeNextPhase": false,
+  "r15MutationAllowed": false,
+  "schema": "mgpt_ite1_a1_development_closeout_v1",
+  "sealedHoldoutOpened": false,
+  "status": "REJECT_A1_FRESH_INSTRUMENT_GATE",
+  "timeValidationOpened": false
+}
