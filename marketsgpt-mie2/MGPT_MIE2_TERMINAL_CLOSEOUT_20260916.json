@@ -1,0 +1,10 @@
+{
+  "schema": "mgpt_mie2_terminal_closeout_v1",
+  "generatedAtUtc": "2026-09-16T14:18:30Z",
+  "program": "MGPT-MIE2",
+  "status": "CLOSED_DEVELOPMENT_REJECTED_TERMINAL",
+  "scientificConclusion": "The terminal positioning program improved relative direction selection but did not establish robust positive net expectancy after realistic costs. The locked development gate failed, so validation/holdout remain sealed and Worker integration is prohibited.",
+  "workerIntegrationAuthorized": false,
+  "r15MutationAllowed": false,
+  "futureResearch": "New project only, with materially different data and fresh governance."
+}
