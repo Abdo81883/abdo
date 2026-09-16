@@ -1,0 +1,6 @@
+{
+  "status": "PASS_DATA_FREEZE",
+  "marketFiles": 56,
+  "contextFiles": 5,
+  "errors": []
+}

@@ -1,0 +1,572 @@
+{
+  "contextFiles": [
+    {
+      "file": "VIX_1d.csv",
+      "firstUtc": "2025-09-02T00:00:00+00:00",
+      "lastUtc": "2026-04-30T00:00:00+00:00",
+      "marketFamily": null,
+      "rows": 167,
+      "sha256": "4bd8e3e29cbc139bc4d489b055ac88c336369b71772f080d13f054c3cca94391",
+      "symbol": "^VIX"
+    },
+    {
+      "file": "GSPC_CONTEXT_1d.csv",
+      "firstUtc": "2025-09-02T00:00:00+00:00",
+      "lastUtc": "2026-04-30T00:00:00+00:00",
+      "marketFamily": null,
+      "rows": 167,
+      "sha256": "0bf03f494a5179a14a0c4bea45a75ca062abdc9e3a4853a43a63816801d77d99",
+      "symbol": "^GSPC"
+    },
+    {
+      "file": "DXY_1d.csv",
+      "firstUtc": "2025-09-02T00:00:00+00:00",
+      "lastUtc": "2026-04-30T00:00:00+00:00",
+      "marketFamily": null,
+      "rows": 167,
+      "sha256": "8fa698645aa7d169c40941fc7e44bf9ea49210828abfb53a86c4612e3d29c9a8",
+      "symbol": "DX-Y.NYB"
+    },
+    {
+      "file": "TNX_1d.csv",
+      "firstUtc": "2025-09-02T00:00:00+00:00",
+      "lastUtc": "2026-04-30T00:00:00+00:00",
+      "marketFamily": null,
+      "rows": 167,
+      "sha256": "9ff036cb13fad8f88492a6aa520a110c2881e8c814e3d76c23f931a31a4a31c6",
+      "symbol": "^TNX"
+    },
+    {
+      "file": "BTC_CONTEXT_1d.csv",
+      "firstUtc": "2025-09-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T00:00:00+00:00",
+      "marketFamily": null,
+      "rows": 242,
+      "sha256": "c1ddf3f1a894fb2c773618ab0e57ee62999663135136f17b11ec36d4e40fd7bc",
+      "symbol": "BTC-USD"
+    }
+  ],
+  "contextWindow": {
+    "endExclusive": "2026-05-01",
+    "start": "2025-09-01"
+  },
+  "errors": [],
+  "freshValidationOpened": false,
+  "generatedAtUtc": "2026-09-16T12:51:45.092280+00:00",
+  "lockSha256": "487cb858ced30d59cdda4c3e89aac9c7c6fd358e8ab2cefad3c12053ff168139",
+  "marketFiles": [
+    {
+      "file": "CL_F_1h.csv",
+      "firstUtc": "2025-11-02T23:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "rows": 2754,
+      "sha256": "7e8dde5df653a54a3cfe7b77335647db4ae9ce3747761a2062b8aa2040c5dadf",
+      "symbol": "CL=F"
+    },
+    {
+      "file": "NG_F_1h.csv",
+      "firstUtc": "2025-11-02T23:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "rows": 2757,
+      "sha256": "8c668ed36d9870615e02acc27bc8768b26fd38f3e796b9ea6e96d404e79ffc49",
+      "symbol": "NG=F"
+    },
+    {
+      "file": "ZC_F_1h.csv",
+      "firstUtc": "2025-11-03T01:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "rows": 2254,
+      "sha256": "99cb44c800ebeb43cade9eb64a3555e79bae8908adaaa28529ff003641aba34e",
+      "symbol": "ZC=F"
+    },
+    {
+      "file": "ZS_F_1h.csv",
+      "firstUtc": "2025-11-03T01:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "rows": 2253,
+      "sha256": "3ac24c681713fce24bc1d101e40d0d5da22781b69e24e48291e7b280fe451f9c",
+      "symbol": "ZS=F"
+    },
+    {
+      "file": "ADA_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "173556f95a99de3f2f12ab328d6088dcd2635692ea4219ec801d503449995eec",
+      "symbol": "ADA-USD"
+    },
+    {
+      "file": "AVAX_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "4d4d8b5eb94dece4630c3e4058bff2e7605afbe6014324f43b18e81baf3b7816",
+      "symbol": "AVAX-USD"
+    },
+    {
+      "file": "BCH_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "541046feb88a2559010e792544c981a3b171d0955971b7c3beaecd2b58dae502",
+      "symbol": "BCH-USD"
+    },
+    {
+      "file": "BTC_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "66127af66211c1e0d1b4925e6a83ddd86a57b0ea51764734c10e759bf8b47bce",
+      "symbol": "BTC-USD"
+    },
+    {
+      "file": "DOGE_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "469d0ebb23802f700e13ae1570bfb399907373d24bf0e93937e593677619a0fc",
+      "symbol": "DOGE-USD"
+    },
+    {
+      "file": "DOT_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "8a542f942678105e7c10b82a572c462d4b0889a9ff5acf0db335744a527b929e",
+      "symbol": "DOT-USD"
+    },
+    {
+      "file": "ETH_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "06c565abf3ecd1ef4b3cbdd91dd2c939623aabacaa2fdfd730b9a7081e92028c",
+      "symbol": "ETH-USD"
+    },
+    {
+      "file": "LINK_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "0a72fffaee0f42e0247137b7b13077987462b6b8f655d7de575ccb5c7da4dd75",
+      "symbol": "LINK-USD"
+    },
+    {
+      "file": "LTC_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "1440b5ba4eb20ea8998f0273515ece33abc0f469c8a39cccd6ad2ed41f1c6c45",
+      "symbol": "LTC-USD"
+    },
+    {
+      "file": "SOL_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "b434cdf646cada110130bc69e80fbcf9fb106d952271de5169c03b1ac03f92ad",
+      "symbol": "SOL-USD"
+    },
+    {
+      "file": "XRP_USD_1h.csv",
+      "firstUtc": "2025-11-01T00:00:00+00:00",
+      "lastUtc": "2026-04-30T23:00:00+00:00",
+      "marketFamily": "CRYPTO_SPOT",
+      "rows": 4324,
+      "sha256": "69526cc0cd84cde4aa87db8da2ad4fb357c2b93999be2b2986268d9cfffd7743",
+      "symbol": "XRP-USD"
+    },
+    {
+      "file": "AAPL_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "92ae2e2c77859f65a3d8c8457c704497c3f23ab1a1f23237c7d80844a38b5b73",
+      "symbol": "AAPL"
+    },
+    {
+      "file": "AMD_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "8fd4d3d3b55e30751f4a0999492f76c72a2ee7f80a626e859892636e87710942",
+      "symbol": "AMD"
+    },
+    {
+      "file": "AMZN_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "9157684345702bba04c1b0ef6bbb4d4ba0467d0d8bc2eb453c2d86c020142df9",
+      "symbol": "AMZN"
+    },
+    {
+      "file": "AVGO_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "de5631a76885210d4e1892e874e1fc634bf6e80933ec565e857bbf4ddf97e668",
+      "symbol": "AVGO"
+    },
+    {
+      "file": "CRM_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 843,
+      "sha256": "b1e2351efc9dc55e2248fbaa933f957edc1cc2215d1d2aaf80eb249eead133e0",
+      "symbol": "CRM"
+    },
+    {
+      "file": "GOOGL_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "d160c99a43ce16485f936820e96327a38fab9465160293b12a462c8b20b0ec79",
+      "symbol": "GOOGL"
+    },
+    {
+      "file": "JPM_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 843,
+      "sha256": "f21931d737de36b174b343de5fb395721d6d92f0a6e0ef61d73fe8c7aa0f3334",
+      "symbol": "JPM"
+    },
+    {
+      "file": "META_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "2908491bc450a773878b53e0e51f0be6411789ac750b039bd5b19c61ab7f99e7",
+      "symbol": "META"
+    },
+    {
+      "file": "MSFT_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "addfecc5c7e22d5180d0116e3ffbfcd3fab143717cacbda308e46b67eebcf5b3",
+      "symbol": "MSFT"
+    },
+    {
+      "file": "MU_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "4711cae6b508f1b8718732d7363f691b8a415f8dbd88b8952d73c7f53ea63a3c",
+      "symbol": "MU"
+    },
+    {
+      "file": "NFLX_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "9b636370b7b659d4a13c93a0da3470ca6d804d989cf8cb2eb4ea0cd1b4ab48b0",
+      "symbol": "NFLX"
+    },
+    {
+      "file": "NVDA_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "ba7bd3f6784c1fd93c4dad370aac32893e6d9c4ecefddb67bd73d87c4b2f81f2",
+      "symbol": "NVDA"
+    },
+    {
+      "file": "ORCL_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 843,
+      "sha256": "d5faf008d4bbd98962d4b9de500556f935e872326cea836b6578754596015a10",
+      "symbol": "ORCL"
+    },
+    {
+      "file": "QCOM_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "bd30426ecd81deb34e2a879646b917f0c5ada230faa641f175f14073c2c93b12",
+      "symbol": "QCOM"
+    },
+    {
+      "file": "TSLA_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "EQUITY",
+      "rows": 844,
+      "sha256": "e916a7e6d2938dd21bdebf28e324947baafaed88fee5f3d8d4dd8e11c4a50730",
+      "symbol": "TSLA"
+    },
+    {
+      "file": "AUDCAD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3037,
+      "sha256": "cc44dc20397017add904efa4ce2fd78d343e48df4ff3a35c19837c7f735fc29a",
+      "symbol": "AUDCAD=X"
+    },
+    {
+      "file": "AUDJPY_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3014,
+      "sha256": "07a265ce6c61143ce04baf6a9ef6c2a867294e9bf037c19213ab6a881d2f50a6",
+      "symbol": "AUDJPY=X"
+    },
+    {
+      "file": "AUDUSD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3038,
+      "sha256": "a30574a0c6b67697569a123e92f7692fb4337d9570a81c6ac42f3dadb3bf8133",
+      "symbol": "AUDUSD=X"
+    },
+    {
+      "file": "CAD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3038,
+      "sha256": "633dffc6a5e8770b72498ea1a14887bfc5aefd110b2f29f38b255aa5a5c54eac",
+      "symbol": "CAD=X"
+    },
+    {
+      "file": "CHF_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 2999,
+      "sha256": "7bf7b4a413cfdc43f6e1494e0b7251f64c281e5525dbd230dcee04f0848a0fec",
+      "symbol": "CHF=X"
+    },
+    {
+      "file": "EURAUD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3024,
+      "sha256": "2d6a32e3d57a1eb1cdc02d7bde8139bbabb2a56f764e9449bf9d2393238e1d79",
+      "symbol": "EURAUD=X"
+    },
+    {
+      "file": "EURCAD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3026,
+      "sha256": "d0698e1d7f1bf656ba34ed96ad84f1a4486f6cfb6d6d2de15e93d470aa88bbaf",
+      "symbol": "EURCAD=X"
+    },
+    {
+      "file": "EURGBP_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3028,
+      "sha256": "4bcabd0d636b6b84d8020afd68345ba914aaaee8a7c50e02564cccd379caccdf",
+      "symbol": "EURGBP=X"
+    },
+    {
+      "file": "EURJPY_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3016,
+      "sha256": "15145cd2fd7bafd2683a9e45da4bc46dd6fc88485ba762359bcfe67aa7c1cfea",
+      "symbol": "EURJPY=X"
+    },
+    {
+      "file": "EURUSD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3010,
+      "sha256": "8b827709fe893717ac9872b631ae1e7a33f56178151d24c1fb02c9dbd474b77a",
+      "symbol": "EURUSD=X"
+    },
+    {
+      "file": "GBPAUD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3036,
+      "sha256": "fe8ffa1e2beddc33a668880dfb6c51dbe1c87cedb15210d846ce9c059ec5d2f8",
+      "symbol": "GBPAUD=X"
+    },
+    {
+      "file": "GBPJPY_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3014,
+      "sha256": "87fba83bd339c0951081a690a3cadf902949dc8da6af3eeac569c00bd2145ba2",
+      "symbol": "GBPJPY=X"
+    },
+    {
+      "file": "GBPUSD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3011,
+      "sha256": "ae250ca58dd5105759e138598b35cfe26bb9d7c17f76130dd3d4f61d7a247fe7",
+      "symbol": "GBPUSD=X"
+    },
+    {
+      "file": "JPY_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 2995,
+      "sha256": "793073edf148a6afe3c108e473b0067b5b17ea96161d6e2434539ae641e8e207",
+      "symbol": "JPY=X"
+    },
+    {
+      "file": "NZDUSD_X_1h.csv",
+      "firstUtc": "2025-11-03T00:00:00+00:00",
+      "lastUtc": "2026-04-30T22:00:00+00:00",
+      "marketFamily": "FX",
+      "rows": 3038,
+      "sha256": "e65d8367ea85537ccf43ad3cf0a2dc55244f7b2a71829a00e0c19c201ddf2e99",
+      "symbol": "NZDUSD=X"
+    },
+    {
+      "file": "DJI_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 844,
+      "sha256": "f5dbbff3e90c69309d31308f190b08b44a63ec3899632bf4a295d2f45b8a0c08",
+      "symbol": "^DJI"
+    },
+    {
+      "file": "GSPC_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 844,
+      "sha256": "d1903bdda179bdde797fc220bdf659e6a0e10413b3728ad23ecaaf5b8e62280d",
+      "symbol": "^GSPC"
+    },
+    {
+      "file": "IXIC_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 844,
+      "sha256": "311c4793222c6b5bc88e1db298c9a5929d38f3a1ca29388d7fd5bb96735e1e6e",
+      "symbol": "^IXIC"
+    },
+    {
+      "file": "NDX_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 844,
+      "sha256": "bc56ff40274d6451dd62415b60e698f04adee7325164e0df258aad82eefc93e9",
+      "symbol": "^NDX"
+    },
+    {
+      "file": "NYA_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 843,
+      "sha256": "5b7a0a88ccc884bca825ea19985606234957c0344e768e3c22f47c79a20b883c",
+      "symbol": "^NYA"
+    },
+    {
+      "file": "RUT_1h.csv",
+      "firstUtc": "2025-11-03T14:30:00+00:00",
+      "lastUtc": "2026-04-30T19:30:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 843,
+      "sha256": "5b2c2784834fd42f8dd0610dd038f6cb576ba35bed4d673e57cbc326f33d9fd9",
+      "symbol": "^RUT"
+    },
+    {
+      "file": "STOXX50E_1h.csv",
+      "firstUtc": "2025-11-03T08:00:00+00:00",
+      "lastUtc": "2026-04-30T15:00:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 1077,
+      "sha256": "55422e3ff0e4023f67ff3fa50373c2bb9317d52fe070123a4e0bee45f418f15b",
+      "symbol": "^STOXX50E"
+    },
+    {
+      "file": "GC_F_1h.csv",
+      "firstUtc": "2025-11-02T23:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "rows": 2761,
+      "sha256": "2f082422a168784c6314a7a34a43149cbd65184e890b4ccb074d6b064662e24b",
+      "symbol": "GC=F"
+    },
+    {
+      "file": "HG_F_1h.csv",
+      "firstUtc": "2025-11-02T23:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "rows": 2761,
+      "sha256": "bf0b98a266e7035677f971f75596872bcc19b013e1be1e857f455fe2cc2239b0",
+      "symbol": "HG=F"
+    },
+    {
+      "file": "PL_F_1h.csv",
+      "firstUtc": "2025-11-02T23:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "rows": 2754,
+      "sha256": "c27b0e51eec6de6e534366312a72d2296da0294ac8af3bda655e641d6aca3bb4",
+      "symbol": "PL=F"
+    },
+    {
+      "file": "SI_F_1h.csv",
+      "firstUtc": "2025-11-02T23:00:00+00:00",
+      "lastUtc": "2026-05-01T03:00:00+00:00",
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "rows": 2761,
+      "sha256": "9f6d656a4c50f8d4110749b5ab75bde6e0bb740dcf9cc437eac79cab89427a10",
+      "symbol": "SI=F"
+    }
+  ],
+  "marketWindow": {
+    "endExclusive": "2026-05-01",
+    "start": "2025-11-01"
+  },
+  "performanceOutcomesComputed": false,
+  "provider": "Yahoo Finance through yfinance",
+  "schema": "mgpt_ife2_data_freeze_v1",
+  "sealedHoldoutOpened": false,
+  "status": "PASS_DATA_FREEZE"
+}
