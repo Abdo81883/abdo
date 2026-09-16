@@ -1,0 +1,738 @@
+{
+  "schema": "mgpt_ife1_program_lock_v1",
+  "generatedAtUtc": "2026-09-16T12:32:00Z",
+  "program": "MGPT-IFE1",
+  "name": "Institutional Feature Evidence / Selective Meta-Decision Engine",
+  "status": "LOCKED_BEFORE_IFE1_DATA_OR_MODEL_OUTCOMES",
+  "activationAuthority": "MGPT_ITE1_TERMINAL_CLOSEOUT_20260916.json",
+  "activationCondition": "ITE1-B1 and ITE1-C1 both rejected and terminal price-pattern stop activated.",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "researchClass": "CAUSAL_FEATURE_META_SELECTION_NOT_NEW_PRICE_PATTERN_FAMILY",
+  "objective": "Test whether a fixed regularized meta-selector can identify which already-frozen generic candidate opportunities should be traded versus abstained from, using only causal local geometry, higher-timeframe state and cross-market context, while preserving meaningful opportunity recall.",
+  "evidenceReclassification": {
+    "disclosure": "The 2025-07-01 onward ITE1 time-validation/holdout windows were never opened. Under this separately named program, 2025-07-01 to 2026-01-01 is explicitly reclassified as IFE1 fit/development evidence and permanently loses any ITE1 validation status.",
+    "priorOutcomeAccess": false
+  },
+  "windows": {
+    "warmupStart": "2025-05-01T00:00:00Z",
+    "modelFit": {
+      "start": "2025-07-01T00:00:00Z",
+      "endExclusive": "2025-10-01T00:00:00Z"
+    },
+    "developmentScreen": {
+      "start": "2025-10-01T00:00:00Z",
+      "endExclusive": "2026-01-01T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2026-01-01T00:00:00Z",
+      "endExclusive": "2026-05-01T00:00:00Z",
+      "sealed": true
+    },
+    "sealedHoldout": {
+      "start": "2026-05-01T00:00:00Z",
+      "endExclusive": "2026-09-01T00:00:00Z",
+      "sealed": true,
+      "oneShot": true
+    }
+  },
+  "universeSelectionRule": "All 56 unique instruments objectively registered in ITE1 E1/A1/B1/C1 locks. No symbol was added/dropped using IFE1-period outcomes.",
+  "universe": [
+    {
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "symbol": "CL=F",
+      "fileKey": "CL_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "symbol": "NG=F",
+      "fileKey": "NG_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "symbol": "ZC=F",
+      "fileKey": "ZC_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "symbol": "ZS=F",
+      "fileKey": "ZS_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "ADA-USD",
+      "fileKey": "ADA_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "AVAX-USD",
+      "fileKey": "AVAX_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "BCH-USD",
+      "fileKey": "BCH_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "BTC-USD",
+      "fileKey": "BTC_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "DOGE-USD",
+      "fileKey": "DOGE_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "DOT-USD",
+      "fileKey": "DOT_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "ETH-USD",
+      "fileKey": "ETH_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "LINK-USD",
+      "fileKey": "LINK_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "LTC-USD",
+      "fileKey": "LTC_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "SOL-USD",
+      "fileKey": "SOL_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "XRP-USD",
+      "fileKey": "XRP_USD",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "AAPL",
+      "fileKey": "AAPL",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "AMD",
+      "fileKey": "AMD",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "AMZN",
+      "fileKey": "AMZN",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "AVGO",
+      "fileKey": "AVGO",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "CRM",
+      "fileKey": "CRM",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "GOOGL",
+      "fileKey": "GOOGL",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "JPM",
+      "fileKey": "JPM",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "META",
+      "fileKey": "META",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "MSFT",
+      "fileKey": "MSFT",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "MU",
+      "fileKey": "MU",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "NFLX",
+      "fileKey": "NFLX",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "NVDA",
+      "fileKey": "NVDA",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "ORCL",
+      "fileKey": "ORCL",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "QCOM",
+      "fileKey": "QCOM",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "TSLA",
+      "fileKey": "TSLA",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "AUDCAD=X",
+      "fileKey": "AUDCAD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "AUDJPY=X",
+      "fileKey": "AUDJPY_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "AUDUSD=X",
+      "fileKey": "AUDUSD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "CAD=X",
+      "fileKey": "CAD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "CHF=X",
+      "fileKey": "CHF_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "EURAUD=X",
+      "fileKey": "EURAUD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "EURCAD=X",
+      "fileKey": "EURCAD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "EURGBP=X",
+      "fileKey": "EURGBP_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "EURJPY=X",
+      "fileKey": "EURJPY_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "EURUSD=X",
+      "fileKey": "EURUSD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "GBPAUD=X",
+      "fileKey": "GBPAUD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "GBPJPY=X",
+      "fileKey": "GBPJPY_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "GBPUSD=X",
+      "fileKey": "GBPUSD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "JPY=X",
+      "fileKey": "JPY_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "NZDUSD=X",
+      "fileKey": "NZDUSD_X",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "^DJI",
+      "fileKey": "DJI",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "^GSPC",
+      "fileKey": "GSPC",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "^IXIC",
+      "fileKey": "IXIC",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "^NDX",
+      "fileKey": "NDX",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "^NYA",
+      "fileKey": "NYA",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "^RUT",
+      "fileKey": "RUT",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "^STOXX50E",
+      "fileKey": "STOXX50E",
+      "timeframes": [
+        "1h"
+      ]
+    },
+    {
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "symbol": "GC=F",
+      "fileKey": "GC_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "symbol": "HG=F",
+      "fileKey": "HG_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "symbol": "PL=F",
+      "fileKey": "PL_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    },
+    {
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "symbol": "SI=F",
+      "fileKey": "SI_F",
+      "timeframes": [
+        "1h",
+        "4h"
+      ]
+    }
+  ],
+  "timeframes": {
+    "continuousFamilies": [
+      "CRYPTO_SPOT",
+      "FX",
+      "METALS_FUTURES_PROXY",
+      "COMMODITY_FUTURES_PROXY"
+    ],
+    "continuous": [
+      "1h",
+      "4h"
+    ],
+    "exchangeSessionFamilies": [
+      "EQUITY",
+      "INDEX"
+    ],
+    "exchangeSession": [
+      "1h"
+    ],
+    "fourHourAggregation": "exact UTC-anchored four source bars; incomplete groups discarded"
+  },
+  "provider": {
+    "developmentTransport": "Yahoo Finance through yfinance",
+    "role": "RESEARCH_TRANSPORT_ONLY",
+    "noInterpolation": true,
+    "independentExecutionAuthorityReplicationRequiredAfterDevelopmentPass": true
+  },
+  "contextSeries": [
+    {
+      "symbol": "^VIX",
+      "fileKey": "VIX",
+      "featureRole": "risk aversion level"
+    },
+    {
+      "symbol": "^GSPC",
+      "fileKey": "GSPC_CONTEXT",
+      "featureRole": "equity risk trend"
+    },
+    {
+      "symbol": "DX-Y.NYB",
+      "fileKey": "DXY",
+      "featureRole": "USD trend"
+    },
+    {
+      "symbol": "^TNX",
+      "fileKey": "TNX",
+      "featureRole": "US 10Y yield change"
+    },
+    {
+      "symbol": "BTC-USD",
+      "fileKey": "BTC_CONTEXT",
+      "featureRole": "crypto leader trend"
+    }
+  ],
+  "contextCausality": "Context is daily. Each daily observation becomes usable only at timestamp + 1 UTC day; candidate rows merge backward to the latest available observation. No current incomplete daily bar is used.",
+  "candidateEngine": {
+    "generator": "Frozen generate_candidates() from marketsgpt-ite1/ite1_core.py",
+    "dedupKey": "instrument + timeframe + signal timestamp + direction",
+    "multiSetupEncoding": "isBreakout/isPullback/isSweep flags are aggregated on the same dedup key; no setup is chosen by outcome.",
+    "baselineExecution": "trigger_close + structure_plus_atr_noise + hybrid_structure_volatility_ladder + fixed_full_exit",
+    "baselineMaxEntryWaitBars": 4,
+    "baselineHoldingBars": {
+      "1h": 48,
+      "4h": 30
+    },
+    "invalidOrNoEntryRule": "Candidate is not model-eligible if the frozen baseline plan is invalid or does not enter.",
+    "decisionTimestamp": "At the actual next-bar open for entered baseline geometry. Signal-bar features plus the observed next-open gap/risk geometry are causal at that execution timestamp."
+  },
+  "costModelOneWayBps": {
+    "CRYPTO_SPOT": {
+      "base": 10,
+      "stress": 15
+    },
+    "FX": {
+      "base": 1.5,
+      "stress": 3
+    },
+    "METALS_FUTURES_PROXY": {
+      "base": 2.5,
+      "stress": 5
+    },
+    "COMMODITY_FUTURES_PROXY": {
+      "base": 3,
+      "stress": 6
+    },
+    "EQUITY": {
+      "base": 3,
+      "stress": 6
+    },
+    "INDEX": {
+      "base": 1.5,
+      "stress": 3
+    }
+  },
+  "numericFeatures": [
+    "trend20_50_atr",
+    "trend50_200_atr",
+    "ema50_slope5_atr",
+    "close_ema20_atr",
+    "range20_atr",
+    "range50_atr",
+    "bar_range_atr",
+    "body_atr",
+    "clv",
+    "lower_wick_atr",
+    "upper_wick_atr",
+    "vol_ratio",
+    "rv20",
+    "breakout_up_atr",
+    "breakout_down_atr",
+    "next_open_gap_atr",
+    "actual_risk_atr",
+    "actual_tp2_r",
+    "htf_trend_signed",
+    "htf_neutral_flag",
+    "vix_z60",
+    "spx_trend_atr",
+    "dxy_trend_atr",
+    "tnx_change5",
+    "btc_trend_atr"
+  ],
+  "categoricalFeatures": [
+    "marketFamily",
+    "timeframe",
+    "direction",
+    "regime",
+    "volState"
+  ],
+  "binaryFeatures": [
+    "isBreakout",
+    "isPullback",
+    "isSweep",
+    "htfAligned"
+  ],
+  "model": {
+    "preprocessing": "MedianImputer numeric -> StandardScaler; categorical -> most-frequent imputer + OneHotEncoder(handle_unknown=ignore,dense).",
+    "ridge": {
+      "alpha": 10
+    },
+    "histGradientBoosting": {
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_depth": 3,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1,
+      "random_state": 15001
+    },
+    "logisticWinScore": {
+      "C": 0.2,
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "random_state": 15001
+    },
+    "predictedNetR": "0.50 * Ridge prediction + 0.50 * HistGradientBoosting prediction",
+    "pWinScore": "LogisticRegression probability score. It is explicitly NOT a calibrated real-world probability at this stage.",
+    "noHyperparameterSearch": true
+  },
+  "selectionRule": {
+    "predictedNetRMin": 0.1,
+    "ridgePredictionMustBePositive": true,
+    "histGradientPredictionMustBePositive": true,
+    "pWinScoreMin": 0.55,
+    "outputStateIfPass": "TRADE",
+    "outputStateOtherwise": "WAIT",
+    "noThresholdSearch": true
+  },
+  "opportunityAudit": {
+    "positiveBarrierR": 1.5,
+    "adverseBarrierR": 1,
+    "sameBar": "adverse wins",
+    "horizonBars": {
+      "1h": 48,
+      "4h": 30
+    },
+    "purpose": "Recall/precision audit only; never model input"
+  },
+  "bootstrap": {
+    "method": "hierarchical instrument-timeframe circular candidate blocks",
+    "iterations": 5000,
+    "seed": 15001,
+    "blockLengthCandidates": 20
+  },
+  "developmentGate": {
+    "minimumFitRows": 2000,
+    "minimumDevelopmentEligibleRows": 1500,
+    "minimumSelectedTrades": 200,
+    "selectionCoverageMin": 0.05,
+    "selectionCoverageMax": 0.35,
+    "netExpectancyRMin": 0.08,
+    "stressNetExpectancyRMin": 0.02,
+    "profitFactorMin": 1.2,
+    "referenceOpportunityRecallMin": 0.2,
+    "referenceOpportunityPrecisionMin": 0.5,
+    "positiveMarketFamilyFractionMin": 0.67,
+    "positiveBlockFractionMin": 0.55,
+    "firstHalfPositive": true,
+    "secondHalfPositive": true,
+    "positiveMonthFractionMin": 0.67,
+    "bootstrapProbabilityPositiveNetMin": 0.95,
+    "bootstrapProbabilityPositiveUtilityDeltaVsAllEligibleBaselineMin": 0.95,
+    "candidateUtilityDeltaRMin": 0.03,
+    "pWinScoreAucMin": 0.55,
+    "singleMarketFamilyPositiveContributionMax": 0.45
+  },
+  "antiOverfit": [
+    "No model hyperparameter search.",
+    "No threshold sweep.",
+    "No symbol identity feature.",
+    "No symbol/timeframe-specific rule.",
+    "No dropping losing instruments after outcomes.",
+    "No validation/holdout access unless all development gates pass.",
+    "No probability/calibration claim from pWinScore.",
+    "No R15 mutation before independent replication + fresh validation + sealed holdout."
+  ],
+  "nextAuthorizedAction": "Freeze complete hourly research bars for warmup+fit+development and complete daily context series, hash all inputs, then build the frozen candidate table without opening fresh validation or sealed holdout."
+}
