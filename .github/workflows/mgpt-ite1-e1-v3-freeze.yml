@@ -1,0 +1,54 @@
+name: MGPT ITE1 E1 V3 Data Freeze
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "marketsgpt-ite1/ite1_e1_freeze_v3.py"
+      - "marketsgpt-ite1/MGPT_ITE1_E1_DEVELOPMENT_LOCK_V3_20260916.json"
+      - ".github/workflows/mgpt-ite1-e1-v3-freeze.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install data-freeze dependencies
+        run: python -m pip install --disable-pip-version-check pandas yfinance
+      - name: Compile freeze script
+        run: python -m py_compile marketsgpt-ite1/ite1_e1_freeze_v3.py
+      - name: Freeze development data only
+        shell: bash
+        run: |
+          mkdir -p marketsgpt-ite1/results
+          set +e
+          python marketsgpt-ite1/ite1_e1_freeze_v3.py 2>&1 | tee marketsgpt-ite1/results/MGPT_ITE1_E1_V3_FREEZE_RUN_LOG_20260916.txt
+          rc=${PIPESTATUS[0]}
+          echo "$rc" > marketsgpt-ite1/results/MGPT_ITE1_E1_V3_FREEZE_EXIT_CODE_20260916.txt
+          exit 0
+      - name: Commit immutable V3 data/evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketsgpt-ite1/data/e1_v3 marketsgpt-ite1/results/MGPT_ITE1_E1_V3_*
+          if git diff --cached --quiet; then
+            echo "No freeze changes"
+          else
+            git commit -m "ite1 data: freeze E1 V3 full-series development inputs"
+            git push
+          fi
+      - name: Enforce freeze exit code
+        run: |
+          rc="$(cat marketsgpt-ite1/results/MGPT_ITE1_E1_V3_FREEZE_EXIT_CODE_20260916.txt)"
+          if [ "$rc" != "0" ]; then
+            echo "V3 data freeze failed with exit code $rc"
+            exit "$rc"
+          fi
