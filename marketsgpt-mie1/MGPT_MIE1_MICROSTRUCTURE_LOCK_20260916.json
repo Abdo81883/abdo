@@ -1,0 +1,268 @@
+{
+  "schema": "mgpt_mie1_microstructure_lock_v1",
+  "generatedAtUtc": "2026-09-16T13:08:00Z",
+  "program": "MGPT-MIE1",
+  "name": "Market Microstructure Intelligence Engine — USD-M Perpetuals",
+  "status": "LOCKED_BEFORE_MIE1_DATA_OR_PERFORMANCE_OUTCOMES",
+  "activationAuthority": "MGPT_IFE2_TERMINAL_REGISTRY_20260916.json",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "researchClass": "GENUINELY_NEW_DERIVATIVES_MICROSTRUCTURE_INFORMATION",
+  "scientificQuestion": "Can causal derivatives microstructure information (taker flow, trade intensity, premium index and realized funding) rank long/short opportunities with positive net expectancy after fees, slippage and funding, while preserving materially better opportunity recall than the prior zero-selection engines?",
+  "priorContaminationDisclosure": "Price outcomes through 2026-05-01 were inspected in earlier OHLC/context programs and are development-only here. The microstructure/funding features themselves were not previously used. 2026-05-01 onward remains unopened in this program.",
+  "sourceAuthority": {
+    "provider": "Binance official public data archive (data.binance.vision), USD-M futures",
+    "transport": "Monthly ZIP archives with sibling .CHECKSUM files",
+    "datasets": [
+      "futures/um/monthly/klines/<SYMBOL>/1h",
+      "futures/um/monthly/premiumIndexKlines/<SYMBOL>/1h",
+      "futures/um/monthly/fundingRate/<SYMBOL>"
+    ],
+    "noInterpolation": true,
+    "checksumRequired": true,
+    "note": "The ordinary USD-M kline archive includes quote volume, trade count, taker-buy base volume and taker-buy quote volume; these are new order-flow/intensity features versus prior Yahoo OHLC research."
+  },
+  "universeSelectionRule": "Fixed pre-outcome set of 12 established USD-M perpetual majors; no symbol may be dropped or replaced after MIE1 outcomes except a fail-closed data-availability block before any performance computation.",
+  "universe": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "LTCUSDT",
+    "BCHUSDT",
+    "AVAXUSDT",
+    "DOTUSDT"
+  ],
+  "timeframe": "1h",
+  "windows": {
+    "archiveWarmupStart": "2025-05-01T00:00:00Z",
+    "modelFit": {
+      "start": "2025-07-01T00:00:00Z",
+      "endExclusive": "2026-01-01T00:00:00Z"
+    },
+    "developmentScreen": {
+      "start": "2026-01-01T00:00:00Z",
+      "endExclusive": "2026-05-01T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2026-05-01T00:00:00Z",
+      "endExclusive": "2026-07-01T00:00:00Z",
+      "sealed": true
+    },
+    "sealedHoldout": {
+      "start": "2026-07-01T00:00:00Z",
+      "endExclusive": "2026-09-01T00:00:00Z",
+      "sealed": true,
+      "oneShot": true
+    }
+  },
+  "archiveMonths": [
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04"
+  ],
+  "candidateEngine": {
+    "opportunityClock": "Every completed 1h contract bar in fit/development creates exactly two directional research candidates: LONG and SHORT.",
+    "entry": "Next 1h contract open.",
+    "atr": "Wilder ATR14 from completed contract bars.",
+    "stop": "1.00 signal-ATR from actual next-open entry.",
+    "tp1": "0.75R",
+    "tp2": "1.50R",
+    "tp3": "2.50R",
+    "maxHoldingBars": 24,
+    "sameBarOrdering": "Stop before target.",
+    "evaluationExit": "Full exit at TP2; otherwise stop; otherwise close at 24h time stop. TP1/TP3 are recorded for future construction diagnostics but do not alter MIE1 development PnL.",
+    "opportunityLabel": "TP2 barrier before stop barrier within 24h; adverse/stop wins same-bar ambiguity.",
+    "noOvernightConcept": "Crypto perpetual market is continuous 24/7."
+  },
+  "costAndFunding": {
+    "oneWayBaseBps": 5,
+    "oneWayStressBps": 8,
+    "includes": "Taker-fee/slippage proxy on entry and exit plus realized funding events while position is open.",
+    "fundingCashflow": "For direction sign +1 LONG / -1 SHORT, funding R impact at each funding event while open = -sign * fundingRate * referenceNotional / initialRisk. Positive funding therefore costs longs and benefits shorts.",
+    "fundingEventTiming": "Funding events at timestamps <= exit timestamp and > entry timestamp are applied before final netR reporting; no future funding rate is used as an input before its timestamp."
+  },
+  "causalFeatures": {
+    "price": [
+      "ret1",
+      "ret3",
+      "ret6",
+      "ret12",
+      "ret24",
+      "atrPct",
+      "rv24",
+      "range24Atr",
+      "closePos24"
+    ],
+    "flow": [
+      "quoteVolumeZ24",
+      "tradeCountZ24",
+      "avgTradeSizeZ24",
+      "takerBuyQuoteRatio",
+      "takerImbalance",
+      "takerImbalanceZ24",
+      "takerImbalanceDelta3",
+      "takerImbalanceDelta6"
+    ],
+    "derivatives": [
+      "premiumClose",
+      "premiumZ24",
+      "premiumDelta1",
+      "premiumDelta3",
+      "premiumAbsZ24",
+      "latestFundingRate",
+      "fundingMean3",
+      "fundingMean9",
+      "fundingZ20Events",
+      "hoursSinceFunding"
+    ],
+    "directionAware": [
+      "signedRet3",
+      "signedRet12",
+      "signedTakerImbalance",
+      "signedPremium",
+      "signedFunding"
+    ],
+    "categorical": [
+      "direction",
+      "symbolGroup"
+    ],
+    "forbidden": [
+      "symbol identity",
+      "future funding",
+      "future premium",
+      "future volume",
+      "outcome-derived subgroup"
+    ]
+  },
+  "symbolGroupRule": {
+    "LARGE": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT",
+      "XRPUSDT"
+    ],
+    "ALT": [
+      "DOGEUSDT",
+      "ADAUSDT",
+      "LINKUSDT",
+      "LTCUSDT",
+      "BCHUSDT",
+      "AVAXUSDT",
+      "DOTUSDT"
+    ],
+    "frozen": true
+  },
+  "targets": {
+    "goodOpportunity": "1 when TP2=+1.5R is reached before stop=-1R inside 24h, stop wins same-bar.",
+    "positiveNet": "1 when realized base-cost-and-funding netR > 0.",
+    "tailLoss": "1 when realized base-cost-and-funding netR <= -0.75R."
+  },
+  "models": {
+    "preprocessing": "MedianImputer + StandardScaler for numeric; OneHotEncoder for direction and symbolGroup.",
+    "goodLogit": {
+      "C": 0.25,
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "random_state": 17001
+    },
+    "goodHgb": {
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_depth": 3,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1,
+      "random_state": 17002
+    },
+    "positiveNetLogit": {
+      "C": 0.25,
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "random_state": 17003
+    },
+    "tailHgb": {
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_depth": 3,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1,
+      "random_state": 17004
+    },
+    "noHyperparameterSearch": true
+  },
+  "score": {
+    "formula": "0.35*pGoodLogit + 0.30*pGoodHgb + 0.20*pPositiveNetLogit - 0.15*pTailHgb",
+    "semantics": "Relative ranking score only. Component outputs are classifier scores, not calibrated real-world probabilities."
+  },
+  "selection": {
+    "perTimestamp": "At each entry timestamp, for each symbol keep only the higher-score direction if LONG-vs-SHORT score margin >= 0.03. Rank remaining symbol winners by score and select the top 3.",
+    "maxTradesPerHour": 3,
+    "noAbsoluteScoreThreshold": true,
+    "noThresholdSearch": true,
+    "rationale": "This prevents the zero-selection failure mode while forcing cross-sectional competition and preserving a measurable opportunity-recall budget."
+  },
+  "developmentGate": {
+    "minimumFitCandidates": 90000,
+    "minimumDevelopmentCandidates": 55000,
+    "minimumSelectedTrades": 5000,
+    "minimumActiveSymbols": 12,
+    "bothDirectionsActive": true,
+    "netExpectancyRMin": 0.05,
+    "stressNetExpectancyRMin": 0.01,
+    "profitFactorMin": 1.1,
+    "opportunityRecallMin": 0.1,
+    "opportunityPrecisionMin": 0.55,
+    "positiveSymbolFractionMin": 0.67,
+    "positiveMonthFractionMin": 0.75,
+    "firstHalfPositive": true,
+    "secondHalfPositive": true,
+    "goodLogitAucMin": 0.57,
+    "goodHgbAucMin": 0.57,
+    "positiveNetAucMin": 0.56,
+    "tailHgbAucMin": 0.6,
+    "bootstrapProbabilityPositiveNetMin": 0.95,
+    "bootstrapProbabilityPositiveUtilityDeltaVsClockBaselineMin": 0.95,
+    "singleSymbolPositiveContributionMax": 0.22
+  },
+  "bootstrap": {
+    "method": "hierarchical symbol circular hourly blocks over the frozen selected decision ledger",
+    "iterations": 5000,
+    "seed": 17001,
+    "blockLengthHours": 24
+  },
+  "dataFreezeGate": {
+    "expectedArchiveMonths": 12,
+    "minimumContractHourlyCoverage": 0.985,
+    "minimumPremiumHourlyCoverage": 0.975,
+    "minimumFundingEventsPer180Days": 480,
+    "duplicateTimestampAllowed": false,
+    "checksumRequired": true,
+    "noInterpolation": true
+  },
+  "antiOverfit": [
+    "No feature search after MIE1 development outcomes.",
+    "No symbol-specific feature or threshold.",
+    "No model/hyperparameter search.",
+    "No LONG/SHORT margin search.",
+    "No top-K search.",
+    "No post-outcome symbol deletion.",
+    "No fresh-validation/holdout access unless every development gate passes.",
+    "No R15 mutation before independent replication, fresh validation and sealed holdout."
+  ],
+  "failureRule": "If MIE1 fails development, do not rescue it on MIE1 outcomes. Any continuation must be a separately locked program adding another genuinely new information source (e.g. historical open interest/liquidations/order-book depth/event data) rather than tuning these same microstructure features.",
+  "nextAuthorizedAction": "Freeze and checksum only May-2025 through Apr-2026 contract 1h klines, premium-index 1h klines and funding history. Do not download May-2026 onward until the development gate passes."
+}
