@@ -59,8 +59,8 @@
     }
   ],
   "freshValidationOpened": false,
-  "generatedAtUtc": "2026-09-16T12:27:36.876656+00:00",
-  "lockSha256": "5694044e70341eea8de5cd54684d786f5fa8904aba30bfcddad7f6280825bfed",
+  "generatedAtUtc": "2026-09-16T12:28:49.980741+00:00",
+  "lockSha256": "b9695069401c3ac1a9076163ad9059269e7fe8cfecfd9226234bf558ed67d234",
   "marketFiles": [
     {
       "file": "CL_F_1h.csv",
@@ -166,8 +166,8 @@
       "firstUtc": "2025-05-01T00:00:00+00:00",
       "lastUtc": "2025-12-31T23:00:00+00:00",
       "marketFamily": "CRYPTO_SPOT",
-      "rows": 5846,
-      "sha256": "8c1365d38a1f1e863b4eaa3451aa94309d1577b0432409acbd99622a538268fb",
+      "rows": 5725,
+      "sha256": "6205ac89f473fc803c042e881b0c74ac9052462e315f59e8de9940eeb8ed5685",
       "symbol": "LINK-USD"
     },
     {
@@ -364,8 +364,8 @@
       "firstUtc": "2025-04-30T23:00:00+00:00",
       "lastUtc": "2025-12-31T23:00:00+00:00",
       "marketFamily": "FX",
-      "rows": 4167,
-      "sha256": "03d69e8008809d083a404a2e70f9aebefe52d2ebbc950c6632004ec3ca1c3298",
+      "rows": 4169,
+      "sha256": "7c1a47cb3e9763a8afacf7efcb43d2063180bec046cf1639ddde88efad7958e8",
       "symbol": "CAD=X"
     },
     {
