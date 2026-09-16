@@ -95,7 +95,9 @@
       "goodHgb": "goodOpportunity",
       "positiveNetLogit": "positiveNet",
       "tailHgb": "tailLoss"
-    }
+    },
+    "hgbImplementation": "Both HistGradientBoostingClassifier models use loss='log_loss', early_stopping=false, and exactly the parent-lock learning_rate/max_iter/max_depth/min_samples_leaf/l2_regularization/random_state. No class weighting or internal validation is used.",
+    "logitImplementation": "Both LogisticRegression models use solver='lbfgs' and exactly the parent-lock C/class_weight/max_iter/random_state."
   },
   "scoreAndSelection": {
     "qualityScore": "0.35*pGoodLogit + 0.30*pGoodHgb + 0.20*pPositiveNetLogit - 0.15*pTailHgb",
