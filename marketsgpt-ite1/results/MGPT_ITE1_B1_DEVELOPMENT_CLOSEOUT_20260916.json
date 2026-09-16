@@ -1,0 +1,330 @@
+{
+  "blockDiagnostics": [
+    {
+      "b1EnteredTrades": 13,
+      "bars": 5807,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 387,
+      "status": "OK",
+      "symbol": "ADA-USD",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1451,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 103,
+      "status": "OK",
+      "symbol": "ADA-USD",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 19,
+      "bars": 5807,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 375,
+      "status": "OK",
+      "symbol": "DOGE-USD",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1451,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 94,
+      "status": "OK",
+      "symbol": "DOGE-USD",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 5807,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 395,
+      "status": "OK",
+      "symbol": "BCH-USD",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1451,
+      "marketFamily": "CRYPTO_SPOT",
+      "referenceCandidates": 104,
+      "status": "OK",
+      "symbol": "BCH-USD",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 4061,
+      "marketFamily": "FX",
+      "referenceCandidates": 362,
+      "status": "OK",
+      "symbol": "EURJPY=X",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 986,
+      "marketFamily": "FX",
+      "referenceCandidates": 75,
+      "status": "OK",
+      "symbol": "EURJPY=X",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 4061,
+      "marketFamily": "FX",
+      "referenceCandidates": 373,
+      "status": "OK",
+      "symbol": "GBPJPY=X",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 986,
+      "marketFamily": "FX",
+      "referenceCandidates": 89,
+      "status": "OK",
+      "symbol": "GBPJPY=X",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 4061,
+      "marketFamily": "FX",
+      "referenceCandidates": 317,
+      "status": "OK",
+      "symbol": "EURGBP=X",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 986,
+      "marketFamily": "FX",
+      "referenceCandidates": 93,
+      "status": "OK",
+      "symbol": "EURGBP=X",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 21,
+      "bars": 4064,
+      "marketFamily": "FX",
+      "referenceCandidates": 367,
+      "status": "OK",
+      "symbol": "AUDJPY=X",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 987,
+      "marketFamily": "FX",
+      "referenceCandidates": 92,
+      "status": "OK",
+      "symbol": "AUDJPY=X",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 3669,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 267,
+      "status": "OK",
+      "symbol": "CL=F",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 2,
+      "bars": 782,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 59,
+      "status": "OK",
+      "symbol": "CL=F",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 3690,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 287,
+      "status": "OK",
+      "symbol": "NG=F",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 7,
+      "bars": 791,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "referenceCandidates": 54,
+      "status": "OK",
+      "symbol": "NG=F",
+      "timeframe": "4h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 73,
+      "status": "OK",
+      "symbol": "TSLA",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 64,
+      "status": "OK",
+      "symbol": "AMD",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 86,
+      "status": "OK",
+      "symbol": "NFLX",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1133,
+      "marketFamily": "EQUITY",
+      "referenceCandidates": 63,
+      "status": "OK",
+      "symbol": "AVGO",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 0,
+      "bars": 1133,
+      "marketFamily": "INDEX",
+      "referenceCandidates": 71,
+      "status": "OK",
+      "symbol": "^DJI",
+      "timeframe": "1h"
+    },
+    {
+      "b1EnteredTrades": 7,
+      "bars": 1449,
+      "marketFamily": "INDEX",
+      "referenceCandidates": 95,
+      "status": "OK",
+      "symbol": "^STOXX50E",
+      "timeframe": "1h"
+    }
+  ],
+  "bootstrap": {
+    "blockLengthCandidates": 20,
+    "ci95NetExpectancyR": [
+      -0.6939655465034947,
+      0.50021556314964
+    ],
+    "ci95UtilityDeltaVsBaseline": [
+      0.09572162813431938,
+      0.24759812732138387
+    ],
+    "iterations": 5000,
+    "method": "hierarchical instrument-timeframe circular reference-event blocks",
+    "probabilityPositiveNetExpectancy": 0.2116,
+    "probabilityPositiveUtilityDeltaVsBaseline": 1.0,
+    "seed": 13001
+  },
+  "checks": {
+    "bootstrapProbabilityPositiveNetMin": false,
+    "bootstrapProbabilityPositiveUtilityDeltaVsBaselineMin": true,
+    "firstHalfPositive": false,
+    "minimumActiveBlocks": false,
+    "minimumActiveMarketFamilies": false,
+    "minimumEnteredTrades": false,
+    "netExpectancyRMin": false,
+    "positiveBlockFractionMin": false,
+    "positiveMarketFamilyFractionMin": false,
+    "positiveMonthFractionMin": false,
+    "profitFactorMin": false,
+    "referenceOpportunityPrecisionMin": false,
+    "referenceOpportunityRecallMin": false,
+    "secondHalfPositive": true,
+    "singleMarketFamilyPositiveContributionMax": false,
+    "stressNetExpectancyRMin": false
+  },
+  "dataFreezeSha256": "28027af5d3b8b03b7346da089ba581584ff40bfc15b12636f7c18ef4d054e849",
+  "failedChecks": [
+    "minimumEnteredTrades",
+    "minimumActiveMarketFamilies",
+    "minimumActiveBlocks",
+    "netExpectancyRMin",
+    "stressNetExpectancyRMin",
+    "profitFactorMin",
+    "referenceOpportunityRecallMin",
+    "referenceOpportunityPrecisionMin",
+    "positiveMarketFamilyFractionMin",
+    "positiveBlockFractionMin",
+    "firstHalfPositive",
+    "positiveMonthFractionMin",
+    "bootstrapProbabilityPositiveNetMin",
+    "singleMarketFamilyPositiveContributionMax"
+  ],
+  "generatedAtUtc": "2026-09-16T12:22:21.076583+00:00",
+  "implementationSpecSha256": "f74c49b3cc7d5099f15eeb2adf401dc481b3132b5517e91ec3377d4e8eb9e1e7",
+  "lockSha256": "137b4d09887cdabc8e6dd0f5642f41b1fc01dbb69b6fe27efbe1353f0cffb648",
+  "metrics": {
+    "activeBlocks": 6,
+    "activeMarketFamilies": 4,
+    "baselineOnFreshUniverse": {
+      "architectureCandidateUtilityMeanR": -0.003622569211368504,
+      "candidateUtilityDeltaR": 0.1764048516663812,
+      "candidateUtilityMeanR": -0.1800274208777497,
+      "enteredTrades": 4310,
+      "netExpectancyR": -0.18148936049044603
+    },
+    "blockExpectancyR": {
+      "ADA-USD|1h": 0.15703863068278853,
+      "AUDJPY=X|1h": -0.41554453172927225,
+      "CL=F|4h": -0.2629303085249508,
+      "DOGE-USD|1h": -0.5776985689866101,
+      "NG=F|4h": 0.2649094235714805,
+      "^STOXX50E|1h": 0.08466245811963526
+    },
+    "enteredTrades": 69,
+    "exitTypeExpectancyR": {
+      "STOP": -1.164027405228578,
+      "TIMEOUT": 1.5310025614628682,
+      "TP2": 2.602155117258181
+    },
+    "familyExpectancyR": {
+      "COMMODITY_FUTURES_PROXY": 0.14761170532782908,
+      "CRYPTO_SPOT": -0.27921158162091686,
+      "FX": -0.41554453172927225,
+      "INDEX": 0.08466245811963526
+    },
+    "firstHalfNetExpectancyR": -0.48246041689948643,
+    "hitRate": 0.2608695652173913,
+    "maxDrawdownR": 17.790292583817994,
+    "meanMaeR": 1.224944933162365,
+    "meanMfeR": 1.2628211455886265,
+    "netExpectancyR": -0.22811685831008913,
+    "positiveBlockFraction": 0.5,
+    "positiveMarketFamilyFraction": 0.5,
+    "positiveMonthFraction": 0.16666666666666666,
+    "profitFactor": 0.7348613191849882,
+    "referenceCandidateCount": 4345,
+    "referenceGoodOpportunityCount": 1917,
+    "referenceOpportunityPrecision": 0.37681159420289856,
+    "referenceOpportunityRecall": 0.013562858633281168,
+    "secondHalfNetExpectancyR": 0.01895974146246821,
+    "singleMarketFamilyPositiveContribution": 0.6915183595509532,
+    "stressNetExpectancyR": -0.33812921467368584
+  },
+  "nextAction": "Register B1 rejection. Do not tune B1 or open time validation/holdout. C1 remains the only other prelocked price-pattern architecture in the finite ITE1 budget.",
+  "productionAuthority": false,
+  "providerReplicationRequiredBeforeNextPhase": false,
+  "r15MutationAllowed": false,
+  "schema": "mgpt_ite1_b1_development_closeout_v1",
+  "sealedHoldoutOpened": false,
+  "status": "REJECT_B1_FRESH_INSTRUMENT_GATE",
+  "timeValidationOpened": false
+}
