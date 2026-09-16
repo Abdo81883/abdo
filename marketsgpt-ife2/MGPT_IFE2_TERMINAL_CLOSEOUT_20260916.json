@@ -1,0 +1,11 @@
+{
+  "schema": "mgpt_ife2_terminal_closeout_v1",
+  "generatedAtUtc": "2026-09-16T13:03:30Z",
+  "program": "MGPT-IFE2",
+  "status": "CLOSED_DEVELOPMENT_REJECTED",
+  "scientificConclusion": "Absolute return regression, distributional opportunity classification and tail-risk classification on the same OHLC/cross-market context family did not produce a prelocked executable trade set with positive demonstrated expectancy. The only materially informative IFE2 component was tail-loss discrimination; this is insufficient for promotion and may not be rescued on contaminated evidence.",
+  "freshValidationOpened": false,
+  "sealedHoldoutOpened": false,
+  "r15MutationAllowed": false,
+  "nextResearchConstraint": "New information source required; derivatives microstructure/funding/order-flow is authorized as the next causally distinct program."
+}
