@@ -88,8 +88,8 @@ def read_kline_csv(raw: bytes) -> pd.DataFrame:
         synonyms = {
             "open_time":"open_time","open":"open","high":"high","low":"low","close":"close",
             "volume":"volume","close_time":"close_time","quote_volume":"quote_volume",
-            "quote_asset_volume":"quote_volume","number_of_trades":"trades","trades":"trades",
-            "taker_buy_base_asset_volume":"taker_buy_base","taker_buy_base_volume":"taker_buy_base",
+            "quote_asset_volume":"quote_volume","number_of_trades":"trades","trades":"trades","count":"trades",
+            "taker_buy_base_asset_volume":"taker_buy_base","taker_buy_base_volume":"taker_buy_base","taker_buy_volume":"taker_buy_base",
             "taker_buy_quote_asset_volume":"taker_buy_quote","taker_buy_quote_volume":"taker_buy_quote",
         }
         for k,v in synonyms.items():
