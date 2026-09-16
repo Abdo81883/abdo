@@ -1,0 +1,793 @@
+{
+  "schema": "mgpt_arp30_xcr1_transport_diagnostics_v1",
+  "generation": "ARP30-XCR1",
+  "months": [
+    "2024-12",
+    "2025-01",
+    "2025-02"
+  ],
+  "manifest": [
+    {
+      "symbol": "XRPUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "6d75a5c0205f1cdee2dea2b616c04e3a7e88176126723237c1a5859843eb0fa0"
+    },
+    {
+      "symbol": "ETCUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "d250475da415a2399d63a5b7e1bd65844dee27af3f3876c27d79433950a00981"
+    },
+    {
+      "symbol": "BCHUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "055fb7f8a3fa26a08e4315034d75d99d2089a44373aaf1869c75732de0339c6a"
+    },
+    {
+      "symbol": "BCHUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "dfee91adc8cae91371c96b30c50ab04497fde92c671458a844df34d71ec64d3f"
+    },
+    {
+      "symbol": "LTCUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "af564e6b44407ea040f6f42de26fe7edcfc805bb738cc4f5ae3af86a3912e6f7"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "82018947075e35e5ac0a771bb97a22118008db2c6fb6a94f8c1a2c4ebb34d12b"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "bfce141d2a152c2b94d85b797fe18ebfa195fa0e6091a7ccc06663ae1309466f"
+    },
+    {
+      "symbol": "BCHUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "86265eda29cd718f964f5f191aaf0a448594473ba93ff46854e40829c14d0f20"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "d84ca981d06ee6491e16597f8d43955f62cab399a9f4b6efc2ee1b4d3a37f0fc"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "79c07ecaaa04a04d815f428d0617b84cc536afe95f5cb2fc62bd93c10c3adfa1"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "05e33ba3568c5381a36764097ea93917a7f1a93fadd1a0018e64bedb042526f6"
+    },
+    {
+      "symbol": "TRXUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "1eb49d8382b6f9716d13ff205e3f676d182a6625f691373f1d466896babd0c59"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "659add47d41b25189bfed69ae3052253df648443e2aa0376537ccece6a39d6ee"
+    },
+    {
+      "symbol": "LTCUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "76d5b0adeef0231ff1958d74922a1f7a5afa7231e6fcd90dd51e85bf46fe55ac"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "b69ca5b2c2d1ae00d68d2790d09138cb2a44085ff19e0da5dc98b569ea7e489e"
+    },
+    {
+      "symbol": "TRXUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "6ebb45817751dae6163f409f2c2a6469419c9373b894e6e70be87ef443c012ab"
+    },
+    {
+      "symbol": "ETCUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "1266bb29786f6eeb5e0352961861fb37bb692e5a21846b584dd3e0bf13367699"
+    },
+    {
+      "symbol": "ETCUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "ded738e96de765c963c9a1b2d236f0d1b5960aa870a89bd786891e5b4bc76d1a"
+    },
+    {
+      "symbol": "TRXUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "51dd433df539a8b55da8604c7c19df9e770b7ec586afc3f673a93909ac6b53d4"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "79f499a9a556b712ea1c28bc83c5e8294160cc4b87561424db1d108f5e87661b"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "10796bbad1ecc89fb64b232da6b7a6882fbb8055f91bf37c0e7880ed59577571"
+    },
+    {
+      "symbol": "LTCUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "25fe72ad5dc034cad52bfd61ff327ba9a31c5751bac96dab3a401baae778b447"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "15df15731326945897977f6ddf0414a13533d8d7dd167e7a59cdc2fcda3b8d85"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "7b7d011009f47d56af6afb15c5b3bb2e63a5396281f7baed8b45730be5d3739d"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "1b2e338ed1df75847bde8c73a45c8b6ca3fc2df064a4f02e9fe0988e7d1b9835"
+    },
+    {
+      "symbol": "ATOMUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "5f517247349eb226e6d6766807db4b909d0c8a550e90602cc5b349baf9fc3895"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "a86adac0baec7760c07306886599d5464e549405557e84634dbe355e5187b6c0"
+    },
+    {
+      "symbol": "ATOMUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "fd952651c85e88eedf553909beb198c3c8f5a2d3e8040b3f16d6e6bf94bee4e0"
+    },
+    {
+      "symbol": "XLMUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "766fb5ca8c1bf1dfd1f6e4cc73c40c14ee8f78f8a08dfa28483f9008987df49d"
+    },
+    {
+      "symbol": "ATOMUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "7294d6de84d3263aad8eac67b75fc1dcacceca31c751ad845d8221a899088530"
+    },
+    {
+      "symbol": "XLMUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "47881a1736e6c2e8b7f1c156639e495eae1a7b147959aeeeaea094eca7c3f5c8"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "cc67ac9c2fc7c05a97fed57c90c071e8dcf2c5def6859a946ebbaf6bbf2cac2c"
+    },
+    {
+      "symbol": "XLMUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "5eb6a6222301086042187050565e6ba83670b29db66c63e05fe139b58aa4b287"
+    },
+    {
+      "symbol": "VETUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "98e3423b06ead840081b3259fe3905638555c6561e300de9f4b3c8957916a713"
+    },
+    {
+      "symbol": "NEOUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "592e94488fdc7a1c0f7ff4bdb56ba400800e8b955351311801b9c94a4f83ffdc"
+    },
+    {
+      "symbol": "NEOUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "ae90253c91a8d779b0e71015512d334b74c09748aac5b771b9eebd6a670222dd"
+    },
+    {
+      "symbol": "VETUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "9be94be88fec0b8a8a3cf808113689694de2006d6ccfa966cf669ef9eefac3fb"
+    },
+    {
+      "symbol": "THETAUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "29bdeb73cea052059bacfd5039bb63a4cfbe55ce44c036c07a3af945b8f899b3"
+    },
+    {
+      "symbol": "NEOUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "3ed59261c33adf1bc8065ea081c533a7bdb4c151f069835c9faeacaabc8ddc6f"
+    },
+    {
+      "symbol": "QTUMUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "1f041de962a717af4a1974e582659ee9beaeaa815b6e004bea4c28289ffcb6a7"
+    },
+    {
+      "symbol": "QTUMUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "a107680a619a50cea718951dddfa2482a6b1b4e62d7a2f79b6beeb39c56fcb96"
+    },
+    {
+      "symbol": "VETUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "e936029500395d2e4fc221dc267f098f4eb1be58f5fac2e4cbb9419f0249e0cd"
+    },
+    {
+      "symbol": "QTUMUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "45a2c63309f85b1e19ad5cabc83fb53ec06d2398be109e5bb5d57ce2846b808c"
+    },
+    {
+      "symbol": "KNCUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "c90ee25143b370b27fbfdfe8d4adbc55536071381e78621b0fd46ffe05e28bbc"
+    },
+    {
+      "symbol": "THETAUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "d18fbc20f329f577222d022d6b359869d64578a74a44cf8776f5323b1c669dad"
+    },
+    {
+      "symbol": "THETAUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "76d0ae232150c6616077278b9657abb9f6c3872e33a11b5d636d90792b99d3bd"
+    },
+    {
+      "symbol": "ALGOUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "ac550b3ad02f6921c3dccc3c44673e3c973b77609589eb2b4bf9e0e01aecf4d6"
+    },
+    {
+      "symbol": "ALGOUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "93508faacbae023fc66f212e14f7b22265155c75553e196d87e683ce0157a19c"
+    },
+    {
+      "symbol": "ALGOUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "716d042bcd3399defaeafec582f08a1792eeb71da63807cdf1cf9ee514d2e6ee"
+    },
+    {
+      "symbol": "ZRXUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "7f2bdd492413f47ab9d4341fcfd328e6272eb6c4e653a9db41fc8623b92e0d54"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "1f6b940265db6d595f294e5752616c564bbf00ede60c676abdc3093c3e4e9729"
+    },
+    {
+      "symbol": "KAVAUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "d3229c7841a8a35d9f898fe53f6d14280e898d21b870eee4efbbf01d4946eabb"
+    },
+    {
+      "symbol": "KNCUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "027c703a7bc192a0685e2ddb5755feda392d206fd1418f6d8f39730d7bc26506"
+    },
+    {
+      "symbol": "KNCUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "279ef136c18bfc5aedd2b62b3f5c3cca3028713a23bfe58ecff853407a722eb7"
+    },
+    {
+      "symbol": "ZRXUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "39b5576955baba076896c88d7ece4c175216e4c21b6dc6f4a994e7f4bcdd054f"
+    },
+    {
+      "symbol": "ZRXUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "1f72dcb6ca5839503f47677f0da007f85a8ad106a55280749b6587f7c9ca287f"
+    },
+    {
+      "symbol": "COMPUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "3932af1eefd256dd4bc2c2076ef0294b1dcad169da53c995de8f7e9f2740e058"
+    },
+    {
+      "symbol": "RLCUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "5f90c309afda63760178f4e822f90448a285416dfce52f093edccb71ddb7cb16"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "15cdc4c2fd8340f5957f72164ef6af28e01f3396daebdd3d73fbb7faf4e28c4f"
+    },
+    {
+      "symbol": "COMPUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "cf021408e05ba194b30f6f10421612d16fe39f608660b60293476b7667d61dcc"
+    },
+    {
+      "symbol": "KAVAUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "c419730efa12c88217ebd4357f446ba5200260705b3894b467cfafece3a6bb26"
+    },
+    {
+      "symbol": "RLCUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "ff5da9b48df62ad68815dc4e231827dd7c041bfa60bcbeef57b677a9a2153a7e"
+    },
+    {
+      "symbol": "COMPUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "cae2a3f3df3663d158b24fc0fbf5dcb0e5a9e484643329d8244fe84b79d39ac9"
+    },
+    {
+      "symbol": "RLCUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "4cc0c0bfd045967b7c0e82d0d7a86c453bb8c98a0d3b203083a04fc61a258e3c"
+    },
+    {
+      "symbol": "KAVAUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "6716637dfb55f552acd650491b7c6d67685f1818116da44e42af57a9c47f6952"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "221d5ef5c41fedfefc358790c0d5632b198b17d02187706c4a6de655019e06b5"
+    },
+    {
+      "symbol": "YFIUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "09b657227b988f22a49df6996135dcee0b593fb18ad8220df2de4c62abddaa1b"
+    },
+    {
+      "symbol": "SNXUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "e87eb95f9d60bc1f4d6e5f5a7c2e11b3111b1291125dff0554d1d710f3a84230"
+    },
+    {
+      "symbol": "CRVUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "ab1609651fe9f9c32cab3fc834afe4badb7491107bb858ac2fa9d68fd5cd9385"
+    },
+    {
+      "symbol": "YFIUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "e9cf96a08f238b6a8c0d23b67c1f9239e1880ca4f8d8f146970396d64632a98e"
+    },
+    {
+      "symbol": "SNXUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "eb02af159a281f37e5503be9896a725a5ddf90df834e4fbc6ec08fe2b5daae7d"
+    },
+    {
+      "symbol": "DOTUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "f61312d47114b3cc3377c6784f8ec7650ad80629f9ad28c7d1b07d49e3768e9e"
+    },
+    {
+      "symbol": "DOTUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "5cab28fd69da43fd17effe71ea2f0d9ee1ec35887e3ef4dd92a1ef43d7cd84db"
+    },
+    {
+      "symbol": "SNXUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "b745ca86574bbad0937c06145d2b726e75c085a6b44562f365400ebc969ec16a"
+    },
+    {
+      "symbol": "DOTUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "60cced9fa87eedb207aa9feb12f7da72b0ed96c518d3b7e562ac2912287f9c3f"
+    },
+    {
+      "symbol": "YFIUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "31d2a482d4223a0a27d9502185b8676878987e7dd37a61e02d06b5b0f0eddc2d"
+    },
+    {
+      "symbol": "RUNEUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "eaa25be8e00780ae7cee425d107f3d786d7d923c81b3230dd5dfd0b2faec0fb5"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "b56b792f9fc9cd63dc0fef4841741692dc2e2cab3282faab66e9d0dc01ce58a1"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "dc63cbdadadf37928f73b1c40063023cf1f436261a4b6c5d86cf3a9fffc949e5"
+    },
+    {
+      "symbol": "RUNEUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "f1ae595acf918eba22cb9c0facc09fbe57bf787a8b74c53cfffc8be0725db8eb"
+    },
+    {
+      "symbol": "SUSHIUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "932ac21bc395ad23f1ecbeefd09af3e143c144c2c805fed9caaf97790c6bfae0"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "d513752226f0aef88958add63769a449ca835c5767a2f20c019eb1f8348da445"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "e01dfc159a09cd83d2b37322538badee1c3db29a9dd56a7a6790383ca1adb1b3"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "631fd8d38ebc10376e985bc232f64a388a8ae50ffeb588098c4bcf39de45e05e"
+    },
+    {
+      "symbol": "SUSHIUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "0f1135e6b0ce583aae111adb1fb5c1004073b03d410745d9a468fe953f174b5e"
+    },
+    {
+      "symbol": "CRVUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "9315e87e5f452dc35ad4e389db5fa2f32f3e5a12932c8fd2b543e7085a81ab56"
+    },
+    {
+      "symbol": "RUNEUSDT",
+      "ym": "2024-12",
+      "status": "ok",
+      "sha256": "5c38fd5ed129af154af1805993bffcd2588f9ed69a43669cf9646a0fb2131461"
+    },
+    {
+      "symbol": "CRVUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "d860608497d9a2141915e844c2299e8abcf8de603a11cebfb0efbc2c68ab7505"
+    },
+    {
+      "symbol": "SUSHIUSDT",
+      "ym": "2025-01",
+      "status": "ok",
+      "sha256": "038ce9a26160728f69ea640083508d04cbfab20536192f23d3fa9c06277f837a"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "ym": "2025-02",
+      "status": "ok",
+      "sha256": "9291ef69ab5f7f622e847582ec1b03e4a2cfd9862c371128b230436085a4d553"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol": "BTCUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "ETHUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "BCHUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "XRPUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "LTCUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "TRXUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "ETCUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "LINKUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "XLMUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "ADAUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "ATOMUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "VETUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "NEOUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "QTUMUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "THETAUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "ALGOUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "KNCUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "ZRXUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "COMPUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "KAVAUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "RLCUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "SNXUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "DOTUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "YFIUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "CRVUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "SUSHIUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "RUNEUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    },
+    {
+      "symbol": "UNIUSDT",
+      "rows": 129600,
+      "firstUtc": "2024-12-01T00:00:00+00:00",
+      "lastUtc": "2025-02-28T23:59:00+00:00",
+      "duplicateRows": 0,
+      "postFirstMinuteGapCount": 0
+    }
+  ]
+}
