@@ -1,0 +1,35 @@
+{
+  "schema": "mgpt_ife1_contamination_registry_v1",
+  "generatedAtUtc": "2026-09-16T12:42:00Z",
+  "program": "MGPT-IFE1",
+  "status": "DEVELOPMENT_REJECTED_FRESH_WINDOWS_SEALED",
+  "frozenProductionBaseline": {
+    "release": "RC4S3H5R4R15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "mutated": false
+  },
+  "trial": {
+    "id": "IFE1-META1",
+    "status": "REJECT_IFE1_DEVELOPMENT_GATE",
+    "resultCommit": "b181c8312b90aa8470f3ece1a163300a6a344193",
+    "closeoutSha256": "243b3079199918682d793a451061b72ec3b9f4d6182079befa2e403ac6226245",
+    "modelArtifactSha256": "c72c113bdf626cb2ea7b7def7f00beb99484f01bd813d10cdc6261e60e40d344",
+    "fitRows": 22581,
+    "developmentRows": 22358,
+    "selectedTrades": 0,
+    "allEligibleBaselineExpectancyR": -0.14527921772083777,
+    "candidateUtilityDeltaR": 0.14527921772083777,
+    "bootstrapProbabilityPositiveUtilityDelta": 1,
+    "absoluteNetGatePassed": false,
+    "interpretation": "The prelocked absolute selective meta-decision rule abstained from every untouched development candidate. It successfully avoided a negative broad baseline but proved no positive executable selection edge because it produced zero selected trades."
+  },
+  "contaminationBoundary": {
+    "fitWindow": "2025-07-01 to 2025-10-01 is contaminated by model fitting.",
+    "developmentWindow": "2025-10-01 to 2026-01-01 is contaminated by IFE1 development evaluation.",
+    "freshValidationOpened": false,
+    "sealedHoldoutOpened": false,
+    "futureUse": "IFE1 outcomes may be used only for diagnosis and to motivate a causally distinct next-program hypothesis. The same IFE1 feature/model/threshold combination may not be rescued or retuned."
+  },
+  "metricImplementationNote": "The immutable closeout reports pWinScoreAuc as NaN when zero trades are selected because the early zero-selection metrics branch did not compute AUC. This cannot alter the rejection because zero selection independently fails coverage, selected-trade, breadth, recall, expectancy and bootstrap-net gates. A diagnostic may compute AUC without reopening or replacing the immutable result.",
+  "nextAuthorizedResearch": "Run diagnosis only on contaminated IFE1 predictions. Any continuation must be a new program with a different prelocked learning objective and untouched 2026 evidence; no R15 mutation."
+}
