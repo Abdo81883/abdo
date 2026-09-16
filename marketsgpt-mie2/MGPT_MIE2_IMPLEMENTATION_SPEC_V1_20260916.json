@@ -1,0 +1,99 @@
+{
+  "schema": "mgpt_mie2_implementation_spec_v1",
+  "generatedAtUtc": "2026-09-16T14:06:00Z",
+  "program": "MGPT-MIE2",
+  "status": "FROZEN_BEFORE_MIE2_PERFORMANCE_OUTCOMES",
+  "parentLock": "MGPT_MIE2_POSITIONING_OI_LOCK_20260916.json",
+  "dataJoin": {
+    "decisionSpine": "Frozen Binance contract 1h bars inherited from MIE1.",
+    "positioning": "Exact decision-time match to the checksum-verified MIE2 hourly positioning snapshot. metric_time must be non-null and <= decisionTime.",
+    "premium": "Exact signal-bar timestamp premium-index close inherited from MIE1.",
+    "funding": "Latest realized funding event timestamp <= decisionTime; trade cashflow uses only realized funding events while position is open.",
+    "noInterpolation": true
+  },
+  "splitPurity": {
+    "fit": "Signal time, next-open entry and full 24-bar maximum holding horizon must all remain strictly before 2026-01-01T00:00:00Z.",
+    "development": "Signal time, next-open entry and full 24-bar maximum holding horizon must all remain strictly before 2026-05-01T00:00:00Z.",
+    "boundaryRows": "Discard."
+  },
+  "executionParity": "LONG and SHORT outcomes are simulated by the same frozen rules as MIE1: next 1h open, stop at 1 signal ATR, TP2 at 1.5R, 24 evaluated bars, stop-first same-bar, inherited base/stress friction, realized funding.",
+  "positioningFeatureSemantics": {
+    "oiContractsLogChange1h": "log(sum_open_interest / lag1h).",
+    "oiContractsLogChange3h": "log(sum_open_interest / lag3h).",
+    "oiContractsLogChange6h": "log(sum_open_interest / lag6h).",
+    "oiContractsLogChange24h": "log(sum_open_interest / lag24h).",
+    "oiValueLogChange1h": "log(sum_open_interest_value / lag1h).",
+    "oiValueLogChange3h": "log(sum_open_interest_value / lag3h).",
+    "oiValueLogChange6h": "log(sum_open_interest_value / lag6h).",
+    "oiValueLogChange24h": "log(sum_open_interest_value / lag24h).",
+    "oiContractsZ24h": "Current OI contracts standardized against previous 24 completed hourly snapshots only.",
+    "oiValueZ24h": "Current OI value standardized against previous 24 completed hourly snapshots only.",
+    "topAccountLogRatio": "log(count_toptrader_long_short_ratio).",
+    "topPositionLogRatio": "log(sum_toptrader_long_short_ratio).",
+    "globalAccountLogRatio": "log(count_long_short_ratio).",
+    "takerLogRatio": "log(sum_taker_long_short_vol_ratio).",
+    "ratioDeltas": "Current corresponding log-ratio minus its exact lag at 1/3/6/24 hours as named.",
+    "topVsGlobalCrowding": "topAccountLogRatio-globalAccountLogRatio.",
+    "positionVsAccountDivergence": "topPositionLogRatio-topAccountLogRatio.",
+    "topPositionVsGlobal": "topPositionLogRatio-globalAccountLogRatio.",
+    "priceReturns": "Contract close/lagged close - 1 at 1/3/6/12/24 hours using the completed signal bar.",
+    "priceOiInteraction": "priceRetNh * oiContractsLogChangeNh for N=3,6,24.",
+    "premiumClose": "Premium-index close from completed signal bar.",
+    "latestFundingRate": "Latest realized funding rate available at decisionTime.",
+    "hourSinCos": "UTC decision-hour cyclical encoding.",
+    "weekdaySinCos": "UTC decision-weekday cyclical encoding."
+  },
+  "pairwiseTarget": {
+    "targetSpreadR": "base-cost-and-funding LONG netR minus base-cost-and-funding SHORT netR.",
+    "longBetter": "1 if targetSpreadR >0; 0 if <0; exact zero ties excluded from pairwise classifier/regressor fitting.",
+    "tradableOpportunity": "1 if max(LONG netR, SHORT netR)>0.",
+    "selectedDirection": "Sign of frozen directionalScore.",
+    "pairDirectionAccuracy": "Chosen base netR >= opposite base netR; exact outcome ties count correct."
+  },
+  "preprocessing": {
+    "numeric": "MedianImputer -> StandardScaler; fitted on fit only.",
+    "categorical": "Most-frequent imputer -> OneHotEncoder(handle_unknown=ignore,dense) for symbolGroup only.",
+    "symbolIdentityForbidden": true
+  },
+  "modelImplementation": {
+    "longBetterLogit": "LogisticRegression solver=lbfgs exactly as parent lock.",
+    "longBetterHgb": "HistGradientBoostingClassifier loss=log_loss, early_stopping=false exactly as parent lock.",
+    "spreadHgb": "HistGradientBoostingRegressor loss=squared_error, early_stopping=false exactly as parent lock.",
+    "tradableHgb": "HistGradientBoostingClassifier loss=log_loss, early_stopping=false exactly as parent lock.",
+    "noInternalValidationSelection": true,
+    "noHyperparameterSearch": true
+  },
+  "scoring": {
+    "directionalScore": "0.35*(2*pLongLogit-1)+0.35*(2*pLongHgb-1)+0.30*tanh(predSpreadR/1.25).",
+    "direction": "LONG when score>=0 else SHORT.",
+    "strength": "abs(directionalScore)*(0.50+0.50*pTradableHgb).",
+    "selection": "At each entry timestamp rank all eligible symbol-hours by strength descending, tie symbol ascending; choose exactly top 2.",
+    "noAbsoluteThreshold": true
+  },
+  "baselineAndUtility": {
+    "pairMeanAtSelectedSymbolHour": "0.5*(longNetR+shortNetR).",
+    "selectedDeltaVsPairMean": "chosenNetR - pairMean for each selected symbol-hour.",
+    "portfolioClockBaseline": "Mean pairMean across all eligible development symbol-hours.",
+    "absoluteProfitabilityMandatory": "Positive relative selection is insufficient if absolute expectancy/stress/PF gates fail."
+  },
+  "opportunityAudit": {
+    "allEligibleDirectionalGood": "Count both LONG and SHORT frozen goodOpportunity labels across every eligible development symbol-hour.",
+    "selectedGood": "GoodOpportunity of the model-chosen direction for selected symbol-hours.",
+    "recall": "selectedGood/allEligibleDirectionalGood.",
+    "precision": "selectedGood/selectedTrades."
+  },
+  "bootstrap": {
+    "samplingUnit": "For each symbol, chronological symbol-hour rows are circularly resampled in 24-hour blocks with replacement.",
+    "frozenSelection": true,
+    "noReselectionInsideBootstrap": true,
+    "absolute": "Mean chosen netR among sampled rows whose original selected flag is true.",
+    "relative": "Mean chosen-minus-pairMean among sampled selected rows."
+  },
+  "governance": [
+    "No feature/model/top-K modification after outcomes.",
+    "No symbol-specific rescue.",
+    "No subgroup promotion from development.",
+    "No May-2026 onward access unless every development gate passes.",
+    "MIE2 failure activates terminal research stop for this closure project."
+  ]
+}
