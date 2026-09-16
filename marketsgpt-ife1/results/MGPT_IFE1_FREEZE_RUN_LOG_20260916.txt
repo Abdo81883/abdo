@@ -1,13 +1,6 @@
 {
-  "status": "BLOCKED_DATA_FREEZE",
-  "marketFiles": 55,
+  "status": "PASS_DATA_FREEZE",
+  "marketFiles": 56,
   "contextFiles": 5,
-  "errors": [
-    {
-      "kind": "market",
-      "symbol": "^STOXX50E",
-      "marketFamily": "INDEX",
-      "error": "last bar 2025-12-30T16:00:00+00:00 earlier than 2025-12-31T00:00:00+00:00"
-    }
-  ]
+  "errors": []
 }

@@ -50,17 +50,10 @@
     "endExclusive": "2026-01-01",
     "start": "2025-01-01"
   },
-  "errors": [
-    {
-      "error": "last bar 2025-12-30T16:00:00+00:00 earlier than 2025-12-31T00:00:00+00:00",
-      "kind": "market",
-      "marketFamily": "INDEX",
-      "symbol": "^STOXX50E"
-    }
-  ],
+  "errors": [],
   "freshValidationOpened": false,
-  "generatedAtUtc": "2026-09-16T12:28:49.980741+00:00",
-  "lockSha256": "b9695069401c3ac1a9076163ad9059269e7fe8cfecfd9226234bf558ed67d234",
+  "generatedAtUtc": "2026-09-16T12:31:47.058236+00:00",
+  "lockSha256": "de99176f1a0166c3e5bf7d810a9c99f05d0d683e1eb0adf1deede5f7fb1ea761",
   "marketFiles": [
     {
       "file": "CL_F_1h.csv",
@@ -166,8 +159,8 @@
       "firstUtc": "2025-05-01T00:00:00+00:00",
       "lastUtc": "2025-12-31T23:00:00+00:00",
       "marketFamily": "CRYPTO_SPOT",
-      "rows": 5725,
-      "sha256": "6205ac89f473fc803c042e881b0c74ac9052462e315f59e8de9940eeb8ed5685",
+      "rows": 5846,
+      "sha256": "8c1365d38a1f1e863b4eaa3451aa94309d1577b0432409acbd99622a538268fb",
       "symbol": "LINK-USD"
     },
     {
@@ -364,8 +357,8 @@
       "firstUtc": "2025-04-30T23:00:00+00:00",
       "lastUtc": "2025-12-31T23:00:00+00:00",
       "marketFamily": "FX",
-      "rows": 4169,
-      "sha256": "7c1a47cb3e9763a8afacf7efcb43d2063180bec046cf1639ddde88efad7958e8",
+      "rows": 4167,
+      "sha256": "03d69e8008809d083a404a2e70f9aebefe52d2ebbc950c6632004ec3ca1c3298",
       "symbol": "CAD=X"
     },
     {
@@ -522,6 +515,15 @@
       "symbol": "^RUT"
     },
     {
+      "file": "STOXX50E_1h.csv",
+      "firstUtc": "2025-05-02T07:00:00+00:00",
+      "lastUtc": "2025-12-30T16:00:00+00:00",
+      "marketFamily": "INDEX",
+      "rows": 1503,
+      "sha256": "b8a955cb1400ac29053c00446495ee26c4bc50b5c874799cc03a3cfacf159040",
+      "symbol": "^STOXX50E"
+    },
+    {
       "file": "GC_F_1h.csv",
       "firstUtc": "2025-05-01T04:00:00+00:00",
       "lastUtc": "2025-12-31T21:00:00+00:00",
@@ -566,5 +568,5 @@
   "provider": "Yahoo Finance through yfinance",
   "schema": "mgpt_ife1_data_freeze_v1",
   "sealedHoldoutOpened": false,
-  "status": "BLOCKED_DATA_FREEZE"
+  "status": "PASS_DATA_FREEZE"
 }
