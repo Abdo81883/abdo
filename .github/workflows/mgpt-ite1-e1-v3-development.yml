@@ -5,6 +5,9 @@ on:
     branches: ["main"]
     paths:
       - "marketsgpt-ite1/data/e1_v3/**"
+      - "marketsgpt-ite1/ite1_e1_v3_development.py"
+      - "marketsgpt-ite1/MGPT_ITE1_E1_DEVELOPMENT_LOCK_V3_20260916.json"
+      - ".github/workflows/mgpt-ite1-e1-v3-development.yml"
   workflow_dispatch:
 
 permissions:
