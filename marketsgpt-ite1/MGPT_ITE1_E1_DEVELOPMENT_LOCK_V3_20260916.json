@@ -1,0 +1,136 @@
+{
+  "schema": "mgpt_ite1_e1_development_lock_v3",
+  "generatedAtUtc": "2026-09-16T01:47:00Z",
+  "program": "MGPT-ITE1",
+  "trial": "ITE1-E1",
+  "status": "LOCKED_BEFORE_E1_PERFORMANCE_OUTCOMES",
+  "supersedes": "MGPT_ITE1_E1_MASSIVE_DEVELOPMENT_LOCK_V2_20260916.json",
+  "amendmentReason": "The connected Massive plan returned paginated partial hourly extracts and then rate-limit payloads before the development data freeze could complete. The fail-closed gate correctly prevented all E1 performance computation. To avoid selection-by-availability while preserving the already locked strategy rules, E1 development transport is now frozen to one full-series Yahoo Finance hourly source per instrument. Any E1 winner remains non-promotable until independent provider replication on Massive/Binance/contract-aware futures authority where applicable.",
+  "contaminationDisclosure": {
+    "performanceOutcomesSeenBeforeV3Lock": false,
+    "priorE1Status": "BLOCKED_DATA_FREEZE_INCOMPLETE",
+    "freshValidationOpened": false,
+    "sealedHoldoutOpened": false,
+    "strategyRulesChangedFromV2": false,
+    "gatesChangedFromV2": false
+  },
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "provider": {
+    "developmentTransport": "Yahoo Finance chart data through yfinance",
+    "role": "DEVELOPMENT_SCREEN_TRANSPORT_ONLY",
+    "fullSeriesRule": "Each instrument must be fetched as one internally consistent vendor series across warmup + development. Partial Massive files are audit evidence only and are excluded from E1 V3 outcomes.",
+    "independentReplicationRequiredAfterPass": true,
+    "preferredReplicationAuthorities": {
+      "CRYPTO_SPOT": "Binance official archive and/or Massive",
+      "FX": "Massive quote-derived aggregates",
+      "METALS_FUTURES_PROXY": "Massive contract-specific futures after causal roll protocol",
+      "EQUITY": "Massive adjusted stock aggregates",
+      "INDEX": "Massive index values plus mapping to an executable instrument before any fill claim"
+    },
+    "missingBarRule": "No interpolation or synthetic fill.",
+    "failedInstrumentRule": "Fail the entire V3 data freeze closed; no symbol substitution after outcomes."
+  },
+  "windows": {
+    "warmupStart": "2024-11-01T00:00:00Z",
+    "development": {"start":"2025-01-06T00:00:00Z","endExclusive":"2025-07-01T00:00:00Z"},
+    "freshValidation": {"start":"2025-07-01T00:00:00Z","endExclusive":"2026-01-01T00:00:00Z","sealed":true},
+    "holdout": {"start":"2026-01-01T00:00:00Z","endExclusive":"2026-09-01T00:00:00Z","sealed":true,"oneShot":true}
+  },
+  "timeframes": {
+    "source": "1h",
+    "evaluated": ["1h","4h"],
+    "fourHourAggregation": "UTC-anchored exact groups of four source bars; incomplete groups are discarded.",
+    "smallTimeframeBoundary": "15m is excluded from E1 and remains a separate future transport/timeframe program."
+  },
+  "universe": [
+    {"marketFamily":"CRYPTO_SPOT","symbol":"BTC-USD","fileKey":"BTC_USD","role":"large-cap crypto leader"},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"ETH-USD","fileKey":"ETH_USD","role":"large-cap crypto second leader"},
+    {"marketFamily":"FX","symbol":"EURUSD=X","fileKey":"EURUSD_X","role":"major"},
+    {"marketFamily":"FX","symbol":"GBPUSD=X","fileKey":"GBPUSD_X","role":"major"},
+    {"marketFamily":"FX","symbol":"JPY=X","fileKey":"JPY_X","role":"USDJPY Yahoo representation"},
+    {"marketFamily":"METALS_FUTURES_PROXY","symbol":"GC=F","fileKey":"GC_F","role":"gold nearby continuous development proxy"},
+    {"marketFamily":"METALS_FUTURES_PROXY","symbol":"SI=F","fileKey":"SI_F","role":"silver nearby continuous development proxy"},
+    {"marketFamily":"EQUITY","symbol":"AAPL","fileKey":"AAPL","role":"liquid mega-cap"},
+    {"marketFamily":"EQUITY","symbol":"MSFT","fileKey":"MSFT","role":"liquid mega-cap"},
+    {"marketFamily":"EQUITY","symbol":"NVDA","fileKey":"NVDA","role":"liquid mega-cap"},
+    {"marketFamily":"INDEX","symbol":"^NDX","fileKey":"NDX","role":"Nasdaq-100 cash-index value series"}
+  ],
+  "semanticBoundaries": {
+    "METALS_FUTURES_PROXY": "GC=F and SI=F are vendor continuous/nearby development proxies. Their outcome cannot authorize production or a futures-market claim until contract-specific roll-aware replication passes.",
+    "INDEX": "^NDX is an index value series and is not an executable fill instrument.",
+    "FX": "Vendor hourly series is development signal evidence; executable spread/slippage must be independently replicated.",
+    "CRYPTO_SPOT": "Venue-specific execution is not implied by Yahoo composite price history.",
+    "EQUITY": "Development bars use adjusted vendor history; earnings/event and NBBO execution layers remain separate."
+  },
+  "costModelOneWayBps": {
+    "CRYPTO_SPOT":{"base":10.0,"stress":15.0},
+    "FX":{"base":1.5,"stress":3.0},
+    "METALS_FUTURES_PROXY":{"base":2.5,"stress":5.0},
+    "EQUITY":{"base":3.0,"stress":6.0},
+    "INDEX":{"base":1.5,"stress":3.0}
+  },
+  "frozenComponents": {
+    "candidateGenerator": "BREAKOUT + PULLBACK + SWEEP_RECLAIM from ite1_core.py",
+    "stop": "structure_plus_atr_noise",
+    "target": "hybrid_structure_volatility_ladder",
+    "management": "fixed_full_exit",
+    "maximumEntryWaitBars": 4,
+    "maximumHoldingBarsByTimeframe":{"1h":48,"4h":30}
+  },
+  "entryChallengers":["trigger_close","retest_limit","structure_confirmed_retest"],
+  "opportunityAudit": {
+    "positiveBarrierR":1.5,
+    "adverseBarrierR":1.0,
+    "sameBarRule":"adverse barrier wins",
+    "referenceEntry":"next source-bar open",
+    "riskUnit":"signal-time ATR14",
+    "purpose":"Recall/false-negative audit only; never a model feature."
+  },
+  "bootstrap": {
+    "method":"hierarchical instrument-timeframe bootstrap with circular candidate blocks",
+    "iterations":5000,
+    "seed":11001,
+    "blockLengthCandidates":20
+  },
+  "developmentDecisionRule": {
+    "baseline":"trigger_close",
+    "minimumTotalEnteredTrades":300,
+    "minimumActiveMarketFamilies":5,
+    "minimumActiveInstrumentTimeframeBlocks":18,
+    "minimumNetExpectancyR":0.03,
+    "minimumStressNetExpectancyR":0.0,
+    "minimumProfitFactor":1.10,
+    "minimumOpportunityRecall":0.45,
+    "minimumPrecision":0.45,
+    "minimumPositiveMarketFamilyFraction":0.60,
+    "minimumPositiveBlockFraction":0.55,
+    "bootstrapProbabilityPositiveExpectancyMin":0.90,
+    "challengerBootstrapProbabilityDeltaVsBaselinePositiveMin":0.90,
+    "maximumRelativeRecallDegradationVsBaseline":0.20,
+    "failureOutcome":"No E1 threshold rescue. If no entry mode passes, S1/T1/M1 remain sealed and the candidate/setup architecture must be amended under a new prelock."
+  },
+  "dataFreezeGate": {
+    "minimumRowsByFamily": {
+      "CRYPTO_SPOT":5000,
+      "FX":3500,
+      "METALS_FUTURES_PROXY":3000,
+      "EQUITY":900,
+      "INDEX":900
+    },
+    "firstBarNoLaterThan":"2024-11-05T00:00:00Z",
+    "lastBarNoEarlierThan":"2025-06-30T00:00:00Z",
+    "providerErrorPayloadAllowed":false,
+    "manifestSha256Required":true
+  },
+  "antiSelectionRules": [
+    "No symbol/timeframe entry tuning.",
+    "No dropping losing instruments after outcomes.",
+    "No direction flip after outcomes.",
+    "No changing cost assumptions after gross results.",
+    "No opening validation/holdout.",
+    "No using partial Massive extracts in V3 outcomes.",
+    "No treating ^NDX or vendor-continuous metals as executable fills."
+  ],
+  "nextAuthorizedAction": "Freeze complete V3 hourly development files and SHA manifest without computing performance. Only a successful data-freeze commit may trigger the E1 V3 evaluator."
+}
