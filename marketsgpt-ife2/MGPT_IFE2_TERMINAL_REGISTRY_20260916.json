@@ -1,0 +1,37 @@
+{
+  "schema": "mgpt_ife2_terminal_registry_v1",
+  "generatedAtUtc": "2026-09-16T13:03:00Z",
+  "program": "MGPT-IFE2",
+  "status": "REJECTED_TERMINAL_NEW_INFORMATION_REQUIRED",
+  "frozenProductionBaseline": {
+    "release": "RC4S3H5R4R15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "mutated": false
+  },
+  "trial": {
+    "id": "IFE2-DIST1",
+    "status": "REJECT_IFE2_DEVELOPMENT_GATE",
+    "resultCommit": "55055c7b4af3ac06a72c4da746541600ab4c0bce",
+    "closeoutSha256": "017755a505099de8ee1b3363b7a25e42d07b671892a5bddbbf799d76676ab7ec",
+    "fitRows": 13468,
+    "developmentRows": 14366,
+    "selectedTrades": 0,
+    "allEligibleBaselineExpectancyR": -0.1701180148086774,
+    "candidateUtilityDeltaR": 0.1701180148086774,
+    "goodScoreAuc": 0.5144146257641198,
+    "tailLossScoreAuc": 0.7023695892893025,
+    "interpretation": "The tail-loss classifier carried meaningful discrimination, but the full prelocked opportunity-quality stack selected zero development trades and the good-opportunity classifier was near chance. IFE2 therefore did not establish executable positive edge."
+  },
+  "contaminationBoundary": {
+    "fitWindow": "2026-01-01 to 2026-03-01 contaminated by IFE2 fit.",
+    "developmentWindow": "2026-03-01 to 2026-05-01 contaminated by IFE2 development.",
+    "freshValidationOpened": false,
+    "sealedHoldoutOpened": false,
+    "prohibitedRescue": "No IFE2 feature/model/score/hard-gate/quantile may be tuned or promoted using these outcomes."
+  },
+  "terminalRuleActivated": true,
+  "terminalRule": "No further transformation of the same OHLC/context feature family is authorized. Any continuation must add genuinely new market information such as derivatives microstructure, funding, order-flow, order-book or event data under a separately named program with fresh locks.",
+  "nextAuthorizedProgram": "MGPT-MIE1 — Market Microstructure Intelligence Engine",
+  "productionAuthority": false,
+  "brokerExecutionEnabled": false
+}
