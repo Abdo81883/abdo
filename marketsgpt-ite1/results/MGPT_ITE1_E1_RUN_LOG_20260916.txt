@@ -1,0 +1,56 @@
+{
+  "schema": "mgpt_ite1_e1_data_freeze_closeout_v1",
+  "generatedAtUtc": "2026-09-16T01:41:34.088288+00:00",
+  "status": "BLOCKED_DATA_FREEZE_INCOMPLETE",
+  "performanceOutcomesComputed": false,
+  "freshValidationOpened": false,
+  "sealedHoldoutOpened": false,
+  "errors": [
+    {
+      "symbol": "X:BTCUSD",
+      "error": "X_BTCUSD_1h.csv: incomplete frozen coverage 2024-11-01T00:00:00+00:00 -> 2024-12-05T16:00:00+00:00"
+    },
+    {
+      "symbol": "X:ETHUSD",
+      "error": "X_ETHUSD_1h.csv: incomplete frozen coverage 2024-11-01T00:00:00+00:00 -> 2024-12-05T16:00:00+00:00"
+    },
+    {
+      "symbol": "C:EURUSD",
+      "error": "C_EURUSD_1h.csv: incomplete frozen coverage 2024-11-01T00:00:00+00:00 -> 2024-12-20T16:00:00+00:00"
+    },
+    {
+      "symbol": "C:GBPUSD",
+      "error": "C_GBPUSD_1h.csv: incomplete frozen coverage 2024-11-01T00:00:00+00:00 -> 2024-12-20T14:00:00+00:00"
+    },
+    {
+      "symbol": "C:USDJPY",
+      "error": "C_USDJPY_1h.csv: incomplete frozen coverage 2024-11-01T00:00:00+00:00 -> 2024-12-20T15:00:00+00:00"
+    },
+    {
+      "symbol": "C:XAUUSD",
+      "error": "C_XAUUSD_1h.csv: incomplete frozen coverage 2024-11-01T00:00:00+00:00 -> 2024-12-24T08:00:00+00:00"
+    },
+    {
+      "symbol": "C:XAGUSD",
+      "error": "C_XAGUSD_1h.csv: incomplete frozen coverage 2024-11-01T00:00:00+00:00 -> 2024-12-24T09:00:00+00:00"
+    },
+    {
+      "symbol": "AAPL",
+      "error": "AAPL_1h.csv: incomplete frozen coverage 2024-11-01T08:00:00+00:00 -> 2025-02-12T21:00:00+00:00"
+    },
+    {
+      "symbol": "MSFT",
+      "error": "MSFT_1h.csv: incomplete frozen coverage 2024-11-01T08:00:00+00:00 -> 2025-03-03T17:00:00+00:00"
+    },
+    {
+      "symbol": "NVDA",
+      "error": "NVDA_1h.csv: incomplete frozen coverage 2024-11-01T08:00:00+00:00 -> 2025-01-21T23:00:00+00:00"
+    },
+    {
+      "symbol": "I:NDX",
+      "error": "I_NDX_1h.csv: incomplete frozen coverage 2024-11-01T13:00:00+00:00 -> 2025-05-09T17:00:00+00:00"
+    }
+  ],
+  "diagnostics": [],
+  "nextAction": "Complete the predeclared Massive development extracts and checksums. Do not alter E1 strategy rules or inspect validation/holdout."
+}
