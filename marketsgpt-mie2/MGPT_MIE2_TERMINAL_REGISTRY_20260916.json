@@ -1,0 +1,41 @@
+{
+  "schema": "mgpt_mie2_terminal_registry_v1",
+  "generatedAtUtc": "2026-09-16T14:18:00Z",
+  "program": "MGPT-MIE2",
+  "status": "REJECTED_DEVELOPMENT_TERMINAL_STOP_ACTIVATED",
+  "resultCommit": "90953bd51d9e65841d24a441e24cf5dea4df4bf8",
+  "closeoutSha256": "1dbb0c3539e566656bf71223c3b5b880d43f8b642b879679a944f2b1cf187b9e",
+  "frozenProductionBaseline": {
+    "release": "RC4S3H5R4R15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "mutated": false
+  },
+  "headline": {
+    "fitSymbolHours": 52116,
+    "developmentSymbolHours": 34260,
+    "selectedTrades": 5710,
+    "pairDirectionAccuracy": 0.5690017513134851,
+    "netExpectancyR": 0.0036859329976336656,
+    "stressNetExpectancyR": -0.06535045822312774,
+    "profitFactor": 1.006033118506785,
+    "opportunityRecall": 0.09362431103828393,
+    "opportunityPrecision": 0.4402802101576182,
+    "positiveSymbolFraction": 0.5,
+    "positiveMonthFraction": 0.25,
+    "firstHalfNetExpectancyR": 0.031213803609797128,
+    "secondHalfNetExpectancyR": -0.023841937614529806,
+    "longBetterLogitAuc": 0.579484806496263,
+    "longBetterHgbAuc": 0.5400959213407152,
+    "spreadSpearman": 0.05632638469038655,
+    "bootstrapProbabilityPositiveNetExpectancy": 0.5532,
+    "bootstrapProbabilityPositiveDeltaVsPairMean": 1
+  },
+  "interpretation": "MIE2 showed statistically meaningful relative pairwise direction ranking versus the pair mean, but failed absolute profitability, stress, robustness, breadth and stability requirements. Relative information is not sufficient for production promotion.",
+  "sealedEvidence": {
+    "freshValidationOpened": false,
+    "sealedHoldoutOpened": false
+  },
+  "terminalRule": "No additional derived-price, OHLC, funding, microstructure-summary or positioning model may be launched inside this closure campaign. Any future research requires a separately authorized project with materially different information such as historical order-book depth, liquidation events or event-level execution data.",
+  "integrationDecision": "KEEP_R15_BYTE_IDENTICAL",
+  "productionAuthority": false
+}
