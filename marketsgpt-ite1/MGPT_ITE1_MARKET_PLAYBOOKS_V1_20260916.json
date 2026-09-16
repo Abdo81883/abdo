@@ -1,0 +1,92 @@
+{
+  "schema":"mgpt_ite1_market_playbooks_v1",
+  "generatedAtUtc":"2026-09-16T01:55:00Z",
+  "program":"MGPT-ITE1",
+  "status":"DESIGN_FROZEN_INDEPENDENT_OF_E1_OUTCOME",
+  "purpose":"Define market-specific evidence, execution semantics, trade-construction requirements and fail-closed boundaries without changing the currently locked E1 component test.",
+  "globalRules":[
+    "Instrument != alias != proxy.",
+    "A context proxy may influence regime classification but may not silently become the executable instrument.",
+    "No decision feature may use information published after the decision timestamp.",
+    "No market-family rule may be altered after seeing that family's sealed-holdout result.",
+    "Missing executable evidence produces WAIT, AVOID or DATA_GAP; it does not trigger a fabricated fallback.",
+    "A trade idea and an entry are separate objects: VALID_IDEA_BAD_ENTRY must be representable.",
+    "Stops are invalidation/noise models; targets are market-structure/volatility objectives; neither may be moved only to make RR pass.",
+    "High confidence is not a synonym for high heuristic score. Probability labels require out-of-sample calibration."
+  ],
+  "playbooks":{
+    "CRYPTO_SPOT":{
+      "clock":"24x7 UTC",
+      "requiredCore":["executable spot price history","realized volatility","market structure","liquidity/turnover","fee/slippage model"],
+      "preferredContext":["BTC leader regime","cross-asset relative strength","venue spread","stablecoin/venue stress when causally available"],
+      "setupEmphasis":["breakout/continuation","pullback in established trend","liquidity sweep/reclaim","volatility compression expansion"],
+      "riskAdjustments":["weekend/liquidity state","venue fragmentation","24x7 gapless but jump-prone tails"],
+      "executionBoundary":"Composite/reference history cannot imply a specific exchange fill."
+    },
+    "CRYPTO_PERPETUAL":{
+      "clock":"24x7 UTC",
+      "requiredCore":["contract-specific price","funding cashflows","fees","realized volatility","liquidity","leverage limits"],
+      "preferredContext":["open interest","basis","liquidation pressure","leader/relative strength"],
+      "setupEmphasis":["trend continuation","basis/funding-aware breakout","squeeze/expansion","failed breakout/reclaim"],
+      "riskAdjustments":["funding drag","liquidation cascade risk","leverage/margin","exchange outage risk"],
+      "executionBoundary":"No perpetual profitability claim without exact funding and contract-specific costs."
+    },
+    "FX":{
+      "clock":"24x5 with session segmentation",
+      "requiredCore":["quote-derived price history","spread model","session identity","realized volatility","major event blackout state"],
+      "preferredContext":["relative currency strength","rates differential/context when causally timestamped","London/New York overlap","rollover state"],
+      "setupEmphasis":["session breakout","trend pullback","range rejection","liquidity sweep around session extremes"],
+      "riskAdjustments":["spread widening","rollover","weekend gap","macro release window"],
+      "executionBoundary":"Mid/quote aggregates are not guaranteed fills; spread-side execution must be stressed."
+    },
+    "METALS_SPOT":{
+      "clock":"global OTC/FX-like session structure",
+      "requiredCore":["spot quote history","spread model","session identity","realized volatility"],
+      "preferredContext":["USD context","rates context","London/New York overlap","macro-event state"],
+      "setupEmphasis":["liquidity sweep","trend pullback","range breakout","volatility expansion"],
+      "riskAdjustments":["event-driven jumps","session handoff","spread widening"],
+      "executionBoundary":"Spot XAU/XAG quote aggregates are not exchange futures trades."
+    },
+    "FUTURES":{
+      "clock":"contract/session specific",
+      "requiredCore":["contract-specific bars","point-in-time contract metadata","causal front/active contract rule","roll calendar","tick value","fees/slippage"],
+      "preferredContext":["term structure","volume/open-interest migration","cash-session/overnight segmentation"],
+      "setupEmphasis":["opening range","overnight range break/reclaim","trend pullback","volatility expansion"],
+      "riskAdjustments":["roll transition","limit moves","session liquidity","contract multiplier"],
+      "executionBoundary":"Opaque continuous symbols are development context only; executable tests require explicit contract mapping."
+    },
+    "US_EQUITY":{
+      "clock":"exchange sessions with explicit RTH/extended-hours policy",
+      "requiredCore":["split-adjusted history","corporate actions","earnings/event state","liquidity","spread/slippage"],
+      "preferredContext":["sector/index regime","gap state","relative strength","volume participation"],
+      "setupEmphasis":["gap continuation/fade by regime","opening breakout","trend pullback","base breakout","failed breakout"],
+      "riskAdjustments":["earnings","halts","overnight gaps","single-name concentration"],
+      "executionBoundary":"Backtests must preserve corporate-action and event causality."
+    },
+    "INDEX":{
+      "clock":"index publication/session specific",
+      "requiredCore":["index value history","market regime","volatility context"],
+      "preferredContext":["breadth","cash/overnight structure through executable mapping","macro-event state"],
+      "setupEmphasis":["trend continuation","opening regime","range break/reclaim"],
+      "riskAdjustments":["macro gaps","volatility shock","cash/derivative basis"],
+      "executionBoundary":"Index values are signals only until mapped to an executable future/ETF/CFD with its own costs and basis."
+    },
+    "INDEX_ETF":{
+      "clock":"exchange sessions",
+      "requiredCore":["ETF trade history","spread/slippage","corporate-distribution handling","underlying index regime"],
+      "preferredContext":["breadth","volatility index/context","gap state"],
+      "setupEmphasis":["opening range","trend pullback","breakout/reclaim"],
+      "riskAdjustments":["opening/closing auction conditions","tracking/basis","event gaps"],
+      "executionBoundary":"ETF fills are not interchangeable with cash-index values or futures."
+    },
+    "ENERGY_COMMODITY_FUTURES":{
+      "clock":"contract/session specific",
+      "requiredCore":["contract-specific price","roll metadata","tick value","fees/slippage","event calendar"],
+      "preferredContext":["term structure","inventory-event state","seasonality only if predeclared and causal"],
+      "setupEmphasis":["inventory-event post-repricing","trend pullback","range breakout","volatility expansion"],
+      "riskAdjustments":["inventory/geo event jumps","roll/liquidity migration","product-specific limits"],
+      "executionBoundary":"No ETF or cash proxy may replace the underlying futures contract for executable testing."
+    }
+  },
+  "futureIntegrationRule":"These playbooks become production logic only after their features and fallbacks are individually tested under the ITE1 validation chain."
+}
