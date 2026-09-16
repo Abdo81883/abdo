@@ -1,0 +1,56 @@
+{
+  "categoricalFeatures": [
+    "direction",
+    "symbolGroup"
+  ],
+  "developmentCandidates": 68520,
+  "fitCandidates": 105384,
+  "modelArtifactSha256": "39c22911d829fdb4c2ba57a66e6386269f0070974f4a9401e0b8a8f99a0c8709",
+  "numericFeatures": [
+    "ret1",
+    "ret3",
+    "ret6",
+    "ret12",
+    "ret24",
+    "atrPct",
+    "rv24",
+    "range24Atr",
+    "closePos24",
+    "quoteVolumeZ24",
+    "tradeCountZ24",
+    "avgTradeSizeZ24",
+    "takerBuyQuoteRatio",
+    "takerImbalance",
+    "takerImbalanceZ24",
+    "takerImbalanceDelta3",
+    "takerImbalanceDelta6",
+    "premiumClose",
+    "premiumZ24",
+    "premiumDelta1",
+    "premiumDelta3",
+    "premiumAbsZ24",
+    "latestFundingRate",
+    "fundingMean3",
+    "fundingMean9",
+    "fundingZ20Events",
+    "hoursSinceFunding",
+    "signedRet3",
+    "signedRet12",
+    "signedTakerImbalance",
+    "signedPremium",
+    "signedFunding"
+  ],
+  "schema": "mgpt_mie1_model_summary_v1",
+  "score": {
+    "formula": "0.35*pGoodLogit + 0.30*pGoodHgb + 0.20*pPositiveNetLogit - 0.15*pTailHgb",
+    "semantics": "Relative ranking score only. Component outputs are classifier scores, not calibrated real-world probabilities."
+  },
+  "scoreSemantics": "Ranking scores only; no probability/calibration claim.",
+  "selection": {
+    "maxTradesPerHour": 3,
+    "noAbsoluteScoreThreshold": true,
+    "noThresholdSearch": true,
+    "perTimestamp": "At each entry timestamp, for each symbol keep only the higher-score direction if LONG-vs-SHORT score margin >= 0.03. Rank remaining symbol winners by score and select the top 3.",
+    "rationale": "This prevents the zero-selection failure mode while forcing cross-sectional competition and preserving a measurable opportunity-recall budget."
+  }
+}
