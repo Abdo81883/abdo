@@ -3,6 +3,7 @@ name: MGPT ITE1 E1 Development
 on:
   push:
     branches:
+      - "main"
       - "mgpt-ite1-institutional-trade-engine"
     paths:
       - "marketsgpt-ite1/ite1_core.py"
