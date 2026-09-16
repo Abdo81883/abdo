@@ -31,13 +31,21 @@ jobs:
           python -m py_compile marketsgpt-ite1/ite1_core.py
           python -m py_compile marketsgpt-ite1/ite1_e1_development.py
       - name: Run E1 development only
-        run: python marketsgpt-ite1/ite1_e1_development.py
+        shell: bash
+        run: |
+          mkdir -p marketsgpt-ite1/results
+          set +e
+          python marketsgpt-ite1/ite1_e1_development.py 2>&1 | tee marketsgpt-ite1/results/MGPT_ITE1_E1_RUN_LOG_20260916.txt
+          rc=${PIPESTATUS[0]}
+          echo "${rc}" > marketsgpt-ite1/results/MGPT_ITE1_E1_EXIT_CODE_20260916.txt
+          exit 0
       - name: Upload immutable E1 evidence
         uses: actions/upload-artifact@v4
         with:
           name: mgpt-ite1-e1-development
           path: marketsgpt-ite1/results/MGPT_ITE1_E1_*
-      - name: Commit E1 result bundle
+          if-no-files-found: warn
+      - name: Commit E1 result bundle or failure evidence
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -45,6 +53,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "results: ITE1 E1 development [skip ci]"
+            git commit -m "results: ITE1 E1 development evidence [skip ci]"
             git push
+          fi
+      - name: Enforce evaluator exit code
+        run: |
+          rc="$(cat marketsgpt-ite1/results/MGPT_ITE1_E1_EXIT_CODE_20260916.txt)"
+          if [ "$rc" != "0" ]; then
+            echo "E1 evaluator failed with exit code $rc"
+            exit "$rc"
           fi
