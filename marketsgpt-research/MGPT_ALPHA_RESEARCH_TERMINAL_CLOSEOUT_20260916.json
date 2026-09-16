@@ -1,0 +1,68 @@
+{
+  "schema": "mgpt_alpha_research_terminal_closeout_v1",
+  "generatedAtUtc": "2026-09-16T01:15:00Z",
+  "status": "CLOSED_PROFITABILITY_NOT_PROVEN_TERMINAL_STOP_RULE",
+  "productionAlphaAuthority": false,
+  "r15MutationAllowed": false,
+  "automaticExecutionAllowed": false,
+  "baseline": {
+    "release": "RC4S3H5R4R15",
+    "version": "31.6.982-r1-65d7a5h1-final-closure-rc4s3h5r4r15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "status": "FROZEN_PRODUCT_TRUTH_BASELINE"
+  },
+  "terminalGovernance": {
+    "contaminationRegistry": "MGPT_ALPHA_CONTAMINATION_REGISTRY_V32_20260916.json",
+    "finalCandidateFamily": "ARP32-RSJ1",
+    "finalCandidateStatus": "REJECT_DEVELOPMENT_GATE_TERMINAL_STOP_RULE",
+    "noFurtherPriceAlphaFamilyInsideThisClosureCampaign": true,
+    "noPostOutcomeRescue": true
+  },
+  "decisiveEvidence": [
+    {
+      "generation": "Q7-T4",
+      "result": "Development and fresh validation passed; one-shot sealed holdout failed after split-normalized corporate-action repair.",
+      "implication": "Strong in-sample/OOS-looking evidence was not enough; holdout prevented false promotion."
+    },
+    {
+      "generation": "ARP22-POS3",
+      "result": "Economically positive development point estimates but immutable bootstrap robustness gates failed.",
+      "implication": "No validation or holdout opened."
+    },
+    {
+      "generation": "ARP30-XCR1",
+      "result": "BTC lead-lag gross edge was positive, but frozen realistic turnover costs overwhelmed it and robustness gates failed.",
+      "implication": "Cost-dominated alpha was not promoted."
+    },
+    {
+      "generation": "ARP31-MAX1",
+      "result": "Source-backed MAX continuation adaptation was strongly negative even before costs.",
+      "implication": "Closed without sign flip or parameter rescue."
+    },
+    {
+      "generation": "ARP32-RSJ1",
+      "result": "Terminal source-backed realized signed-jump adaptation was negative gross and net, both halves negative, bootstrap weak, and development gate failed.",
+      "implication": "Predeclared terminal stop rule triggered."
+    }
+  ],
+  "finalResearchVerdict": {
+    "fullAlphaChainPassed": false,
+    "developmentFreshValidationSealedHoldoutPassedBySameFrozenModule": false,
+    "profitabilityGreenLight": false,
+    "alphaIntegrationAuthorized": false,
+    "profitabilityClaimAllowed": false,
+    "conclusion": "No market-family alpha module satisfied the complete predeclared development -> fresh validation -> sealed holdout contract. Continuing to search inside this closure campaign would increase multiple-testing/overfitting risk and violate the ARP32 predeclared stop rule."
+  },
+  "allowedAfterClosure": [
+    "Operate the existing frozen R15 product only within its documented truth/data-boundary behavior.",
+    "Keep execution manual-only and broker order submission disabled.",
+    "Treat future alpha research as a new project with a new registry namespace, new predeclared hypotheses and fresh untouched evidence."
+  ],
+  "forbiddenAfterClosure": [
+    "Mutating R15 to insert any rejected or unvalidated alpha.",
+    "Calling the product profitable or claiming validated edge.",
+    "Opening sealed validation/holdout windows from failed families.",
+    "Flipping signs or relaxing costs/gates after seeing results.",
+    "Launching another price-alpha family under this closure campaign."
+  ]
+}
