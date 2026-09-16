@@ -46,7 +46,7 @@ CATEGORICAL = ["direction","symbolGroup"]
 
 def read_csv(path: Path) -> pd.DataFrame:
     x = pd.read_csv(path)
-    x["timestamp"] = pd.to_datetime(x["timestamp"], utc=True)
+    x["timestamp"] = pd.to_datetime(x["timestamp"], utc=True, format="mixed")
     for c in x.columns:
         if c != "timestamp":
             x[c] = pd.to_numeric(x[c], errors="coerce")
