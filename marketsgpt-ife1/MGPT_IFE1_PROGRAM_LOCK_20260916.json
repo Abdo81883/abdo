@@ -740,7 +740,7 @@
   "nextAuthorizedAction": "Freeze complete hourly research bars for warmup+fit+development and complete daily context series, hash all inputs, then build the frozen candidate table without opening fresh validation or sealed holdout.",
   "dataFreezeGate": {
     "firstMarketBarNoLaterThan": "2025-05-05T00:00:00Z",
-    "lastMarketBarNoEarlierThan": "2025-12-31T00:00:00Z",
+    "lastMarketBarNoEarlierThan": "2025-12-30T00:00:00Z",
     "minimumRowsByFamily": {
       "CRYPTO_SPOT": 5500,
       "FX": 3800,
@@ -751,6 +751,14 @@
     },
     "minimumContextDailyRows": 240,
     "providerErrorPayloadAllowed": false,
-    "manifestSha256Required": true
+    "manifestSha256Required": true,
+    "tailRule": "Cross-market calendar aware: a market may end on its last actual session on or after 2025-12-30 UTC. No synthetic Dec-31 bar is required; no interpolation is allowed."
+  },
+  "dataBoundaryAmendment": {
+    "status": "PRE_PERFORMANCE_TRANSPORT_CORRECTION",
+    "reason": "Initial fail-closed freeze showed ^STOXX50E legitimately ending on 2025-12-30 while all model/performance outcomes were still unopened. The gate is corrected generically for heterogeneous exchange calendars rather than adding a symbol-specific exception.",
+    "performanceOutcomesSeen": false,
+    "modelFitRun": false,
+    "developmentScreenRun": false
   }
 }
