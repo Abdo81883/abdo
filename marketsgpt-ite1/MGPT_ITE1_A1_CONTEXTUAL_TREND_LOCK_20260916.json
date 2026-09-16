@@ -1,0 +1,137 @@
+{
+  "schema":"mgpt_ite1_a1_contextual_trend_architecture_lock_v1",
+  "generatedAtUtc":"2026-09-16T02:02:00Z",
+  "program":"MGPT-ITE1",
+  "trial":"ITE1-A1",
+  "status":"LOCKED_BEFORE_A1_FRESH_INSTRUMENT_OUTCOMES",
+  "productionAuthority":false,
+  "r15MutationAllowed":false,
+  "parentEvidence":{
+    "e1Closeout":"MGPT_ITE1_E1_V3_DEVELOPMENT_CLOSEOUT_20260916.json",
+    "e1Diagnostic":"MGPT_ITE1_E1_V3_DIAGNOSTIC_20260916.json",
+    "e1Status":"REJECT_E1_COMPONENT_GATE",
+    "contaminationRegistry":"MGPT_ITE1_CONTAMINATION_REGISTRY_V1_20260916.json"
+  },
+  "hypothesis":"The E1 failure is primarily architectural rather than an entry-timing problem. A market-structure engine that separates trend-continuation setups from range-reversal logic, requires causal higher-timeframe trend alignment, uses setup-specific invalidation, enforces executable reward geometry, and deduplicates candidate events should improve precision and net expectancy while retaining a useful fraction of broad-reference opportunities.",
+  "diagnosticMotivationOnly":[
+    "E1 trigger_close had high opportunity recall but negative net expectancy and profit factor below 1.",
+    "Median E1 TP2 reward was below 1R for all entry modes while stop risk frequently exceeded 1 ATR.",
+    "Range and compression states were materially weak in the contaminated E1 diagnostics.",
+    "This motivation does not authorize selecting profitable E1 subgroups as evidence. A1 must pass on fresh instruments."
+  ],
+  "researchRole":"FRESH_CROSS_INSTRUMENT_ARCHITECTURE_SCREEN",
+  "freshnessBoundary":{
+    "timePeriod":"Same calendar development period as E1, but an entirely different instrument set.",
+    "claimLimit":"A pass is cross-instrument fresh evidence, not time-OOS validation.",
+    "freshValidationTimeWindow":"2025-07-01 to 2026-01-01 remains sealed.",
+    "sealedHoldout":"2026-01-01 to 2026-09-01 remains sealed."
+  },
+  "provider":{
+    "developmentTransport":"Yahoo Finance hourly via yfinance",
+    "role":"development screen only",
+    "independentReplicationRequiredAfterPass":true,
+    "noInterpolation":true
+  },
+  "windows":{
+    "warmupStart":"2024-11-01T00:00:00Z",
+    "freshInstrumentDevelopment":{"start":"2025-01-06T00:00:00Z","endExclusive":"2025-07-01T00:00:00Z"}
+  },
+  "freshUniverse":[
+    {"marketFamily":"CRYPTO_SPOT","symbol":"SOL-USD","fileKey":"SOL_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"XRP-USD","fileKey":"XRP_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"LTC-USD","fileKey":"LTC_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"AUDUSD=X","fileKey":"AUDUSD_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"NZDUSD=X","fileKey":"NZDUSD_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"CAD=X","fileKey":"CAD_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"CHF=X","fileKey":"CHF_X","timeframes":["1h","4h"]},
+    {"marketFamily":"METALS_FUTURES_PROXY","symbol":"HG=F","fileKey":"HG_F","timeframes":["1h","4h"]},
+    {"marketFamily":"METALS_FUTURES_PROXY","symbol":"PL=F","fileKey":"PL_F","timeframes":["1h","4h"]},
+    {"marketFamily":"EQUITY","symbol":"META","fileKey":"META","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"AMZN","fileKey":"AMZN","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"GOOGL","fileKey":"GOOGL","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"JPM","fileKey":"JPM","timeframes":["1h"]},
+    {"marketFamily":"INDEX","symbol":"^GSPC","fileKey":"GSPC","timeframes":["1h"]},
+    {"marketFamily":"INDEX","symbol":"^RUT","fileKey":"RUT","timeframes":["1h"]}
+  ],
+  "timeframePolicy":{
+    "continuousMarkets":"1h and exact UTC-anchored 4h bars.",
+    "equityAndCashIndex":"1h only in A1; the E1 UTC-exact 4h construction is explicitly not reused for exchange-session instruments.",
+    "higherTimeframeContext":{
+      "1hContinuous":"previous completed 4h trend state",
+      "4hContinuous":"previous completed UTC-day trend state",
+      "1hEquityIndex":"previous completed daily trend state"
+    }
+  },
+  "architecture":{
+    "engineName":"CONTEXTUAL_TREND_CONTINUATION_V1",
+    "referenceOpportunityUniverse":"Deduplicated generic E1 candidate events on the fresh instrument set. The reference scanner is used only to measure precision/recall; it is not an A1 feature.",
+    "entry":"next bar open after the completed trigger bar",
+    "setups":["BREAKOUT_CONTINUATION","PULLBACK_CONTINUATION"],
+    "mutuallyExclusive":true,
+    "sweepReclaimTreatment":"Not part of this trend-continuation engine. Range/reversal logic is reserved for a separately prelocked architecture family and is not silently discarded as a general market opportunity.",
+    "localTrendLong":"EMA20 > EMA50 > EMA200, close > EMA20, and EMA50 slope over 5 local bars > 0.",
+    "localTrendShort":"EMA20 < EMA50 < EMA200, close < EMA20, and EMA50 slope over 5 local bars < 0.",
+    "higherTimeframeAlignment":"Same direction as local trend using only the previous completed higher-timeframe bar.",
+    "volatilityEligibility":"NORMAL or EXPANSION only; COMPRESSION is WAIT_FOR_TRIGGER for this engine.",
+    "breakoutLong":"close > prior completed 20-bar high, bar range >= 0.80 ATR14, real body >= 0.35 ATR14, close location value >= 0.65.",
+    "breakoutShort":"mirror of breakoutLong with close below prior 20-bar low and close location <= 0.35.",
+    "pullbackLong":"no breakout on same bar; low touches EMA20, close > EMA20, bullish close, close location >= 0.60, local+HTF long trend.",
+    "pullbackShort":"mirror of pullbackLong.",
+    "deduplication":"At most one A1 setup per instrument/timeframe/bar/direction. Breakout takes precedence over pullback on the same bar."
+  },
+  "riskGeometry":{
+    "breakoutStopLong":"prior20High - 0.35*ATR14",
+    "breakoutStopShort":"prior20Low + 0.35*ATR14",
+    "pullbackStopLong":"min(signalLow, prior completed 5-bar low) - 0.15*ATR14",
+    "pullbackStopShort":"max(signalHigh, prior completed 5-bar high) + 0.15*ATR14",
+    "actualEntryGapRecheck":true,
+    "minimumActualRiskAtr":0.50,
+    "maximumActualRiskAtr":2.50,
+    "targetCandidateProvenance":["prior 50/120-bar structure","20-bar measured-move projections","ATR volatility objectives up to 3 ATR"],
+    "tp1MinimumR":0.80,
+    "tp2MinimumR":1.50,
+    "tp3MinimumR":2.50,
+    "failureRule":"If actual next-open geometry cannot support all three progressive objectives, state is WAIT/AVOID rather than widening the stop or extending an arbitrary target."
+  },
+  "management":{
+    "developmentScreen":"Full exit at TP2 or structural stop, with frozen timeframe time-stop.",
+    "reason":"Management optimization remains sealed until the architecture itself shows positive fresh expectancy."
+  },
+  "costModelOneWayBps":{
+    "CRYPTO_SPOT":{"base":10.0,"stress":15.0},
+    "FX":{"base":1.5,"stress":3.0},
+    "METALS_FUTURES_PROXY":{"base":2.5,"stress":5.0},
+    "EQUITY":{"base":3.0,"stress":6.0},
+    "INDEX":{"base":1.5,"stress":3.0}
+  },
+  "holdBars":{"1h":48,"4h":30},
+  "bootstrap":{"method":"hierarchical instrument-timeframe circular candidate blocks","iterations":5000,"seed":12001,"blockLengthCandidates":20},
+  "developmentGate":{
+    "minimumEnteredTrades":250,
+    "minimumActiveMarketFamilies":5,
+    "minimumActiveBlocks":20,
+    "netExpectancyRMin":0.05,
+    "stressNetExpectancyRMin":0.0,
+    "profitFactorMin":1.15,
+    "referenceOpportunityRecallMin":0.30,
+    "referenceOpportunityPrecisionMin":0.50,
+    "positiveMarketFamilyFractionMin":0.60,
+    "positiveBlockFractionMin":0.55,
+    "firstHalfNetExpectancyPositive":true,
+    "secondHalfNetExpectancyPositive":true,
+    "positiveMonthFractionMin":0.55,
+    "bootstrapProbabilityPositiveNetExpectancyMin":0.95,
+    "bootstrapProbabilityPositiveUtilityDeltaVsFrozenE1BaselineMin":0.95,
+    "singleMarketFamilyPositiveContributionMax":0.50
+  },
+  "antiOverfitRules":[
+    "No threshold sweep in A1.",
+    "No symbol/timeframe-specific trading patch.",
+    "No post-outcome setup deletion or direction flip.",
+    "No cost reduction after gross results.",
+    "No reuse of E1 symbols as fresh A1 proof.",
+    "No opening time validation or holdout if A1 fails.",
+    "A1 pass does not authorize S1/T1/M1 or production; it authorizes independent provider replication and then a separately locked next phase."
+  ],
+  "nextAuthorizedAction":"Freeze complete hourly data for the fresh A1 universe, checksum it before outcomes, then evaluate the single locked A1 architecture against the frozen generic E1 reference baseline on those fresh instruments."
+}
