@@ -1,0 +1,148 @@
+{
+  "schema": "mgpt_ite1_c1_data_freeze_v1",
+  "generatedAtUtc": "2026-09-16T02:07:43.949021+00:00",
+  "status": "PASS_DATA_FREEZE",
+  "performanceOutcomesComputed": false,
+  "validationOpened": false,
+  "holdoutOpened": false,
+  "lockSha256": "99c8974e4d40a76f3f6f90e6dc694f1eafadcd3d72632b6c0979b445c1ac1825",
+  "provider": "Yahoo Finance via yfinance",
+  "files": [
+    {
+      "symbol": "AVAX-USD",
+      "marketFamily": "CRYPTO_SPOT",
+      "file": "AVAX_USD_1h.csv",
+      "rows": 5807,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T23:00:00+00:00",
+      "sha256": "434553b598623443cc22ef5d49ddbd9ebed6075a739e5c5edfe5c3230d9df09d"
+    },
+    {
+      "symbol": "DOT-USD",
+      "marketFamily": "CRYPTO_SPOT",
+      "file": "DOT_USD_1h.csv",
+      "rows": 5807,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T23:00:00+00:00",
+      "sha256": "5fc80edb99289a9dd60d378972221b342d86274beb0203d94405cea480fc8cf2"
+    },
+    {
+      "symbol": "LINK-USD",
+      "marketFamily": "CRYPTO_SPOT",
+      "file": "LINK_USD_1h.csv",
+      "rows": 5807,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T23:00:00+00:00",
+      "sha256": "9bd47932d0155776a84951fb29912eb6271cb62b779fa7729edcceeddda1bcf8"
+    },
+    {
+      "symbol": "EURCAD=X",
+      "marketFamily": "FX",
+      "file": "EURCAD_X_1h.csv",
+      "rows": 4062,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "b606acf2a207a46cf40af7cf128b73ba81168310922bc344e7b956e94f45f0af"
+    },
+    {
+      "symbol": "GBPAUD=X",
+      "marketFamily": "FX",
+      "file": "GBPAUD_X_1h.csv",
+      "rows": 4087,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "d14f7d08e0a9524a946f85b13b911ee5eb2a45297e7422223510e356d12de770"
+    },
+    {
+      "symbol": "EURAUD=X",
+      "marketFamily": "FX",
+      "file": "EURAUD_X_1h.csv",
+      "rows": 4062,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "b255dc704a315ba78f51e83aeba33801226577112920806009ff46d6b9af71e3"
+    },
+    {
+      "symbol": "AUDCAD=X",
+      "marketFamily": "FX",
+      "file": "AUDCAD_X_1h.csv",
+      "rows": 4093,
+      "firstUtc": "2024-11-01T00:00:00+00:00",
+      "lastUtc": "2025-06-30T22:00:00+00:00",
+      "sha256": "5fa0f10aa87164a0a8f4b4e50a363e239c4372520b69646e57d90d8f7c4a0c9c"
+    },
+    {
+      "symbol": "ZC=F",
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "file": "ZC_F_1h.csv",
+      "rows": 3055,
+      "firstUtc": "2024-11-01T04:00:00+00:00",
+      "lastUtc": "2025-07-01T03:00:00+00:00",
+      "sha256": "e1eb541de73ae193871d1426d7c3a48b7b523475201cc7a42a35e44240eb7192"
+    },
+    {
+      "symbol": "ZS=F",
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "file": "ZS_F_1h.csv",
+      "rows": 3055,
+      "firstUtc": "2024-11-01T04:00:00+00:00",
+      "lastUtc": "2025-07-01T03:00:00+00:00",
+      "sha256": "08aed3b7dc5b343088ae14f58353ae3e21ea8a7021819f53de860bc6c76b6974"
+    },
+    {
+      "symbol": "ORCL",
+      "marketFamily": "EQUITY",
+      "file": "ORCL_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "d3b2f6cb2eb6f3ff71c3a1960e7e006f0c2a5c11e0a6c7a6a8d146d5855ffe44"
+    },
+    {
+      "symbol": "CRM",
+      "marketFamily": "EQUITY",
+      "file": "CRM_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "358ee8dc8c0a82d4748fcc2ae0817c415307d92fd823236d377432a85373e982"
+    },
+    {
+      "symbol": "QCOM",
+      "marketFamily": "EQUITY",
+      "file": "QCOM_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "61b1f46c042c13dcee1bfa148f3840339e6538032e53298ff5b353123b5b7262"
+    },
+    {
+      "symbol": "MU",
+      "marketFamily": "EQUITY",
+      "file": "MU_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "2a1596a5de90d6fa8598cdb8b53ce214ec706d81737797af3584256df8a07a4d"
+    },
+    {
+      "symbol": "^IXIC",
+      "marketFamily": "INDEX",
+      "file": "IXIC_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "e7fe2190b5ef53c3a5f726f5f291ce35d8fa8911eeaa6726313216c839104f4d"
+    },
+    {
+      "symbol": "^NYA",
+      "marketFamily": "INDEX",
+      "file": "NYA_1h.csv",
+      "rows": 1133,
+      "firstUtc": "2024-11-01T13:30:00+00:00",
+      "lastUtc": "2025-06-30T19:30:00+00:00",
+      "sha256": "db33c4ae23e0bb37e606faf6c7414440c2e86f5b87245ec59b8ace0b3cb8bb89"
+    }
+  ],
+  "errors": []
+}
