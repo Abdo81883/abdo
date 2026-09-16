@@ -55,3 +55,5 @@ jobs:
             echo "E1 V3 evaluator failed with exit code $rc"
             exit "$rc"
           fi
+
+# rerun after governance commits; frozen data and evaluator unchanged
