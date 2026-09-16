@@ -1,0 +1,131 @@
+{
+  "schema": "mgpt_ite1_e1_massive_development_lock_v2",
+  "generatedAtUtc": "2026-09-16T01:35:00Z",
+  "program": "MGPT-ITE1",
+  "trial": "ITE1-E1",
+  "status": "LOCKED_BEFORE_E1_PERFORMANCE_OUTCOMES",
+  "supersedes": "MGPT_ITE1_E1_DEVELOPMENT_LOCK_20260916.json",
+  "amendmentReason": "The GitHub connector path does not provide an authenticated workflow-dispatch operation and connector-created commits may not trigger Actions deterministically. Before any E1 performance outcome was computed, the development transport was upgraded from the keyless Yahoo proxy to the connected Massive market-data authority and immutable provider extracts will be staged in-repository. This removes opaque continuous-futures development proxies from E1 and improves provenance.",
+  "contaminationDisclosure": {
+    "performanceOutcomesSeenBeforeV2Lock": false,
+    "transportSmokeTestsOnly": [
+      "AAPL hourly connectivity sample in September 2026",
+      "two-day January 2025 transport samples for EURUSD, GBPUSD, USDJPY, XAUUSD, XAGUSD, BTCUSD, ETHUSD and NDX"
+    ],
+    "smokeTestsUsedForStrategySelection": false
+  },
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "provider": {
+    "name": "Massive",
+    "sourceRole": "DEVELOPMENT_MARKET_DATA_AUTHORITY",
+    "extractPolicy": "Hourly OHLC extracts are requested in fixed calendar chunks, normalized, checksummed and committed as immutable E1 development inputs.",
+    "futureInformationAllowed": false,
+    "missingBarRule": "No interpolation or synthetic fill.",
+    "failedInstrumentRule": "Fail the affected block closed; no post-outcome symbol substitution."
+  },
+  "windows": {
+    "warmupStart": "2024-11-01T00:00:00Z",
+    "development": {
+      "start": "2025-01-06T00:00:00Z",
+      "endExclusive": "2025-07-01T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2025-07-01T00:00:00Z",
+      "endExclusive": "2026-01-01T00:00:00Z",
+      "sealed": true
+    },
+    "holdout": {
+      "start": "2026-01-01T00:00:00Z",
+      "endExclusive": "2026-09-01T00:00:00Z",
+      "sealed": true,
+      "oneShot": true
+    }
+  },
+  "timeframes": {
+    "source": "1h",
+    "evaluated": ["1h", "4h"],
+    "fourHourAggregation": "UTC-anchored exact groups of four source bars; incomplete groups are discarded.",
+    "smallTimeframeBoundary": "15m remains sealed from E1 because a clean long multi-market development extract has not yet been frozen. It will be a separate transport/timeframe program after core component viability."
+  },
+  "universe": [
+    {"marketFamily":"CRYPTO_SPOT","symbol":"X:BTCUSD","role":"large-cap leader"},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"X:ETHUSD","role":"large-cap second leader"},
+    {"marketFamily":"FX","symbol":"C:EURUSD","role":"major"},
+    {"marketFamily":"FX","symbol":"C:GBPUSD","role":"major"},
+    {"marketFamily":"FX","symbol":"C:USDJPY","role":"major"},
+    {"marketFamily":"METALS_SPOT","symbol":"C:XAUUSD","role":"gold spot quote aggregate"},
+    {"marketFamily":"METALS_SPOT","symbol":"C:XAGUSD","role":"silver spot quote aggregate"},
+    {"marketFamily":"EQUITY","symbol":"AAPL","role":"liquid mega-cap"},
+    {"marketFamily":"EQUITY","symbol":"MSFT","role":"liquid mega-cap"},
+    {"marketFamily":"EQUITY","symbol":"NVDA","role":"liquid mega-cap"},
+    {"marketFamily":"INDEX","symbol":"I:NDX","role":"Nasdaq-100 index values"}
+  ],
+  "explicitlyDeferredFamilies": {
+    "futures": "Deferred from E1 until a point-in-time contract chain and causal roll/back-adjustment protocol is locked using Massive futures contract metadata. Opaque vendor continuous contracts are prohibited.",
+    "energyCommodities": "Deferred with futures. This does not authorize treating an ETF proxy as the underlying futures market."
+  },
+  "dataSemantics": {
+    "FX": "Massive forex aggregates are derived from bid/ask quote updates rather than executed trades.",
+    "METALS_SPOT": "XAUUSD/XAGUSD are handled as quote-aggregate spot/OTC-style instruments under the FX transport semantics.",
+    "INDEX": "Index bars represent index values and do not imply executable trade prints.",
+    "EQUITY": "Stock aggregates use adjusted=true for split normalization in development extracts.",
+    "CRYPTO_SPOT": "Crypto aggregates are trade-derived provider aggregates."
+  },
+  "costModelOneWayBps": {
+    "CRYPTO_SPOT": {"base":10.0,"stress":15.0},
+    "FX": {"base":1.5,"stress":3.0},
+    "METALS_SPOT": {"base":2.5,"stress":5.0},
+    "EQUITY": {"base":3.0,"stress":6.0},
+    "INDEX": {"base":1.5,"stress":3.0}
+  },
+  "costDisclosure": "Modeled one-way friction is a conservative Phase-1 ranking rail, not a broker-specific fill guarantee. Index results are signal-quality evidence only until mapped to an executable index instrument.",
+  "frozenComponents": {
+    "candidateGenerator": "BREAKOUT + PULLBACK + SWEEP_RECLAIM from ite1_core.py; no post-outcome setup deletion.",
+    "stop": "structure_plus_atr_noise",
+    "target": "hybrid_structure_volatility_ladder",
+    "management": "fixed_full_exit",
+    "maximumEntryWaitBars": 4,
+    "maximumHoldingBarsByTimeframe": {"1h":48,"4h":30}
+  },
+  "entryChallengers": [
+    "trigger_close",
+    "retest_limit",
+    "structure_confirmed_retest"
+  ],
+  "opportunityAudit": {
+    "positiveBarrierR": 1.5,
+    "adverseBarrierR": 1.0,
+    "sameBarRule": "adverse barrier wins",
+    "referenceEntry": "next source-bar open",
+    "riskUnit": "signal-time ATR14",
+    "purpose": "Audit/recall only; never a decision feature."
+  },
+  "developmentDecisionRule": {
+    "baseline": "trigger_close",
+    "minimumTotalEnteredTrades": 300,
+    "minimumActiveMarketFamilies": 5,
+    "minimumActiveInstrumentTimeframeBlocks": 18,
+    "minimumNetExpectancyR": 0.03,
+    "minimumStressNetExpectancyR": 0.0,
+    "minimumProfitFactor": 1.10,
+    "minimumOpportunityRecall": 0.45,
+    "minimumPrecision": 0.45,
+    "minimumPositiveMarketFamilyFraction": 0.60,
+    "minimumPositiveBlockFraction": 0.55,
+    "bootstrapProbabilityPositiveExpectancyMin": 0.90,
+    "challengerBootstrapProbabilityDeltaVsBaselinePositiveMin": 0.90,
+    "maximumRelativeRecallDegradationVsBaseline": 0.20,
+    "failureOutcome": "No E1 threshold rescue. If no entry mode passes, S1/T1/M1 remain sealed and the candidate/setup architecture must be amended before another development run."
+  },
+  "antiSelectionRules": [
+    "No symbol/timeframe entry tuning.",
+    "No dropping losing instruments after outcomes.",
+    "No direction flip after outcomes.",
+    "No changing cost assumptions after gross results.",
+    "No access to validation/holdout.",
+    "No treating NDX index values as directly executable fills."
+  ],
+  "dataFreezeRule": "The SHA-256 of every staged provider extract must be recorded before E1 performance evaluation.",
+  "nextAuthorizedAction": "Stage and checksum Massive hourly development extracts only, then execute E1 on the frozen data. Validation and holdout remain unopened."
+}
