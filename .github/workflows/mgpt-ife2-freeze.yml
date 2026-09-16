@@ -5,6 +5,7 @@ on:
     paths:
       - "marketsgpt-ife2/ife2_freeze.py"
       - "marketsgpt-ife2/MGPT_IFE2_DISTRIBUTIONAL_OPPORTUNITY_LOCK_20260916.json"
+      - "marketsgpt-ife2/MGPT_IFE2_IMPLEMENTATION_SPEC_V1_20260916.json"
       - ".github/workflows/mgpt-ife2-freeze.yml"
   workflow_dispatch:
 permissions:
