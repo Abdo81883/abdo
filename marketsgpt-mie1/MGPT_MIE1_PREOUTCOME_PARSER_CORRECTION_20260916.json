@@ -1,0 +1,16 @@
+{
+  "schema": "mgpt_mie1_preoutcome_parser_correction_v1",
+  "generatedAtUtc": "2026-09-16T13:17:00Z",
+  "program": "MGPT-MIE1",
+  "status": "ENGINEERING_CORRECTION_BEFORE_PERFORMANCE_OUTCOMES",
+  "performanceOutcomesComputed": false,
+  "freshValidationOpened": false,
+  "sealedHoldoutOpened": false,
+  "issue": "The first evaluator attempts failed before candidate-table/model/performance computation. Frozen contract CSVs lacked 'trades' and 'taker_buy_base' because the official Binance monthly kline header uses 'count' and 'taker_buy_volume', aliases not recognized by the initial archive parser.",
+  "correction": "Map count -> trades and taker_buy_volume -> taker_buy_base, then rerun the checksum-verified data freeze. No research feature, threshold, model, universe, cost, execution, target or gate is changed.",
+  "priorEvaluatorFailures": [
+    "mixed ISO funding timestamp parse failure",
+    "missing trades column caused by archive-header alias mismatch"
+  ],
+  "governance": "This is permitted as a pre-outcome data-ingestion correction; all performance windows and research rules remain frozen."
+}
