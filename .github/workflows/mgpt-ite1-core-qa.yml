@@ -3,6 +3,7 @@ name: MGPT ITE1 Core QA
 on:
   push:
     branches:
+      - "main"
       - "mgpt-ite1-institutional-trade-engine"
     paths:
       - "marketsgpt-ite1/**"
