@@ -1,0 +1,138 @@
+{
+  "schema": "mgpt_ite1_e1_cross_market_development_lock_v1",
+  "generatedAtUtc": "2026-09-16T01:25:00Z",
+  "program": "MGPT-ITE1",
+  "trial": "ITE1-E1",
+  "status": "LOCKED_BEFORE_E1_PERFORMANCE_OUTCOMES",
+  "parentPrelock": "MGPT_ITE1_PHASE0_PRELOCK_20260916.json",
+  "parentTrialLedger": "MGPT_ITE1_TRIAL_LEDGER_V1_20260916.json",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "purpose": "Select an entry mechanic for the frozen Phase-0 setup/stop/target/management stack using broad cross-market development evidence. This is a component screen, not a profitability or production claim.",
+  "provider": {
+    "developmentTransport": "Yahoo Finance chart aggregates via query1/query2.finance.yahoo.com",
+    "role": "DEVELOPMENT_SCREEN_ONLY",
+    "reason": "Keyless reproducible broad cross-market OHLC transport for Phase-1 screening.",
+    "providerReplicationBeforeFreshValidation": "Any E1 pass must be replicated on an independent/authoritative source where available before opening fresh validation. Massive is the preferred authority for stocks, indices, FX and futures; Binance official archives are preferred for crypto.",
+    "transportFailurePolicy": "fail closed per instrument; no interpolation, fabricated bars or substitute symbol after outcomes",
+    "vendorContinuousFuturesCaveat": "Yahoo continuous futures are development proxies with opaque roll stitching. Futures-family conclusions cannot promote to fresh validation until contract-aware replication is complete."
+  },
+  "windows": {
+    "warmupStart": "2024-11-01T00:00:00Z",
+    "development": {
+      "start": "2025-01-06T00:00:00Z",
+      "endExclusive": "2025-07-01T00:00:00Z"
+    },
+    "freshValidation": {
+      "start": "2025-07-01T00:00:00Z",
+      "endExclusive": "2026-01-01T00:00:00Z",
+      "sealed": true
+    },
+    "holdout": {
+      "start": "2026-01-01T00:00:00Z",
+      "endExclusive": "2026-09-01T00:00:00Z",
+      "sealed": true,
+      "oneShot": true
+    }
+  },
+  "timeframes": {
+    "source": "1h",
+    "evaluated": ["1h", "4h"],
+    "fourHourAggregation": "UTC-anchored consecutive 1h bars using first open, max high, min low, last close, summed volume; incomplete terminal groups discarded",
+    "smallTimeframeNote": "15m is deliberately excluded from E1 because the keyless development transport does not provide a clean long historical window. 15m will require a separately locked authoritative transport program after component viability is demonstrated."
+  },
+  "universe": [
+    {"marketFamily":"CRYPTO_SPOT","symbol":"BTC-USD","role":"large-cap leader"},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"ETH-USD","role":"large-cap second leader"},
+    {"marketFamily":"FX","symbol":"EURUSD=X","role":"major"},
+    {"marketFamily":"FX","symbol":"GBPUSD=X","role":"major"},
+    {"marketFamily":"FX","symbol":"JPY=X","role":"USDJPY vendor representation"},
+    {"marketFamily":"METALS_FUTURES_PROXY","symbol":"GC=F","role":"gold nearby continuous development proxy"},
+    {"marketFamily":"METALS_FUTURES_PROXY","symbol":"SI=F","role":"silver nearby continuous development proxy"},
+    {"marketFamily":"EQUITY","symbol":"AAPL","role":"liquid mega-cap"},
+    {"marketFamily":"EQUITY","symbol":"MSFT","role":"liquid mega-cap"},
+    {"marketFamily":"EQUITY","symbol":"NVDA","role":"liquid mega-cap"},
+    {"marketFamily":"INDEX_FUTURES_PROXY","symbol":"ES=F","role":"S&P 500 E-mini nearby continuous development proxy"},
+    {"marketFamily":"INDEX_FUTURES_PROXY","symbol":"NQ=F","role":"Nasdaq-100 E-mini nearby continuous development proxy"},
+    {"marketFamily":"COMMODITY_FUTURES_PROXY","symbol":"CL=F","role":"WTI nearby continuous development proxy"},
+    {"marketFamily":"COMMODITY_FUTURES_PROXY","symbol":"NG=F","role":"natural gas nearby continuous development proxy"}
+  ],
+  "survivorshipDisclosure": "The development universe is a deliberately frozen set of highly liquid surviving instruments selected for engineering breadth, not a historical cross-sectional universe. No cross-sectional return claim is permitted from this trial.",
+  "sessionRules": {
+    "CRYPTO_SPOT": "24x7 UTC; use source bars as delivered.",
+    "FX": "24x5; weekend gaps remain natural; no synthetic bars.",
+    "EQUITY": "Yahoo hourly bars may include only regular/available vendor sessions; no bar filling.",
+    "METALS_FUTURES_PROXY": "use vendor session bars as delivered; no synthetic session fill.",
+    "INDEX_FUTURES_PROXY": "use vendor session bars as delivered; no synthetic session fill.",
+    "COMMODITY_FUTURES_PROXY": "use vendor session bars as delivered; no synthetic session fill."
+  },
+  "costModelOneWayBps": {
+    "CRYPTO_SPOT": {"base": 10.0, "stress": 15.0},
+    "FX": {"base": 1.5, "stress": 3.0},
+    "EQUITY": {"base": 3.0, "stress": 6.0},
+    "METALS_FUTURES_PROXY": {"base": 2.5, "stress": 5.0},
+    "INDEX_FUTURES_PROXY": {"base": 1.5, "stress": 3.0},
+    "COMMODITY_FUTURES_PROXY": {"base": 3.0, "stress": 6.0}
+  },
+  "costDisclosure": "One-way bps combine modeled fees/spread/slippage. They are deliberately conservative approximations for Phase-1 ranking and are not broker-specific execution estimates.",
+  "frozenComponents": {
+    "candidateGenerator": "BREAKOUT + PULLBACK + SWEEP_RECLAIM as implemented in ite1_core.py at lock time",
+    "stop": "structure_plus_atr_noise",
+    "target": "hybrid_structure_volatility_ladder",
+    "management": "fixed_full_exit",
+    "maximumEntryWaitBars": 4,
+    "maximumHoldingBarsByTimeframe": {"1h": 48, "4h": 30}
+  },
+  "entryChallengers": [
+    "trigger_close",
+    "retest_limit",
+    "structure_confirmed_retest"
+  ],
+  "antiSelectionRules": [
+    "No symbol/timeframe entry parameter tuning.",
+    "No dropping an instrument because its realized E1 PnL is poor.",
+    "No direction flip after outcome inspection.",
+    "No changing costs after seeing gross performance.",
+    "No opening fresh validation or holdout during E1 development.",
+    "No choosing the maximum-return mode without the predeclared breadth/robustness gates."
+  ],
+  "developmentDecisionRule": {
+    "baseline": "trigger_close",
+    "minimumTotalEnteredTrades": 300,
+    "minimumActiveMarketFamilies": 5,
+    "minimumActiveInstrumentTimeframeBlocks": 18,
+    "minimumNetExpectancyR": 0.03,
+    "minimumStressNetExpectancyR": 0.0,
+    "minimumProfitFactor": 1.10,
+    "minimumOpportunityRecall": 0.45,
+    "minimumPrecision": 0.45,
+    "minimumPositiveMarketFamilyFraction": 0.60,
+    "minimumPositiveBlockFraction": 0.55,
+    "bootstrapProbabilityPositiveExpectancyMin": 0.90,
+    "challengerBootstrapProbabilityDeltaVsBaselinePositiveMin": 0.90,
+    "maximumRelativeRecallDegradationVsBaseline": 0.20,
+    "tieBreakOrder": [
+      "higher stress net expectancy R",
+      "higher opportunity recall",
+      "higher precision",
+      "lower MAE",
+      "simpler entry mechanic"
+    ],
+    "failureOutcome": "If no mode clears the absolute component gate, E1 fails and STOP/TARGET/MANAGEMENT trials remain sealed. If baseline clears but no challenger proves incremental improvement, freeze trigger_close without claiming entry improvement."
+  },
+  "opportunityAudit": {
+    "positiveBarrierR": 1.5,
+    "adverseBarrierR": 1.0,
+    "sameBarRule": "adverse barrier wins",
+    "referenceEntry": "next source-bar open after candidate signal",
+    "riskUnit": "signal-time ATR14",
+    "purpose": "False-negative/recall audit only; never an input feature."
+  },
+  "bootstrap": {
+    "method": "instrument-timeframe block bootstrap with within-block moving blocks",
+    "iterations": 5000,
+    "seed": 11001,
+    "note": "The evaluator may use a conservative trade-level/block approximation if exact temporal block geometry is unavailable, but must report that deviation."
+  },
+  "nextAuthorizedAction": "Implement and run ITE1-E1 DEVELOPMENT ONLY on the frozen universe/window. Do not access fresh validation or holdout."
+}

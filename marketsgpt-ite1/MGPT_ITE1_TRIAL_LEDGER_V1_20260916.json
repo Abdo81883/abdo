@@ -1,0 +1,58 @@
+{
+  "schema": "mgpt_ite1_trial_ledger_v1",
+  "generatedAtUtc": "2026-09-16T01:12:00Z",
+  "program": "MGPT-ITE1",
+  "status": "OPEN",
+  "outcomesOpened": false,
+  "baselineWorker": {
+    "release": "RC4S3H5R4R15",
+    "sha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3"
+  },
+  "trialBudget": {
+    "entryFamilies": 3,
+    "stopFamilies": 3,
+    "targetFamilies": 3,
+    "managementFamilies": 3,
+    "naiveFullFactorialCount": 81,
+    "policy": "Do not run an unconstrained 81-cell optimization and select the maximum. Use staged family screens with predeclared challenger-vs-baseline comparisons, then freeze winners before interaction tests."
+  },
+  "stagedTrials": [
+    {
+      "id": "ITE1-E1",
+      "family": "ENTRY",
+      "status": "LOCKED_NOT_RUN",
+      "challengers": ["trigger_close", "retest_limit", "structure_confirmed_retest"],
+      "fixedOtherComponents": {
+        "stop": "structure_plus_atr_noise",
+        "target": "hybrid_structure_volatility_ladder",
+        "management": "fixed_full_exit"
+      }
+    },
+    {
+      "id": "ITE1-S1",
+      "family": "STOP",
+      "status": "SEALED_UNTIL_E1_FREEZE",
+      "challengers": ["structure_only", "structure_plus_atr_noise", "volatility_baseline"]
+    },
+    {
+      "id": "ITE1-T1",
+      "family": "TARGET",
+      "status": "SEALED_UNTIL_S1_FREEZE",
+      "challengers": ["structure_ladder", "volatility_ladder", "hybrid_structure_volatility_ladder"]
+    },
+    {
+      "id": "ITE1-M1",
+      "family": "MANAGEMENT",
+      "status": "SEALED_UNTIL_T1_FREEZE",
+      "challengers": ["fixed_full_exit", "tp1_partial_then_structure_trail", "tp1_partial_plus_time_stop"]
+    },
+    {
+      "id": "ITE1-X1",
+      "family": "FROZEN_INTERACTION",
+      "status": "SEALED_UNTIL_COMPONENT_FAMILIES_FREEZE",
+      "purpose": "Evaluate only the frozen component winners together; no new component tuning."
+    }
+  ],
+  "selectionRule": "A component winner is selected by a predeclared multi-metric gate, not by maximum backtest return alone. Failed component families are not rescued by symbol/timeframe patches.",
+  "holdoutRule": "No family that sees holdout outcomes may be modified and retested on the same holdout."
+}

@@ -1,0 +1,31 @@
+name: MGPT ITE1 Core QA
+
+on:
+  push:
+    branches:
+      - "main"
+      - "mgpt-ite1-institutional-trade-engine"
+    paths:
+      - "marketsgpt-ite1/**"
+      - ".github/workflows/mgpt-ite1-core-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check numpy pandas pytest
+      - name: Compile core
+        run: python -m py_compile marketsgpt-ite1/ite1_core.py
+      - name: Run ITE1 causal core tests
+        working-directory: marketsgpt-ite1
+        run: python -m pytest -q
