@@ -1,0 +1,32 @@
+{
+  "schema":"mgpt_ite1_c1_implementation_spec_v1",
+  "generatedAtUtc":"2026-09-16T02:12:00Z",
+  "program":"MGPT-ITE1",
+  "trial":"ITE1-C1",
+  "status":"FROZEN_BEFORE_C1_PERFORMANCE_OUTCOMES",
+  "parentLock":"MGPT_ITE1_C1_BREAKOUT_PAYOFF_LOCK_20260916.json",
+  "higherTimeframeTrend":"Use the exact A1 implementation definition: previous completed HTF EMA20/EMA50 direction, close vs EMA20, and five-HTF-bar EMA50 slope; never current incomplete HTF.",
+  "reference":{
+    "events":"Generic E1 candidates with setupClass=BREAKOUT only.",
+    "dedupKey":"instrument/timeframe/signal timestamp/direction",
+    "baselineHoldingBars":{"1h":48,"4h":30},
+    "baselineGeometry":"Frozen E1 trigger_close + structure_plus_atr_noise + hybrid_structure_volatility_ladder + fixed_full_exit.",
+    "goodOpportunityAudit":"2.0 ATR favorable barrier before 1.0 ATR adverse barrier; adverse wins same-bar ambiguity."
+  },
+  "targetSelection":{
+    "longCandidates":["prior50High + 0.50*prior50Range","prior50High + 1.00*prior50Range","entry + 2*ATR14","entry + 3*ATR14","entry + 4*ATR14"],
+    "shortCandidates":"mirror",
+    "selection":"Sort nearest-to-farthest. TP1 nearest candidate >=1.0R, TP2 next distinct candidate >=2.0R, TP3 next distinct candidate >=3.0R.",
+    "minimumProgressiveGap":"0.10 ATR14",
+    "failure":"No trade if three progressive candidates cannot be selected."
+  },
+  "metrics":{
+    "positiveMonth":"UTC signal-month sum of net R > 0.",
+    "firstSecondHalf":"Chronological entered-trade mean net R before/after midpoint.",
+    "positiveFamilyBlock":"Mean net R >0.",
+    "concentration":"max positive market-family total R / sum positive market-family total R.",
+    "bootstrapUtilityDelta":"candidate-level C1 utility (net R or zero on abstain) minus frozen E1 baseline utility on the same reference event."
+  },
+  "sameBarOrdering":["structural stop","TP2","failed-breakout close test after bar completes"],
+  "forbidden":["Any threshold or target candidate change after C1 results.","Any symbol/timeframe rescue.","Any time-validation or holdout access on C1 failure."]
+}
