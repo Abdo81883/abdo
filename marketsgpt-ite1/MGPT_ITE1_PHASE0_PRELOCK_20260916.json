@@ -1,0 +1,99 @@
+{
+  "schema": "mgpt_ite1_phase0_metric_and_hypothesis_lock_v1",
+  "generatedAtUtc": "2026-09-16T01:07:00Z",
+  "program": "MGPT-ITE1",
+  "phase": "PHASE_0_PRELOCK",
+  "outcomeDataInspectedForITE1": false,
+  "objective": "Evaluate whether a complete market-adaptive trade-construction engine can improve net trade expectancy and opportunity capture versus frozen R15 plan geometry without post-outcome symbol/timeframe patches.",
+  "primaryResearchAxes": {
+    "entry": [
+      "trigger_close",
+      "retest_limit",
+      "structure_confirmed_retest"
+    ],
+    "stop": [
+      "structure_only",
+      "structure_plus_atr_noise",
+      "volatility_baseline"
+    ],
+    "target": [
+      "structure_ladder",
+      "volatility_ladder",
+      "hybrid_structure_volatility_ladder"
+    ],
+    "management": [
+      "fixed_full_exit",
+      "tp1_partial_then_structure_trail",
+      "tp1_partial_plus_time_stop"
+    ]
+  },
+  "fixedPrinciples": {
+    "entryMustBeCausal": true,
+    "stopMayNotMoveToForceRRPass": true,
+    "tpMayNotExtendOnlyToForceRRPass": true,
+    "sameBarAmbiguityPolicy": "WORST_CASE_UNLESS_LOWER_TIMEFRAME_SEQUENCE_IS_AVAILABLE",
+    "feesAndSlippageApplied": true,
+    "corporateActionsRequiredForEquities": true,
+    "futuresRollHandlingRequiredWhereApplicable": true,
+    "noLookahead": true
+  },
+  "opportunityDefinition": {
+    "auditOnly": true,
+    "description": "A decision-time eligible context is an ex-post good opportunity if, under the frozen reference risk unit and horizon, price reaches the positive opportunity barrier before the adverse barrier after costs. This label is for recall audit only and cannot be used as an input at decision time.",
+    "positiveBarrierR": 1.5,
+    "adverseBarrierR": 1.0,
+    "maximumHorizonBarsByTimeframe": {
+      "15m": 64,
+      "1h": 48,
+      "4h": 30,
+      "1d": 20
+    }
+  },
+  "primaryMetrics": [
+    "netExpectancyR",
+    "netProfitFactor",
+    "netSharpe",
+    "maxDrawdownR",
+    "precision",
+    "opportunityRecall",
+    "capturedForwardMfeFraction",
+    "MAE",
+    "MFE",
+    "timeToTP1",
+    "timeToStop",
+    "turnover",
+    "costSensitivity"
+  ],
+  "secondaryMetrics": [
+    "hitRate",
+    "payoffRatio",
+    "Sortino",
+    "Calmar",
+    "monthlyPositiveFraction",
+    "marketFamilyContribution",
+    "regimeContribution",
+    "setupContribution",
+    "longShortContribution",
+    "parameterStability"
+  ],
+  "validationControls": {
+    "purge": true,
+    "embargo": true,
+    "walkForward": true,
+    "bootstrap": true,
+    "deflatedSharpeRatio": true,
+    "probabilityOfBacktestOverfitting": true,
+    "sealedHoldout": true,
+    "forwardShadowRequiredForRelianceClaim": true
+  },
+  "promotionGatesInheritedFromProgramCharter": true,
+  "forbiddenActions": [
+    "flip direction after seeing results",
+    "change market-family rule after its holdout result",
+    "add symbol-specific trading patch to rescue a failed family",
+    "reuse sealed holdout as development data",
+    "remove realistic costs because gross results look attractive",
+    "claim profitability from engineering QA"
+  ],
+  "nextAuthorizedStep": "Build ITE1 offline harness and immutable trial ledger; run only Phase-1 development experiments until one frozen configuration earns validation authorization."
+}
