@@ -1,0 +1,25 @@
+{
+  "schema":"mgpt_ite1_terminal_closeout_v1",
+  "generatedAtUtc":"2026-09-16T12:27:00Z",
+  "program":"MGPT-ITE1",
+  "status":"CLOSED_PRICE_PATTERN_ARCHITECTURE_NOT_PROVEN",
+  "frozenProductionBaseline":{
+    "release":"RC4S3H5R4R15",
+    "workerSha256":"8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "mutated":false
+  },
+  "terminalRuleActivated":true,
+  "terminalRule":"No additional price-pattern architecture family may be launched inside ITE1. Any further research must move to a separately scoped data/feature program with fresh evidence and governance.",
+  "trials":{
+    "E1":{"status":"REJECT_E1_COMPONENT_GATE","coreFinding":"Entry mechanics did not repair negative absolute expectancy."},
+    "A1":{"status":"REJECT_A1_FRESH_INSTRUMENT_GATE","coreFinding":"Trend alignment and improved payoff geometry improved candidate utility but absolute expectancy remained negative."},
+    "B1":{"status":"REJECT_B1_FRESH_INSTRUMENT_GATE","closeoutSha256":"9bbd08e963e06e83aca02f8b0cd5199fb4ef8a197642f9b7cbedf6861671aa8e","enteredTrades":69,"netExpectancyR":-0.22811685831008913,"profitFactor":0.7348613191849882,"referenceOpportunityRecall":0.013562858633281168},
+    "C1":{"status":"REJECT_C1_FRESH_INSTRUMENT_GATE","closeoutSha256":"5ceda54f5d49515e436df3fc5aa9520035a248d6fe511c1314aac022994b34bf","enteredTrades":6,"netExpectancyR":-0.37191688069467227,"profitFactor":0.5629195196832619,"referenceOpportunityRecall":0.0008326394671107411}
+  },
+  "scientificConclusion":"The tested hand-engineered price-pattern families can reduce exposure and improve utility relative to weak baselines, but the strongest filters became too sparse and none established robust positive absolute expectancy across market families. Continuing to hand-tune pattern thresholds after these outcomes would materially increase multiple-testing and overfitting risk.",
+  "nextProgram":"MGPT-IFE1",
+  "nextProgramPurpose":"Institutional Feature Evidence: a causal, abstaining meta-selection layer using frozen candidate generation plus cross-market/context features and fixed regularized models, evaluated on untouched forward time windows.",
+  "validationState":{"ite1TimeValidationOpened":false,"ite1HoldoutOpened":false},
+  "productionAuthority":false,
+  "brokerExecutionEnabled":false
+}
