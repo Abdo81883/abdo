@@ -1,0 +1,605 @@
+{
+  "schema": "mgpt_arp29_ctrend_b1_development_closeout_v1",
+  "generation": "ARP29-CTREND-B1",
+  "generatedAtUtc": "2026-09-16T00:08:27.744490+00:00",
+  "status": "REJECT_DEVELOPMENT_GATE",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "validationAuthorized": false,
+  "sealedHoldoutOpened": false,
+  "lockSha256": "646de10906e9029859d81a1b46bb14adae19fbe4f0c6b0915453cd2863c3cbb2",
+  "development": {
+    "evaluatedWeeks": 53,
+    "activeWeeks": 2,
+    "coverageFraction": 0.03773584905660377,
+    "averageEligibleSymbols": 55.9622641509434,
+    "averageSelectedForecastCount": 0.05660377358490566,
+    "zeroSelectedForecastWeekFraction": 0.9622641509433962,
+    "firstHalfNetReturn": -0.024582429045752602,
+    "secondHalfNetReturn": 0.0,
+    "singleSymbolPositiveContribution": 0.17611911857428697,
+    "gross": {
+      "n": 53,
+      "meanWeeklyReturn": -0.00019966847256136982,
+      "annualizedMean": -0.01038276057319123,
+      "annualizedSharpe": -0.4552215067172489,
+      "profitFactor": 0.4853146711239932,
+      "maxDrawdown": 0.020560968910582678,
+      "positiveMonthFraction": 0.07692307692307693,
+      "monthSums": {
+        "2024-07": 0.0,
+        "2024-08": -0.020560968910582685,
+        "2024-09": 0.009978539864830084,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.0,
+        "2025-01": 0.0,
+        "2025-02": 0.0,
+        "2025-03": 0.0,
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.2627,
+        "ci95Low": -0.0011638284289009068,
+        "ci95High": 0.0005648230112167972
+      }
+    },
+    "baseCost": {
+      "n": 53,
+      "meanWeeklyReturn": -0.00046381941595759625,
+      "annualizedMean": -0.024118609629795004,
+      "annualizedSharpe": -0.957872433821879,
+      "profitFactor": 0.20857494444169772,
+      "maxDrawdown": 0.027476755519395657,
+      "positiveMonthFraction": 0.07692307692307693,
+      "monthSums": {
+        "2024-07": 0.0,
+        "2024-08": -0.027560968910582687,
+        "2024-09": 0.0029785398648300844,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.0,
+        "2025-01": 0.0,
+        "2025-02": 0.0,
+        "2025-03": 0.0,
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.1927,
+        "ci95Low": -0.0015600548439952465,
+        "ci95High": 0.0001685965961224576
+      }
+    },
+    "stressCost": {
+      "n": 53,
+      "meanWeeklyReturn": -0.0005392911140708038,
+      "annualizedMean": -0.028043137931681797,
+      "annualizedSharpe": -1.0729212253581932,
+      "profitFactor": 0.16084509748423245,
+      "maxDrawdown": 0.029448194550485085,
+      "positiveMonthFraction": 0.07692307692307693,
+      "monthSums": {
+        "2024-07": 0.0,
+        "2024-08": -0.029560968910582686,
+        "2024-09": 0.000978539864830083,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.0,
+        "2025-01": 0.0,
+        "2025-02": 0.0,
+        "2025-03": 0.0,
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.1767,
+        "ci95Low": -0.0016732623911650576,
+        "ci95High": 5.538904895264621e-05
+      }
+    },
+    "extremeCost": {
+      "n": 53,
+      "meanWeeklyReturn": -0.0006147628121840113,
+      "annualizedMean": -0.03196766623356859,
+      "annualizedSharpe": -1.1753923038648582,
+      "profitFactor": 0.12084249269455138,
+      "maxDrawdown": 0.03243085994757133,
+      "positiveMonthFraction": 0.0,
+      "monthSums": {
+        "2024-07": 0.0,
+        "2024-08": -0.03156096891058268,
+        "2024-09": -0.0010214601351699161,
+        "2024-10": 0.0,
+        "2024-11": 0.0,
+        "2024-12": 0.0,
+        "2025-01": 0.0,
+        "2025-02": 0.0,
+        "2025-03": 0.0,
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0
+      },
+      "bootstrap": {
+        "probPositive": 0.0047,
+        "ci95Low": -0.0018057427710739238,
+        "ci95High": 0.0
+      }
+    },
+    "symbolGrossContributions": {
+      "BTCUSDT": 0.001498667855959333,
+      "ETHUSDT": 0.0,
+      "BCHUSDT": -0.0002806343156903343,
+      "XRPUSDT": 0.0014630577907827323,
+      "LTCUSDT": 0.0038695885354549427,
+      "TRXUSDT": 0.00022266543143730573,
+      "ETCUSDT": 0.0012302546531018266,
+      "LINKUSDT": 0.0,
+      "XLMUSDT": 0.0,
+      "ADAUSDT": -0.0011133408472386358,
+      "DASHUSDT": 0.0,
+      "ZECUSDT": -0.017790976628117045,
+      "XTZUSDT": 0.0005509641873278222,
+      "ATOMUSDT": -0.003799332400727864,
+      "ONTUSDT": 0.0,
+      "IOTAUSDT": 0.0,
+      "BATUSDT": -0.00014430014430014379,
+      "VETUSDT": 0.0,
+      "NEOUSDT": 0.0007973612789476745,
+      "QTUMUSDT": 0.0,
+      "IOSTUSDT": 0.00162705017673132,
+      "THETAUSDT": -0.0004672564128962745,
+      "ALGOUSDT": 0.0,
+      "ZILUSDT": 0.0,
+      "KNCUSDT": 0.0,
+      "ZRXUSDT": 0.0,
+      "COMPUSDT": 0.00026797079118376116,
+      "DOGEUSDT": 0.0005118539637588268,
+      "KAVAUSDT": -0.00013946582756296284,
+      "BANDUSDT": 0.0008524020358339869,
+      "RLCUSDT": 0.0,
+      "SNXUSDT": 0.0,
+      "DOTUSDT": 0.0,
+      "SKLUSDT": -0.008892066400053614,
+      "YFIUSDT": 0.0034220385828044775,
+      "CRVUSDT": 0.0020813957397218807,
+      "SUSHIUSDT": 0.0,
+      "RUNEUSDT": 0.0014523311005765003,
+      "EGLDUSDT": 0.0,
+      "SOLUSDT": 0.0005886638145556799,
+      "UNIUSDT": 0.0,
+      "AVAXUSDT": 0.0,
+      "ENJUSDT": 0.0,
+      "KSMUSDT": -0.0005271109130704902,
+      "NEARUSDT": 0.0,
+      "FILUSDT": 0.0006499309448371081,
+      "AAVEUSDT": -0.0027946821458664935,
+      "RSRUSDT": 0.0,
+      "BELUSDT": -0.0006822228903124349,
+      "AXSUSDT": 0.0,
+      "ZENUSDT": 0.0,
+      "GRTUSDT": 0.0,
+      "1INCHUSDT": 0.005212121212121214,
+      "SANDUSDT": 0.0017980743204052407,
+      "CHZUSDT": 0.001497902935889755,
+      "ANKRUSDT": 0.0,
+      "RVNUSDT": 0.0,
+      "SFPUSDT": -0.0005578679109601102,
+      "COTIUSDT": -0.002958478692113005,
+      "CHRUSDT": -2.8988868274581016e-05
+    },
+    "selectorMeta": [
+      {
+        "date": "2024-07-08",
+        "selected": 0,
+        "lambda": 0.0037058467449400047,
+        "aicc": -13021.670100164243,
+        "k": 3
+      },
+      {
+        "date": "2024-07-15",
+        "selected": 0,
+        "lambda": 0.005998014965090483,
+        "aicc": -12964.478068073893,
+        "k": 3
+      },
+      {
+        "date": "2024-07-22",
+        "selected": 0,
+        "lambda": 0.0018996364943507581,
+        "aicc": -12917.523360690115,
+        "k": 4
+      },
+      {
+        "date": "2024-07-29",
+        "selected": 0,
+        "lambda": 0.00654640584850824,
+        "aicc": -12892.306294861022,
+        "k": 3
+      },
+      {
+        "date": "2024-08-05",
+        "selected": 1,
+        "lambda": 0.0008139594105361687,
+        "aicc": -12757.284707135286,
+        "k": 5
+      },
+      {
+        "date": "2024-08-12",
+        "selected": 0,
+        "lambda": 0.0014563974099865025,
+        "aicc": -12744.87948159195,
+        "k": 4
+      },
+      {
+        "date": "2024-08-19",
+        "selected": 0,
+        "lambda": 0.0014449571169300633,
+        "aicc": -12859.643241211534,
+        "k": 5
+      },
+      {
+        "date": "2024-08-26",
+        "selected": 0,
+        "lambda": 0.001157163990317088,
+        "aicc": -12787.160485657676,
+        "k": 5
+      },
+      {
+        "date": "2024-09-02",
+        "selected": 2,
+        "lambda": 0.0006663280396649984,
+        "aicc": -12719.487437879838,
+        "k": 8
+      },
+      {
+        "date": "2024-09-09",
+        "selected": 0,
+        "lambda": 0.0012463001653018819,
+        "aicc": -12733.685898003767,
+        "k": 9
+      },
+      {
+        "date": "2024-09-16",
+        "selected": 0,
+        "lambda": 0.0040542946708853386,
+        "aicc": -12735.341211813262,
+        "k": 8
+      },
+      {
+        "date": "2024-09-23",
+        "selected": 0,
+        "lambda": 0.0015789572808814858,
+        "aicc": -12708.8200332396,
+        "k": 8
+      },
+      {
+        "date": "2024-09-30",
+        "selected": 0,
+        "lambda": 0.001690341560855755,
+        "aicc": -12658.909398462916,
+        "k": 8
+      },
+      {
+        "date": "2024-10-07",
+        "selected": 0,
+        "lambda": 0.003970372989793239,
+        "aicc": -12690.374487933568,
+        "k": 7
+      },
+      {
+        "date": "2024-10-14",
+        "selected": 0,
+        "lambda": 0.006949950688618503,
+        "aicc": -12775.840383145323,
+        "k": 8
+      },
+      {
+        "date": "2024-10-21",
+        "selected": 0,
+        "lambda": 0.0019468492683988377,
+        "aicc": -12754.97391326908,
+        "k": 10
+      },
+      {
+        "date": "2024-10-28",
+        "selected": 0,
+        "lambda": 0.002152559632255836,
+        "aicc": -12728.630329355541,
+        "k": 10
+      },
+      {
+        "date": "2024-11-04",
+        "selected": 0,
+        "lambda": 0.0022660770193967503,
+        "aicc": -12727.070791090035,
+        "k": 9
+      },
+      {
+        "date": "2024-11-11",
+        "selected": 0,
+        "lambda": 0.004927568051289836,
+        "aicc": -12575.779967204626,
+        "k": 10
+      },
+      {
+        "date": "2024-11-18",
+        "selected": 0,
+        "lambda": 0.007756110365654316,
+        "aicc": -12482.951763378298,
+        "k": 8
+      },
+      {
+        "date": "2024-11-25",
+        "selected": 0,
+        "lambda": 0.0023249113401541005,
+        "aicc": -11859.983408569135,
+        "k": 9
+      },
+      {
+        "date": "2024-12-02",
+        "selected": 0,
+        "lambda": 0.007286957262455386,
+        "aicc": -11730.82530628045,
+        "k": 6
+      },
+      {
+        "date": "2024-12-09",
+        "selected": 0,
+        "lambda": 0.004455367525131117,
+        "aicc": -11439.97794826145,
+        "k": 6
+      },
+      {
+        "date": "2024-12-16",
+        "selected": 0,
+        "lambda": 0.002247753704232578,
+        "aicc": -11436.374133471596,
+        "k": 7
+      },
+      {
+        "date": "2024-12-23",
+        "selected": 0,
+        "lambda": 0.0036925689096954876,
+        "aicc": -11395.242668344454,
+        "k": 6
+      },
+      {
+        "date": "2024-12-30",
+        "selected": 0,
+        "lambda": 0.0013805447084243483,
+        "aicc": -11410.517780290405,
+        "k": 7
+      },
+      {
+        "date": "2025-01-06",
+        "selected": 0,
+        "lambda": 0.0058645311954827065,
+        "aicc": -11401.863097265537,
+        "k": 7
+      },
+      {
+        "date": "2025-01-13",
+        "selected": 0,
+        "lambda": 0.003178132417146417,
+        "aicc": -11390.661578124129,
+        "k": 9
+      },
+      {
+        "date": "2025-01-20",
+        "selected": 0,
+        "lambda": 0.0014067804840431507,
+        "aicc": -11407.380830737678,
+        "k": 8
+      },
+      {
+        "date": "2025-01-27",
+        "selected": 0,
+        "lambda": 0.001288482891707997,
+        "aicc": -11426.52760486195,
+        "k": 8
+      },
+      {
+        "date": "2025-02-03",
+        "selected": 0,
+        "lambda": 0.0010863344595497875,
+        "aicc": -11382.259902254418,
+        "k": 9
+      },
+      {
+        "date": "2025-02-10",
+        "selected": 0,
+        "lambda": 0.0014033509778477136,
+        "aicc": -11370.034728147739,
+        "k": 9
+      },
+      {
+        "date": "2025-02-17",
+        "selected": 0,
+        "lambda": 0.0013390090070179023,
+        "aicc": -11412.733145811948,
+        "k": 9
+      },
+      {
+        "date": "2025-02-24",
+        "selected": 0,
+        "lambda": 0.0014597602632760128,
+        "aicc": -11466.272877820362,
+        "k": 8
+      },
+      {
+        "date": "2025-03-03",
+        "selected": 0,
+        "lambda": 0.001722619871360251,
+        "aicc": -11561.31027064639,
+        "k": 7
+      },
+      {
+        "date": "2025-03-10",
+        "selected": 0,
+        "lambda": 0.004625754308441312,
+        "aicc": -11388.312830317134,
+        "k": 6
+      },
+      {
+        "date": "2025-03-17",
+        "selected": 0,
+        "lambda": 0.0013199095081668298,
+        "aicc": -11403.242638892685,
+        "k": 5
+      },
+      {
+        "date": "2025-03-24",
+        "selected": 0,
+        "lambda": 0.0010641462956674141,
+        "aicc": -11396.520067880521,
+        "k": 5
+      },
+      {
+        "date": "2025-03-31",
+        "selected": 0,
+        "lambda": 0.0042137429219702245,
+        "aicc": -11396.194892755319,
+        "k": 6
+      },
+      {
+        "date": "2025-04-07",
+        "selected": 0,
+        "lambda": 0.0011342217157376232,
+        "aicc": -11382.72457367077,
+        "k": 3
+      },
+      {
+        "date": "2025-04-14",
+        "selected": 0,
+        "lambda": 0.0008840977549796921,
+        "aicc": -11478.999329955515,
+        "k": 3
+      },
+      {
+        "date": "2025-04-21",
+        "selected": 0,
+        "lambda": 0.000708885914313403,
+        "aicc": -11440.914246139846,
+        "k": 3
+      },
+      {
+        "date": "2025-04-28",
+        "selected": 0,
+        "lambda": 0.007017106581228891,
+        "aicc": -11385.35626581156,
+        "k": 3
+      },
+      {
+        "date": "2025-05-05",
+        "selected": 0,
+        "lambda": 0.0007663156681595207,
+        "aicc": -11342.995957607787,
+        "k": 4
+      },
+      {
+        "date": "2025-05-12",
+        "selected": 0,
+        "lambda": 0.006584449854835082,
+        "aicc": -11197.300206869579,
+        "k": 3
+      },
+      {
+        "date": "2025-05-19",
+        "selected": 0,
+        "lambda": 0.0009124209134254987,
+        "aicc": -11173.266591753443,
+        "k": 3
+      },
+      {
+        "date": "2025-05-26",
+        "selected": 0,
+        "lambda": 0.0007174415478388028,
+        "aicc": -11166.42211133392,
+        "k": 4
+      },
+      {
+        "date": "2025-06-02",
+        "selected": 0,
+        "lambda": 0.0012721854010029371,
+        "aicc": -11108.031187786912,
+        "k": 4
+      },
+      {
+        "date": "2025-06-09",
+        "selected": 0,
+        "lambda": 0.009885928181325311,
+        "aicc": -11077.504068862423,
+        "k": 2
+      },
+      {
+        "date": "2025-06-16",
+        "selected": 0,
+        "lambda": 0.006195133090378568,
+        "aicc": -11058.395725077231,
+        "k": 2
+      },
+      {
+        "date": "2025-06-23",
+        "selected": 0,
+        "lambda": 0.003441773021316286,
+        "aicc": -11013.606156502825,
+        "k": 2
+      },
+      {
+        "date": "2025-06-30",
+        "selected": 0,
+        "lambda": 0.008360072220545557,
+        "aicc": -10929.585030465485,
+        "k": 5
+      },
+      {
+        "date": "2025-07-07",
+        "selected": 0,
+        "lambda": 0.0012292647796719241,
+        "aicc": -10939.659839649432,
+        "k": 5
+      }
+    ]
+  },
+  "gate": {
+    "minimumEvaluatedWeeks": true,
+    "minimumCoverageFraction": false,
+    "averageEligibleSymbolsMin": true,
+    "baseNetMeanWeeklyReturnMin": false,
+    "baseNetAnnualizedSharpeMin": false,
+    "baseNetProfitFactorMin": false,
+    "stressNetMeanWeeklyReturnMin": false,
+    "positiveMonthFractionMin": false,
+    "firstHalfNetReturnPositive": false,
+    "secondHalfNetReturnPositive": false,
+    "bootstrapProbabilityPositiveMin": false,
+    "bootstrapCi95LowMin": true,
+    "maxDrawdownMax": true,
+    "singleSymbolPositiveContributionMax": true,
+    "averageSelectedForecastCountMin": false,
+    "zeroSelectedForecastWeekFractionMax": false
+  },
+  "failedChecks": [
+    "minimumCoverageFraction",
+    "baseNetMeanWeeklyReturnMin",
+    "baseNetAnnualizedSharpeMin",
+    "baseNetProfitFactorMin",
+    "stressNetMeanWeeklyReturnMin",
+    "positiveMonthFractionMin",
+    "firstHalfNetReturnPositive",
+    "secondHalfNetReturnPositive",
+    "bootstrapProbabilityPositiveMin",
+    "averageSelectedForecastCountMin",
+    "zeroSelectedForecastWeekFractionMax"
+  ],
+  "nextAction": "Close ARP29-CTREND-B1; no funding replay, validation, or holdout."
+}
