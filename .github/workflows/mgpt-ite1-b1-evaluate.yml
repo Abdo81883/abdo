@@ -1,0 +1,55 @@
+name: MGPT ITE1 B1 Fresh Architecture
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "marketsgpt-ite1/ite1_b1_evaluate.py"
+      - "marketsgpt-ite1/ite1_terminal_common.py"
+      - "marketsgpt-ite1/MGPT_ITE1_B1_RANGE_REVERSION_LOCK_20260916.json"
+      - "marketsgpt-ite1/MGPT_ITE1_B1_IMPLEMENTATION_SPEC_V1_20260916.json"
+      - ".github/workflows/mgpt-ite1-b1-evaluate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: mgpt-ite1-result-writer
+  cancel-in-progress: false
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --disable-pip-version-check numpy pandas
+      - name: Compile B1 evaluator
+        run: |
+          python -m py_compile marketsgpt-ite1/ite1_core.py
+          python -m py_compile marketsgpt-ite1/ite1_terminal_common.py
+          python -m py_compile marketsgpt-ite1/ite1_b1_evaluate.py
+      - name: Evaluate frozen B1 on fresh instruments only
+        shell: bash
+        run: |
+          mkdir -p marketsgpt-ite1/results
+          set +e
+          python marketsgpt-ite1/ite1_b1_evaluate.py 2>&1 | tee marketsgpt-ite1/results/MGPT_ITE1_B1_RUN_LOG_20260916.txt
+          rc=${PIPESTATUS[0]}
+          echo "$rc" > marketsgpt-ite1/results/MGPT_ITE1_B1_EXIT_CODE_20260916.txt
+          exit 0
+      - name: Commit immutable B1 evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketsgpt-ite1/results/MGPT_ITE1_B1_*
+          if git diff --cached --quiet; then
+            echo "No B1 result changes"
+          else
+            git commit -m "results: ITE1 B1 fresh architecture [skip ci]"
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Enforce B1 evaluator exit
+        run: |
+          rc="$(cat marketsgpt-ite1/results/MGPT_ITE1_B1_EXIT_CODE_20260916.txt)"
+          if [ "$rc" != "0" ]; then exit "$rc"; fi
