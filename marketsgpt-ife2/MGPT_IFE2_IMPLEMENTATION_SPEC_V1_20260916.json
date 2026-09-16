@@ -1,0 +1,96 @@
+{
+  "schema": "mgpt_ife2_implementation_spec_v1",
+  "generatedAtUtc": "2026-09-16T12:46:00Z",
+  "program": "MGPT-IFE2",
+  "status": "FROZEN_BEFORE_IFE2_PERFORMANCE_OUTCOMES",
+  "parentLock": "MGPT_IFE2_DISTRIBUTIONAL_OPPORTUNITY_LOCK_20260916.json",
+  "candidateDedup": {
+    "key": "symbol/timeframe/signal timestamp/direction",
+    "encoding": "Collapse all frozen generic setups on the same key; retain isBreakout/isPullback/isSweep multi-hot flags.",
+    "executionRepresentative": "The first generated candidate is used only for the frozen trigger_close plan builder; trigger_close plan geometry is independent of setup_level."
+  },
+  "splitPurity": {
+    "fit": "signal and worst-case frozen baseline exit must both be strictly before 2026-03-01T00:00:00Z.",
+    "development": "signal and worst-case frozen baseline exit must both be strictly before 2026-05-01T00:00:00Z.",
+    "boundaryCandidates": "Discard."
+  },
+  "addedFeatureDefinitions": {
+    "ret1_atr": "(close-close[-1])/ATR14.",
+    "ret3_atr": "(close-close[-3])/ATR14.",
+    "ret6_atr": "(close-close[-6])/ATR14.",
+    "ret12_atr": "(close-close[-12])/ATR14.",
+    "efficiency20": "abs(close-close[-20]) / sum(abs(close[j]-close[j-1])) across the last 20 completed intervals; NaN if denominator zero.",
+    "close_pos20": "(close-prior20Low)/(prior20High-prior20Low), not clipped.",
+    "close_pos50": "(close-prior50Low)/(prior50High-prior50Low), not clipped.",
+    "atr_accel10": "ATR14/ATR14[-10]-1.",
+    "rv_accel20": "rv20/rv20[-20]-1.",
+    "volume_z20": "(signal-bar volume - mean of previous 20 completed volumes) / std(previous 20); NaN when volume unavailable/zero-variance.",
+    "hour_sin": "sin(2*pi*UTC_hour/24).",
+    "hour_cos": "cos(2*pi*UTC_hour/24).",
+    "weekday_sin": "sin(2*pi*UTC_weekday/7).",
+    "weekday_cos": "cos(2*pi*UTC_weekday/7).",
+    "distance_ema200_atr": "(close-EMA200)/ATR14.",
+    "vix_change5": "latest causally available completed-daily VIX close/close[-5]-1.",
+    "spx_return5": "latest causally available completed-daily S&P500 close/close[-5]-1.",
+    "dxy_return5": "latest causally available completed-daily DXY close/close[-5]-1.",
+    "btc_return5": "latest causally available completed-daily BTC close/close[-5]-1."
+  },
+  "inheritedFeatures": "All IFE1 causal features use the exact IFE1 definitions; daily context availability remains timestamp + 1 UTC day.",
+  "targetConstruction": {
+    "entry": "Actual frozen trigger_close entry.",
+    "horizon": "48 evaluated bars on 1h; 30 evaluated bars on 4h, bounded inside fit/development split.",
+    "signalAtr": "ATR14 known on completed signal bar.",
+    "goodOpportunity": "From actual entry, +1.5*signalATR favorable barrier must occur before -1.0*signalATR adverse barrier; adverse barrier wins same-bar ambiguity.",
+    "tailLoss": "Frozen base-cost plan netR <= -0.75R.",
+    "mfeAtr": "Maximum favorable excursion from actual entry / signalATR across horizon.",
+    "maeAtr": "Maximum adverse excursion from actual entry / signalATR across horizon."
+  },
+  "preprocessing": {
+    "numericAndBinary": "MedianImputer -> StandardScaler.",
+    "categorical": "Most-frequent imputer -> OneHotEncoder(handle_unknown=ignore,dense).",
+    "fitOnly": "Preprocessor fitted on IFE2 fit window only."
+  },
+  "modelSemantics": {
+    "pGoodScore": "Logistic classifier score for goodOpportunity; not calibrated probability.",
+    "pTailLossScore": "Logistic classifier score for tailLoss; not calibrated probability.",
+    "predMfeQ25Atr": "25th-quantile HGB estimate for MFE/ATR.",
+    "predMaeQ75Atr": "75th-quantile HGB estimate for MAE/ATR.",
+    "qualityScore": "0.60*(pGoodScore-pTailLossScore)+0.40*tanh((predMfeQ25Atr-predMaeQ75Atr)/1.5)."
+  },
+  "causalAdaptiveThreshold": {
+    "fitHistory": "For each marketFamily, initialize score history with all fit-window qualityScore values after the four frozen models are fitted.",
+    "developmentOrdering": "Sort development candidates by entryUtc. All candidates sharing the same entryUtc are evaluated against histories containing only fit scores plus scores from strictly earlier development timestamps.",
+    "threshold": "85th percentile of same-market-family history when at least 200 history rows exist.",
+    "historyUpdate": "After decisions at a timestamp are frozen, append all candidate scores from that timestamp to their market-family histories. Realized outcomes are never used.",
+    "hardGates": [
+      "pGoodScore >= 0.50",
+      "pTailLossScore <= 0.50",
+      "predMfeQ25Atr >= predMaeQ75Atr",
+      "actual_tp2_r >= 1.25"
+    ]
+  },
+  "evaluation": {
+    "baseOutcome": "Frozen base-cost netR of selected candidates.",
+    "stressOutcome": "Frozen stress-cost netR of selected candidates.",
+    "recall": "Selected goodOpportunity count / all eligible development goodOpportunity count.",
+    "precision": "Selected goodOpportunity count / selected-trade count.",
+    "candidateUtility": "selected netR, otherwise zero.",
+    "baselineComparator": "All eligible candidate netR.",
+    "aucs": [
+      "goodOpportunity vs pGoodScore",
+      "tailLoss vs pTailLossScore"
+    ],
+    "positiveMonth": "UTC signal-month sum of selected netR >0.",
+    "firstSecondHalf": "Chronological midpoint of selected trades.",
+    "concentration": "Max positive family total netR / sum of positive family total netR."
+  },
+  "bootstrap": "Hierarchical symbol/timeframe resampling with circular candidate blocks, using parent-lock iterations/seed/block length.",
+  "forbidden": [
+    "No change to added/inherited features after outcomes.",
+    "No model/hyperparameter change after outcomes.",
+    "No score-weight change after outcomes.",
+    "No percentile or hard-gate change after outcomes.",
+    "No post-outcome market-family exception.",
+    "No validation/holdout access unless every development gate passes."
+  ]
+}
