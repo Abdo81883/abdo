@@ -44,22 +44,69 @@
   },
   "timeframes": {
     "source": "1h",
-    "evaluated": ["1h", "4h"],
+    "evaluated": [
+      "1h",
+      "4h"
+    ],
     "fourHourAggregation": "UTC-anchored exact groups of four source bars; incomplete groups are discarded.",
     "smallTimeframeBoundary": "15m remains sealed from E1 because a clean long multi-market development extract has not yet been frozen. It will be a separate transport/timeframe program after core component viability."
   },
   "universe": [
-    {"marketFamily":"CRYPTO_SPOT","symbol":"X:BTCUSD","role":"large-cap leader"},
-    {"marketFamily":"CRYPTO_SPOT","symbol":"X:ETHUSD","role":"large-cap second leader"},
-    {"marketFamily":"FX","symbol":"C:EURUSD","role":"major"},
-    {"marketFamily":"FX","symbol":"C:GBPUSD","role":"major"},
-    {"marketFamily":"FX","symbol":"C:USDJPY","role":"major"},
-    {"marketFamily":"METALS_SPOT","symbol":"C:XAUUSD","role":"gold spot quote aggregate"},
-    {"marketFamily":"METALS_SPOT","symbol":"C:XAGUSD","role":"silver spot quote aggregate"},
-    {"marketFamily":"EQUITY","symbol":"AAPL","role":"liquid mega-cap"},
-    {"marketFamily":"EQUITY","symbol":"MSFT","role":"liquid mega-cap"},
-    {"marketFamily":"EQUITY","symbol":"NVDA","role":"liquid mega-cap"},
-    {"marketFamily":"INDEX","symbol":"I:NDX","role":"Nasdaq-100 index values"}
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "X:BTCUSD",
+      "role": "large-cap leader"
+    },
+    {
+      "marketFamily": "CRYPTO_SPOT",
+      "symbol": "X:ETHUSD",
+      "role": "large-cap second leader"
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "C:EURUSD",
+      "role": "major"
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "C:GBPUSD",
+      "role": "major"
+    },
+    {
+      "marketFamily": "FX",
+      "symbol": "C:USDJPY",
+      "role": "major"
+    },
+    {
+      "marketFamily": "METALS_SPOT",
+      "symbol": "C:XAUUSD",
+      "role": "gold spot quote aggregate"
+    },
+    {
+      "marketFamily": "METALS_SPOT",
+      "symbol": "C:XAGUSD",
+      "role": "silver spot quote aggregate"
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "AAPL",
+      "role": "liquid mega-cap"
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "MSFT",
+      "role": "liquid mega-cap"
+    },
+    {
+      "marketFamily": "EQUITY",
+      "symbol": "NVDA",
+      "role": "liquid mega-cap"
+    },
+    {
+      "marketFamily": "INDEX",
+      "symbol": "I:NDX",
+      "role": "Nasdaq-100 index values"
+    }
   ],
   "explicitlyDeferredFamilies": {
     "futures": "Deferred from E1 until a point-in-time contract chain and causal roll/back-adjustment protocol is locked using Massive futures contract metadata. Opaque vendor continuous contracts are prohibited.",
@@ -73,11 +120,26 @@
     "CRYPTO_SPOT": "Crypto aggregates are trade-derived provider aggregates."
   },
   "costModelOneWayBps": {
-    "CRYPTO_SPOT": {"base":10.0,"stress":15.0},
-    "FX": {"base":1.5,"stress":3.0},
-    "METALS_SPOT": {"base":2.5,"stress":5.0},
-    "EQUITY": {"base":3.0,"stress":6.0},
-    "INDEX": {"base":1.5,"stress":3.0}
+    "CRYPTO_SPOT": {
+      "base": 10,
+      "stress": 15
+    },
+    "FX": {
+      "base": 1.5,
+      "stress": 3
+    },
+    "METALS_SPOT": {
+      "base": 2.5,
+      "stress": 5
+    },
+    "EQUITY": {
+      "base": 3,
+      "stress": 6
+    },
+    "INDEX": {
+      "base": 1.5,
+      "stress": 3
+    }
   },
   "costDisclosure": "Modeled one-way friction is a conservative Phase-1 ranking rail, not a broker-specific fill guarantee. Index results are signal-quality evidence only until mapped to an executable index instrument.",
   "frozenComponents": {
@@ -86,7 +148,10 @@
     "target": "hybrid_structure_volatility_ladder",
     "management": "fixed_full_exit",
     "maximumEntryWaitBars": 4,
-    "maximumHoldingBarsByTimeframe": {"1h":48,"4h":30}
+    "maximumHoldingBarsByTimeframe": {
+      "1h": 48,
+      "4h": 30
+    }
   },
   "entryChallengers": [
     "trigger_close",
@@ -95,7 +160,7 @@
   ],
   "opportunityAudit": {
     "positiveBarrierR": 1.5,
-    "adverseBarrierR": 1.0,
+    "adverseBarrierR": 1,
     "sameBarRule": "adverse barrier wins",
     "referenceEntry": "next source-bar open",
     "riskUnit": "signal-time ATR14",
@@ -107,15 +172,15 @@
     "minimumActiveMarketFamilies": 5,
     "minimumActiveInstrumentTimeframeBlocks": 18,
     "minimumNetExpectancyR": 0.03,
-    "minimumStressNetExpectancyR": 0.0,
-    "minimumProfitFactor": 1.10,
+    "minimumStressNetExpectancyR": 0,
+    "minimumProfitFactor": 1.1,
     "minimumOpportunityRecall": 0.45,
     "minimumPrecision": 0.45,
-    "minimumPositiveMarketFamilyFraction": 0.60,
+    "minimumPositiveMarketFamilyFraction": 0.6,
     "minimumPositiveBlockFraction": 0.55,
-    "bootstrapProbabilityPositiveExpectancyMin": 0.90,
-    "challengerBootstrapProbabilityDeltaVsBaselinePositiveMin": 0.90,
-    "maximumRelativeRecallDegradationVsBaseline": 0.20,
+    "bootstrapProbabilityPositiveExpectancyMin": 0.9,
+    "challengerBootstrapProbabilityDeltaVsBaselinePositiveMin": 0.9,
+    "maximumRelativeRecallDegradationVsBaseline": 0.2,
     "failureOutcome": "No E1 threshold rescue. If no entry mode passes, S1/T1/M1 remain sealed and the candidate/setup architecture must be amended before another development run."
   },
   "antiSelectionRules": [
@@ -127,5 +192,29 @@
     "No treating NDX index values as directly executable fills."
   ],
   "dataFreezeRule": "The SHA-256 of every staged provider extract must be recorded before E1 performance evaluation.",
-  "nextAuthorizedAction": "Stage and checksum Massive hourly development extracts only, then execute E1 on the frozen data. Validation and holdout remain unopened."
+  "nextAuthorizedAction": "Stage and checksum Massive hourly development extracts only, then execute E1 on the frozen data. Validation and holdout remain unopened.",
+  "bootstrap": {
+    "method": "hierarchical instrument-timeframe bootstrap with circular candidate blocks",
+    "iterations": 5000,
+    "seed": 11001,
+    "blockLengthCandidates": 20
+  },
+  "dataFiles": {
+    "directory": "marketsgpt-ite1/data/e1_v2",
+    "namingRule": "provider ticker mapped to filesystem-safe name plus _1h.csv",
+    "mappings": {
+      "X:BTCUSD": "X_BTCUSD_1h.csv",
+      "X:ETHUSD": "X_ETHUSD_1h.csv",
+      "C:EURUSD": "C_EURUSD_1h.csv",
+      "C:GBPUSD": "C_GBPUSD_1h.csv",
+      "C:USDJPY": "C_USDJPY_1h.csv",
+      "C:XAUUSD": "C_XAUUSD_1h.csv",
+      "C:XAGUSD": "C_XAGUSD_1h.csv",
+      "AAPL": "AAPL_1h.csv",
+      "MSFT": "MSFT_1h.csv",
+      "NVDA": "NVDA_1h.csv",
+      "I:NDX": "I_NDX_1h.csv"
+    },
+    "coverageGate": "Every file must begin no later than 2024-11-02 UTC and extend through at least 2025-06-29 UTC. Provider warning/error text is a hard failure."
+  }
 }
