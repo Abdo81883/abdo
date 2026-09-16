@@ -1,0 +1,915 @@
+{
+  "blockDiagnostics": [
+    {
+      "bars": 2754,
+      "candidateGroups": 480,
+      "eligibleRows": 445,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "CL=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 591,
+      "candidateGroups": 122,
+      "eligibleRows": 94,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "CL=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2757,
+      "candidateGroups": 496,
+      "eligibleRows": 464,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "NG=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 592,
+      "candidateGroups": 109,
+      "eligibleRows": 84,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "NG=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2254,
+      "candidateGroups": 337,
+      "eligibleRows": 301,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "ZC=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 469,
+      "candidateGroups": 60,
+      "eligibleRows": 36,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "ZC=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2253,
+      "candidateGroups": 343,
+      "eligibleRows": 314,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "ZS=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 469,
+      "candidateGroups": 68,
+      "eligibleRows": 38,
+      "marketFamily": "COMMODITY_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "ZS=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 739,
+      "eligibleRows": 716,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "ADA-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 198,
+      "eligibleRows": 181,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "ADA-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 697,
+      "eligibleRows": 671,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "AVAX-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 200,
+      "eligibleRows": 186,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "AVAX-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 818,
+      "eligibleRows": 789,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "BCH-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 200,
+      "eligibleRows": 174,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "BCH-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 729,
+      "eligibleRows": 706,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "BTC-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 193,
+      "eligibleRows": 175,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "BTC-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 718,
+      "eligibleRows": 687,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "DOGE-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 195,
+      "eligibleRows": 175,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "DOGE-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 778,
+      "eligibleRows": 744,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "DOT-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 211,
+      "eligibleRows": 197,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "DOT-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 697,
+      "eligibleRows": 666,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "ETH-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 172,
+      "eligibleRows": 159,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "ETH-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 746,
+      "eligibleRows": 718,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "LINK-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 203,
+      "eligibleRows": 190,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "LINK-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 773,
+      "eligibleRows": 750,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "LTC-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 211,
+      "eligibleRows": 195,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "LTC-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 760,
+      "eligibleRows": 732,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "SOL-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 207,
+      "eligibleRows": 190,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "SOL-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 4324,
+      "candidateGroups": 769,
+      "eligibleRows": 740,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "XRP-USD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1080,
+      "candidateGroups": 198,
+      "eligibleRows": 178,
+      "marketFamily": "CRYPTO_SPOT",
+      "status": "OK",
+      "symbol": "XRP-USD",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 146,
+      "eligibleRows": 121,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "AAPL",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 156,
+      "eligibleRows": 121,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "AMD",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 132,
+      "eligibleRows": 105,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "AMZN",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 159,
+      "eligibleRows": 128,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "AVGO",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 843,
+      "candidateGroups": 144,
+      "eligibleRows": 120,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "CRM",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 160,
+      "eligibleRows": 118,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "GOOGL",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 843,
+      "candidateGroups": 133,
+      "eligibleRows": 111,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "JPM",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 129,
+      "eligibleRows": 104,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "META",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 165,
+      "eligibleRows": 131,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "MSFT",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 142,
+      "eligibleRows": 109,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "MU",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 157,
+      "eligibleRows": 126,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "NFLX",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 155,
+      "eligibleRows": 115,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "NVDA",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 843,
+      "candidateGroups": 147,
+      "eligibleRows": 117,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "ORCL",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 148,
+      "eligibleRows": 122,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "QCOM",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 132,
+      "eligibleRows": 98,
+      "marketFamily": "EQUITY",
+      "status": "OK",
+      "symbol": "TSLA",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 3037,
+      "candidateGroups": 796,
+      "eligibleRows": 765,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "AUDCAD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 736,
+      "candidateGroups": 170,
+      "eligibleRows": 142,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "AUDCAD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3014,
+      "candidateGroups": 622,
+      "eligibleRows": 591,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "AUDJPY=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 730,
+      "candidateGroups": 164,
+      "eligibleRows": 137,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "AUDJPY=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3038,
+      "candidateGroups": 595,
+      "eligibleRows": 559,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "AUDUSD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 736,
+      "candidateGroups": 147,
+      "eligibleRows": 120,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "AUDUSD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3038,
+      "candidateGroups": 747,
+      "eligibleRows": 707,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "CAD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 740,
+      "candidateGroups": 186,
+      "eligibleRows": 164,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "CAD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2999,
+      "candidateGroups": 618,
+      "eligibleRows": 581,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "CHF=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 730,
+      "candidateGroups": 150,
+      "eligibleRows": 127,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "CHF=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3024,
+      "candidateGroups": 651,
+      "eligibleRows": 621,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURAUD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 732,
+      "candidateGroups": 184,
+      "eligibleRows": 155,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURAUD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3026,
+      "candidateGroups": 673,
+      "eligibleRows": 633,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURCAD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 734,
+      "candidateGroups": 149,
+      "eligibleRows": 125,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURCAD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3028,
+      "candidateGroups": 643,
+      "eligibleRows": 597,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURGBP=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 734,
+      "candidateGroups": 140,
+      "eligibleRows": 118,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURGBP=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3016,
+      "candidateGroups": 680,
+      "eligibleRows": 639,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURJPY=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 730,
+      "candidateGroups": 126,
+      "eligibleRows": 109,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURJPY=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3010,
+      "candidateGroups": 502,
+      "eligibleRows": 469,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURUSD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 730,
+      "candidateGroups": 112,
+      "eligibleRows": 94,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "EURUSD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3036,
+      "candidateGroups": 666,
+      "eligibleRows": 628,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "GBPAUD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 736,
+      "candidateGroups": 169,
+      "eligibleRows": 136,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "GBPAUD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3014,
+      "candidateGroups": 667,
+      "eligibleRows": 630,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "GBPJPY=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 730,
+      "candidateGroups": 164,
+      "eligibleRows": 140,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "GBPJPY=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3011,
+      "candidateGroups": 586,
+      "eligibleRows": 556,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "GBPUSD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 730,
+      "candidateGroups": 136,
+      "eligibleRows": 114,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "GBPUSD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2995,
+      "candidateGroups": 629,
+      "eligibleRows": 598,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "JPY=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 731,
+      "candidateGroups": 148,
+      "eligibleRows": 123,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "JPY=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 3038,
+      "candidateGroups": 559,
+      "eligibleRows": 530,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "NZDUSD=X",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 736,
+      "candidateGroups": 146,
+      "eligibleRows": 130,
+      "marketFamily": "FX",
+      "status": "OK",
+      "symbol": "NZDUSD=X",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 152,
+      "eligibleRows": 122,
+      "marketFamily": "INDEX",
+      "status": "OK",
+      "symbol": "^DJI",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 181,
+      "eligibleRows": 135,
+      "marketFamily": "INDEX",
+      "status": "OK",
+      "symbol": "^GSPC",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 181,
+      "eligibleRows": 133,
+      "marketFamily": "INDEX",
+      "status": "OK",
+      "symbol": "^IXIC",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 844,
+      "candidateGroups": 184,
+      "eligibleRows": 133,
+      "marketFamily": "INDEX",
+      "status": "OK",
+      "symbol": "^NDX",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 843,
+      "candidateGroups": 167,
+      "eligibleRows": 140,
+      "marketFamily": "INDEX",
+      "status": "OK",
+      "symbol": "^NYA",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 843,
+      "candidateGroups": 161,
+      "eligibleRows": 127,
+      "marketFamily": "INDEX",
+      "status": "OK",
+      "symbol": "^RUT",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 1077,
+      "candidateGroups": 208,
+      "eligibleRows": 178,
+      "marketFamily": "INDEX",
+      "status": "OK",
+      "symbol": "^STOXX50E",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 2761,
+      "candidateGroups": 549,
+      "eligibleRows": 522,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "GC=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 592,
+      "candidateGroups": 104,
+      "eligibleRows": 80,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "GC=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2761,
+      "candidateGroups": 516,
+      "eligibleRows": 482,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "HG=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 592,
+      "candidateGroups": 110,
+      "eligibleRows": 82,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "HG=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2754,
+      "candidateGroups": 541,
+      "eligibleRows": 508,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "PL=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 591,
+      "candidateGroups": 112,
+      "eligibleRows": 91,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "PL=F",
+      "timeframe": "4h"
+    },
+    {
+      "bars": 2761,
+      "candidateGroups": 565,
+      "eligibleRows": 536,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "SI=F",
+      "timeframe": "1h"
+    },
+    {
+      "bars": 592,
+      "candidateGroups": 109,
+      "eligibleRows": 86,
+      "marketFamily": "METALS_FUTURES_PROXY",
+      "status": "OK",
+      "symbol": "SI=F",
+      "timeframe": "4h"
+    }
+  ],
+  "bootstrap": {
+    "blockLengthCandidates": 20,
+    "ci95NetExpectancyR": [
+      0.0,
+      0.0
+    ],
+    "ci95UtilityDeltaR": [
+      0.1301255043339618,
+      0.20714531908505382
+    ],
+    "iterations": 5000,
+    "method": "hierarchical instrument-timeframe circular candidate blocks",
+    "probabilityPositiveNetExpectancy": 0.0,
+    "probabilityPositiveUtilityDeltaVsAllEligible": 1.0,
+    "seed": 16001
+  },
+  "checks": {
+    "bootstrapProbabilityPositiveNetMin": false,
+    "bootstrapProbabilityPositiveUtilityDeltaVsAllEligibleMin": true,
+    "candidateUtilityDeltaRMin": true,
+    "firstHalfPositive": false,
+    "goodScoreAucMin": false,
+    "minimumActiveBlocks": false,
+    "minimumActiveMarketFamilies": false,
+    "minimumDevelopmentEligibleRows": true,
+    "minimumFitRows": true,
+    "minimumSelectedTrades": false,
+    "netExpectancyRMin": false,
+    "opportunityPrecisionMin": false,
+    "opportunityRecallMin": false,
+    "positiveBlockFractionMin": false,
+    "positiveMarketFamilyFractionMin": false,
+    "positiveMonthFractionMin": false,
+    "profitFactorMin": false,
+    "secondHalfPositive": false,
+    "selectionCoverageMax": true,
+    "selectionCoverageMin": false,
+    "singleMarketFamilyPositiveContributionMax": true,
+    "stressNetExpectancyRMin": false,
+    "tailLossScoreAucMin": true
+  },
+  "dataFreezeSha256": "97281c080c5c212e0f0e9abccae35493f3b6b5a8927b8d9a2080aeb2cd5466ae",
+  "failedChecks": [
+    "minimumSelectedTrades",
+    "minimumActiveMarketFamilies",
+    "minimumActiveBlocks",
+    "selectionCoverageMin",
+    "netExpectancyRMin",
+    "stressNetExpectancyRMin",
+    "profitFactorMin",
+    "opportunityRecallMin",
+    "opportunityPrecisionMin",
+    "positiveMarketFamilyFractionMin",
+    "positiveBlockFractionMin",
+    "firstHalfPositive",
+    "secondHalfPositive",
+    "positiveMonthFractionMin",
+    "bootstrapProbabilityPositiveNetMin",
+    "goodScoreAucMin"
+  ],
+  "fitRows": 13468,
+  "freshValidationOpened": false,
+  "generatedAtUtc": "2026-09-16T12:58:59.666367+00:00",
+  "implementationSpecSha256": "6137b1df989088ad0a03f5fb5465839f31a31aaa8ae5a902f09145432afded48",
+  "independentProviderReplicationRequiredBeforeValidation": false,
+  "lockSha256": "487cb858ced30d59cdda4c3e89aac9c7c6fd358e8ab2cefad3c12053ff168139",
+  "metrics": {
+    "activeBlocks": 0,
+    "activeMarketFamilies": 0,
+    "allEligibleBaselineExpectancyR": -0.1701180148086774,
+    "blockExpectancyR": {},
+    "candidateUtilityDeltaR": 0.1701180148086774,
+    "developmentEligibleRows": 14366,
+    "familyExpectancyR": {},
+    "firstHalfNetExpectancyR": 0.0,
+    "goodScoreAuc": 0.5144146257641198,
+    "hitRate": 0.0,
+    "maxDrawdownR": 0.0,
+    "netExpectancyR": 0.0,
+    "opportunityPrecision": 0.0,
+    "opportunityRecall": 0.0,
+    "positiveBlockFraction": 0.0,
+    "positiveMarketFamilyFraction": 0.0,
+    "positiveMonthFraction": 0.0,
+    "profitFactor": 0.0,
+    "secondHalfNetExpectancyR": 0.0,
+    "selectedCandidateUtilityMeanR": 0.0,
+    "selectedTrades": 0,
+    "selectionCoverage": 0.0,
+    "singleMarketFamilyPositiveContribution": 0.0,
+    "stressNetExpectancyR": 0.0,
+    "tailLossScoreAuc": 0.7023695892893025
+  },
+  "modelArtifactSha256": "870b8d7cda2d0918b7a830c485c5e4ef7bbeda94c61ec1d3a662f930c96142a7",
+  "nextAction": "Register IFE2 rejection. Do not tune IFE2 on these outcomes. Keep validation and holdout sealed; any further program must add genuinely new information such as venue microstructure/funding/order-book/event data.",
+  "productionAuthority": false,
+  "r15MutationAllowed": false,
+  "schema": "mgpt_ife2_development_closeout_v1",
+  "sealedHoldoutOpened": false,
+  "status": "REJECT_IFE2_DEVELOPMENT_GATE",
+  "terminalRuleOnFailure": "If IFE2 fails development, do not rescue it on IFE2 evidence. Any further attempt must add genuinely new data information (e.g. venue microstructure/funding/order-book/event data) under a new program, rather than another transformation of the same OHLC/context features."
+}
