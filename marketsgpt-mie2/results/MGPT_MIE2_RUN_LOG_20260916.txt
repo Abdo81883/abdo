@@ -1,0 +1,63 @@
+{
+  "status": "REJECT_MIE2_DEVELOPMENT_GATE",
+  "fitSymbolHours": 52116,
+  "developmentSymbolHours": 34260,
+  "failedChecks": [
+    "netExpectancyRMin",
+    "stressNetExpectancyRMin",
+    "profitFactorMin",
+    "opportunityPrecisionMin",
+    "positiveSymbolFractionMin",
+    "positiveMonthFractionMin",
+    "secondHalfPositive",
+    "longBetterHgbAucMin",
+    "tradableHgbAucMin",
+    "bootstrapProbabilityPositiveNetMin",
+    "singleSymbolPositiveContributionMax"
+  ],
+  "metrics": {
+    "developmentSymbolHours": 34260,
+    "selectedTrades": 5710,
+    "selectionCoverage": 0.16666666666666666,
+    "activeSymbols": 12,
+    "activeDirections": [
+      "LONG",
+      "SHORT"
+    ],
+    "netExpectancyR": 0.0036859329976336656,
+    "stressNetExpectancyR": -0.06535045822312774,
+    "profitFactor": 1.006033118506785,
+    "hitRate": 0.44728546409807357,
+    "maxDrawdownR": 199.8693478433433,
+    "pairDirectionAccuracy": 0.5690017513134851,
+    "opportunityRecall": 0.09362431103828393,
+    "opportunityPrecision": 0.4402802101576182,
+    "positiveSymbolFraction": 0.5,
+    "positiveMonthFraction": 0.25,
+    "firstHalfNetExpectancyR": 0.031213803609797128,
+    "secondHalfNetExpectancyR": -0.023841937614529806,
+    "longBetterLogitAuc": 0.579484806496263,
+    "longBetterHgbAuc": 0.5400959213407152,
+    "tradableHgbAuc": 0.51046146537794,
+    "spreadSpearman": 0.05632638469038655,
+    "selectedDeltaVsPairMeanR": 0.11948784901301278,
+    "portfolioClockBaselineR": -0.12098714621224615,
+    "singleSymbolPositiveContribution": 0.2796642398830561
+  },
+  "bootstrap": {
+    "method": "hierarchical symbol circular 24-hour decision blocks with frozen selections",
+    "iterations": 5000,
+    "seed": 18001,
+    "blockLengthHours": 24,
+    "probabilityPositiveNetExpectancy": 0.5532,
+    "ci95NetExpectancyR": [
+      -0.04193396401609355,
+      0.04978296683273829
+    ],
+    "probabilityPositiveDeltaVsPairMean": 1.0,
+    "ci95DeltaVsPairMeanR": [
+      0.07776453124893005,
+      0.16184677134773884
+    ]
+  }
+}
