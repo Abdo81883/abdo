@@ -1,32 +1,36 @@
 {
-  "schema":"mgpt_ite1_a1_implementation_spec_v1",
-  "generatedAtUtc":"2026-09-16T02:04:00Z",
-  "program":"MGPT-ITE1",
-  "trial":"ITE1-A1",
-  "status":"FROZEN_BEFORE_A1_OUTCOMES",
-  "parentLock":"MGPT_ITE1_A1_CONTEXTUAL_TREND_LOCK_20260916.json",
-  "clarifications":{
-    "higherTimeframeTrend":{
-      "definitionLong":"On the previous completed higher-timeframe bar: EMA20 > EMA50, close > EMA20, and EMA50 > EMA50 five higher-timeframe bars earlier.",
-      "definitionShort":"Mirror: EMA20 < EMA50, close < EMA20, and EMA50 < EMA50 five higher-timeframe bars earlier.",
-      "ema200NotRequired":"The higher-timeframe filter is directional confirmation, not a second copy of the local trend stack. Local A1 trend still requires EMA20/EMA50/EMA200 exactly as locked.",
-      "causality":"The current/incomplete higher-timeframe bucket is never used."
+  "schema": "mgpt_ite1_a1_implementation_spec_v1",
+  "generatedAtUtc": "2026-09-16T02:04:00Z",
+  "program": "MGPT-ITE1",
+  "trial": "ITE1-A1",
+  "status": "FROZEN_BEFORE_A1_OUTCOMES",
+  "parentLock": "MGPT_ITE1_A1_CONTEXTUAL_TREND_LOCK_20260916.json",
+  "clarifications": {
+    "higherTimeframeTrend": {
+      "definitionLong": "On the previous completed higher-timeframe bar: EMA20 > EMA50, close > EMA20, and EMA50 > EMA50 five higher-timeframe bars earlier.",
+      "definitionShort": "Mirror: EMA20 < EMA50, close < EMA20, and EMA50 < EMA50 five higher-timeframe bars earlier.",
+      "ema200NotRequired": "The higher-timeframe filter is directional confirmation, not a second copy of the local trend stack. Local A1 trend still requires EMA20/EMA50/EMA200 exactly as locked.",
+      "causality": "The current/incomplete higher-timeframe bucket is never used."
     },
-    "referenceBaselineDeduplication":{
-      "key":"instrument + evaluated timeframe + signal timestamp + direction",
-      "priority":["BREAKOUT","PULLBACK","SWEEP_RECLAIM"],
-      "purpose":"Create one frozen E1 reference action per opportunity clock for precision/recall and utility-delta comparison.",
-      "baselineExecution":"trigger_close entry with E1 frozen structure_plus_atr_noise stop, hybrid_structure_volatility_ladder targets and fixed_full_exit management."
+    "referenceBaselineDeduplication": {
+      "key": "instrument + evaluated timeframe + signal timestamp + direction",
+      "priority": [
+        "BREAKOUT",
+        "PULLBACK",
+        "SWEEP_RECLAIM"
+      ],
+      "purpose": "Create one frozen E1 reference action per opportunity clock for precision/recall and utility-delta comparison.",
+      "baselineExecution": "trigger_close entry with E1 frozen structure_plus_atr_noise stop, hybrid_structure_volatility_ladder targets and fixed_full_exit management."
     },
-    "referenceOpportunityAudit":{
-      "positiveBarrierR":1.5,
-      "adverseBarrierR":1.0,
-      "riskUnit":"signal-time ATR14",
-      "sameBar":"adverse barrier wins",
-      "matchingRule":"An A1 trade captures a good reference opportunity only when it is on the exact same instrument/timeframe/signal timestamp/direction key."
+    "referenceOpportunityAudit": {
+      "positiveBarrierR": 1.5,
+      "adverseBarrierR": 1,
+      "riskUnit": "signal-time ATR14",
+      "sameBar": "adverse barrier wins",
+      "matchingRule": "An A1 trade captures a good reference opportunity only when it is on the exact same instrument/timeframe/signal timestamp/direction key."
     },
-    "targetConstruction":{
-      "candidateLong":[
+    "targetConstruction": {
+      "candidateLong": [
         "prior completed 50-bar high above actual entry",
         "prior completed 120-bar high above actual entry",
         "prior20High + prior20Range",
@@ -35,32 +39,33 @@
         "actualEntry + 2.0*ATR14",
         "actualEntry + 3.0*ATR14"
       ],
-      "candidateShort":"Mirror of long.",
-      "selection":"Sort causal candidates from nearest to farthest in trade direction. TP1 is the nearest progressive candidate at or beyond 0.80R; TP2 the next distinct progressive candidate at or beyond 1.50R; TP3 the next distinct progressive candidate at or beyond 2.50R.",
-      "minimumDistinctGap":"0.10 ATR14 between progressive targets.",
-      "failure":"If all three cannot be selected from the candidate set, do not trade."
+      "candidateShort": "Mirror of long.",
+      "selection": "Sort causal candidates from nearest to farthest in trade direction. TP1 is the nearest progressive candidate at or beyond 0.80R; TP2 the next distinct progressive candidate at or beyond 1.50R; TP3 the next distinct progressive candidate at or beyond 2.50R.",
+      "minimumDistinctGap": "0.10 ATR14 between progressive targets.",
+      "failure": "If all three cannot be selected from the candidate set, do not trade."
     },
-    "entryAndCost":{
-      "entry":"next evaluated bar open",
-      "sameBarAmbiguity":"stop wins over TP2",
-      "cost":"round-trip modeled from the locked one-way bps using entry and exit notional divided by initial price risk",
-      "gapRule":"If next-open entry is already through the structural stop or risk/ATR leaves [0.50,2.50], do not trade."
+    "entryAndCost": {
+      "entry": "next evaluated bar open",
+      "sameBarAmbiguity": "stop wins over TP2",
+      "cost": "round-trip modeled from the locked one-way bps using entry and exit notional divided by initial price risk",
+      "gapRule": "If next-open entry is already through the structural stop or risk/ATR leaves [0.50,2.50], do not trade."
     },
-    "timeAndBreadthMetrics":{
-      "tradeMonth":"signal timestamp month",
-      "firstSecondHalf":"chronological midpoint of entered A1 trades by signal timestamp",
-      "positiveMarketFamily":"mean net R > 0 within family",
-      "positiveBlock":"mean net R > 0 within instrument/timeframe block",
-      "singleMarketFamilyPositiveContribution":"maximum positive family total R divided by sum of positive family total R; zero if no positive family totals"
+    "timeAndBreadthMetrics": {
+      "tradeMonth": "signal timestamp month",
+      "firstSecondHalf": "chronological midpoint of entered A1 trades by signal timestamp",
+      "positiveMarketFamily": "mean net R > 0 within family",
+      "positiveBlock": "mean net R > 0 within instrument/timeframe block",
+      "singleMarketFamilyPositiveContribution": "maximum positive family total R divided by sum of positive family total R; zero if no positive family totals",
+      "positiveMonth": "Sum of net R for entered A1 trades whose signal timestamp is in that UTC calendar month is greater than zero."
     },
-    "bootstrapDelta":{
-      "unit":"deduplicated reference candidate key",
-      "a1Utility":"A1 net R on matching entered trade, otherwise 0",
-      "baselineUtility":"frozen E1 trigger_close net R on the same deduplicated reference candidate, otherwise 0",
-      "method":"hierarchical instrument/timeframe resampling with circular candidate blocks, exactly the locked seed/iterations/block length"
+    "bootstrapDelta": {
+      "unit": "deduplicated reference candidate key",
+      "a1Utility": "A1 net R on matching entered trade, otherwise 0",
+      "baselineUtility": "frozen E1 trigger_close net R on the same deduplicated reference candidate, otherwise 0",
+      "method": "hierarchical instrument/timeframe resampling with circular candidate blocks, exactly the locked seed/iterations/block length"
     }
   },
-  "forbiddenAfterFreeze":[
+  "forbiddenAfterFreeze": [
     "Changing HTF trend definition after A1 results.",
     "Changing target candidate set or reward floors after A1 results.",
     "Changing baseline dedup priority after A1 results.",
