@@ -1,0 +1,28 @@
+{
+  "schema":"mgpt_ite1_contamination_registry_v1",
+  "generatedAtUtc":"2026-09-16T02:00:00Z",
+  "program":"MGPT-ITE1",
+  "frozenBaseline":{"release":"RC4S3H5R4R15","workerSha256":"8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3"},
+  "entries":[
+    {
+      "trial":"ITE1-E1-V3",
+      "researchAxis":"ENTRY_MECHANIC_ON_FROZEN_GENERIC_SETUP_ARCHITECTURE",
+      "status":"REJECT_DEVELOPMENT_GATE",
+      "developmentWindow":"2025-01-06 to 2025-07-01 exclusive",
+      "dataTransport":"Yahoo Finance hourly frozen V3 files",
+      "resultCommit":"e3f95c6d8036f1cfafca6fe5b4379b8f074e9315",
+      "closeoutSha256":"a7111a01c22e0bea86f8b6c4c9250d7c9bc53dff3320bc26b2eafdc8a050cf81",
+      "ledgerSha256":"e0424569061928e477db9105bea35046f647ebd59937280fa548dae01ff0371f",
+      "headline":{
+        "trigger_close":{"netExpectancyR":-0.1426950330829892,"stressNetExpectancyR":-0.24590848399937487,"profitFactor":0.7220088370527209,"opportunityRecall":0.9909476661951909,"precision":0.39465975664713837},
+        "retest_limit":{"netExpectancyR":-0.18925960888439264,"stressNetExpectancyR":-0.3504620111941733,"profitFactor":0.706462480620388,"opportunityRecall":0.49165487977369166,"precision":0.2668918918918919},
+        "structure_confirmed_retest":{"netExpectancyR":-0.1499100042379037,"stressNetExpectancyR":-0.27185497508720613,"profitFactor":0.7140676877609362,"opportunityRecall":0.2876944837340877,"precision":0.3083687083080655}
+      },
+      "interpretation":"Entry mechanic alone is not the root cause. The generic candidate/setup architecture plus frozen stop/target/management stack has negative absolute expectancy across all three entry modes. structure_confirmed_retest improved candidate utility versus trigger_close with bootstrap support but remained absolutely negative and lost too much recall.",
+      "contaminationRule":"The E1-V3 development outcomes may be used only for diagnosis and hypothesis generation. They may not be reused as fresh proof for a redesigned architecture.",
+      "sealedEvidence":{"freshValidationOpened":false,"holdoutOpened":false}
+    }
+  ],
+  "nextAuthorizedResearch":"Diagnose E1 on the contaminated development sample, then prelock a causally distinct architecture challenger and test it on fresh evidence that was not used to choose the new rules.",
+  "forbidden":["threshold rescue on E1","post-outcome symbol/timeframe patches","opening prior fresh validation as a rescue sample without explicit reclassification and loss of validation status","R15 mutation"]
+}
