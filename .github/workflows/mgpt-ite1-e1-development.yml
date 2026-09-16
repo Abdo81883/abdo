@@ -7,8 +7,9 @@ on:
       - "mgpt-ite1-institutional-trade-engine"
     paths:
       - "marketsgpt-ite1/ite1_core.py"
-      - "marketsgpt-ite1/ite1_e1_development.py"
-      - "marketsgpt-ite1/MGPT_ITE1_E1_DEVELOPMENT_LOCK_20260916.json"
+      - "marketsgpt-ite1/ite1_e1_massive_development.py"
+      - "marketsgpt-ite1/MGPT_ITE1_E1_MASSIVE_DEVELOPMENT_LOCK_V2_20260916.json"
+      - "marketsgpt-ite1/data/e1_v2/**"
       - ".github/workflows/mgpt-ite1-e1-development.yml"
   workflow_dispatch:
 
@@ -29,13 +30,13 @@ jobs:
       - name: Compile frozen evaluator
         run: |
           python -m py_compile marketsgpt-ite1/ite1_core.py
-          python -m py_compile marketsgpt-ite1/ite1_e1_development.py
+          python -m py_compile marketsgpt-ite1/ite1_e1_massive_development.py
       - name: Run E1 development only
         shell: bash
         run: |
           mkdir -p marketsgpt-ite1/results
           set +e
-          python marketsgpt-ite1/ite1_e1_development.py 2>&1 | tee marketsgpt-ite1/results/MGPT_ITE1_E1_RUN_LOG_20260916.txt
+          python marketsgpt-ite1/ite1_e1_massive_development.py 2>&1 | tee marketsgpt-ite1/results/MGPT_ITE1_E1_RUN_LOG_20260916.txt
           rc=${PIPESTATUS[0]}
           echo "${rc}" > marketsgpt-ite1/results/MGPT_ITE1_E1_EXIT_CODE_20260916.txt
           exit 0
