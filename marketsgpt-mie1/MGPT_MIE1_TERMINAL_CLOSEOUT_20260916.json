@@ -1,0 +1,9 @@
+{
+  "schema": "mgpt_mie1_terminal_closeout_v1",
+  "generatedAtUtc": "2026-09-16T13:45:30Z",
+  "program": "MGPT-MIE1",
+  "status": "CLOSED_DEVELOPMENT_REJECTED",
+  "conclusion": "MIE1 did not demonstrate positive executable expectancy or useful directional ranking. Fresh validation and sealed holdout remain unopened.",
+  "r15MutationAllowed": false,
+  "nextResearchConstraint": "Only a separately locked program using genuinely new positioning/open-interest information is authorized."
+}
