@@ -1,0 +1,63 @@
+{
+  "schema":"mgpt_ite1_c1_breakout_payoff_lock_v1",
+  "generatedAtUtc":"2026-09-16T02:09:30Z",
+  "program":"MGPT-ITE1",
+  "trial":"ITE1-C1",
+  "status":"LOCKED_BEFORE_C1_DATA_OR_PERFORMANCE_OUTCOMES",
+  "architectureBudgetAuthority":"MGPT_ITE1_CONTAMINATION_REGISTRY_V2_20260916.json",
+  "productionAuthority":false,
+  "r15MutationAllowed":false,
+  "researchFamily":"TREND_BREAKOUT_EXECUTABLE_PAYOFF",
+  "hypothesis":"A continuation engine restricted to high-quality range expansion through a deeper completed structural boundary, with causal HTF trend alignment, controlled next-open extension, compact structural invalidation and immediate failed-breakout exit can convert the near-breakeven A1 breakout family into positive net expectancy on fresh instruments.",
+  "freshness":{"e1SymbolsReused":false,"a1SymbolsReused":false,"b1SymbolsReused":false,"timeOosClaimAllowed":false},
+  "windows":{"warmupStart":"2024-11-01T00:00:00Z","freshInstrumentDevelopment":{"start":"2025-01-06T00:00:00Z","endExclusive":"2025-07-01T00:00:00Z"},"timeValidationSealed":{"start":"2025-07-01T00:00:00Z","endExclusive":"2026-01-01T00:00:00Z"},"holdoutSealed":{"start":"2026-01-01T00:00:00Z","endExclusive":"2026-09-01T00:00:00Z"}},
+  "freshUniverse":[
+    {"marketFamily":"CRYPTO_SPOT","symbol":"AVAX-USD","fileKey":"AVAX_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"DOT-USD","fileKey":"DOT_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"CRYPTO_SPOT","symbol":"LINK-USD","fileKey":"LINK_USD","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"EURCAD=X","fileKey":"EURCAD_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"GBPAUD=X","fileKey":"GBPAUD_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"EURAUD=X","fileKey":"EURAUD_X","timeframes":["1h","4h"]},
+    {"marketFamily":"FX","symbol":"AUDCAD=X","fileKey":"AUDCAD_X","timeframes":["1h","4h"]},
+    {"marketFamily":"COMMODITY_FUTURES_PROXY","symbol":"ZC=F","fileKey":"ZC_F","timeframes":["1h","4h"]},
+    {"marketFamily":"COMMODITY_FUTURES_PROXY","symbol":"ZS=F","fileKey":"ZS_F","timeframes":["1h","4h"]},
+    {"marketFamily":"EQUITY","symbol":"ORCL","fileKey":"ORCL","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"CRM","fileKey":"CRM","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"QCOM","fileKey":"QCOM","timeframes":["1h"]},
+    {"marketFamily":"EQUITY","symbol":"MU","fileKey":"MU","timeframes":["1h"]},
+    {"marketFamily":"INDEX","symbol":"^IXIC","fileKey":"IXIC","timeframes":["1h"]},
+    {"marketFamily":"INDEX","symbol":"^NYA","fileKey":"NYA","timeframes":["1h"]}
+  ],
+  "timeframePolicy":{"continuousMarkets":"1h and exact UTC 4h","equityIndex":"1h only","higherTimeframe":"same causal HTF definition as A1 implementation spec"},
+  "context":{"localTrend":"EMA20>EMA50>EMA200 with positive EMA50 five-bar slope for long; mirror short.","higherTrend":"previous completed HTF EMA20>EMA50, close>EMA20, EMA50 five-bar slope positive; mirror short.","volatility":"signal bar must be EXPANSION under the frozen ATR-state classifier."},
+  "setup":{
+    "long":"close > prior completed 50-bar high; bar range >=1.20*ATR14; real body >=0.60*ATR14; close location >=0.75; breakout distance close-prior50High <=0.75*ATR14.",
+    "short":"mirror below prior50Low with close location <=0.25.",
+    "dedup":"one breakout per instrument/timeframe/bar/direction."
+  },
+  "entry":{
+    "price":"next bar open",
+    "longGap":"entry >= prior50High AND entry <= signalClose +0.25*ATR14",
+    "shortGap":"entry <= prior50Low AND entry >= signalClose -0.25*ATR14",
+    "otherwise":"WAIT"
+  },
+  "riskGeometry":{
+    "longStop":"prior50High -0.30*ATR14",
+    "shortStop":"prior50Low +0.30*ATR14",
+    "riskAtrRange":[0.50,1.50],
+    "targetCandidatesLong":["prior50High +0.50*prior50Range","prior50High +1.00*prior50Range","entry+2*ATR14","entry+3*ATR14","entry+4*ATR14"],
+    "targetCandidatesShort":"mirror",
+    "tp1MinR":1.0,"tp2MinR":2.0,"tp3MinR":3.0,
+    "rule":"Three progressive causal targets required; no synthetic RR repair."
+  },
+  "management":{"primaryExit":"full at TP2","failedBreakoutExit":"before stop/TP2, exit at completed bar close if long closes back below prior50High; short mirror.","stop":"structural stop","holdBars":{"1h":36,"4h":24},"sameBar":"stop wins before target; failed-breakout close is evaluated only after intrabar stop/target tests."},
+  "referenceUniverse":"Fresh-instrument generic E1 BREAKOUT events, deduplicated by instrument/timeframe/timestamp/direction.",
+  "referenceAudit":{"positiveBarrierR":2.0,"adverseBarrierR":1.0,"sameBar":"adverse wins","matching":"exact signal key"},
+  "baseline":"Frozen E1 BREAKOUT trigger_close + structure_plus_atr_noise + hybrid targets + fixed_full_exit on same fresh reference events.",
+  "costModelOneWayBps":{"CRYPTO_SPOT":{"base":10.0,"stress":15.0},"FX":{"base":1.5,"stress":3.0},"COMMODITY_FUTURES_PROXY":{"base":3.0,"stress":6.0},"EQUITY":{"base":3.0,"stress":6.0},"INDEX":{"base":1.5,"stress":3.0}},
+  "bootstrap":{"method":"hierarchical instrument-timeframe circular reference-event blocks","iterations":5000,"seed":14001,"blockLengthCandidates":20},
+  "developmentGate":{"minimumEnteredTrades":150,"minimumActiveMarketFamilies":5,"minimumActiveBlocks":18,"netExpectancyRMin":0.10,"stressNetExpectancyRMin":0.02,"profitFactorMin":1.25,"referenceOpportunityRecallMin":0.20,"referenceOpportunityPrecisionMin":0.55,"positiveMarketFamilyFractionMin":0.60,"positiveBlockFractionMin":0.55,"firstHalfPositive":true,"secondHalfPositive":true,"positiveMonthFractionMin":0.55,"bootstrapProbabilityPositiveNetMin":0.95,"bootstrapProbabilityPositiveUtilityDeltaVsBaselineMin":0.95,"singleMarketFamilyPositiveContributionMax":0.50},
+  "antiOverfit":["No threshold sweep.","No post-outcome pullback addition.","No symbol/timeframe patch.","No cost rescue.","No B1/C1 universe overlap.","No time validation or holdout access on failure."],
+  "provider":"Yahoo Finance hourly development transport only; independent authority replication required after any pass.",
+  "nextAuthorizedAction":"Freeze C1 fresh data and hashes independently of B1 outcomes, then run exactly this architecture."
+}
