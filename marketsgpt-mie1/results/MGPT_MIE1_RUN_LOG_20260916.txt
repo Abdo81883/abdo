@@ -1,28 +1,30 @@
 Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3641, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 168, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 197, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7668, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7676, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'trades'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
   File "/home/runner/work/abdo/abdo/marketsgpt-mie1/mie1_evaluate.py", line 600, in <module>
     main()
   File "/home/runner/work/abdo/abdo/marketsgpt-mie1/mie1_evaluate.py", line 524, in main
     table=build_candidates()
           ^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/abdo/abdo/marketsgpt-mie1/mie1_evaluate.py", line 234, in build_candidates
-    f = read_csv(ROOT/"data"/"funding"/f"{symbol}.csv")
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/abdo/abdo/marketsgpt-mie1/mie1_evaluate.py", line 49, in read_csv
-    x["timestamp"] = pd.to_datetime(x["timestamp"], utc=True)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/tools/datetimes.py", line 1040, in to_datetime
-    values = convert_listlike(arg._values, format)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/tools/datetimes.py", line 435, in _convert_listlike_datetimes
-    return _array_strptime_with_fallback(arg, name, utc, format, exact, errors)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/tools/datetimes.py", line 470, in _array_strptime_with_fallback
-    result, tz_out = array_strptime(arg, fmt, exact=exact, errors=errors, utc=utc)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "pandas/_libs/tslibs/strptime.pyx", line 563, in pandas._libs.tslibs.strptime.array_strptime
-  File "pandas/_libs/tslibs/strptime.pyx", line 511, in pandas._libs.tslibs.strptime.array_strptime
-  File "pandas/_libs/tslibs/strptime.pyx", line 617, in pandas._libs.tslibs.strptime._parse_with_format
-ValueError: time data "2025-05-01 16:00:00.001000+00:00" doesn't match format "%Y-%m-%d %H:%M:%S%z". You might want to try:
-    - passing `format` if your strings have a consistent format;
-    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
-    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+  File "/home/runner/work/abdo/abdo/marketsgpt-mie1/mie1_evaluate.py", line 235, in build_candidates
+    x = add_contract_features(c,p)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/abdo/abdo/marketsgpt-mie1/mie1_evaluate.py", line 93, in add_contract_features
+    x["tradeCountZ24"] = prior_z(x["trades"],24)
+                                 ~^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py", line 4378, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3648, in get_loc
+    raise KeyError(key) from err
+KeyError: 'trades'
