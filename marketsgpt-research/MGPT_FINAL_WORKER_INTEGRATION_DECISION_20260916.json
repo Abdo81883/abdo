@@ -1,0 +1,46 @@
+{
+  "schema": "mgpt_final_worker_integration_decision_v1",
+  "generatedAtUtc": "2026-09-16T14:16:00Z",
+  "project": "MarketsGPT closure extension",
+  "decision": "INTEGRATION_NOT_AUTHORIZED_KEEP_R15_BYTE_IDENTICAL",
+  "operationalWorker": {
+    "release": "RC4S3H5R4R15",
+    "version": "31.6.982-r1-65d7a5h1-final-closure-rc4s3h5r4r15",
+    "workerSha256": "8552bb8c3889f059d08234077c3ef1b6a10c74a01213fae576cd0a0b9a62b6c3",
+    "byteChangeAuthorized": false
+  },
+  "releaseContract": {
+    "requirement": "A frozen candidate must pass development, independent/provider parity where applicable, fresh validation, sealed holdout, then full R15 regression/live-gate integration.",
+    "satisfied": false
+  },
+  "latestCandidate": {
+    "program": "MGPT-MIE2",
+    "status": "REJECT_MIE2_DEVELOPMENT_GATE",
+    "resultCommit": "90953bd51d9e65841d24a441e24cf5dea4df4bf8",
+    "closeoutSha256": "1dbb0c3539e566656bf71223c3b5b880d43f8b642b879679a944f2b1cf187b9e",
+    "netExpectancyR": 0.0036859329976336656,
+    "stressNetExpectancyR": -0.06535045822312774,
+    "profitFactor": 1.006033118506785,
+    "bootstrapProbabilityPositiveNetExpectancy": 0.5532,
+    "pairDirectionAccuracy": 0.5690017513134851,
+    "selectedDeltaVsPairMeanR": 0.11948784901301278,
+    "keyInterpretation": "Pairwise positioning information improved direction choice relative to the pair mean, but did not establish robust positive absolute expectancy after costs/stress and failed the predeclared development gate."
+  },
+  "integrationVetoReasons": [
+    "Absolute development expectancy gate failed.",
+    "Stress-cost expectancy remained negative.",
+    "Profit factor gate failed.",
+    "Second half was negative.",
+    "Only half of symbols were positive.",
+    "Bootstrap probability of positive net expectancy was 0.5532, below the locked 0.95 requirement.",
+    "Fresh validation and sealed holdout were never authorized or opened."
+  ],
+  "productionAuthority": {
+    "alphaIntegratedWorker": false,
+    "automaticExecution": false,
+    "brokerOrderSubmission": false,
+    "profitabilityClaim": false,
+    "manualDecisionSupportOnly": true
+  },
+  "governance": "Integrating a rejected research module merely to satisfy a requested merge would violate the predeclared evidence contract. The correct production action is a no-change release."
+}
